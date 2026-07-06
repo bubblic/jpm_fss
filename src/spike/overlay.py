@@ -34,6 +34,7 @@ class Row:
     displayed_sign: int  # -1 when a negated preferred label flips the shown sign
     period_type: str
     balance: str
+    is_monetary: bool
     is_extension: bool
     anchor: str | None  # calc parent on this statement, recorded for extensions
     value: Decimal | None  # reported value at the statement date, fact sign
@@ -46,6 +47,7 @@ class Overlay:
     linkrole: str
     role_definition: str
     candidate_roles: list[tuple[str, str]]
+    filing_defined_roles: list[tuple[str, str]]
     instant: date  # the balance-sheet date of the chosen column
     rows: list[Row]
     z: dict[str, Decimal]
@@ -57,6 +59,8 @@ class Overlay:
     dimensioned_skipped_at_date: int
     dimensioned_skipped_total: int
     duplicate_fact_conflicts: list[str]
+    unparseable_facts: list[str]
+    ixt_unrecognized_total: int  # filing-wide facts with an unregistered transform
     missing_value_rows: list[str]
     extension_qnames: list[str]
 
@@ -65,9 +69,25 @@ class Overlay:
         return [row for row in self.rows if row.kind != "abstract"]
 
 
-def pick_balance_sheet_role(model: ModelXbrl) -> tuple[str, str, list[tuple[str, str]]]:
-    """Choose the consolidated balance sheet linkrole; keep all candidates."""
-    candidates: list[tuple[str, str]] = []
+def _is_filing_defined(role_type: Any) -> bool:
+    """True when the role is declared by the filing's own schema, not a
+    template role that ships inside the standard taxonomies."""
+    uri = getattr(role_type.modelDocument, "uri", "") or ""
+    return not any(marker in uri for marker in STANDARD_NAMESPACE_MARKERS)
+
+
+def pick_balance_sheet_role(
+    model: ModelXbrl,
+) -> tuple[str, str, list[tuple[str, str]], list[tuple[str, str]]]:
+    """Choose the consolidated balance sheet linkrole.
+
+    Text heuristics match template roles baked into the us-gaap taxonomy as
+    well, so filing-defined roles are preferred. Returns the chosen (uri,
+    definition) plus all matches and the filing-defined subset, for the
+    report's ambiguity finding.
+    """
+    matches: list[tuple[str, str]] = []
+    filing_defined: list[tuple[str, str]] = []
     for uri, role_types in sorted(model.roleTypes.items()):
         for role_type in role_types:
             definition = role_type.definition or ""
@@ -75,9 +95,11 @@ def pick_balance_sheet_role(model: ModelXbrl) -> tuple[str, str, list[tuple[str,
             if "statement" not in lowered or "parenthetical" in lowered:
                 continue
             if any(hint in lowered for hint in BALANCE_SHEET_HINTS):
-                candidates.append((uri, definition))
+                matches.append((uri, definition))
+                if _is_filing_defined(role_type):
+                    filing_defined.append((uri, definition))
                 break
-    if not candidates:
+    if not matches:
         raise RuntimeError(
             "no linkrole definition looks like the consolidated balance sheet"
         )
@@ -85,8 +107,9 @@ def pick_balance_sheet_role(model: ModelXbrl) -> tuple[str, str, list[tuple[str,
     def presentation_size(uri: str) -> int:
         return len(model.relationshipSet(XbrlConst.parentChild, uri).modelRelationships)
 
-    uri, definition = max(candidates, key=lambda cand: presentation_size(cand[0]))
-    return uri, definition, candidates
+    pool = filing_defined or matches
+    uri, definition = max(pool, key=lambda cand: presentation_size(cand[0]))
+    return uri, definition, matches, filing_defined
 
 
 def presentation_rows(model: ModelXbrl, linkrole: str) -> list[tuple[Any, str | None, int]]:
@@ -160,15 +183,17 @@ def _fact_decimals(fact: Any) -> int | None:
 
 def _collect_facts(
     model: ModelXbrl, on_statement: set[str]
-) -> tuple[dict[tuple[str, datetime], Any], dict[datetime, int], list[str]]:
+) -> tuple[dict[tuple[str, datetime], Any], dict[datetime, int], list[str], list[str]]:
     """Undimensioned instant facts for statement concepts, keyed (qname, instant).
 
-    Also counts dimensioned instant facts per date (these are skipped) and
-    notes duplicate facts whose values disagree.
+    Also counts dimensioned instant facts per date (these are skipped), notes
+    duplicate facts whose values disagree, and notes facts whose inline
+    transformation cannot be evaluated (they are treated as missing).
     """
     facts: dict[tuple[str, datetime], Any] = {}
     dimensioned: dict[datetime, int] = {}
     conflicts: list[str] = []
+    unparseable: list[str] = []
     for fact in sorted(model.factsInInstance, key=lambda f: f.objectIndex):
         if fact.concept is None or str(fact.qname) not in on_statement:
             continue
@@ -182,12 +207,18 @@ def _collect_facts(
         if fact.isNil:
             continue
         key = (str(fact.qname), when)
+        try:
+            value = _fact_value(fact)
+        except Exception:
+            if key[0] not in unparseable:
+                unparseable.append(key[0])
+            continue
         if key in facts:
-            if _fact_value(facts[key]) != _fact_value(fact):
+            if _fact_value(facts[key]) != value:
                 conflicts.append(key[0])
             continue
         facts[key] = fact
-    return facts, dimensioned, conflicts
+    return facts, dimensioned, conflicts, unparseable
 
 
 def _choose_instant(facts: dict[tuple[str, datetime], Any], face_count: int) -> datetime:
@@ -202,6 +233,18 @@ def _choose_instant(facts: dict[tuple[str, datetime], Any], face_count: int) -> 
     if rich:
         return max(rich)
     return max(counts.items(), key=lambda kv: (kv[1], kv[0]))[0]
+
+
+def _count_unrecognized_transforms(model: ModelXbrl) -> int:
+    """Filing-wide count of inline facts whose ixt registry Arelle lacks."""
+    from arelle import FunctionIxt
+
+    count = 0
+    for fact in model.factsInInstance:
+        fmt = getattr(fact, "format", None)
+        if fmt is not None and fmt.namespaceURI not in FunctionIxt.ixtNamespaceFunctions:
+            count += 1
+    return count
 
 
 def _is_extension(concept: Any) -> bool:
@@ -225,12 +268,12 @@ def _entity_name(model: ModelXbrl) -> str:
 
 
 def build_overlay(model: ModelXbrl) -> Overlay:
-    linkrole, definition, candidates = pick_balance_sheet_role(model)
+    linkrole, definition, candidates, filing_defined = pick_balance_sheet_role(model)
     entries = presentation_rows(model, linkrole)
     on_statement = {str(concept.qname) for concept, _, _ in entries}
     calc_children, arcroles_used, weight_conflicts = _calc_children(model, linkrole, on_statement)
     anchors = {child: parent for parent, kids in calc_children.items() for child, _ in kids}
-    facts, dimensioned_by_instant, duplicate_conflicts = _collect_facts(model, on_statement)
+    facts, dimensioned_by_instant, duplicate_conflicts, unparseable = _collect_facts(model, on_statement)
     face_count = sum(1 for concept, _, _ in entries if not concept.isAbstract)
     instant = _choose_instant(facts, face_count)
     at_date = {qname: fact for (qname, when), fact in facts.items() if when == instant}
@@ -272,6 +315,7 @@ def build_overlay(model: ModelXbrl) -> Overlay:
                 displayed_sign=-1 if negated else 1,
                 period_type=concept.periodType or "",
                 balance=concept.balance or "",
+                is_monetary=bool(concept.isMonetary),
                 is_extension=is_extension,
                 anchor=anchors.get(qname) if is_extension else None,
                 value=value,
@@ -284,6 +328,7 @@ def build_overlay(model: ModelXbrl) -> Overlay:
         linkrole=linkrole,
         role_definition=definition,
         candidate_roles=candidates,
+        filing_defined_roles=filing_defined,
         instant=(instant - timedelta(days=1)).date(),
         rows=rows,
         z=z,
@@ -295,6 +340,8 @@ def build_overlay(model: ModelXbrl) -> Overlay:
         dimensioned_skipped_at_date=dimensioned_by_instant.get(instant, 0),
         dimensioned_skipped_total=sum(dimensioned_by_instant.values()),
         duplicate_fact_conflicts=duplicate_conflicts,
+        unparseable_facts=unparseable,
+        ixt_unrecognized_total=_count_unrecognized_transforms(model),
         missing_value_rows=missing,
         extension_qnames=extensions,
     )

@@ -34,6 +34,8 @@ def _json_default(value: Any) -> Any:
 def _money(value: Decimal | None) -> str:
     if value is None:
         return "(none)"
+    if value == value.to_integral_value():
+        value = value.quantize(Decimal(1))
     return f"{value:,f}"
 
 
@@ -96,12 +98,22 @@ def _findings(
     trip: RoundTripResult,
 ) -> list[str]:
     found: list[str] = []
-    if len(statement.candidate_roles) > 1:
-        listing = "; ".join(definition for _, definition in statement.candidate_roles)
+    template_matches = len(statement.candidate_roles) - len(statement.filing_defined_roles)
+    if len(statement.filing_defined_roles) == 1 and template_matches:
         found.append(
-            f"Role selection was ambiguous: {len(statement.candidate_roles)} candidate "
-            f"linkroles matched ({listing}). The one with the largest presentation tree "
-            "was used. A production loader needs a firmer statement-selection rule."
+            f"Role selection needed care: the text heuristic matched "
+            f"{len(statement.candidate_roles)} linkroles, but {template_matches} of them "
+            "are template roles that ship inside the us-gaap taxonomy itself (for "
+            "example \"104000 - Statement - Statement of Financial Position, "
+            "Classified\"). Restricting to roles defined by the filing's own schema "
+            "left exactly one. A production loader should always filter to "
+            "filing-defined roles before matching on definitions."
+        )
+    elif len(statement.filing_defined_roles) > 1:
+        listing = "; ".join(definition for _, definition in statement.filing_defined_roles)
+        found.append(
+            f"Role selection was ambiguous even among filing-defined roles "
+            f"({listing}); the one with the largest presentation tree was used."
         )
     else:
         found.append(
@@ -168,6 +180,26 @@ def _findings(
             + ", ".join(sorted(set(statement.duplicate_fact_conflicts)))
             + "."
         )
+    if statement.unparseable_facts:
+        found.append(
+            "Statement facts whose inline transformation could not be evaluated "
+            "(treated as missing values): "
+            + ", ".join(f"`{q}`" for q in statement.unparseable_facts)
+            + "."
+        )
+    if statement.ixt_unrecognized_total:
+        found.append(
+            f"Arelle logged {statement.ixt_unrecognized_total} facts filing-wide with "
+            "an unrecognized transformation namespace (the SEC-specific registry "
+            "http://www.sec.gov/inlineXBRL/transformation/2015-08-31, which plain "
+            "Arelle does not register without the EDGAR plugin). "
+            + (
+                "Some of these sit on the balance sheet; see the unparseable list above."
+                if statement.unparseable_facts
+                else "None of them is a balance-sheet fact; they are cover-page "
+                "booleans, small integer counts, and duration strings."
+            )
+        )
     if statement.missing_value_rows:
         found.append(
             "Face rows with no undimensioned fact value at the balance-sheet date: "
@@ -195,11 +227,24 @@ def _findings(
             "Every face concept is periodType instant, as a balance sheet requires; "
             "the stock/flow attribute behaves as the state-space encoding assumes."
         )
-    if coverage.unresolved:
+    if coverage.monetary_unresolved:
         found.append(
-            "Face concepts missing periodType or balance: "
-            + ", ".join(f"`{q}`" for q in coverage.unresolved)
-            + "."
+            "Monetary face concepts missing periodType or balance: "
+            + ", ".join(f"`{q}`" for q in coverage.monetary_unresolved)
+            + ". These are real attribute gaps."
+        )
+    non_monetary_unresolved = [
+        q for q in coverage.unresolved if q not in coverage.monetary_unresolved
+    ]
+    if non_monetary_unresolved:
+        found.append(
+            "The strict coverage metric counts non-monetary face rows: "
+            + ", ".join(f"`{q}`" for q in non_monetary_unresolved)
+            + " are share counts, and XBRL defines the balance attribute only for "
+            "monetary items, so such rows can never satisfy the strict metric. On "
+            "monetary lines alone, coverage is "
+            f"{coverage.monetary_fraction * 100:.1f}%. The full build should track "
+            "the two bases separately."
         )
     if trip.underivable:
         found.append(
@@ -270,7 +315,11 @@ def write_report(
     add("## Graph stats")
     add("")
     add(f"- Concepts (nodes): {stats.concepts:,}")
-    add(f"- Calculation edges (calc 1.0 + 1.1 merged): {stats.calc_edges:,}")
+    add(
+        f"- Calculation edges (calc 1.0 + 1.1 merged): {stats.calc_edges:,} "
+        "(a filing DTS carries the filing's own calculation linkbase; the "
+        "standard taxonomy's template calc networks are not part of it)"
+    )
     add(
         f"- Concepts with a standard label in this DTS: {stats.labeled_concepts:,} "
         "(labels ride with the filing's linkbases, which only cover concepts the "
@@ -325,10 +374,16 @@ def write_report(
     add("### Coverage")
     add("")
     add(
-        f"- {coverage.resolved} of {coverage.face_lines} face lines resolve to a "
-        f"concept with both periodType and balance populated: "
+        f"- Strict, all face lines: {coverage.resolved} of {coverage.face_lines} "
+        f"resolve to a concept with both periodType and balance populated: "
         f"{coverage.fraction * 100:.1f}% (target 95%): "
         f"{'PASS' if coverage.passed else 'FAIL'}"
+    )
+    add(
+        f"- Monetary face lines only: {coverage.monetary_resolved} of "
+        f"{coverage.monetary_face_lines}: {coverage.monetary_fraction * 100:.1f}%: "
+        f"{'PASS' if coverage.passed_monetary else 'FAIL'} "
+        "(balance is only defined for monetary concepts; see findings)"
     )
     add(
         "- Non-instant face concepts: "
@@ -407,7 +462,12 @@ def main() -> None:
     footing_pass = sum(1 for check in footings if check.passed)
     print(f"footing: {footing_pass}/{len(footings)} pass")
     print(f"identity A = L + E: {'PASS' if identity.passed else 'FAIL'}")
-    print(f"coverage: {coverage.fraction * 100:.1f}% ({'PASS' if coverage.passed else 'FAIL'})")
+    print(
+        f"coverage: strict {coverage.fraction * 100:.1f}% "
+        f"({'PASS' if coverage.passed else 'FAIL'}), monetary "
+        f"{coverage.monetary_fraction * 100:.1f}% "
+        f"({'PASS' if coverage.passed_monetary else 'FAIL'})"
+    )
     print(f"round trip: {trip.matched}/{trip.total} rows ({'PASS' if trip.exact else 'FAIL'})")
     print(f"wrote {REPORT_PATH}, {OVERLAY_JSON_PATH}, {graph.GRAPHML_PATH}")
 

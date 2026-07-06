@@ -48,8 +48,13 @@ class CoverageCheck:
     face_lines: int
     resolved: int
     fraction: Decimal
-    passed: bool
+    passed: bool  # strict basis: every face line counts
+    monetary_face_lines: int
+    monetary_resolved: int
+    monetary_fraction: Decimal
+    passed_monetary: bool  # monetary lines only, where balance is defined
     unresolved: list[str]  # face qnames missing periodType or balance
+    monetary_unresolved: list[str]  # the subset of those that are monetary
     non_instant: list[str]  # face qnames whose periodType is not "instant"
 
 
@@ -170,11 +175,22 @@ def coverage_check(overlay: Overlay) -> CoverageCheck:
             non_instant.append(row.qname)
     resolved = sum(1 for row in face if row.period_type and row.balance)
     fraction = Decimal(resolved) / Decimal(len(face)) if face else Decimal(0)
+    monetary_face = [row for row in face if row.is_monetary]
+    monetary_resolved = sum(1 for row in monetary_face if row.period_type and row.balance)
+    monetary_fraction = (
+        Decimal(monetary_resolved) / Decimal(len(monetary_face)) if monetary_face else Decimal(0)
+    )
+    monetary_qnames = {row.qname for row in monetary_face}
     return CoverageCheck(
         face_lines=len(face),
         resolved=resolved,
         fraction=fraction,
         passed=fraction >= COVERAGE_TARGET,
+        monetary_face_lines=len(monetary_face),
+        monetary_resolved=monetary_resolved,
+        monetary_fraction=monetary_fraction,
+        passed_monetary=monetary_fraction >= COVERAGE_TARGET,
         unresolved=unresolved,
+        monetary_unresolved=[q for q in unresolved if q in monetary_qnames],
         non_instant=non_instant,
     )

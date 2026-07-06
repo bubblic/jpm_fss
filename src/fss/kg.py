@@ -100,7 +100,13 @@ def normalize_label(text: str) -> str:
     text = "".join(ch for ch in text if not unicodedata.combining(ch))
     text = text.replace("’", "'").replace("‘", "'")
     text = text.lower()
-    text = re.sub(r"\(in [^)]*\)|\(note [^)]*\)", " ", text)  # unit/note suffixes
+    # unit and note parentheticals ("(in millions)", "(euro per share)",
+    # "(note 7)") vanish; semantic parentheticals ("(expense)") stay
+    text = re.sub(
+        r"\((?:in )?[^)]*(?:share|€|eur\b|euro|usd|dollar|million|thousand|note)[^)]*\)",
+        " ",
+        text,
+    )
     text = re.sub(r"[^a-z0-9%]+", " ", text)
     return " ".join(text.split())
 

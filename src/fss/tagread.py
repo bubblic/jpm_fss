@@ -24,6 +24,7 @@ from fss.statements import Cell, StatementRow, StructuredStatement
 
 MAX_COLUMNS = {"balance_sheet": 2, "income_statement": 3, "cash_flow": 3}
 COLUMN_COVERAGE = 0.5  # a column must carry at least this share of the max column's facts
+TOTAL_LABEL_ROLE = "http://www.xbrl.org/2003/role/totalLabel"
 
 DimsSig = tuple[tuple[str, str], ...]
 
@@ -391,15 +392,17 @@ def extract_statement(
                 ]
                 emit(entry, sig, " / ".join(member_names), "leaf", "", periods)
             if undimensioned:
-                has_calc = qname in calc and any(
-                    child in concepts for child, _ in calc[qname]
+                # The renderer titles the member aggregate with the concept's
+                # total label when one exists ("Total net sales").
+                total_label = concept.label(
+                    preferredLabel=TOTAL_LABEL_ROLE, fallbackToQname=False, lang="en-US"
                 )
                 emit(
                     entry,
                     (),
-                    label,
+                    total_label or label,
                     "derived",
-                    "member_agg" if not has_calc else "member_agg",
+                    "member_agg",
                     undimensioned,
                 )
             continue

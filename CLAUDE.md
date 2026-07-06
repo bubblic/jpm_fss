@@ -22,6 +22,13 @@ first-class findings, not failures.
 
 ## Hard constraints
 
+- Host environment: Windows 11, PowerShell (VS Code integrated terminal).
+  Do not emit bash-only syntax: no `export`, no `VAR=x command` prefixes, no
+  `source`. Set env vars with `$env:NAME = "..."`, activate the venv with
+  `.\.venv\Scripts\Activate.ps1`, and prefer plain `python -m spike.X`
+  invocations. Use `pathlib` for all paths in code; never hard-code `/` or
+  `\` separators. The Makefile is a Unix convenience only; on this machine,
+  validate through the entry points directly (with `$env:PYTHONPATH = "src"`).
 - Python 3.11+, virtualenv at `.venv`, deps only from `requirements.txt`.
 - All SEC requests MUST send a User-Agent from the env var `SEC_USER_AGENT`
   (format: "Name email@example.com"). If unset, exit with a clear error.

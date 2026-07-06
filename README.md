@@ -7,29 +7,41 @@ the task given to Claude Code.
 
 ## Setup (once)
 
+### Windows (PowerShell, e.g. VS Code terminal)
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+# if activation is blocked: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+pip install -r requirements.txt
+
+# SEC requires an identifying User-Agent on every request.
+# EDIT THIS to your real name and email. $env: vars are per-terminal-session.
+$env:SEC_USER_AGENT = "Jaebum Chung your.email@example.com"
+```
+
+### macOS / Linux / WSL
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
-# SEC requires an identifying User-Agent on every request.
-# EDIT THIS to your real name and email before running anything:
 export SEC_USER_AGENT="Jaebum Chung your.email@example.com"
 ```
 
 ## Run with Claude Code
 
-From this directory:
+From this directory, launch:
 
-```bash
+```
 claude
 ```
 
-then paste the contents of PROMPT.md, or non-interactively:
+and type: `Read PROMPT.md and implement it.`
 
-```bash
-claude "$(cat PROMPT.md)"
-```
+One-liner alternatives: `claude "$(Get-Content PROMPT.md -Raw)"` (PowerShell; the
+-Raw flag matters, otherwise the prompt is mangled) or `claude "$(cat PROMPT.md)"`
+(bash).
 
 Claude Code will read CLAUDE.md automatically, write a plan to `out/plan.md`,
 implement `src/spike/*`, and produce:
@@ -39,6 +51,16 @@ implement `src/spike/*`, and produce:
 - `out/graph.graphml` – the taxonomy-derived graph
 
 ## Manual entry points (after implementation)
+
+Windows PowerShell (the Makefile is Unix-only, skip it):
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m spike.fetch
+python -m spike.report
+```
+
+macOS / Linux:
 
 ```bash
 make fetch    # download + cache the filing

@@ -5,3 +5,6 @@ __pycache__/
 data/*
 !data/.gitkeep
 out/graph.graphml
+proposal/*.aux
+proposal/*.log
+proposal/*.out

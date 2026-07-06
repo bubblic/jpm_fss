@@ -78,13 +78,15 @@ class ScalePolicy:
         """
         section_l = section.lower()
         label_l = label.lower()
+        if _PER_SHARE_HINT.search(label_l):
+            return Decimal(1)
         if _SHARES_SECTION.search(section_l):
             return self.share_scale
         if _MONETARY_VETO.search(label_l):
             return self.statement_scale
         if _SHARE_ROW_HINT.search(label_l):
             return self.share_scale
-        if _PER_SHARE_HINT.search(f"{section_l} {label_l}"):
+        if _PER_SHARE_HINT.search(section_l):
             return Decimal(1)
         return self.statement_scale
 

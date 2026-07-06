@@ -22,6 +22,7 @@ from fss.pdfread.textnorm import NumToken, is_currency_mark, parse_number
 JUNK_PATTERNS = re.compile(
     r"^(see accompanying|the accompanying|table of contents$|"
     r"part (i|ii|iii|iv)\b|item \d|f-\d+$|\d+$|\(\d+\)$|"
+    r"consolidated\s+(statements?|balance|income)\b|"
     r"[a-z].{0,40}\| \d{4} form 10-k \| \d+$)",
     re.IGNORECASE,
 )
@@ -29,7 +30,8 @@ JUNK_PATTERNS = re.compile(
 # ("September 27, September 28,"): every non-numeric word is a date word.
 DATE_WORDS = re.compile(
     r"^(january|february|march|april|may|june|july|august|september|october|"
-    r"november|december|year|years|ended|as|of|at|and|the|fiscal|months?)[,.]?$",
+    r"november|december|year|years|ended|ending|as|of|at|and|the|for|in|to|"
+    r"fiscal|months?|\d{1,2})[,.]?$",
     re.IGNORECASE,
 )
 
@@ -73,19 +75,22 @@ class RowAssembler:
         self._fragment: tuple[int, int, str] | None = None
         self._seen_values = False
 
+    @staticmethod
+    def _year_like(token: NumToken) -> bool:
+        """A bare year, possibly with a glued superscript footnote ("20253")."""
+        if token.value is None or token.value != token.value.to_integral_value():
+            return False
+        if "," in token.raw or "." in token.raw:
+            return False
+        value = int(token.value)
+        return 1990 <= value <= 2035 or 19900 <= value <= 20359
+
     def _is_header_like(self, label_words: list[str], values: list[NumToken]) -> bool:
         """Column-header lines: date words with day numbers ("June 30,"),
         or a line whose numeric tokens are all bare years ("... 2025 2024")."""
         if label_words and all(DATE_WORDS.match(word) for word in label_words):
             return True
-        if values and all(
-            token.value is not None
-            and token.value == token.value.to_integral_value()
-            and 1990 <= int(token.value) <= 2035
-            and "," not in token.raw
-            and "." not in token.raw
-            for token in values
-        ):
+        if values and all(self._year_like(token) for token in values):
             return True
         return False
 
@@ -98,12 +103,25 @@ class RowAssembler:
         label = label.strip()
         label_words = label.split()
         real_values = [v for v in values if v is not None]
-        if not self._seen_values and self._is_header_like(label_words, real_values):
+        if self._is_header_like(label_words, real_values):
+            if self._fragment is not None and not self._seen_values:
+                # a held no-value line followed by a column-header line is
+                # header text (the scale parenthetical), not a row label
+                self.header_lines.append(self._fragment[2])
+                self._fragment = None
             self.header_lines.append(stripped)
             return
         if real_values and not label and self._fragment is None:
             if not self._seen_values:
                 self.header_lines.append(stripped)
+            else:
+                # an unlabeled value line inside the table is a display row:
+                # IFRS filers print section totals with no label at all
+                self.rows.append(
+                    RawRow(
+                        "row", "", list(values), page, line_no, self.reader, self._section
+                    )
+                )
             return
         if not real_values:
             if not self._seen_values:
@@ -137,8 +155,10 @@ class RowAssembler:
         merged = False
         if self._fragment is not None:
             fragment_text = self._fragment[2]
-            starts_lower = label[:1].islower() if label else True
-            if starts_lower:
+            # a continuation label starts lowercase, with a digit, or with
+            # punctuation ("and 7,434 ...", "$650, respectively ...")
+            continues = not label or not label[:1].isalpha() or label[:1].islower()
+            if continues:
                 label = f"{fragment_text} {label}".strip()
                 merged = True
             else:
@@ -161,6 +181,9 @@ class RowAssembler:
         if self._fragment is not None:
             page, line_no, text = self._fragment
             self.rows.append(RawRow("bare", text, [], page, line_no, self.reader, self._section))
+            # a standalone no-value line acts as a section header even
+            # without a colon (IFRS statements often print them that way)
+            self._section = text.rstrip(":").strip()
             self._fragment = None
 
     def finish(self) -> ReaderOutput:
@@ -171,8 +194,12 @@ class RowAssembler:
 def split_trailing_values(tokens: list[str]) -> tuple[list[str], list[NumToken]]:
     """Split whitespace tokens into (label tokens, trailing value run).
 
-    Walks from the right taking numeric tokens; currency marks between
-    numbers are absorbed; the first other token ends the run.
+    Walks from the right taking numeric tokens; bare currency marks between
+    numbers are absorbed; the first other token ends the run. A number GLUED
+    to a currency symbol ("$944") is label prose, not a column value
+    (tables print the symbol separated and aligned), so it terminates the
+    run; this keeps label-embedded amounts ("allowance of $944 and $830")
+    out of the value columns.
     """
     values: list[NumToken] = []
     cut = len(tokens)
@@ -183,6 +210,8 @@ def split_trailing_values(tokens: list[str]) -> tuple[list[str], list[NumToken]]
             cut = index
             index -= 1
             continue
+        if len(token) > 1 and token[0] in "$€£¥":
+            break
         parsed = parse_number(token)
         if parsed is None:
             break

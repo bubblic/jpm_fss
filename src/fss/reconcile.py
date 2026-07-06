@@ -26,11 +26,17 @@ from fss.statements import StructuredStatement
 
 
 NOTE_REF = re.compile(r"\(\s*(?:[A-Za-z]{1,2}\.)?\d{1,2}(?:\.\d+)?\s*\)[,;]?")
+TRAILING_NOTE_REFS = re.compile(r"(?:\s+\d{1,2}(?:\s*,\s*\d{1,2})*)$")
 
 
 def canon_label(label: str) -> str:
-    """Alignment key: footnote marks and note references do not distinguish rows."""
-    return normalize_label(strip_footnote_marks(NOTE_REF.sub(" ", label)))
+    """Alignment key: footnote marks, note references, and label-embedded
+    numbers (par values, share counts, allowance amounts) do not distinguish
+    display rows, and readers split them differently, so digits drop out."""
+    text = NOTE_REF.sub(" ", label)
+    text = TRAILING_NOTE_REFS.sub("", text.strip())
+    normalized = normalize_label(strip_footnote_marks(text))
+    return " ".join(word for word in normalized.split() if not word.isdigit())
 
 
 @dataclass
@@ -126,6 +132,19 @@ def reconcile(extraction: PdfExtraction) -> ReconciledStatement:
         v2, trunc2 = _right_align(r2.values, n_columns) if r2 else ([None] * n_columns, False)
         v3, trunc3 = _right_align(r3.values, n_columns) if r3 else ([None] * n_columns, False)
         scale = extraction.scale.scale_for(g_row.label, g_row.section)
+        # value-shape override: only per-share amounts print with decimal
+        # fractions on a scaled statement, whatever the label says
+        fractional = [
+            token
+            for token in g_row.values
+            if token is not None
+            and token.value is not None
+            and token.value != token.value.to_integral_value()
+        ]
+        if fractional and len(fractional) == len(
+            [t for t in g_row.values if t is not None and t.value is not None]
+        ):
+            scale = Decimal(1)
         printed: list[Decimal | None] = []
         values: list[Decimal | None] = []
         dashes: list[bool] = []

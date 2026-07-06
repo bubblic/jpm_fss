@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+
+% ---- palette ----
+\definecolor{navy}{HTML}{1B2A4A}
+\definecolor{navytwo}{HTML}{24395F}
+\definecolor{gold}{HTML}{B8860B}
+\definecolor{slate}{HTML}{55606E}
+\definecolor{fgreen}{HTML}{3C6E47}
+\definecolor{tblhead}{HTML}{EAEEF5}
+\definecolor{tblborder}{HTML}{D5DBE5}
+\definecolor{callfill}{HTML}{F3F5F9}
+\definecolor{callborder}{HTML}{C7D0DE}
+\definecolor{bodytext}{HTML}{1A1A1A}
+
+% ---- section styling ----
+\titleformat{\section}{\color{navy}\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\color{navytwo}\large\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+\captionsetup{font=small,labelfont={bf,color=navy},labelsep=period,skip=4pt,position=below}
+
+% ---- footer ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\color{slate}\small Financial Statement Simulator \;\textbar\; Draft for discussion \;\textbar\; page \thepage}
+
+% ---- helpers ----
+\newcommand{\lead}[2]{\par\addvspace{5pt}\textbf{\textcolor{#1}{#2}}}
+\newcommand{\headtext}[1]{\textcolor{navy}{\textbf{#1}}}
+\arrayrulecolor{tblborder}
+\setlength{\tabcolsep}{8pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.7em}
+\setlength{\belowcaptionskip}{9pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=1.5pt,topsep=2pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=1.5pt,topsep=2pt}
+
+\begin{document}
+\color{bodytext}
+
+% ===== Title block =====
+\begin{flushleft}
+{\color{gold}\bfseries PROJECT PROPOSAL}\\[3pt]
+{\color{navy}\bfseries\fontsize{26}{30}\selectfont Financial Statement Simulator}\\[4pt]
+{\color{slate}\large Internship scope and phased build plan (rough draft for review)}\\[6pt]
+{\color{slate}\small Prepared by Jaebum (Albert) Chung \quad\textbar\quad Prepared for Chak \quad\textbar\quad Status: draft for discussion \quad\textbar\quad June 2026}\\[3pt]
+{\color{slate}\small Internship window: 31 August 2026 to 26 February 2027}
+\end{flushleft}
+\vspace{4pt}
+{\color{gold}\rule{\linewidth}{2pt}}
+\vspace{6pt}
+
+% ===== 1. Context =====
+\section{Context and alignment}
+The enterprise-grade bar for this project has been the intent from the outset. The work was deferred until last year because the available tooling was not yet good enough for the purpose. Prior intern contributions (Hong Xiao and Elton) established the core of the simulator: an internally consistent, no-circularity accounting engine and autoregressive driver modeling validated on synthetic data.
+
+What the project does not yet have, and what this proposal scopes, are the pieces the system hinges on: an extraction layer that reads real filings (US GAAP and IFRS) into structured statements, per-standard encode and decode adapters that map those statements to and from a common state space, the state space itself, and a credible relationship layer that maps scenarios to the flow variables. The target is an MVP whose simulated statements an accountant would deem usable, not a research prototype.
+
+The work divides into two parts. \textbf{Part I}, the MVP and the focus of this proposal, is a faithful simulator: it faithfully reads a real filing into a structured statement and produces next-period statements that carry the same line items, comply with the source standard, and move in the right direction under scenarios. Its driver layer is a simple state-space model, which is stochastic by construction, so Part I already runs simple stochastic simulations: for a given scenario it samples the driver noise and propagates it through the engine to a distribution of internally consistent statements. \textbf{Part II}, a later and conditional extension, keeps the same machinery but replaces the simple noise with a learned, conditional joint distribution of the drivers, the main modelling IP, giving better-calibrated and correlated distributions. In the phased plan below, Part I is Phases 0 through 3, and Part II is Phase 4.
+
+% ===== 2. Success =====
+\section{Definition of success (MVP acceptance bar)}
+For Part I (the MVP), the bar is concrete, and the driver models are kept simple and reasoned rather than learned. Given a prior-period statement and a scenario, the system should produce simulated next-period statements that:
+\begin{itemize}
+  \item an accountant cannot identify as obviously wrong;
+  \item preserve the same field set as the input statement (exact line-item parity with the firm's prior statement);
+  \item conform to the applicable standard, US GAAP or IFRS, matching the source filing; and
+  \item respond in the correct direction to scenario changes (for example, faster GDP growth raises income; intensifying industry competition lowers income).
+\end{itemize}
+\lead{navytwo}{Simple stochastic output.} For a fixed scenario the driver noise is sampled to give a distribution of these statements rather than a single point; the accounting engine keeps every sampled path internally consistent, and the directional test applies to how the distribution moves when the scenario changes.
+\lead{navytwo}{Precision asymmetry.} Extraction, reading a filing into a structured statement, is held to a near-zero per-field error rate (target on the order of $10^{-8}$, reached through redundant tools), because a misread figure invalidates everything downstream. Encoding that statement into the state space and back is exact by construction, governed by perfect reconstruction rather than a probabilistic error rate. The simulation output, by contrast, needs only to be solid, robust, and directionally credible rather than precisely forecast.
+
+\lead{navytwo}{Perfect reconstruction.} A structured statement encoded into the state space and decoded back under its own standard must be identical to the original. This lossless round trip is the correctness test for the encode/decode pair, distinct from reading the filing correctly; the formulation and why it holds are in Section~\ref{sec:reconstruction}.
+
+\lead{navytwo}{Pass threshold.} A pass is a set of firms across a set of scenarios, reviewed by a qualified accountant, with no statement judged obviously wrong. The specific counts and reviewer are to be confirmed (see open questions); the point is that ``done'' has a testable definition.
+
+% ===== 3. Architecture =====
+\section{System architecture}
+The simulation core is common to both standards; the standard-specific work sits at the boundaries, where extraction reads a filing and the encode/decode adapters map it to and from the common state space. Five components, most of them net-new; the accounting engine is reused.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{tcolorbox}[colback=callfill,colframe=callborder,boxrule=0.5pt,arc=2pt,left=10pt,right=10pt,top=6pt,bottom=6pt]
+\centering
+{\bfseries Filing} (US GAAP or IFRS) $\rightarrow$ {\color{navytwo}[Extract]} $\rightarrow$ {\bfseries structured statement} $\rightarrow$ {\color{navytwo}[Encode]} $\rightarrow$ {\bfseries common state space} $\rightarrow$ {\color{navytwo}[Driver-to-flow layer]} (+ scenario) $\rightarrow$ {\color{navytwo}[Accounting engine]} $\rightarrow$ {\bfseries common state space} $\rightarrow$ {\color{navytwo}[Decode]} $\rightarrow$ {\bfseries next-period statement} (same standard, exact line items)
+\end{tcolorbox}
+\captionof{figure}{End-to-end pipeline: a filing is extracted into a structured statement, encoded into the common state space, advanced by the driver-to-flow layer and the accounting engine under a scenario, and decoded back to a next-period statement in the same standard and line items. Extraction (reading the filing) and encoding (re-representing it) are distinct stages with different error models. Colored bracketed terms are the processing components of Table~\ref{tab:components}; bold terms are the data representations that flow between them.}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}p{1.9cm} X}
+\hline
+\rowcolor{tblhead} \headtext{Component} & \headtext{Status} & \headtext{Role} \\ \hline
+Statement extractor & \textbf{\textcolor{gold}{Net-new}} & Reads a filing (tagged data or PDF) into a structured statement in the source standard, using redundant cross-checking tools; carries the near-zero read-error target. \\ \hline
+Encode/decode adapters (US GAAP, IFRS) & \textbf{\textcolor{gold}{Net-new}} & Losslessly map a structured statement to and from the common state space, one pair per standard; guarantee perfect reconstruction. \\ \hline
+Common state space & \textbf{\textcolor{gold}{Net-new}} & Standard-neutral economic state (stocks, flows, drivers) the simulation operates on. Retains a per-firm presentation map so native line items reproduce exactly. Specified as a knowledge graph over the standards' taxonomies (Section~\ref{sec:kg}). \\ \hline
+Accounting engine & \textbf{\textcolor{fgreen}{Reused}} & Evolves stocks from flows with the accounting identities preserved by construction (no plugs, no circularity). Built by prior interns. \\ \hline
+Driver-to-flow layer & \textbf{\textcolor{gold}{Net-new}} & Maps a scenario to the flow variables with credible, non-linear relationships. \\ \hline
+\end{tabularx}
+\captionof{table}{System components. The extractor, the encode/decode adapters, the common state space, and the driver-to-flow layer are net-new; the accounting engine is reused from prior interns.}\label{tab:components}
+\end{minipage}
+
+It is important that the encoder and decoder pass a round-trip test: encoding a structured statement into the state space and decoding it straight back, with no simulation in between, must reproduce that statement exactly. This tests the encode/decode pair alone, on already-structured input, and is separate from whether the filing was read correctly. Section~\ref{sec:reconstruction} formalizes it.
+
+\subsection{Encoding, decoding, and perfect reconstruction}
+\label{sec:reconstruction}
+Why operate in a state space at all, rather than simulating the line items directly? First, line items are heterogeneous: firms and industries present the same economics under different labels, orderings, and levels of aggregation, so machinery written against native line items would fragment into per-firm and per-industry variants; the common state gives the simulation one stable schema. Second, standards become cheap to add: the driver-to-flow layer and the accounting engine are wired once to the standard-neutral state (the reused engine already operates on exactly this stock-and-flow representation), so a new standard costs an encode/decode adapter pair rather than a rewiring of drivers and accounting relations to a new set of standard-specific line items; the identities are also verified once, on one core, rather than per standard. Third, it is what makes Part II estimable: a conditional driver distribution is learned across many firms, and pooling firms requires that they share a representation. The price of this indirection is that nothing may be lost on the way in or out.
+
+Formally, write $s$ for a structured statement under a given standard, taken as already extracted from the filing (getting that extraction right is a separate problem, handled in Phase~1 with its own accuracy target). The encoder does not output only the economic state; it outputs a pair,
+\begin{equation} E(s) = (z,\, m), \end{equation}
+where $z$ is the standard-neutral economic state the simulation operates on (the stocks, flows, and drivers) and $m$ is the per-firm presentation map: native line-item labels, their ordering and aggregation, sign conventions, and any presentation detail not captured by $z$. The decoder renders a statement from that pair,
+\begin{equation} D(z,\, m) = \hat{s}. \end{equation}
+Perfect reconstruction requires the round trip to return the original exactly, for every valid statement:
+\begin{equation} D\big(E(s)\big) = s, \qquad\text{equivalently}\qquad D \circ E = \mathrm{id}. \end{equation}
+A decoder satisfying this (a \emph{left inverse} of $E$) exists if and only if $E$ is \emph{injective}, meaning distinct statements never collapse to the same encoding:
+\begin{equation} s_1 \neq s_2 \;\;\Longrightarrow\;\; E(s_1) \neq E(s_2). \end{equation}
+If two different statements shared one encoding, the decoder would have to return both from the same input, which no function can do, so no lossless decoder could exist.
+
+Making $E$ injective, and so guaranteeing a left inverse, rests on two design facts. First, the encoding cannot fold independent information together: an injective map preserves dimension (a matrix is injective exactly when its rank equals its number of inputs, so it cannot land in fewer independent components), so $z$ carries at least as many independent entries as the statement has independent line-item values. Two separate figures such as product and service revenue cannot be collapsed into one revenue number and later recovered, so $z$ keeps them apart. The only entries the encoder may drop are those the accounting identities already fix, such as a subtotal determined by its parts or a total pinned by assets $=$ liabilities $+$ equity, which the decoder recomputes rather than stores; that reduction is lossless because the dropped values are exact functions of the kept ones. Second, $z$ holds numbers but not presentation, so the map carries the remainder: line-item labels, ordering, sign conventions, and which subtotals are displayed. That is what separates two statements with identical numbers but different presentation, for instance the same figure labelled ``Net sales'' in one filing and ``Total revenue'' in another, giving $(z,\, m_1) \neq (z,\, m_2)$. Together these keep distinct statements at distinct encodings, since statements agreeing on both numbers and presentation are the same statement. The condition is a left inverse, not a full inverse: $D$ need only be defined on encodings that came from real statements, not on every conceivable $(z,\, m)$.
+
+The same map is what makes a forecast come out in the firm's own statement. In a forecast the engine advances the state, $z \mapsto z'$, and the output is rendered through the retained map, $D(z',\, m)$, so the projected statement carries the firm's native line items. Perfect reconstruction is the special case $z' = z$ (no simulation) that validates the encode-and-decode path; exact line-item parity in a real forecast is the same mechanism with $z'$ in place of $z$.
+
+\subsection{Specifying the state space as a knowledge graph}
+\label{sec:kg}
+Following the knowledge-graph direction the director has raised, the common state space is specified as a typed graph whose nodes are accounting concepts rather than line items, imported from the standard setters' own machine-readable ontologies: the US GAAP and IFRS XBRL taxonomies (roughly 17{,}000 concepts each, maintained by FASB and the IFRS Foundation). Each node carries attributes the taxonomy already provides: period type (instant versus duration, which is precisely the stock versus flow distinction), balance polarity (debit or credit, the sign conventions), statement membership, and known label variants. Five edge types complete the graph: composition edges, imported from the calculation linkbase (subtotal arithmetic such as revenue equals product plus service); laws of motion, authored, recording which flows update which stocks and the cross-statement articulation (depreciation touching the income statement, the cash-flow add-back, and accumulated depreciation is one node in three places); label and synonym edges, imported; cross-standard correspondences, curated, with explicit non-correspondence where semantics diverge (LIFO has no IFRS counterpart); and driver attachments from Phase 3. The order of magnitude is favorable: composition and labels are imported wholesale, and the authored layers cover only the simulated core, on the order of one to three hundred concepts, not seventeen thousand.
+
+Encoding a statement then means building a firm overlay on this graph. Each native line resolves to a node: directly when tagged with a standard concept; as an anchored child of the nearest standard node when tagged with a firm extension; and, in the untagged PDF-only mode, through LLM-proposed candidates that are accepted only if the induced composition subtree foots to the printed subtotals and the balance polarity matches the printed signs, with unresolvable lines flagged under the abstain rule. This turns semantic mapping from a judgment call into a checkable hypothesis. The firm's disclosed leaves become the entries of $z$, keyed by node; subtotals and totals are marked derived, dropped from $z$, and recomputed on decode (the one lossless reduction of Section~\ref{sec:reconstruction}); the presentation map $m$ decorates the same overlay with exact native labels, display order, shown subtotals, signs, and scale. The engine walks the law-of-motion edges instead of a fixed vector, which resolves the variable-width concern of the Phase 1 scope note, and a leaf lacking its own driver inherits the nearest ancestor's dynamics, disaggregated by observed shares.
+
+A worked example: a firm reports ``Accrued warranty and related costs'' under a company extension anchored to the standard warranty-accrual concept. The overlay adds it as a child of that node, from which it inherits instant period type (a stock), credit balance, membership in current liabilities (so it participates in the footing and A~$=$~L~$+$~E checks), a default law of motion (accrual$_t$ equals accrual$_{t-1}$ plus provisions minus claims), and the parent's driver linkage to product revenue, while $m$ preserves the exact label so the forecast prints the firm's own words. In the untagged mode the same line is resolved by pruning label candidates against the constraint that it must foot into the printed current-liabilities total alongside its siblings.
+
+Three cautions are built in: filed calculation linkbases are inconsistent across companies, so a firm's own arithmetic links are treated as soft constraints with a tolerance while the curated composition edges are the backbone; dimensional breakdowns are restricted to face-of-statement axes for the MVP; and taxonomy versions are pinned per fiscal year with explicit cross-version maps. One graph then serves five consumers: extraction disambiguation, the encode and decode adapters, the engine's stock-and-flow wiring, driver attachment, and cross-standard correspondence.
+
+% ===== 4. Phased plan =====
+\section{Phased build plan}
+Phases 0 through 3 build Part I, the MVP; Phase 4 is Part II, the learned-driver extension.
+
+\subsection{Phase 0: Acceptance harness and scope lock}
+\lead{navytwo}{Objective.} Build the measuring stick before the system, since being wrong is not an option and the bar is accountant usability.
+\begin{itemize}
+  \item Fix the firm set: roughly three US GAAP filers and three IFRS filers, with IFRS sourced from foreign private issuers that file Form 20-F (so the statements are iXBRL-tagged in EDGAR). Designate a smaller must-pass subset, for example two per standard, as the gating set.
+  \item Assemble the test set of real annual reports with each prior-period statement hand-verified for ground truth.
+  \item Fix the acceptance criteria with the director and an accountant: per-field extraction accuracy and the definition of tool agreement; the perfect-reconstruction target; field-set parity and standard compliance for the output; and a directional scenario battery with the expected sign of each move.
+\end{itemize}
+\lead{gold}{Acceptance.} The test set and written criteria are signed off, giving every later phase an objective pass or fail.
+
+\subsection{Phase 1: Extraction and state-space adapters (primary contribution)}
+\lead{navytwo}{Objective.} Build two things: a robust extractor that reads a filing into a structured statement, and the per-standard encode/decode adapters with the common state space, so that extraction is accurate and the encode/decode round trip is lossless. The extraction uses LLM and traditional methods that cross-check each other. Sequence US GAAP first, then add IFRS as an extension on the same scaffolding.
+\lead{navytwo}{Extraction (filing to structured statement), the robust part.}
+\begin{itemize}
+  \item Document paths, the core capability: a deterministic table parser on the HTML or PDF structure, and regular-expression and rule checks on the linearized text, each consuming a different representation of the filing; an LLM with deterministic decoding and schema-constrained output performs the semantic mapping of native line items onto the statement schema. These paths alone must meet a measured bar (the PDF-only mode of Section~\ref{sec:robustness}), since untagged documents are what generalize beyond public filings.
+  \item A tag path where the filing carries one: a deterministic reader of the filer's own iXBRL facts (SEC 10-K for US GAAP, Form 20-F for IFRS foreign private issuers, ESEF iXBRL as an alternative IFRS source), whose values carry explicit sign, scale, and period and never touch visual layout. The strongest and most decorrelated reader when present, and present for the MVP test set, but never a prerequisite.
+  \item A reconciliation layer that accepts a field only when independent paths agree, flags disagreements for adjudication and human review with weighting by path independence (Section~\ref{sec:robustness}), runs accounting-identity checks (assets equal liabilities plus equity, subtotals foot, cash flow ties) with a rounding tolerance, and flags genuine inconsistencies or typos in the source filing.
+\end{itemize}
+\lead{navytwo}{Encode and decode (structured statement to and from the state space), the lossless part.}
+\begin{itemize}
+  \item Encode each standard's statements into the common state space, retaining a per-firm presentation map of native line items and labels.
+  \item Decode the state back to native statements under each standard.
+  \item Establish perfect reconstruction: encode then decode returns each structured statement exactly.
+\end{itemize}
+\lead{navytwo}{Scope note.} The common state space carries the economic content shared across standards; recognition and measurement differences between US GAAP and IFRS (for example LIFO or development-cost capitalization) are handled inside each standard's own encode and decode. Cross-standard conversion (in under one standard, out under another) is out of scope: the round trip is always same-standard. Because the state carries whatever granularity each firm discloses, the state schema is effectively a union across firms, with each firm populating a different subset (a segment-reporting firm has product and service revenue components that a single-line firm lacks). This is lossless for reconstruction, but it means the Phase 3 driver layer must accommodate a variable-width state rather than a fixed vector, which is the natural place this design concentrates complexity. Section~\ref{sec:kg} sketches the mechanism: the engine and the driver layer walk the graph rather than a fixed vector, with drivers inherited down the concept hierarchy; the full proposal will specify it in detail.
+
+\lead{gold}{Acceptance.} Two gates. Extraction meets the per-field accuracy target on the test set for both standards, including a PDF-only ablation in which the tag path is withheld (measured at its own bar), with seeded read-errors caught and disagreements surfaced rather than silently resolved. The encode/decode pair achieves perfect reconstruction: the round trip through the state space reproduces each structured statement exactly under its own standard.
+
+\subsection{Phase 2: Engine integration and manual flow toggles}
+\lead{navytwo}{Objective.} Connect a trusted baseline to the existing engine and let a user forecast by hand.
+\begin{itemize}
+  \item Wire the encoded state from Phase 1 in as the initial state of the existing no-circularity engine.
+  \item Expose the flow-variable parameters as manual toggles.
+  \item Guarantee that every output preserves the input field set and balances by construction.
+\end{itemize}
+\lead{gold}{Acceptance.} An end-to-end demo: a real filing is extracted and encoded, flows are toggled, and a balanced next-period statement is produced in the same field set under the same standard. This phase is mostly integration of existing work, so it is fast and gives an early end-to-end result.
+
+\subsection{Phase 3: Credible driver-to-flow relationships}
+\lead{navytwo}{Objective.} Map scenarios to the flow variables with reasoning an accountant would accept, not a naive linear fit, and run the model forward stochastically.
+\begin{itemize}
+  \item Use the existing external model (Jodie's) for the macro layer rather than rebuilding it.
+  \item Build a simple state-space model for the industry and firm-specific layer, with reasoned, non-linear scenario-to-flow relationships and a simple noise term, sufficient for an MVP.
+  \item Connect the driver outputs to the flow inputs of the engine.
+  \item Run simple stochastic simulation: for a scenario, sample the model's driver noise and propagate it through the engine (Monte Carlo) to a distribution of internally consistent statements.
+\end{itemize}
+\lead{gold}{Acceptance.} The distribution passes the directional scenario battery from Phase 0 (it shifts the right way when the scenario changes), sampled statements survive the accountant ``not obviously wrong'' review on the test firms, and the spread is plausible. Most of the modeling judgment lives here; the target is solid and robust, not fancy.
+
+\subsection{Phase 4: Learned driver distributions (Part II, conditional stretch)}
+\lead{navytwo}{Objective.} Upgrade the driver distribution from simple noise to a learned model, for better-calibrated and correlated forecasts, once the MVP holds.
+\begin{itemize}
+  \item Replace the simple driver noise with a learned conditional joint distribution of the drivers given firm state (the main modelling IP), capturing correlation across drivers.
+  \item Estimate it from data with suitable structure (for example a factor structure on the residuals) and validate its calibration.
+\end{itemize}
+\lead{navytwo}{Note.} Explicitly post-MVP and contingent on the earlier phases, consistent with deciding how much is achievable once results are in hand. Scheduled only in the final weeks and started only on MVP sign-off.
+
+% ===== 5. Robustness =====
+\section{Robustness approach}
+\label{sec:robustness}
+Extraction, reading a filing into a structured statement, is held to a far higher precision bar than the rest of the system, because a misread figure invalidates everything downstream; the encode/decode step that follows is deterministic and lossless, so it carries no comparable error rate. The approach mirrors the engineering already used in the director's own tools: several readers cross-check one another, and a field is accepted only when they agree.
+
+Under this gating rule the two failure modes have very different costs. If readers disagree, the field is flagged; that costs review time, not correctness. The expensive event is silent concordance, every reader returning the identical wrong value so the gate passes it. The $10^{-8}$ target therefore refers to the probability of concordant error, and for numeric fields such an error is demanding to produce by chance: independent readers must not merely both err, they must err onto the same wrong number. Three complementary filters defend it:
+
+\begin{enumerate}
+  \item \textbf{Cross-reader agreement} catches discordant errors. With three to five readers, each below a 1\% error rate and genuinely independent, the compound rate of an identical silent miss falls toward $10^{-8}$; every disagreement is surfaced rather than silently resolved.
+  \item \textbf{Decorrelated input paths} are what the independence assumption actually requires, so each reader consumes a different representation of the same filing: the filer's own iXBRL tagged facts (explicit sign, scale, and period, with no dependence on visual layout); the HTML or PDF table structure via a deterministic layout parser; and the linearized text via regular-expression and rule checks; optionally augmented by a vision read of the rasterized page and by the prior year's filing, whose comparative column reports the same figures in a different document. Layout pathologies (a statement continuing onto a second page, negatives rendered as parentheses, a scale header such as ``in thousands'') fool layout-based readers the same way but do not touch the tag path; conversely, tag-path failures (custom extension tags, values reported only in footnotes) do not afflict the layout readers, so the intersection of failure modes shrinks.
+  \item \textbf{Accounting-identity checks} catch concordant errors that survive the first two filters, provided they break an identity: subtotals must foot, assets must equal liabilities plus equity, and the cash flow statement must tie, all within a rounding tolerance so ordinary rounding raises no false alarms. This filter compares the candidate extraction not to other readers but to constraints the true statement must satisfy, so even an error every reader agrees on is caught if it breaks the arithmetic. The same checks detect genuine typos in the source filing, which are surfaced to the user rather than silently patched, since the extractor's ground truth is what the filing says.
+\end{enumerate}
+
+\lead{navytwo}{Tags are the best case, not a prerequisite.} Where a document carries no machine-readable tags (a private firm, an earlier year, another jurisdiction), the remaining readers still gate one another and the identity checks still bind, so reduced redundancy surfaces as a higher flag-for-review rate rather than as silent error. Because this untagged mode is the one that generalizes beyond tagged public filings, and is where LLM hallucination risk concentrates, Phase 1 measures it separately through a PDF-only ablation in which the tag path is withheld and the accuracy is held to its own measured bar.
+
+\lead{gold}{Residual risk.} What remains silent is the intersection: errors concordant across decorrelated paths, identity-preserving, and within the rounding tolerance, for example a footnote-only value misread the same way by every text path and absent from the tags. Rare, but not zero, which is why the claim is ``toward $10^{-8}$, measured'' rather than asserted. The Phase 1 seeded-error battery deliberately seeds the correlated pathologies above (continuation pages, parenthetical negatives, scale headers) to measure residual correlation rather than assume it away, and disagreement adjudication is weighted by path independence: a standard-tag XBRL value outweighs two layout readers that agree with each other, and a re-prompt of the same model on the same input is never counted as an independent check.
+
+\lead{navytwo}{Why not a licensed dataset.} Standardized products (Compustat and the like) reclassify each firm's native line items into a fixed common template; that is a non-injective encoding that discards the presentation the system must reproduce, so they cannot serve as the primary representation regardless of their accuracy. Vendor as-reported feeds preserve native lines but are themselves extraction pipelines with their own error rates, coverage, timeliness, and licensing constraints, a dependency the product cannot be built on. Most decisively, the capability under examination is ingestion of an arbitrary annual report, so outsourcing it would fail the test by construction. A licensed feed can still serve as an external reference reader in adjudication, with definitional and restatement mismatches treated as flags to investigate rather than as extraction errors.
+
+% ===== 6. Open questions =====
+\section{Open questions for alignment}
+The standards scope (US GAAP and IFRS), the precision asymmetry, and exact line-item parity are settled and folded into the plan above. The following remain open:
+\begin{enumerate}
+  \item What does the external model (Jodie's) output, and at what granularity, so the state-space layer can consume it? To confirm with Jodie.
+  \item Who is the accountant reviewer, and how many statements across how many scenarios constitute a pass? A provisional definition is in place; the specific counts and reviewer are to be finalized after further discussion.
+  \item Which mode gates the Part I acceptance test: tagged public filings, or an untagged PDF (a private firm, another jurisdiction) at the same bar? The pipeline is built for both and the PDF-only mode is measured separately; the question is which bar the MVP must clear.
+\end{enumerate}
+
+% ===== 7. Timeline =====
+\section{Timeline (internship window)}
+\noindent\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{1.7cm} X >{\raggedright\arraybackslash}p{3.4cm} >{\centering\arraybackslash}p{1.5cm}}
+\hline
+\rowcolor{tblhead} \headtext{Phase} & \headtext{Focus} & \headtext{Window} & \headtext{Weeks} \\ \hline
+Phase 0 & Scope lock and acceptance harness & 31 Aug to 11 Sep 2026 & 2 \\ \hline
+Phase 1 & Extraction and encode/decode adapters plus common state space (US GAAP first, then IFRS) & 14 Sep to 13 Nov 2026 & 9 \\ \hline
+Phase 2 & Engine integration and manual flow toggles & 16 Nov to 27 Nov 2026 & 2 \\ \hline
+Phase 3 & Driver-to-flow model, simple stochastic simulation, and scenario validation & 30 Nov to 18 Dec 2026 & 3 \\ \hline
+Hardening & MVP hardening, accountant review, and buffer & 21 Dec 2026 to 22 Jan 2027 & $\sim$4 \\ \hline
+Phase 4 & Learned driver distributions (conditional stretch) & 25 Jan to 26 Feb 2027 & $\sim$5 \\ \hline
+\end{tabularx}
+\captionof{table}{Indicative timeline across the internship window (31 August 2026 to 26 February 2027). Phases 0 to 3 constitute Part I (the MVP); Phase 4 is Part II.}
+\end{minipage}
+
+\vspace{6pt}
+\lead{navytwo}{Key milestones.} MVP feature-complete by 18 December 2026; accountant sign-off by 22 January 2027; Phase 4 begins only on sign-off.
+
+\vspace{2pt}
+{\color{slate}\itshape The common-state-space and round-trip requirements enlarge Phase 1 (now nine weeks, US GAAP first and IFRS as an extension), which compresses Phase 3; the hardening band in late December absorbs any Phase 3 spillover. The schedule fits the internship window (31 August 2026 to 26 February 2027) and durations remain indicative, to be adjusted as scope is confirmed.}
+
+% ===== 8. Next step =====
+\section{Next step}
+This is a rough draft intended to confirm direction. Once the open questions are settled, the full proposal will expand each phase with detailed methods, the exact accuracy metrics and test set, the state-space specification, the specific tool choices, and a finalized timeline.
+
+\end{document}

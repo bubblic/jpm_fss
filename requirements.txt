@@ -1,0 +1,3 @@
+arelle-release>=2.30
+networkx>=3.2
+requests>=2.31

@@ -1,0 +1,215 @@
+{
+ "key": "microsoft",
+ "name": "Microsoft Corporation",
+ "standard": "us-gaap",
+ "form": "10-K",
+ "report_date": "2025-06-30",
+ "accession": "000095017025100235",
+ "primary_path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\microsoft\\000095017025100235\\msft-20250630.htm",
+ "pdf_path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\microsoft_000095017025100235.pdf",
+ "paths": 500,
+ "seed": 20260706,
+ "extraction_rows": [
+  {
+   "statement": "balance_sheet",
+   "compared": 68,
+   "matches": 68,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  },
+  {
+   "statement": "income_statement",
+   "compared": 57,
+   "matches": 57,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  },
+  {
+   "statement": "cash_flow",
+   "compared": 102,
+   "matches": 102,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  }
+ ],
+ "extraction_pass": true,
+ "benign_notes": [],
+ "reconstruction_rows": [
+  {
+   "statement": "balance_sheet",
+   "exact": true,
+   "cells": 82,
+   "demotions": 0
+  },
+  {
+   "statement": "income_statement",
+   "exact": true,
+   "cells": 66,
+   "demotions": 0
+  },
+  {
+   "statement": "cash_flow",
+   "exact": true,
+   "cells": 120,
+   "demotions": 0
+  }
+ ],
+ "reconstruction_pass": true,
+ "footing_total": 44,
+ "footing_failures": [],
+ "footing_excused": 0,
+ "footing_pass": true,
+ "mc_violations": 0,
+ "directional": [
+  {
+   "name": "expansion raises revenue",
+   "detail": "expansion vs baseline, mean revenue: +12,114,132,000",
+   "passed": true
+  },
+  {
+   "name": "expansion raises net income",
+   "detail": "expansion vs baseline, mean net_income: +5,347,251,081",
+   "passed": true
+  },
+  {
+   "name": "recession lowers revenue",
+   "detail": "recession vs baseline, mean revenue: -17,185,164,000",
+   "passed": true
+  },
+  {
+   "name": "recession lowers net income",
+   "detail": "recession vs baseline, mean net_income: -8,073,929,672",
+   "passed": true
+  },
+  {
+   "name": "competition lowers net income",
+   "detail": "competition vs baseline, mean net_income: -4,256,944,526",
+   "passed": true
+  },
+  {
+   "name": "competition compresses gross margin",
+   "detail": "competition vs baseline, mean gross_margin_bp: -56bp",
+   "passed": true
+  },
+  {
+   "name": "inflation lowers net income",
+   "detail": "inflation vs baseline, mean net_income: -1,231,996,481",
+   "passed": true
+  },
+  {
+   "name": "rate hike moves income with the firm's net cash position",
+   "detail": "rate_hike vs baseline, mean net_income: +623,663,016",
+   "passed": true
+  }
+ ],
+ "directional_pass": true,
+ "plausibility_total": 60,
+ "plausibility_failures": [],
+ "plausibility_pass": true,
+ "net_cash": "51414000000",
+ "fans": {
+  "net_income": {
+   "baseline": [
+    "113,272",
+    "106,708",
+    "110,373",
+    "113,216",
+    "115,712",
+    "120,406"
+   ],
+   "expansion": [
+    "118,619",
+    "112,041",
+    "115,715",
+    "118,527",
+    "121,056",
+    "125,751"
+   ],
+   "recession": [
+    "105,198",
+    "98,608",
+    "102,260",
+    "105,145",
+    "107,625",
+    "112,331"
+   ],
+   "competition": [
+    "109,015",
+    "102,525",
+    "106,136",
+    "108,974",
+    "111,424",
+    "116,073"
+   ],
+   "rate_hike": [
+    "113,896",
+    "107,340",
+    "111,002",
+    "113,840",
+    "116,330",
+    "121,020"
+   ],
+   "inflation": [
+    "112,040",
+    "105,529",
+    "109,166",
+    "111,975",
+    "114,466",
+    "119,115"
+   ]
+  },
+  "revenue": {
+   "baseline": [
+    "306,976",
+    "292,836",
+    "301,170",
+    "307,214",
+    "312,418",
+    "321,759"
+   ],
+   "expansion": [
+    "319,090",
+    "304,950",
+    "313,284",
+    "319,328",
+    "324,532",
+    "333,873"
+   ],
+   "recession": [
+    "289,791",
+    "275,651",
+    "283,985",
+    "290,028",
+    "295,232",
+    "304,574"
+   ],
+   "competition": [
+    "300,637",
+    "286,498",
+    "294,831",
+    "300,875",
+    "306,079",
+    "315,420"
+   ],
+   "rate_hike": [
+    "307,258",
+    "293,118",
+    "301,452",
+    "307,495",
+    "312,699",
+    "322,041"
+   ],
+   "inflation": [
+    "308,667",
+    "294,527",
+    "302,861",
+    "308,904",
+    "314,108",
+    "323,449"
+   ]
+  }
+ }
+}

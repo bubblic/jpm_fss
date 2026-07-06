@@ -1,0 +1,104 @@
+{
+  "inputs": {
+    "apple_pdf": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\apple_000032019325000079.pdf",
+      "sha256": "f35d1eada822f71f31dbaaf90eef6441e63b31bc57d662cdca61bad63cf52bc1"
+    },
+    "apple_primary": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\apple\\000032019325000079\\aapl-20250927.htm",
+      "sha256": "548ae59778cf08ee0f2ee088e7ece20d947076c3c01f74d2d65db4c2777e436a"
+    },
+    "microsoft_pdf": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\microsoft_000095017025100235.pdf",
+      "sha256": "85a1835e7a4570dc032d0c98eca1f4c38c81f60c228eb7df12417b64afd393a4"
+    },
+    "microsoft_primary": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\microsoft\\000095017025100235\\msft-20250630.htm",
+      "sha256": "99d693f6c1544144ebeee92954f151a85bc62111837530a42855953bc01d0bbe"
+    },
+    "sap_pdf": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\sap_000110465926020058.pdf",
+      "sha256": "b77cf58acd1dda9533b6acdd9457afa78fea01212872e80d01d5b6f80b674495"
+    },
+    "sap_primary": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\sap\\000110465926020058\\sap-20251231x20f.htm",
+      "sha256": "95017d7d5ea133ec3eaa11522a6b4a6661d99308394081735ae9e2efbc875151"
+    },
+    "spotify_pdf": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\spotify_000162828026006874.pdf",
+      "sha256": "2ed2ccbe28048dfc21c6e3498f91ec7ff569321b803c5147921cf1e6a5bdf7ac"
+    },
+    "spotify_primary": {
+      "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\spotify\\000162828026006874\\ck0001639920-20251231.htm",
+      "sha256": "334c2025b71631e9cc4f19449b8c0fee9f821c1c9f10c9cdf65f4409ef3ff594"
+    }
+  },
+  "tools": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "fss": "0.1.0",
+    "arelle": "2.41.6",
+    "networkx": "3.6.1",
+    "pdfplumber": "0.11.10",
+    "pypdf": "6.14.2",
+    "requests": "2.34.2"
+  },
+  "monte_carlo_paths": 500,
+  "seed": 20260706,
+  "scenarios": {
+    "baseline": {
+      "key": "baseline",
+      "description": "Trend growth, target inflation, unchanged rates and competition.",
+      "gdp_growth_pp": "0",
+      "inflation_pp": "0",
+      "rate_shift_bp": "0",
+      "competition_z": "0",
+      "demand_z": "0"
+    },
+    "expansion": {
+      "key": "expansion",
+      "description": "GDP 2pp above trend with mild demand tailwind.",
+      "gdp_growth_pp": "2",
+      "inflation_pp": "0.5",
+      "rate_shift_bp": "50",
+      "competition_z": "0",
+      "demand_z": "0.5"
+    },
+    "recession": {
+      "key": "recession",
+      "description": "GDP 2.5pp below trend, easing rates, weak demand.",
+      "gdp_growth_pp": "-2.5",
+      "inflation_pp": "-0.5",
+      "rate_shift_bp": "-150",
+      "competition_z": "0",
+      "demand_z": "-1"
+    },
+    "competition": {
+      "key": "competition",
+      "description": "Intensified industry competition; macro on trend.",
+      "gdp_growth_pp": "0",
+      "inflation_pp": "0",
+      "rate_shift_bp": "0",
+      "competition_z": "1.5",
+      "demand_z": "0"
+    },
+    "rate_hike": {
+      "key": "rate_hike",
+      "description": "Rates 200bp higher; growth briefly unchanged.",
+      "gdp_growth_pp": "0",
+      "inflation_pp": "0.5",
+      "rate_shift_bp": "200",
+      "competition_z": "0",
+      "demand_z": "0"
+    },
+    "inflation": {
+      "key": "inflation",
+      "description": "Cost inflation 3pp above target without extra demand; a pure cost-side shock (rate response isolated in the rate_hike scenario).",
+      "gdp_growth_pp": "0",
+      "inflation_pp": "3",
+      "rate_shift_bp": "0",
+      "competition_z": "0",
+      "demand_z": "0"
+    }
+  }
+}

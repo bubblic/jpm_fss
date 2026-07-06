@@ -1,4 +1,38 @@
-# KG Encoding Spike
+# Financial Statement Simulator (FSS)
+
+Two artifacts live in this repository:
+
+1. **The FSS reference implementation** (`src/fss`): the full pipeline from
+   the proposal (`proposal/Financial_Statement_Simulator_Proposal.pdf`):
+   filing acquisition, redundant PDF extraction with a reconciliation gate,
+   knowledge-graph state space with lossless encode/decode, a no-plug
+   accounting engine, and scenario Monte Carlo, validated on four real
+   annual reports (Apple, Microsoft: US GAAP 10-K; SAP, Spotify: IFRS 20-F).
+2. **The original one-day KG encoding spike** (`src/spike`), kept intact as
+   evidence: it proves the knowledge-graph encoding mechanics on one filing
+   (see `out/report.md` after running it).
+
+## FSS quick start
+
+```powershell
+$env:PYTHONPATH = "src"
+$env:SEC_USER_AGENT = "Your Name your.email@example.com"
+python -m fss fetch      # acquire filings, warm taxonomy caches, render PDFs
+python -m fss extract    # tag-path ground-truth statements
+python -m fss measure    # PDF-only extraction accuracy vs ground truth
+python -m fss accept     # the full acceptance battery -> out/acceptance/
+python -m pytest tests   # unit + seeded-error tests
+```
+
+`out/acceptance/report.md` carries the battery verdict: extraction accuracy
+(zero accepted-cell errors required), perfect reconstruction, footing,
+Monte Carlo identity integrity, the directional battery, and plausibility.
+Per-company simulated statements and flow journals land in
+`out/acceptance/<company>/`.
+
+---
+
+# KG Encoding Spike (original)
 
 One-day spike for the financial statement simulator: prove that a
 knowledge-graph encoding works mechanically on one real filing (Apple's

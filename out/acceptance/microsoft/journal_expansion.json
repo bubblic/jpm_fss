@@ -1,0 +1,107 @@
+[
+ {
+  "flow": "wc:Accounts receivable",
+  "amount": "9714343949",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Inventories",
+  "amount": "145750432",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Other current assets",
+  "amount": "3574595085",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Other long-term assets",
+  "amount": "2140754861",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Other long-term assets",
+  "amount": "5637112685",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Accounts payable",
+  "amount": "4307873111",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Unearned revenue",
+  "amount": "8970881533",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Unearned revenue",
+  "amount": "376594980",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Income taxes",
+  "amount": "3611142863",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Other current liabilities",
+  "amount": "3476902734",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Other long-term liabilities",
+  "amount": "6279269661",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "debt",
+  "amount": "-622860142",
+  "effect": "issuance less repayments per the held financing schedule"
+ },
+ {
+  "flow": "debt",
+  "amount": "-8339139858",
+  "effect": "issuance less repayments per the held financing schedule"
+ },
+ {
+  "flow": "capital",
+  "amount": "30882180424",
+  "effect": "capex and lease additions less depreciation and amortization"
+ },
+ {
+  "flow": "capital",
+  "amount": "3740075743",
+  "effect": "capex and lease additions less depreciation and amortization"
+ },
+ {
+  "flow": "close",
+  "amount": "118526534872",
+  "effect": "net income attributable to parent"
+ },
+ {
+  "flow": "dividends",
+  "amount": "-26490200000",
+  "effect": "dividends declared and paid"
+ },
+ {
+  "flow": "buyback",
+  "amount": "-18420000000",
+  "effect": "repurchases retired against retained earnings"
+ },
+ {
+  "flow": "sbc",
+  "amount": "15693966160",
+  "effect": "share-based compensation and option exercises credited to paid-in capital"
+ },
+ {
+  "flow": "securities",
+  "amount": "47333575098",
+  "effect": "net investment purchases incl. liquidity sweep"
+ },
+ {
+  "flow": "cash",
+  "amount": "4202577637",
+  "effect": "net change per cash flow statement"
+ }
+]

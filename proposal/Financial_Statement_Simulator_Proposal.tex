@@ -289,7 +289,7 @@ Extraction is held to a far higher precision bar than the rest of the system bec
 \node[reader, below=of r3, draw=gold] (r4) {R4: tagged facts (when present)\\ \scriptsize signs, scale, period explicit};
 \node[gate, right=11mm of r2.east, yshift=-5mm] (gate) {Agreement gate\\ \scriptsize independence-weighted:\\ \scriptsize positional + one text engine,\\ \scriptsize or both text engines};
 \node[gate, right=10mm of gate] (ident) {Identity checks\\ \scriptsize footing, A=L+E,\\ \scriptsize cash tie, EPS};
-\node[data, right=10mm of ident, draw=fgreen, text=fgreen, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center] (out) {accepted\\ \scriptsize or flagged,\\ \scriptsize never guessed};
+\node[draw=fgreen, thick, fill=white, text=fgreen, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center, right=10mm of ident] (out) {accepted\\ \scriptsize or flagged,\\ \scriptsize never guessed};
 \draw[arrow] (r1.east) -- ++(4mm,0) |- (gate.170);
 \draw[arrow] (r2.east) -- (gate.west|-r2.east);
 \draw[arrow] (r3.east) -- ++(4mm,0) |- (gate.190);

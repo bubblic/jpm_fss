@@ -1,0 +1,77 @@
+[
+ {
+  "flow": "wc:(Increase)/decrease in trade receivables",
+  "amount": "2528710",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:(Increase)/decrease in trade receivables",
+  "amount": "2860344",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:(Increase)/decrease in trade receivables",
+  "amount": "33246321",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:(Increase)/decrease in trade receivables",
+  "amount": "4601424",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Increase in deferred revenue",
+  "amount": "29473983",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Increase/(decrease) in provisions",
+  "amount": "124363",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "wc:Increase/(decrease) in provisions",
+  "amount": "2114168",
+  "effect": "working-capital stock move"
+ },
+ {
+  "flow": "capital",
+  "amount": "16801630",
+  "effect": "capex and lease additions less depreciation and amortization"
+ },
+ {
+  "flow": "capital",
+  "amount": "13498745",
+  "effect": "capex and lease additions less depreciation and amortization"
+ },
+ {
+  "flow": "close",
+  "amount": "2052049571",
+  "effect": "net income attributable to parent"
+ },
+ {
+  "flow": "buyback",
+  "amount": "470490478",
+  "effect": "repurchases into treasury (contra-equity)"
+ },
+ {
+  "flow": "sbc",
+  "amount": "629239204",
+  "effect": "share-based compensation and option exercises credited to paid-in capital"
+ },
+ {
+  "flow": "securities",
+  "amount": "665907121",
+  "effect": "net investment purchases incl. liquidity sweep"
+ },
+ {
+  "flow": "securities",
+  "amount": "1285099986",
+  "effect": "net investment purchases incl. liquidity sweep"
+ },
+ {
+  "flow": "cash",
+  "amount": "217966530",
+  "effect": "net change per cash flow statement"
+ }
+]

@@ -1,15 +1,18 @@
 """The acceptance battery: everything the proposal promises, measured.
 
-Entry point: python -m fss.accept  (or python -m fss accept)
+Entry points:
+    python -m fss accept --company apple      # one filer, writes outcome.json
+    python -m fss accept --merge              # merge outcomes into report.md
+    python -m fss accept                      # all filers then merge
 
 Per company: extraction accuracy of the PDF-only mode against the tag path
 (zero accepted-cell errors required; every unmatched ground-truth row must
 fall in a documented benign category), perfect reconstruction through
 (z, m), footing of the extracted statements within the decimals tolerance,
 Monte Carlo simulation under every scenario with zero identity violations,
-the directional battery, and the plausibility battery. Writes the full
-acceptance report, per-scenario simulated statements, the audit journal of
-each representative path, and the run manifest under out/acceptance/.
+the directional battery, and the plausibility battery. Artifacts land under
+out/acceptance/: the report, per-scenario simulated statements, flow
+journals, per-company outcome summaries, and the run manifest.
 """
 from __future__ import annotations
 
@@ -22,17 +25,19 @@ from fss import edgar
 from fss.config import COMPANIES, MONTE_CARLO_PATHS, RANDOM_SEED
 from fss.drivers import SCENARIOS
 from fss.encdec import verify_reconstruction
+from fss.engine import roles as R
 from fss.engine.project import Projector
 from fss.manifest import write_manifest
 from fss.paths import ACCEPT_DIR, DATA_DIR
 from fss.pdfread.assemble import extract_pdf_statements
-from fss.reconcile import AccuracyReport, compare_to_ground_truth, reconcile
-from fss.render import fan_table, statement_markdown
+from fss.reconcile import compare_to_ground_truth, reconcile
+from fss.render import statement_markdown
 from fss.simulate import directional_battery, run_all_scenarios
 from fss.statements import StructuredStatement
 from fss.validate import footing_checks, plausibility_battery
 
 MILLION = Decimal(1_000_000)
+QUANTILES = ("0.05", "0.25", "0.5", "0.75", "0.95")
 
 
 def _load_statements(key: str) -> dict[str, StructuredStatement]:
@@ -57,18 +62,27 @@ def run_company(key: str, paths: int, seed: int) -> dict:
     statements = _load_statements(key)
 
     # 1. extraction accuracy (PDF-only ablation vs tag path)
-    extraction_reports: list[AccuracyReport] = []
+    extraction_rows = []
     extraction_pass = True
     benign_notes: list[str] = []
     extractions = extract_pdf_statements(filing.pdf_path)
     for statement_kind, extraction in extractions.items():
         reconciled = reconcile(extraction)
         report = compare_to_ground_truth(key, reconciled, statements[statement_kind])
-        extraction_reports.append(report)
+        extraction_rows.append(
+            {
+                "statement": statement_kind,
+                "compared": report.compared,
+                "matches": report.matches,
+                "mismatches": len(report.mismatches),
+                "missing": len(report.missing),
+                "flagged": report.flagged_cells,
+            }
+        )
         if report.mismatches or report.missing:
             extraction_pass = False
         for entry in report.gt_rows_unmatched:
-            reason = _benign_unmatched(entry, statement_kind)
+            reason = _benign_unmatched(tuple(entry), statement_kind)
             if reason is None:
                 extraction_pass = False
                 benign_notes.append(
@@ -80,10 +94,18 @@ def run_company(key: str, paths: int, seed: int) -> dict:
     # 2. perfect reconstruction
     reconstruction = [verify_reconstruction(statements[k]) for k in statements]
     reconstruction_pass = all(r.exact for r in reconstruction)
+    reconstruction_rows = [
+        {
+            "statement": r.statement,
+            "exact": r.exact,
+            "cells": r.cells_checked,
+            "demotions": len(r.demotions),
+        }
+        for r in reconstruction
+    ]
 
     # 3. footing with the decimals tolerance; cells on the disclosed
-    # demotion list are the filer's own rounding inconsistencies, stored
-    # verbatim and reported, not pipeline defects
+    # demotion list are the filer's own rounding inconsistencies
     demoted_cells: set[tuple[str, str]] = set()
     for result in reconstruction:
         for note in result.demotions:
@@ -92,11 +114,15 @@ def run_company(key: str, paths: int, seed: int) -> dict:
             demoted_cells.add((label, period))
     footing = [check for k in statements for check in footing_checks(statements[k])]
     footing_failures = [
-        check
+        f"{check.statement}/{check.label} {check.period}: diff {check.diff}"
         for check in footing
         if not check.passed and (check.label, check.period) not in demoted_cells
     ]
-    footing_pass = not footing_failures
+    footing_excused = sum(
+        1
+        for check in footing
+        if not check.passed and (check.label, check.period) in demoted_cells
+    )
 
     # 4. simulation under every scenario
     results = run_all_scenarios(key, statements, paths=paths, seed=seed)
@@ -104,39 +130,51 @@ def run_company(key: str, paths: int, seed: int) -> dict:
 
     # 5. directional battery
     projector = Projector(key, statements)
-    from fss.engine import roles as R
-
     net_cash = (
         projector._sum(projector.bs, {R.CASH, R.SECURITIES})
         - projector._sum(projector.bs, {R.DEBT, R.COMMERCIAL_PAPER})
     )
     directional = directional_battery(results, net_cash)
-    directional_pass = all(check.passed for check in directional)
 
-    # 6. plausibility on the representative and deterministic baseline paths
+    # 6. plausibility on the representative and deterministic paths
     base_metrics = {
         "revenue": projector._sum(projector.inc, {R.REVENUE}),
         "gross_margin_bp": results["baseline"].deterministic.metrics["gross_margin_bp"],
     }
-    plausibility = []
+    plausibility_total = 0
+    plausibility_failures: list[str] = []
     for scenario_key, result in results.items():
         for period in (result.representative, result.deterministic):
             for check in plausibility_battery(period, base_metrics):
-                plausibility.append((scenario_key, check))
-    plausibility_pass = all(check.passed for _, check in plausibility)
+                plausibility_total += 1
+                if not check.passed:
+                    plausibility_failures.append(
+                        f"[{scenario_key}] {check.name}: {check.detail}"
+                    )
 
-    # artifacts
+    # artifacts: simulated statements and journals per scenario
     company_dir = ACCEPT_DIR / key
     company_dir.mkdir(parents=True, exist_ok=True)
+    fans: dict[str, dict[str, list[str]]] = {}
+    for metric in ("net_income", "revenue"):
+        fans[metric] = {
+            scenario_key: [f"{result.mean(metric) / MILLION:,.0f}"]
+            + [
+                f"{result.quantile(metric, Decimal(q)) / MILLION:,.0f}"
+                for q in QUANTILES
+            ]
+            for scenario_key, result in results.items()
+        }
     for scenario_key, result in results.items():
-        lines: list[str] = [f"## {company.name}: simulated next period, scenario '{scenario_key}'", ""]
-        lines.append(SCENARIOS[scenario_key].description)
-        lines.append("")
-        lines.append(
+        lines: list[str] = [
+            f"## {company.name}: simulated next period, scenario '{scenario_key}'",
+            "",
+            SCENARIOS[scenario_key].description,
+            "",
             f"Median-net-income path of {result.paths} Monte Carlo paths; "
-            f"prior year shown as comparative."
-        )
-        lines.append("")
+            "prior year shown as comparative.",
+            "",
+        ]
         for kind in ("income_statement", "balance_sheet", "cash_flow"):
             lines.extend(
                 statement_markdown(
@@ -155,76 +193,103 @@ def run_company(key: str, paths: int, seed: int) -> dict:
             json.dumps(journal, indent=1), encoding="utf-8"
         )
 
-    return {
+    outcome = {
         "key": key,
-        "filing": filing,
-        "extraction_reports": extraction_reports,
+        "name": company.name,
+        "standard": company.standard,
+        "form": company.form,
+        "report_date": filing.report_date,
+        "accession": filing.accession,
+        "primary_path": str(filing.primary_path),
+        "pdf_path": str(filing.pdf_path),
+        "paths": paths,
+        "seed": seed,
+        "extraction_rows": extraction_rows,
         "extraction_pass": extraction_pass,
         "benign_notes": benign_notes,
-        "reconstruction": reconstruction,
+        "reconstruction_rows": reconstruction_rows,
         "reconstruction_pass": reconstruction_pass,
-        "footing": footing,
-        "footing_pass": footing_pass,
-        "results": results,
+        "footing_total": len(footing),
+        "footing_failures": footing_failures,
+        "footing_excused": footing_excused,
+        "footing_pass": not footing_failures,
         "mc_violations": mc_violations,
-        "directional": directional,
-        "directional_pass": directional_pass,
-        "plausibility": plausibility,
-        "plausibility_pass": plausibility_pass,
-        "net_cash": net_cash,
+        "directional": [
+            {"name": check.name, "detail": check.detail, "passed": check.passed}
+            for check in directional
+        ],
+        "directional_pass": all(check.passed for check in directional),
+        "plausibility_total": plausibility_total,
+        "plausibility_failures": plausibility_failures,
+        "plausibility_pass": not plausibility_failures,
+        "net_cash": str(net_cash),
+        "fans": fans,
     }
+    (company_dir / "outcome.json").write_text(
+        json.dumps(outcome, indent=1), encoding="utf-8"
+    )
+    return outcome
 
 
-def write_report(outcomes: list[dict], paths: int, seed: int) -> Path:
-    lines: list[str] = []
-    add = lines.append
-    add("# FSS acceptance report")
-    add("")
-    total_compared = sum(
-        report.compared for outcome in outcomes for report in outcome["extraction_reports"]
-    )
-    total_matches = sum(
-        report.matches for outcome in outcomes for report in outcome["extraction_reports"]
-    )
-    total_flags = sum(
-        report.flagged_cells for outcome in outcomes for report in outcome["extraction_reports"]
-    )
-    all_pass = all(
+def _verdict(outcome: dict) -> bool:
+    return (
         outcome["extraction_pass"]
         and outcome["reconstruction_pass"]
         and outcome["footing_pass"]
         and outcome["mc_violations"] == 0
         and outcome["directional_pass"]
         and outcome["plausibility_pass"]
-        for outcome in outcomes
     )
+
+
+def write_report(outcomes: list[dict]) -> Path:
+    lines: list[str] = []
+    add = lines.append
+    add("# FSS acceptance report")
+    add("")
+    total_compared = sum(
+        row["compared"] for outcome in outcomes for row in outcome["extraction_rows"]
+    )
+    total_matches = sum(
+        row["matches"] for outcome in outcomes for row in outcome["extraction_rows"]
+    )
+    total_flags = sum(
+        row["flagged"] for outcome in outcomes for row in outcome["extraction_rows"]
+    )
+    all_pass = all(_verdict(outcome) for outcome in outcomes)
     add(f"Overall verdict: {'PASS' if all_pass else 'FAIL'}")
     add("")
+    if total_compared:
+        add(
+            f"- PDF-only extraction: {total_matches} of {total_compared} accepted cells "
+            f"match the tag-path ground truth exactly ({total_flags} flagged cells "
+            "abstained). Rule-of-three 95% upper bound on the per-field error rate: "
+            f"{3 / total_compared:.2%}."
+        )
+    paths = outcomes[0]["paths"] if outcomes else 0
+    seed = outcomes[0]["seed"] if outcomes else 0
     add(
-        f"- PDF-only extraction: {total_matches} of {total_compared} accepted cells "
-        f"match the tag-path ground truth exactly ({total_flags} flagged cells "
-        "abstained). Rule-of-three 95% upper bound on the per-field error rate: "
-        f"{3 / total_compared:.2%}." if total_compared else "- no cells compared"
-    )
-    add(
-        f"- Monte Carlo: {paths} paths per scenario per firm, seed {seed}; "
-        "every path keeps A = L + E and the cash tie exactly (relative to the "
-        "filer's own rounding residual)."
+        f"- Monte Carlo: {paths} paths per scenario per firm (common random "
+        f"numbers across scenarios), seed {seed}; every path keeps A = L + E and "
+        "the cash tie exactly, relative to the filer's own printed rounding residual."
     )
     add("")
     for outcome in outcomes:
-        company = COMPANIES[outcome["key"]]
-        filing = outcome["filing"]
-        add(f"## {company.name} ({company.standard}, {company.form} {filing.report_date})")
+        add(
+            f"## {outcome['name']} ({outcome['standard']}, {outcome['form']} "
+            f"{outcome['report_date']})"
+        )
+        add("")
+        add(f"Verdict: {'PASS' if _verdict(outcome) else 'FAIL'}")
         add("")
         add("### Extraction (PDF-only mode vs tag path)")
         add("")
         add("| Statement | compared | matches | mismatches | missing | flagged |")
         add("| --- | ---: | ---: | ---: | ---: | ---: |")
-        for report in outcome["extraction_reports"]:
+        for row in outcome["extraction_rows"]:
             add(
-                f"| {report.statement} | {report.compared} | {report.matches} "
-                f"| {len(report.mismatches)} | {len(report.missing)} | {report.flagged_cells} |"
+                f"| {row['statement']} | {row['compared']} | {row['matches']} "
+                f"| {row['mismatches']} | {row['missing']} | {row['flagged']} |"
             )
         add("")
         for note in outcome["benign_notes"]:
@@ -232,36 +297,51 @@ def write_report(outcomes: list[dict], paths: int, seed: int) -> Path:
         add("")
         add("### Reconstruction and footing")
         add("")
-        for result in outcome["reconstruction"]:
-            demoted = f", {len(result.demotions)} filer-rounded subtotals stored verbatim" if result.demotions else ""
-            add(f"- {result.statement}: exact on {result.cells_checked} cells{demoted}")
-        footing = outcome["footing"]
-        passed = sum(1 for check in footing if check.passed)
-        add(
-            f"- footing: {passed}/{len(footing)} derived cells within the decimals "
-            "tolerance; every exception is on the disclosed filer-rounding list"
-            if outcome["footing_pass"] and passed < len(footing)
-            else f"- footing: {passed}/{len(footing)} derived cells within the decimals tolerance"
+        for row in outcome["reconstruction_rows"]:
+            demoted = (
+                f", {row['demotions']} filer-rounded subtotals stored verbatim"
+                if row["demotions"]
+                else ""
+            )
+            add(f"- {row['statement']}: exact on {row['cells']} cells{demoted}")
+        excused = (
+            f" ({outcome['footing_excused']} exceptions, all on the disclosed "
+            "filer-rounding list)"
+            if outcome["footing_excused"]
+            else ""
         )
+        add(
+            f"- footing: {outcome['footing_total'] - outcome['footing_excused'] - len(outcome['footing_failures'])}"
+            f"/{outcome['footing_total']} derived cells within the decimals tolerance{excused}"
+        )
+        for failure in outcome["footing_failures"]:
+            add(f"- FOOTING FAIL: {failure}")
         add("")
-        add("### Scenarios")
+        add("### Scenarios (Monte Carlo fan, millions)")
         add("")
-        lines.extend(fan_table(outcome["results"], "net_income", MILLION, "net income (millions)"))
-        lines.extend(fan_table(outcome["results"], "revenue", MILLION, "revenue (millions)"))
+        for metric, label in (("net_income", "net income"), ("revenue", "revenue")):
+            add(f"| Scenario | mean {label} | p5 | p25 | p50 | p75 | p95 |")
+            add("| --- | ---: | ---: | ---: | ---: | ---: | ---: |")
+            for scenario_key, cells in outcome["fans"][metric].items():
+                add(f"| {scenario_key} | " + " | ".join(cells) + " |")
+            add("")
         add("### Directional battery")
         add("")
         for check in outcome["directional"]:
-            add(f"- {'PASS' if check.passed else 'FAIL'}: {check.name} ({check.detail})")
+            add(
+                f"- {'PASS' if check['passed'] else 'FAIL'}: {check['name']} "
+                f"({check['detail']})"
+            )
         add("")
         add("### Plausibility (representative and deterministic paths, all scenarios)")
         add("")
-        failed = [(s, c) for s, c in outcome["plausibility"] if not c.passed]
         add(
-            f"- {len(outcome['plausibility']) - len(failed)} of "
-            f"{len(outcome['plausibility'])} checks pass"
+            f"- {outcome['plausibility_total'] - len(outcome['plausibility_failures'])} of "
+            f"{outcome['plausibility_total']} checks pass; Monte Carlo identity "
+            f"violations: {outcome['mc_violations']}"
         )
-        for scenario_key, check in failed:
-            add(f"- FAIL [{scenario_key}] {check.name}: {check.detail}")
+        for failure in outcome["plausibility_failures"]:
+            add(f"- FAIL {failure}")
         add("")
     ACCEPT_DIR.mkdir(parents=True, exist_ok=True)
     report_path = ACCEPT_DIR / "report.md"
@@ -269,32 +349,29 @@ def write_report(outcomes: list[dict], paths: int, seed: int) -> Path:
     return report_path
 
 
-def main(paths: int = MONTE_CARLO_PATHS, seed: int = RANDOM_SEED) -> bool:
-    outcomes = [run_company(key, paths, seed) for key in COMPANIES]
-    report_path = write_report(outcomes, paths, seed)
+def merge() -> bool:
+    outcomes = []
+    for key in COMPANIES:
+        path = ACCEPT_DIR / key / "outcome.json"
+        if not path.exists():
+            print(f"missing outcome for {key}; run: python -m fss accept --company {key}")
+            return False
+        outcomes.append(json.loads(path.read_text(encoding="utf-8")))
+    report_path = write_report(outcomes)
     inputs = {}
     for outcome in outcomes:
-        filing = outcome["filing"]
-        inputs[f"{outcome['key']}_primary"] = filing.primary_path
-        inputs[f"{outcome['key']}_pdf"] = filing.pdf_path
+        inputs[f"{outcome['key']}_primary"] = Path(outcome["primary_path"])
+        inputs[f"{outcome['key']}_pdf"] = Path(outcome["pdf_path"])
     write_manifest(
         ACCEPT_DIR / "manifest.json",
         inputs,
         {
-            "monte_carlo_paths": paths,
-            "seed": seed,
+            "monte_carlo_paths": outcomes[0]["paths"],
+            "seed": outcomes[0]["seed"],
             "scenarios": {k: asdict(s) for k, s in SCENARIOS.items()},
         },
     )
-    all_pass = all(
-        outcome["extraction_pass"]
-        and outcome["reconstruction_pass"]
-        and outcome["footing_pass"]
-        and outcome["mc_violations"] == 0
-        and outcome["directional_pass"]
-        and outcome["plausibility_pass"]
-        for outcome in outcomes
-    )
+    all_pass = all(_verdict(outcome) for outcome in outcomes)
     print(f"acceptance: {'PASS' if all_pass else 'FAIL'} -> {report_path}")
     for outcome in outcomes:
         print(
@@ -306,6 +383,22 @@ def main(paths: int = MONTE_CARLO_PATHS, seed: int = RANDOM_SEED) -> bool:
             f"plausibility={'PASS' if outcome['plausibility_pass'] else 'FAIL'}"
         )
     return all_pass
+
+
+def main(
+    paths: int = MONTE_CARLO_PATHS,
+    seed: int = RANDOM_SEED,
+    companies: list[str] | None = None,
+    merge_only: bool = False,
+) -> bool:
+    if merge_only:
+        return merge()
+    for key in companies or list(COMPANIES):
+        outcome = run_company(key, paths, seed)
+        print(f"{key}: {'PASS' if _verdict(outcome) else 'FAIL'} (outcome.json written)")
+    if companies:
+        return True  # partial run; merge separately
+    return merge()
 
 
 if __name__ == "__main__":

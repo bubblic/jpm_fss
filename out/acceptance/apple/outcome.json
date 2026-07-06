@@ -1,0 +1,218 @@
+{
+ "key": "apple",
+ "name": "Apple Inc.",
+ "standard": "us-gaap",
+ "form": "10-K",
+ "report_date": "2025-09-27",
+ "accession": "000032019325000079",
+ "primary_path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\apple\\000032019325000079\\aapl-20250927.htm",
+ "pdf_path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\apple_000032019325000079.pdf",
+ "paths": 500,
+ "seed": 20260706,
+ "extraction_rows": [
+  {
+   "statement": "balance_sheet",
+   "compared": 54,
+   "matches": 54,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  },
+  {
+   "statement": "income_statement",
+   "compared": 57,
+   "matches": 57,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  },
+  {
+   "statement": "cash_flow",
+   "compared": 87,
+   "matches": 87,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  }
+ ],
+ "extraction_pass": true,
+ "benign_notes": [
+  "balance_sheet: 'Common stock, shares outstanding (in shares)': share counts printed inside the equity label, not as table cells",
+  "balance_sheet: 'Common stock, shares issued (in shares)': share counts printed inside the equity label, not as table cells"
+ ],
+ "reconstruction_rows": [
+  {
+   "statement": "balance_sheet",
+   "exact": true,
+   "cells": 76,
+   "demotions": 0
+  },
+  {
+   "statement": "income_statement",
+   "exact": true,
+   "cells": 69,
+   "demotions": 0
+  },
+  {
+   "statement": "cash_flow",
+   "exact": true,
+   "cells": 108,
+   "demotions": 0
+  }
+ ],
+ "reconstruction_pass": true,
+ "footing_total": 49,
+ "footing_failures": [],
+ "footing_excused": 0,
+ "footing_pass": true,
+ "mc_violations": 0,
+ "directional": [
+  {
+   "name": "expansion raises revenue",
+   "detail": "expansion vs baseline, mean revenue: +17,894,923,000",
+   "passed": true
+  },
+  {
+   "name": "expansion raises net income",
+   "detail": "expansion vs baseline, mean net_income: +5,367,290,239",
+   "passed": true
+  },
+  {
+   "name": "recession lowers revenue",
+   "detail": "recession vs baseline, mean revenue: -25,385,821,000",
+   "passed": true
+  },
+  {
+   "name": "recession lowers net income",
+   "detail": "recession vs baseline, mean net_income: -8,359,816,345",
+   "passed": true
+  },
+  {
+   "name": "competition lowers net income",
+   "detail": "competition vs baseline, mean net_income: -6,406,882,057",
+   "passed": true
+  },
+  {
+   "name": "competition compresses gross margin",
+   "detail": "competition vs baseline, mean gross_margin_bp: -96bp",
+   "passed": true
+  },
+  {
+   "name": "inflation lowers net income",
+   "detail": "inflation vs baseline, mean net_income: -2,907,675,254",
+   "passed": true
+  },
+  {
+   "name": "rate hike moves income with the firm's net cash position",
+   "detail": "rate_hike vs baseline, mean net_income: +608,939,208",
+   "passed": true
+  }
+ ],
+ "directional_pass": true,
+ "plausibility_total": 60,
+ "plausibility_failures": [],
+ "plausibility_pass": true,
+ "net_cash": "33763000000",
+ "fans": {
+  "net_income": {
+   "baseline": [
+    "117,054",
+    "108,662",
+    "113,850",
+    "116,901",
+    "120,582",
+    "124,756"
+   ],
+   "expansion": [
+    "122,421",
+    "113,990",
+    "119,218",
+    "122,278",
+    "125,919",
+    "130,086"
+   ],
+   "recession": [
+    "108,694",
+    "100,265",
+    "105,495",
+    "108,542",
+    "112,208",
+    "116,383"
+   ],
+   "competition": [
+    "110,647",
+    "102,462",
+    "107,529",
+    "110,491",
+    "114,078",
+    "118,161"
+   ],
+   "rate_hike": [
+    "117,663",
+    "109,309",
+    "114,467",
+    "117,507",
+    "121,177",
+    "125,337"
+   ],
+   "inflation": [
+    "114,146",
+    "105,909",
+    "110,999",
+    "113,998",
+    "117,583",
+    "121,686"
+   ]
+  },
+  "revenue": {
+   "baseline": [
+    "432,023",
+    "409,899",
+    "422,828",
+    "432,161",
+    "441,482",
+    "453,826"
+   ],
+   "expansion": [
+    "449,918",
+    "427,794",
+    "440,723",
+    "450,056",
+    "459,376",
+    "471,721"
+   ],
+   "recession": [
+    "406,637",
+    "384,513",
+    "397,443",
+    "406,775",
+    "416,096",
+    "428,440"
+   ],
+   "competition": [
+    "422,660",
+    "400,535",
+    "413,465",
+    "422,798",
+    "432,118",
+    "444,462"
+   ],
+   "rate_hike": [
+    "432,439",
+    "410,315",
+    "423,245",
+    "432,577",
+    "441,898",
+    "454,242"
+   ],
+   "inflation": [
+    "434,520",
+    "412,396",
+    "425,325",
+    "434,658",
+    "443,978",
+    "456,323"
+   ]
+  }
+ }
+}

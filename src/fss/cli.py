@@ -15,6 +15,12 @@ def main() -> int:
     accept = sub.add_parser("accept", help="full acceptance battery")
     accept.add_argument("--paths", type=int, default=None, help="Monte Carlo paths")
     accept.add_argument("--seed", type=int, default=None, help="random seed")
+    accept.add_argument(
+        "--company", action="append", default=None, help="run one company (repeatable)"
+    )
+    accept.add_argument(
+        "--merge", action="store_true", help="merge per-company outcomes into the report"
+    )
     args = parser.parse_args()
 
     if args.command == "fetch":
@@ -37,7 +43,10 @@ def main() -> int:
         from fss.config import MONTE_CARLO_PATHS, RANDOM_SEED
 
         ok = accept_module.main(
-            paths=args.paths or MONTE_CARLO_PATHS, seed=args.seed or RANDOM_SEED
+            paths=args.paths or MONTE_CARLO_PATHS,
+            seed=args.seed or RANDOM_SEED,
+            companies=args.company,
+            merge_only=args.merge,
         )
         return 0 if ok else 1
     return 2

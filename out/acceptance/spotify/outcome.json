@@ -1,0 +1,215 @@
+{
+ "key": "spotify",
+ "name": "Spotify Technology S.A.",
+ "standard": "ifrs",
+ "form": "20-F",
+ "report_date": "2025-12-31",
+ "accession": "000162828026006874",
+ "primary_path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\filings\\spotify\\000162828026006874\\ck0001639920-20251231.htm",
+ "pdf_path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\pdf\\spotify_000162828026006874.pdf",
+ "paths": 500,
+ "seed": 20260706,
+ "extraction_rows": [
+  {
+   "statement": "balance_sheet",
+   "compared": 76,
+   "matches": 76,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  },
+  {
+   "statement": "income_statement",
+   "compared": 54,
+   "matches": 54,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  },
+  {
+   "statement": "cash_flow",
+   "compared": 120,
+   "matches": 120,
+   "mismatches": 0,
+   "missing": 0,
+   "flagged": 0
+  }
+ ],
+ "extraction_pass": true,
+ "benign_notes": [],
+ "reconstruction_rows": [
+  {
+   "statement": "balance_sheet",
+   "exact": true,
+   "cells": 92,
+   "demotions": 0
+  },
+  {
+   "statement": "income_statement",
+   "exact": true,
+   "cells": 63,
+   "demotions": 0
+  },
+  {
+   "statement": "cash_flow",
+   "exact": true,
+   "cells": 144,
+   "demotions": 0
+  }
+ ],
+ "reconstruction_pass": true,
+ "footing_total": 46,
+ "footing_failures": [],
+ "footing_excused": 0,
+ "footing_pass": true,
+ "mc_violations": 0,
+ "directional": [
+  {
+   "name": "expansion raises revenue",
+   "detail": "expansion vs baseline, mean revenue: +738,998,000",
+   "passed": true
+  },
+  {
+   "name": "expansion raises net income",
+   "detail": "expansion vs baseline, mean net_income: +137,253,388",
+   "passed": true
+  },
+  {
+   "name": "recession lowers revenue",
+   "detail": "recession vs baseline, mean revenue: -1,048,346,000",
+   "passed": true
+  },
+  {
+   "name": "recession lowers net income",
+   "detail": "recession vs baseline, mean net_income: -264,544,966",
+   "passed": true
+  },
+  {
+   "name": "competition lowers net income",
+   "detail": "competition vs baseline, mean net_income: -282,451,092",
+   "passed": true
+  },
+  {
+   "name": "competition compresses gross margin",
+   "detail": "competition vs baseline, mean gross_margin_bp: -122bp",
+   "passed": true
+  },
+  {
+   "name": "inflation lowers net income",
+   "detail": "inflation vs baseline, mean net_income: -204,498,739",
+   "passed": true
+  },
+  {
+   "name": "rate hike moves income with the firm's net cash position",
+   "detail": "rate_hike vs baseline, mean net_income: +94,687,596",
+   "passed": true
+  }
+ ],
+ "directional_pass": true,
+ "plausibility_total": 60,
+ "plausibility_failures": [],
+ "plausibility_pass": true,
+ "net_cash": "10190000000",
+ "fans": {
+  "net_income": {
+   "baseline": [
+    "2,310",
+    "2,062",
+    "2,205",
+    "2,314",
+    "2,421",
+    "2,555"
+   ],
+   "expansion": [
+    "2,447",
+    "2,197",
+    "2,339",
+    "2,454",
+    "2,563",
+    "2,694"
+   ],
+   "recession": [
+    "2,046",
+    "1,805",
+    "1,941",
+    "2,052",
+    "2,155",
+    "2,285"
+   ],
+   "competition": [
+    "2,028",
+    "1,791",
+    "1,925",
+    "2,034",
+    "2,138",
+    "2,259"
+   ],
+   "rate_hike": [
+    "2,405",
+    "2,158",
+    "2,300",
+    "2,409",
+    "2,516",
+    "2,649"
+   ],
+   "inflation": [
+    "2,106",
+    "1,864",
+    "2,001",
+    "2,112",
+    "2,218",
+    "2,343"
+   ]
+  },
+  "revenue": {
+   "baseline": [
+    "18,212",
+    "17,354",
+    "17,836",
+    "18,219",
+    "18,581",
+    "19,070"
+   ],
+   "expansion": [
+    "18,951",
+    "18,093",
+    "18,575",
+    "18,958",
+    "19,320",
+    "19,809"
+   ],
+   "recession": [
+    "17,164",
+    "16,306",
+    "16,788",
+    "17,171",
+    "17,533",
+    "18,022"
+   ],
+   "competition": [
+    "17,826",
+    "16,968",
+    "17,450",
+    "17,833",
+    "18,194",
+    "18,683"
+   ],
+   "rate_hike": [
+    "18,230",
+    "17,371",
+    "17,853",
+    "18,236",
+    "18,598",
+    "19,087"
+   ],
+   "inflation": [
+    "18,316",
+    "17,457",
+    "17,939",
+    "18,322",
+    "18,684",
+    "19,173"
+   ]
+  }
+ }
+}

@@ -4,10 +4,10 @@ setup:
 	python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 
 fetch:
-	. .venv/bin/activate && python -m spike.fetch
+	. .venv/bin/activate && PYTHONPATH=src python -m spike.fetch
 
 all:
-	. .venv/bin/activate && python -m spike.report
+	. .venv/bin/activate && PYTHONPATH=src python -m spike.report
 
 clean:
 	rm -rf out/*.md out/*.json out/*.graphml

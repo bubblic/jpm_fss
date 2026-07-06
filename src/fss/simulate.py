@@ -46,11 +46,14 @@ def run_scenario(
 ) -> ScenarioResult:
     projector = Projector(company, statements)
     base_growth = projector.base_growth()
-    rng = random.Random(f"{seed}:{company}:{scenario.key}")
     metrics: dict[str, list[Decimal]] = {}
     results: list[ProjectedPeriod] = []
     violations = 0
-    for _ in range(paths):
+    for path_index in range(paths):
+        # common random numbers: the noise stream depends on the path index,
+        # not the scenario, so scenario mean differences measure the scenario
+        # response rather than sampling noise
+        rng = random.Random(f"{seed}:{company}:{path_index}")
         draw = realize(scenario, base_growth, rng, stochastic=True)
         period = projector.project(draw)
         results.append(period)
@@ -58,7 +61,9 @@ def run_scenario(
             violations += 1
         for name, value in period.metrics.items():
             metrics.setdefault(name, []).append(value)
-    deterministic = projector.project(realize(scenario, base_growth, rng, stochastic=False))
+    deterministic = projector.project(
+        realize(scenario, base_growth, random.Random(f"{seed}:{company}:det"), stochastic=False)
+    )
     ni_values = metrics["net_income"]
     med = median(ni_values)
     representative = min(results, key=lambda r: abs(r.metrics["net_income"] - med))

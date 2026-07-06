@@ -243,7 +243,8 @@ class AccuracyReport:
     mismatches: list[CellComparison]
     missing: list[CellComparison]
     flagged_cells: int
-    gt_rows_unmatched: list[str]  # GT rows with values that no PDF row matched
+    # GT rows with values that no PDF row matched: (label, kind, unit)
+    gt_rows_unmatched: list[tuple[str, str, str]]
     pdf_rows_unmatched: list[str]  # PDF rows no GT row matched (junk watch)
 
     @property
@@ -336,7 +337,9 @@ def compare_to_ground_truth(
         key = (gt_rows[i].concept, gt_rows[i].dims, tuple(c.value for c in gt_rows[i].cells))
         if key in matched_keys:
             continue  # duplicate of a row already compared
-        gt_unmatched.append(gt_rows[i].label)
+        row = gt_rows[i]
+        unit = next((cell.unit for cell in row.cells if cell.unit), "")
+        gt_unmatched.append((row.label, row.kind, unit or ""))
     return AccuracyReport(
         company=company,
         statement=reconciled.statement,

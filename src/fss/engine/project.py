@@ -15,6 +15,7 @@ the comparative.
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from decimal import Decimal
@@ -139,6 +140,7 @@ class Projector:
         eps_rows: list[StatementRow] = []
         share_rows: list[StatementRow] = []
         attrib_rows: list[tuple[StatementRow, str]] = []
+        gross_rows: list[StatementRow] = []
         for row in self.inc.rows:
             if row.kind != "leaf":
                 continue
@@ -172,6 +174,8 @@ class Projector:
                 inc_new[_row_key(row)] = _q(base + adjustment)
             elif role == R.DISCONTINUED:
                 inc_new[_row_key(row)] = ZERO
+            elif role == R.GROSS_PROFIT_ROW:
+                gross_rows.append(row)
             elif role == R.TAX:
                 tax_rows.append(row)
             elif role == R.EPS:
@@ -182,6 +186,15 @@ class Projector:
                 attrib_rows.append((row, role))
             else:
                 inc_new[_row_key(row)] = base
+
+        # a filer-printed gross line outside the calc tree articulates from
+        # the projected revenue and cost leaves through balance polarity
+        for row in gross_rows:
+            value = ZERO
+            for leaf in self._rows(self.inc, {R.REVENUE, R.COGS}):
+                sign = ONE if leaf.balance == "credit" else -ONE
+                value += sign * inc_new.get(_row_key(leaf), self._value(self.inc, leaf))
+            inc_new[_row_key(row)] = _q(value)
 
         # tax from projected pretax through the firm's own arcs
         pretax_concepts = self._pretax_concepts(tax_rows)
@@ -197,9 +210,12 @@ class Projector:
 
         # net income and the NCI split
         ni_new = pretax_new - sum(inc_new[_row_key(row)] for row in tax_rows)
-        nci_base = sum(
+        nci_values = [
             self._value(self.inc, row) for row, role in attrib_rows if role == R.ATTRIB_NCI
-        )
+        ]
+        # continuing-operations and total splits repeat the same attribution;
+        # one representative row carries the share
+        nci_base = nci_values[-1] if nci_values else ZERO
         ni_base = self._net_income_base()
         nci_share = nci_base / ni_base if ni_base else ZERO
         nci_new = _q(ni_new * nci_share)
@@ -221,9 +237,20 @@ class Projector:
             )
             decimals = row.cell(inc_latest).decimals if row.cell(inc_latest) else 2
             quantum = Decimal(10) ** (-(decimals if decimals is not None else 2))
-            inc_new[_row_key(row)] = (
-                (parent_new / shares).quantize(quantum) if shares else ZERO
-            )
+            if shares:
+                inc_new[_row_key(row)] = (parent_new / shares).quantize(quantum)
+            else:
+                # no share-count rows on the face: scale reported EPS with
+                # attributable income (share count held, documented)
+                base_eps = self._value(self.inc, row)
+                parent_values = [
+                    self._value(self.inc, r)
+                    for r, role in attrib_rows
+                    if role == R.ATTRIB_PARENT
+                ]
+                parent_base = (parent_values[-1] if parent_values else ZERO) or ni_base
+                ratio = parent_new / parent_base if parent_base else ONE
+                inc_new[_row_key(row)] = (base_eps * ratio).quantize(quantum)
 
         # -- balance sheet and cash flow flows --
         cf_role_map = self.roles["cash_flow"]
@@ -287,19 +314,36 @@ class Projector:
                 cf_new[key] = _q(base * growth)
             elif role in (R.CF_DEFERRED_TAX, R.CF_OTHER_NONCASH, R.CF_IMPAIRMENT,
                           R.CF_OTHER_INVESTING, R.CF_OTHER_FINANCING, R.CF_ACQUISITION,
-                          R.CF_FX, R.CF_NONCASH_DISCLOSURE):
+                          R.CF_FX, R.CF_NONCASH_DISCLOSURE, R.CF_DISCONTINUED,
+                          R.CF_ASSET_DISPOSAL):
                 cf_new[key] = ZERO
-            elif role == R.TAX:  # IFRS add-back of income tax expense
+            elif role in (R.TAX, R.CF_TAX_ADDBACK, R.CF_TAX_PAID):
+                # tax expense add-back and taxes paid articulate exactly with
+                # the projected tax line (pay-as-you-go: no accrual gap, so
+                # the tax stocks stay put and the books stay closed)
                 cf_new[key] = _q(sum(inc_new[_row_key(r)] for r in tax_rows))
+            elif role == R.CF_FINANCE_ADDBACK:
+                # one filer shows a single net row, another separate income
+                # and costs rows; mirror whichever the label says
+                label = row.label.lower()
+                if "net" in label:
+                    cf_new[key] = self._finance_net(inc_new)
+                elif "cost" in label:
+                    cf_new[key] = self._finance_costs(inc_new)
+                else:
+                    cf_new[key] = self._finance_income(inc_new)
+            elif role == R.CF_INTEREST_RECEIVED:
+                cf_new[key] = _q(
+                    self._finance_income(inc_new) - self._dividends_received_base()
+                )
+            elif role == R.CF_INTEREST_PAID:
+                cf_new[key] = self._finance_costs(inc_new)
+            elif role == R.CF_DIVIDENDS_RECEIVED:
+                cf_new[key] = base
             elif role in (R.INTEREST_INCOME, R.INTEREST_EXPENSE, R.OTHER_INCOME, R.IS_DERIVED):
                 cf_new[key] = self._articulate_is_row(row, inc_new)
             elif role == R.CF_SUPPLEMENTAL:
-                scale = (
-                    sum(inc_new[_row_key(r)] for r in tax_rows) / tax_base
-                    if tax_base and "tax" in row.label.lower()
-                    else growth
-                )
-                cf_new[key] = _q(base * scale)
+                cf_new[key] = base
             elif role == R.CF_CAPEX:
                 cf_new[key] = _q(base * growth)
                 capex_base += base
@@ -309,18 +353,44 @@ class Projector:
                 cf_new[key] = _q(base * draw.buyback_factor)
             elif role == R.CF_SBC_TAX_WITHHOLD:
                 cf_new[key] = _q(base * growth)
-            elif role == R.CF_DEBT_ISSUE:
-                cf_new[key] = self._debt_repay_base()
-            elif role == R.CF_DEBT_REPAY:
-                cf_new[key] = self._debt_repay_base()
-            elif role in (R.CF_CP_NET, R.CF_STOCK_ISSUE):
-                cf_new[key] = ZERO
-            elif role == R.CF_LEASE_PAYMENT:
-                cf_new[key] = _q(base * growth)
+            elif role in (R.CF_DEBT_ISSUE, R.CF_DEBT_REPAY, R.CF_CP_NET, R.CF_LEASE_PAYMENT):
+                # financing schedule held at the base-year level; the debt
+                # stocks move with it below
+                cf_new[key] = base
+            elif role == R.CF_STOCK_ISSUE:
+                cf_new[key] = base
+            elif role in (R.CF_INVEST_PURCHASE, R.CF_INVEST_MATURITY, R.CF_INVEST_SALE):
+                # held at base; the liquidity sweep then adjusts the first
+                # purchase line and the securities stocks absorb the net
+                cf_new[key] = base
             elif role in (R.CF_CASH_BEGIN, R.CF_CASH_END, R.CF_NET_CHANGE, R.CF_ACTIVITY_TOTAL):
                 continue  # derived or set after the sweep
             else:
                 cf_new[key] = ZERO
+
+        # debt stocks move with the held financing schedule
+        debt_delta = ZERO
+        for row in self.cf.rows:
+            if row.kind != "leaf":
+                continue
+            key = _row_key(row)
+            role = cf_role_map[key].role
+            if role == R.CF_DEBT_ISSUE:
+                debt_delta += cf_new[key]
+            elif role == R.CF_DEBT_REPAY:
+                debt_delta -= cf_new[key]
+            elif role == R.CF_CP_NET:
+                debt_delta += cf_new[key]  # fact sign: positive = net proceeds
+        debt_rows = self._rows(self.bs, {R.DEBT, R.COMMERCIAL_PAPER})
+        debt_total = sum(bs_begin[_row_key(row)] for row in debt_rows)
+        for row in debt_rows:
+            share = bs_begin[_row_key(row)] / debt_total if debt_total else ZERO
+            move(
+                _row_key(row),
+                _q(debt_delta * share),
+                "debt",
+                "issuance less repayments per the held financing schedule",
+            )
 
         # capital stocks: PP&E moves with capex and D&A (D&A sits inside the
         # expense lines of the income statement already)
@@ -334,15 +404,23 @@ class Projector:
             for row in self.cf.rows
             if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_DA
         )
-        ppe_rows = self._rows(self.bs, {R.PPE})
-        ppe_total = sum(bs_begin[_row_key(row)] for row in ppe_rows)
-        for row in ppe_rows:
-            share = bs_begin[_row_key(row)] / ppe_total if ppe_total else ONE
+        # lease additions equal lease principal payments (the liability is
+        # held flat), and they land in the capital pool alongside capex
+        lease_payments_new = sum(
+            cf_new[_row_key(row)]
+            for row in self.cf.rows
+            if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_LEASE_PAYMENT
+        )
+        pool_rows = self._rows(self.bs, {R.PPE, R.LEASE_ROU})
+        pool_total = sum(bs_begin[_row_key(row)] for row in pool_rows)
+        pool_delta = capex_new + lease_payments_new - da_new
+        for row in pool_rows:
+            share = bs_begin[_row_key(row)] / pool_total if pool_total else ONE
             move(
                 _row_key(row),
-                _q((capex_new - da_new) * share),
-                "ppe",
-                "capex less depreciation and amortization",
+                _q(pool_delta * share),
+                "capital",
+                "capex and lease additions less depreciation and amortization",
             )
 
         # equity flows
@@ -375,6 +453,11 @@ class Projector:
             for row in self.cf.rows
             if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_SBC
         )
+        stock_issue_new = sum(
+            cf_new[_row_key(row)]
+            for row in self.cf.rows
+            if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_STOCK_ISSUE
+        )
         treasury_rows = self._rows(self.bs, {R.TREASURY})
         re_rows = self._rows(self.bs, {R.RETAINED_EARNINGS})
         apic_rows = self._rows(self.bs, {R.COMMON_STOCK_APIC})
@@ -388,7 +471,19 @@ class Projector:
         if treasury_rows:
             move(_row_key(treasury_rows[0]), buyback_new + withhold_new, "buyback", "repurchases into treasury (contra-equity)")
         if apic_rows:
-            move(_row_key(apic_rows[0]), _q(sbc_new), "sbc", "share-based compensation credited to paid-in capital")
+            # prefer the premium/paid-in row over nominal issued capital
+            preferred = [
+                row
+                for row in apic_rows
+                if re.search(r"premium|paid[- ]?in", row.label, re.IGNORECASE)
+            ]
+            target = preferred[0] if preferred else apic_rows[0]
+            move(
+                _row_key(target),
+                _q(sbc_new + stock_issue_new),
+                "sbc",
+                "share-based compensation and option exercises credited to paid-in capital",
+            )
         if nci_rows:
             move(_row_key(nci_rows[0]), _q(nci_new) - nci_div_new, "nci", "income attributable to NCI less NCI dividends")
 
@@ -399,19 +494,31 @@ class Projector:
         pre_sweep_change = self._net_change(cf_new)
         cash_target = _q(cash_base * growth)
         sweep = _q(cash_base + pre_sweep_change - cash_target)
-        sweep = self._apply_sweep(sweep, cf_new, cf_role_map, violations)
+        self._apply_sweep(sweep, cf_new, cf_role_map, violations)
+        # the securities stocks absorb the net of the (post-sweep) purchase,
+        # maturity, and sale lines, so the stocks and the cash flow agree
+        securities_net = ZERO
+        for row in self.cf.rows:
+            if row.kind != "leaf":
+                continue
+            key = _row_key(row)
+            role = cf_role_map[key].role
+            if role == R.CF_INVEST_PURCHASE:
+                securities_net += cf_new.get(key, ZERO)
+            elif role in (R.CF_INVEST_MATURITY, R.CF_INVEST_SALE):
+                securities_net -= cf_new.get(key, ZERO)
         securities_rows = self._rows(self.bs, {R.SECURITIES})
         securities_total = sum(bs_begin[_row_key(row)] for row in securities_rows)
-        remaining = sweep
+        remaining = securities_net
         for index, row in enumerate(securities_rows):
             share = (
                 bs_begin[_row_key(row)] / securities_total
                 if securities_total
-                else ONE / len(securities_rows)
+                else ONE / max(len(securities_rows), 1)
             )
-            amount = _q(sweep * share) if index < len(securities_rows) - 1 else remaining
+            amount = _q(securities_net * share) if index < len(securities_rows) - 1 else remaining
             remaining -= amount
-            move(_row_key(row), amount, "sweep", "liquidity policy: excess cash into securities")
+            move(_row_key(row), amount, "securities", "net investment purchases incl. liquidity sweep")
 
         # cash from the firm's own cash flow statement
         net_change = self._net_change(cf_new)
@@ -540,43 +647,98 @@ class Projector:
     def _bind_wc_row(
         self, cf_row: StatementRow, bs_role_map: dict[tuple, RoleAssignment]
     ) -> list[tuple]:
-        """Bind a working-capital cash-flow row to balance-sheet stocks."""
+        """Bind a working-capital cash-flow row to balance-sheet stocks.
+
+        "Other ... assets/liabilities" rows respect current/non-current
+        qualifiers in the label; a row naming both spans both."""
         label = cf_row.label.lower()
+        current_only = ("current" in label or "short-term" in label) and not (
+            "non-current" in label or "long-term" in label
+        )
+        noncurrent_only = ("non-current" in label or "long-term" in label) and not (
+            "current" in label.replace("non-current", "") or "short-term" in label
+        )
+
+        def span(current_role: str, noncurrent_role: str) -> set[str]:
+            if current_only:
+                return {current_role}
+            if noncurrent_only:
+                return {noncurrent_role}
+            return {current_role, noncurrent_role}
+
         wanted: set[str] = set()
         if "vendor" in label:
             wanted.add(R.VENDOR_RECEIVABLE)
         elif "receivable" in label:
             wanted.add(R.AR)
             if "other assets" in label:
-                wanted.update({R.OTHER_CURRENT_ASSET, R.OTHER_NONCURRENT_ASSET})
+                wanted.update(span(R.OTHER_CURRENT_ASSET, R.OTHER_NONCURRENT_ASSET))
         if "inventor" in label:
             wanted.add(R.INVENTORY)
         if "payable" in label:
             wanted.add(R.AP)
             if "other" in label:
                 wanted.add(R.ACCRUED)
-        if "deferred revenue" in label or "contract liab" in label:
+        if "deferred revenue" in label or "unearned revenue" in label or "contract liab" in label:
             wanted.add(R.DEFERRED_REVENUE)
         if "provision" in label:
             wanted.add(R.PROVISION)
+        if "income tax" in label or label == "income taxes":
+            wanted.update({R.TAX_LIABILITY, R.TAX_RECEIVABLE})
+        if "compensation" in label or "accrued" in label:
+            wanted.add(R.ACCRUED)
         if "other" in label and "asset" in label and "receivable" not in label:
-            wanted.update({R.OTHER_CURRENT_ASSET, R.OTHER_NONCURRENT_ASSET})
+            wanted.update(span(R.OTHER_CURRENT_ASSET, R.OTHER_NONCURRENT_ASSET))
         if "other" in label and "liabilit" in label:
-            wanted.update({R.OTHER_CURRENT_LIAB, R.OTHER_NONCURRENT_LIAB, R.ACCRUED})
+            wanted.update(span(R.OTHER_CURRENT_LIAB, R.OTHER_NONCURRENT_LIAB))
         return [
             key
             for key, assignment in bs_role_map.items()
             if assignment.role in wanted
         ]
 
-    def _debt_repay_base(self) -> Decimal:
-        cf_role_map = self.roles["cash_flow"]
-        repay = [
-            self._value(self.cf, row)
-            for row in self.cf.rows
-            if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_DEBT_REPAY
-        ]
-        return _q(sum(repay, ZERO))
+    def _finance_income(self, inc_new: dict[tuple, Decimal]) -> Decimal:
+        return _q(
+            sum(
+                (
+                    inc_new.get(_row_key(r), self._value(self.inc, r))
+                    for r in self._rows(self.inc, {R.INTEREST_INCOME})
+                ),
+                ZERO,
+            )
+        )
+
+    def _finance_costs(self, inc_new: dict[tuple, Decimal]) -> Decimal:
+        return _q(
+            sum(
+                (
+                    inc_new.get(_row_key(r), self._value(self.inc, r))
+                    for r in self._rows(self.inc, {R.INTEREST_EXPENSE})
+                ),
+                ZERO,
+            )
+        )
+
+    def _finance_net(self, inc_new: dict[tuple, Decimal]) -> Decimal:
+        """The net finance add-back mirrors the projected finance lines.
+
+        Cash realization is then delivered by the interest received and paid
+        lines, so the accrual-to-cash gap is zero and the books close."""
+        return _q(self._finance_income(inc_new) - self._finance_costs(inc_new))
+
+    def _dividends_received_base(self) -> Decimal:
+        role_map = self.roles["cash_flow"]
+        return _q(
+            sum(
+                (
+                    self._value(self.cf, row)
+                    for row in self.cf.rows
+                    if row.kind == "leaf"
+                    and role_map[_row_key(row)].role == R.CF_DIVIDENDS_RECEIVED
+                ),
+                ZERO,
+            )
+        )
 
     def _net_change(self, cf_new: dict[tuple, Decimal]) -> Decimal:
         """The recomputed net-change row of the projected cash flow."""
@@ -765,7 +927,14 @@ class Projector:
             ),
             ZERO,
         )
-        ni = derived(inc, ("us-gaap:NetIncomeLoss", "ifrs-full:ProfitLoss"))
+        ni = derived(
+            inc,
+            (
+                "us-gaap:NetIncomeLoss",
+                "ifrs-full:ProfitLoss",
+                "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+            ),
+        )
         gross = derived(inc, ("us-gaap:GrossProfit", "ifrs-full:GrossProfit"))
         cash = sum(
             (bs_new[_row_key(row)] for row in self._rows(self.bs, {R.CASH})), ZERO
@@ -777,6 +946,7 @@ class Projector:
                 "us-gaap:StockholdersEquity",
                 "ifrs-full:Equity",
                 "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+                "ifrs-full:EquityAttributableToOwnersOfParent",
             ),
         )
         return {
@@ -790,30 +960,47 @@ class Projector:
             "period": Decimal(0),
         }
 
+    def _identity_residual(self, bs: StructuredStatement, period: str) -> Decimal | None:
+        """A minus (L+E), both recomputed from leaves through the arcs."""
+        leaf_values = {
+            (row.concept, row.dims): (
+                row.cell(period).value if row.cell(period) else None
+            )
+            for row in bs.rows
+            if row.kind == "leaf"
+        }
+
+        def recomputed(concepts: tuple[str, ...]) -> Decimal | None:
+            for concept in concepts:
+                for row in bs.rows:
+                    if row.concept == concept and not row.dims and row.kind != "abstract":
+                        value = _recompute_cell(bs, row, period, leaf_values, frozenset())
+                        if value is not None:
+                            return value
+            return None
+
+        assets = recomputed(("us-gaap:Assets", "ifrs-full:Assets"))
+        liab_equity = recomputed(
+            ("us-gaap:LiabilitiesAndStockholdersEquity", "ifrs-full:EquityAndLiabilities")
+        )
+        if assets is None or liab_equity is None:
+            return None
+        return assets - liab_equity
+
     def _assert_identities(self, statements: dict[str, StructuredStatement]) -> list[str]:
         violations: list[str] = []
         bs = statements["balance_sheet"]
         period = bs.columns[0]
-
-        def total(concepts: tuple[str, ...]) -> Decimal | None:
-            for concept in concepts:
-                for row in bs.rows:
-                    if row.concept == concept and not row.dims:
-                        cell = row.cell(period)
-                        if cell and cell.value is not None:
-                            return cell.value
-            return None
-
-        assets = total(("us-gaap:Assets", "ifrs-full:Assets"))
-        liab_equity = total(
-            ("us-gaap:LiabilitiesAndStockholdersEquity", "ifrs-full:EquityAndLiabilities")
-        )
-        if assets is None or liab_equity is None:
+        residual = self._identity_residual(bs, period)
+        # a filer whose printed leaves round to an unbalanced sheet carries a
+        # small constant residual; the engine must add exactly zero to it
+        base_residual = self._identity_residual(self.bs, self.latest["balance_sheet"])
+        if residual is None or base_residual is None:
             violations.append("could not locate top-level balance totals")
-        elif assets != liab_equity:
+        elif residual != base_residual:
             violations.append(
-                f"A != L+E on simulated balance sheet: {assets} vs {liab_equity} "
-                f"(diff {assets - liab_equity})"
+                f"engine introduced imbalance: A-(L+E) {residual} vs base-year "
+                f"residual {base_residual}"
             )
         cf = statements["cash_flow"]
         cf_period = cf.columns[0]

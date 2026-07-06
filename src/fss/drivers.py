@@ -57,8 +57,9 @@ SCENARIOS: dict[str, Scenario] = {
     ),
     "inflation": Scenario(
         "inflation",
-        "Cost inflation 3pp above target without extra demand.",
-        Decimal("0"), Decimal("3"), Decimal("100"), Decimal("0"), Decimal("0"),
+        "Cost inflation 3pp above target without extra demand; a pure "
+        "cost-side shock (rate response isolated in the rate_hike scenario).",
+        Decimal("0"), Decimal("3"), Decimal("0"), Decimal("0"), Decimal("0"),
     ),
 }
 
@@ -67,8 +68,9 @@ BETA_GDP = Decimal("1.6")  # tech revenue elasticity to GDP surprises
 BETA_DEMAND = Decimal("0.02")  # revenue response per demand z-score
 COMPETITION_REVENUE = Decimal("0.015")  # revenue drag per competition z
 COMPETITION_MARGIN = Decimal("0.012")  # gross-margin ratio drag per competition z
-INFLATION_COGS_PASS = Decimal("0.35")  # share of inflation not recovered in price
+INFLATION_COGS_PASS = Decimal("0.5")  # share of inflation not recovered in price
 INFLATION_OPEX_PASS = Decimal("0.5")
+INFLATION_REVENUE_PASS = Decimal("0.2")  # partial nominal passthrough to revenue
 OPEX_REVENUE_BETA = Decimal("0.6")  # semi-variable opex response to revenue growth
 RATE_PASSTHROUGH_ASSETS = Decimal("0.6")  # cash/securities reprice quickly
 RATE_PASSTHROUGH_DEBT = Decimal("0.15")  # mostly fixed-rate term debt
@@ -106,7 +108,9 @@ def realize(
     eps_o = _dec(rng.gauss(0.0, float(OPEX_SIGMA))) if stochastic else Decimal(0)
 
     momentum = MOMENTUM_WEIGHT * base_growth
-    macro = (BETA_GDP * scenario.gdp_growth_pp + scenario.inflation_pp * Decimal("0.4")) / 100
+    macro = (
+        BETA_GDP * scenario.gdp_growth_pp + INFLATION_REVENUE_PASS * scenario.inflation_pp
+    ) / 100
     demand = BETA_DEMAND * scenario.demand_z
     competition_drag = COMPETITION_REVENUE * scenario.competition_z
     revenue_growth = momentum + macro + demand - competition_drag + eps_g

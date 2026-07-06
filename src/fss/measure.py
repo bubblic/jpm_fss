@@ -46,7 +46,10 @@ def measure_company(key: str, verbose: bool = True) -> list[AccuracyReport]:
             for miss in report.missing[:6]:
                 print(f"    missing col{miss.column} {miss.label[:60]!r}: gt={miss.ground_truth}")
             if report.gt_rows_unmatched:
-                print(f"    gt rows unmatched: {[l[:48] for l in report.gt_rows_unmatched]}")
+                print(
+                    "    gt rows unmatched: "
+                    f"{[(label[:40], kind) for label, kind, _ in report.gt_rows_unmatched]}"
+                )
             if report.pdf_rows_unmatched:
                 print(f"    pdf rows unmatched: {[l[:48] for l in report.pdf_rows_unmatched]}")
     return reports

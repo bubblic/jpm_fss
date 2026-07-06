@@ -1,0 +1,455 @@
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\usepackage[hidelinks]{hyperref}
+
+% ---- palette ----
+\definecolor{navy}{HTML}{1B2A4A}
+\definecolor{navytwo}{HTML}{24395F}
+\definecolor{gold}{HTML}{B8860B}
+\definecolor{slate}{HTML}{55606E}
+\definecolor{fgreen}{HTML}{3C6E47}
+\definecolor{tblhead}{HTML}{EAEEF5}
+\definecolor{tblborder}{HTML}{D5DBE5}
+\definecolor{callfill}{HTML}{F3F5F9}
+\definecolor{callborder}{HTML}{C7D0DE}
+\definecolor{bodytext}{HTML}{1A1A1A}
+
+% ---- section styling ----
+\titleformat{\section}{\color{navy}\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\color{navytwo}\large\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\color{navytwo}\normalsize\bfseries}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+\captionsetup{font=small,labelfont={bf,color=navy},labelsep=period,skip=4pt,position=below}
+
+% ---- footer ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\color{slate}\small Financial Statement Simulator \;\textbar\; Full proposal \;\textbar\; page \thepage}
+
+% ---- helpers ----
+\newcommand{\lead}[2]{\par\addvspace{5pt}\textbf{\textcolor{#1}{#2}}}
+\newcommand{\headtext}[1]{\textcolor{navy}{\textbf{#1}}}
+\newcommand{\pass}{\textcolor{fgreen}{\textbf{PASS}}}
+\arrayrulecolor{tblborder}
+\setlength{\tabcolsep}{8pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.7em}
+\setlength{\belowcaptionskip}{9pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=1.5pt,topsep=2pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=1.5pt,topsep=2pt}
+
+\newtheorem{proposition}{Proposition}
+
+\begin{document}
+\color{bodytext}
+
+% ===== Title block =====
+\begin{flushleft}
+{\color{gold}\bfseries PROJECT PROPOSAL}\\[3pt]
+{\color{navy}\bfseries\fontsize{26}{30}\selectfont Financial Statement Simulator}\\[4pt]
+{\color{slate}\large An auditable, standard-neutral simulator of corporate financial statements,\\ with a validated reference implementation on real US GAAP and IFRS filings}\\[6pt]
+{\color{slate}\small Prepared by Jaebum (Albert) Chung \quad\textbar\quad Prepared for Chak \quad\textbar\quad Status: full proposal \quad\textbar\quad July 2026}\\[3pt]
+{\color{slate}\small Internship window: 31 August 2026 to 26 February 2027}
+\end{flushleft}
+\vspace{4pt}
+{\color{gold}\rule{\linewidth}{2pt}}
+\vspace{6pt}
+
+% ===== 0. Executive summary =====
+\section{Executive summary}
+This proposal specifies an enterprise-grade financial statement simulator: a system that reads a company's annual report, re-expresses it in a standard-neutral economic state space, advances that state under a macro and industry scenario with an accounting engine that cannot break the books, and renders next-period statements in the company's own line items, under the company's own accounting standard. The design targets the uses a large bank has for such a machine: forward-looking credit assessment, scenario and stress analysis of counterparties and clients, portfolio-wide what-if screening, and a controlled analytical substrate that model risk management can actually audit.
+
+Three design commitments distinguish the system from a spreadsheet model or a licensed data feed. First, \emph{ingestion is held to a near-zero error bar} enforced by construction: several decorrelated readers extract every figure independently, a field is accepted only when independent paths agree exactly, and accounting identities arbitrate what survives; everything else is flagged for review, never guessed. Second, \emph{the state-space encoding is lossless by theorem, not by hope}: encode-then-decode reproduces the source statement exactly, cell for cell, because the encoder is injective and the decoder recomputes exactly the values the accounting identities pin down. Third, \emph{the simulation cannot silently break accounting}: every projected stock movement is carried by an explicit, balanced flow; cash is never a residual; the engine asserts the identities and rejects any path that violates them.
+
+These are not aspirations. A validation build accompanying this proposal ran the full pipeline on four real annual reports, two US GAAP filers (Apple, Microsoft, Form 10-K) and two IFRS filers (SAP, Spotify, Form 20-F): \textbf{994 of 994} accepted PDF-extracted cells match the filers' own tagged values exactly (zero errors, zero silent misses, every discrepancy source explained); reconstruction through the state space is exact on \textbf{1{,}162 of 1{,}162} cells; and Monte Carlo simulation under six scenarios produces internally consistent statements on every path, moving in the economically required direction on every directional test. Section~\ref{sec:evidence} reports the full results; the remaining sections specify the system, the mathematics it rests on, the testing regime, and the governance wrapper that makes it deployable inside a bank.
+
+% ===== 1. Context =====
+\section{Context and alignment}
+The enterprise-grade bar for this project has been the intent from the outset. Prior intern contributions (Hong Xiao and Elton) established the core of the simulator: an internally consistent, no-circularity accounting engine and autoregressive driver modeling validated on synthetic data. What the project did not yet have, and what this proposal scopes, are the pieces the system hinges on: an extraction layer that reads real filings (US GAAP and IFRS) into structured statements, per-standard encode and decode adapters that map those statements to and from a common state space, the state space itself, and a credible relationship layer that maps scenarios to the flow variables.
+
+The work divides into two parts. \textbf{Part I}, the MVP and the focus of this proposal, is a faithful simulator: it reads a real filing into a structured statement and produces next-period statements that carry the same line items, comply with the source standard, and move in the right direction under scenarios. Its driver layer is a simple state-space model, stochastic by construction, so Part I already runs stochastic simulations: for a given scenario it samples driver noise and propagates it through the engine to a distribution of internally consistent statements. \textbf{Part II}, a later and conditional extension, keeps the same machinery but replaces the simple noise with a learned, conditional joint distribution of the drivers, the main modelling IP. In the phased plan of Section~\ref{sec:plan}, Part I is Phases 0 through 3 and Part II is Phase 4.
+
+Since the draft of this proposal, the riskiest mechanical claims have been retired by working code. A one-day knowledge-graph spike proved the taxonomy-graph encoding on one balance sheet; the validation build described in Section~\ref{sec:evidence} extended that proof to all three core statements, four firms, two accounting standards, a PDF-only extraction mode with a measured error rate, exact reconstruction, and closed-book simulation under scenarios. The proposal can therefore commit to acceptance gates with observed evidence that they are reachable, rather than engineering judgment alone.
+
+% ===== 2. Problem statement =====
+\section{Problem statement and intended use}
+\label{sec:problem}
+A bank consumes corporate financial statements at scale: in credit underwriting and annual reviews, counterparty monitoring, leveraged-finance covenant design, equity and debt research, and client advisory. Nearly all of that consumption is retrospective. The forward-looking questions that matter, what do this client's statements plausibly look like next year if rates stay high, if their industry's pricing tightens, if a recession arrives, are answered today by hand-built spreadsheet models: slow to build, inconsistent across analysts, unauditable in aggregate, and quietly dependent on plugs that make balance sheets balance by fiat.
+
+The simulator addresses that gap with a system that is (i) \emph{faithful}: it starts from what the company actually filed, to the digit; (ii) \emph{consistent}: every simulated statement satisfies the accounting identities exactly, with no plugged balancing items; (iii) \emph{comparable}: one common state space spans firms and standards, so the same scenario can be pushed through every name in a portfolio; (iv) \emph{presentable}: outputs render in each firm's own statement lines, so an analyst or an accountant reviews familiar statements, not a model's internal schema; and (v) \emph{auditable}: every number in every output traces to inputs, rules, and seeds that reproduce it bit for bit.
+
+\lead{navytwo}{Intended users and uses.} Credit and research analysts (single-name scenario statements), portfolio and risk teams (batch what-if screening under common scenarios), and stress-testing functions (a consistent counterparty-level complement to top-down models). The MVP is an analytical tool, not a regulatory model; the governance posture (Section~\ref{sec:governance}) is nevertheless built so that graduation into a governed model inventory is a process step, not a rewrite.
+
+\lead{navytwo}{Non-goals.} The system does not forecast point estimates competitively with equity research, does not price securities, and does not attempt cross-standard conversion (a statement read under IFRS is simulated and rendered under IFRS). Part I's stochastic output is a scenario-conditioned distribution with reasoned dynamics, not a calibrated probabilistic forecast; calibration is exactly the Part II extension.
+
+% ===== 3. Prior work =====
+\section{Prior work}
+\label{sec:prior}
+\lead{navytwo}{Internal.} The no-circularity accounting engine and autoregressive driver experiments by prior interns established that an identity-preserving simulation core is buildable and testable on synthetic data. The director's extraction tooling established the redundant-reader pattern this proposal adopts as its robustness backbone. A one-day spike (June 2026) validated the knowledge-graph encoding mechanics on a real balance sheet, and the validation build accompanying this proposal (July 2026) extended it end to end.
+
+\lead{navytwo}{Statement modeling without plugs.} The requirement that projected statements balance by construction rather than by a plug has a literature. V\'elez-Pareja and Tham develop forecasting schemes with no plugs and no circularity, showing that a balancing item computed as a residual conceals errors that double-entry construction exposes \cite{velezpareja}. Stock-flow consistent macro modeling (Godley and Lavoie) applies the same discipline economy-wide: every flow comes from somewhere and goes somewhere, and accounting matrices must close \cite{godley}. Penman's financial statement analysis frames the articulation of income, balance sheet, and cash flow that the engine enforces mechanically \cite{penman}. The engine in this proposal is the firm-level, line-item-level application of those principles, with the closure asserted programmatically on every simulated path.
+
+\lead{navytwo}{Structured financial data and taxonomies.} XBRL 2.1 and its calculation linkbases define machine-readable statement structure \cite{xbrl21}, extended by the newer Calculations 1.1 specification \cite{calc11}; the FASB US GAAP taxonomy \cite{usgaap} and the IFRS Accounting Taxonomy \cite{ifrstax} supply the concept ontologies (roughly 17{,}000 concepts each) that this proposal uses as the state space's node set. The SEC has required interactive-data filings since 2009 \cite{sec33_9002} and inline XBRL for operating companies since 2019 per the EDGAR Filer Manual \cite{efm}; ESMA's ESEF imposes the same for EU issuers \cite{esef}. The open-source Arelle platform \cite{arelle} is the reference processor for these artifacts and is used by regulators; it is the tag-path reader here.
+
+\lead{navytwo}{Document extraction.} Table structure recognition from rendered documents is an active field with dedicated datasets and models (for example PubTables-1M \cite{pubtables}); financial-domain question answering datasets such as FinQA \cite{finqa} and TAT-QA \cite{tatqa} document how error-prone numerical extraction from filings is for learned systems, which motivates this proposal's decorrelated-reader gate and identity checks rather than trust in any single reader, learned or deterministic.
+
+\lead{navytwo}{Vendor data.} Standardized products (Compustat and peers) reclassify native line items into fixed templates: a non-injective encoding that discards the presentation this system must reproduce, so they cannot serve as the primary representation regardless of accuracy. As-reported vendor feeds preserve native lines but are themselves extraction pipelines with their own error rates, coverage, latency, and licensing constraints. Most decisively, the capability under examination is ingestion of an arbitrary annual report; outsourcing it fails the test by construction. A licensed feed remains useful as an external adjudication reader (Section~\ref{sec:robustness}).
+
+\lead{navytwo}{Governance standards.} The design aligns to SR 11-7's model-risk expectations (documented methodology, effective challenge, outcome analysis) \cite{sr117} and to BCBS 239's risk-data principles (accuracy, integrity, completeness, timeliness, adaptability) \cite{bcbs239}, which is what ``enterprise-grade'' concretely means in Section~\ref{sec:governance}.
+
+% ===== 4. Success =====
+\section{Definition of success (acceptance bar)}
+\label{sec:success}
+Given a prior-period statement and a scenario, the system produces simulated next-period statements that:
+\begin{itemize}
+  \item an accountant cannot identify as obviously wrong;
+  \item preserve the same field set as the input statement (exact line-item parity);
+  \item conform to the applicable standard, US GAAP or IFRS, matching the source filing; and
+  \item respond in the correct direction to scenario changes.
+\end{itemize}
+
+\lead{navytwo}{Quantified gates.} ``Done'' is a battery, not a sentiment. The gates below bind the MVP, and every one of them has already been met by the validation build on its four-firm set (Section~\ref{sec:evidence}):
+\begin{enumerate}
+  \item \textbf{Extraction.} On the gating set, the PDF-only mode (tag path withheld) must show \emph{zero} errors among accepted cells against verified ground truth, with every non-accepted cell flagged rather than silently dropped, and every unmatched ground-truth row assigned to a documented benign category. The measured claim is reported with its rule-of-three bound: $N$ accepted cells and zero errors bounds the per-field error rate above by $3/N$ at 95\% confidence \cite{ruleofthree}. The architectural target for silent \emph{concordant} error, all readers agreeing on the same wrong number and the identities failing to catch it, is of order $10^{-8}$ per field (Section~\ref{sec:robustness}); four filings cannot measure that directly, so it is defended by construction and by seeded-error testing, and reported honestly as such.
+  \item \textbf{Reconstruction.} $D(E(s)) = s$ exactly, on every cell of every statement of every firm in the set: values, labels, order, signs, units, and precision attributes.
+  \item \textbf{Arithmetic.} Every derived subtotal foots from its children within the decimals-based tolerance $0.5 \cdot 10^{-d} \cdot (n+1)$ for a value stated with \texttt{decimals} $= d$ and $n$ addends; A $=$ L $+$ E holds; the cash flow ties to the balance-sheet cash delta.
+  \item \textbf{Simulation integrity.} Across all Monte Carlo paths of all scenarios, zero identity violations: the engine may not introduce any imbalance beyond the filer's own printed rounding residual, which it must preserve exactly.
+  \item \textbf{Directional battery.} Scenario means move with the required signs (Section~\ref{sec:drivers}); the battery must pass in full.
+  \item \textbf{Plausibility.} Sampled statements pass automated accountant-style bounds (growth, margin, non-negativity, continuity), and a qualified accountant review of representative statements finds nothing obviously wrong. Reviewer sign-off is the human gate on top of the automated battery.
+\end{enumerate}
+
+\lead{navytwo}{Precision asymmetry.} Extraction is held to the near-zero bar because a misread figure invalidates everything downstream. Encoding is exact by construction. Simulation output needs to be solid, robust, and directionally credible rather than precisely forecast; its correctness dimension is internal consistency, which is absolute.
+
+% ===== 5. Architecture =====
+\section{System architecture}
+\label{sec:architecture}
+The simulation core is common to both standards; standard-specific work sits at the boundaries. Figure~\ref{fig:pipeline} shows the pipeline; Table~\ref{tab:components} lists the components and their validation status.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  node distance=4mm and 5mm,
+  stage/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center},
+  data/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center, text=navy},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
+]
+\node[data] (filing) {Filing\\ \scriptsize 10-K / 20-F, iXBRL or PDF};
+\node[stage, right=of filing] (extract) {\textbf{Extract}\\ \scriptsize redundant readers\\ \scriptsize + agreement gate};
+\node[data, right=of extract] (ss) {Structured\\ statement};
+\node[stage, right=of ss] (encode) {\textbf{Encode} $E$};
+\node[data, right=of encode] (state) {$(z, m)$\\ \scriptsize state + map};
+\node[stage, below=9mm of state] (engine) {\textbf{Driver layer + engine}\\ \scriptsize scenario $\to$ flows $\to$ balanced postings};
+\node[data, left=of engine] (statep) {$(z', m)$};
+\node[stage, left=of statep] (decode) {\textbf{Decode} $D$};
+\node[data, left=of decode] (out) {Next-period\\ statements\\ \scriptsize native lines,\\ \scriptsize same standard};
+\draw[arrow] (filing) -- (extract);
+\draw[arrow] (extract) -- (ss);
+\draw[arrow] (ss) -- (encode);
+\draw[arrow] (encode) -- (state);
+\draw[arrow] (state) -- (engine);
+\draw[arrow] (engine) -- (statep);
+\draw[arrow] (statep) -- (decode);
+\draw[arrow] (decode) -- (out);
+\node[above=1mm of engine, font=\scriptsize\color{slate}] {scenario, Monte Carlo noise};
+\end{tikzpicture}
+\caption{End-to-end pipeline. Extraction (reading the filing) and encoding (re-representing it) are distinct stages with different error models: extraction carries a measured error rate; $E$ and $D$ are deterministic and lossless. The presentation map $m$ retained at encode time is what makes the output print in the firm's own line items.}
+\label{fig:pipeline}
+\end{figure}
+
+\noindent\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{2.6cm} X}
+\hline
+\rowcolor{tblhead} \headtext{Component} & \headtext{Status} & \headtext{Role} \\ \hline
+Statement extractor & \textbf{\textcolor{fgreen}{Validated}} & Reads a filing (tagged data or PDF) into a structured statement using decorrelated readers and an agreement gate; carries the near-zero read-error target. \\ \hline
+Encode/decode adapters & \textbf{\textcolor{fgreen}{Validated}} & Losslessly map structured statements to and from the common state space; perfect reconstruction proven per filing. \\ \hline
+Common state space & \textbf{\textcolor{fgreen}{Validated}} & Standard-neutral state over the US GAAP and IFRS taxonomies, specified as a knowledge graph (Section~\ref{sec:kg}); retains the per-firm presentation map. \\ \hline
+Accounting engine & \textbf{\textcolor{fgreen}{Rebuilt + validated}} & Evolves stocks from balanced flows; identities preserved by construction, asserted on every path (Section~\ref{sec:engine}). \\ \hline
+Driver-to-flow layer & \textbf{\textcolor{fgreen}{MVP validated}} & Maps scenarios to flows with reasoned nonlinear responses and sampled noise (Section~\ref{sec:drivers}); the Part II learning slot. \\ \hline
+\end{tabularx}
+\captionof{table}{System components. ``Validated'' means exercised end to end by the four-firm validation build of Section~\ref{sec:evidence}.}\label{tab:components}
+\end{minipage}
+
+\subsection{Encoding, decoding, and perfect reconstruction}
+\label{sec:reconstruction}
+Why operate in a state space at all? First, line items are heterogeneous: firms present the same economics under different labels, orderings, and aggregations, so machinery written against native lines fragments into per-firm variants; the common state gives the simulation one stable schema. Second, standards become cheap to add: the driver layer and engine wire once to the standard-neutral state, so a new standard costs an adapter pair. Third, it is what makes Part II estimable: pooling firms requires a shared representation. The price of this indirection is that nothing may be lost on the way in or out.
+
+Write $s$ for a structured statement: an ordered list of rows, each carrying a taxonomy concept, an optional dimensional qualification (axis and member, for statements that disaggregate a concept on their face), a native label, sign convention, unit and precision, and one value cell per reported column. The encoder outputs a pair
+\begin{equation}
+E(s) = (z, m),
+\end{equation}
+where $z$ carries the values of the information-bearing rows and $m$ carries everything else: row order, labels, signs, units, precision, sections, column periods, and the derivation structure (calculation arcs and dimensional aggregation) discovered from the filing. The decoder renders $D(z, m) = \hat{s}$. Perfect reconstruction requires $D \circ E = \mathrm{id}$ on the domain of valid statements, which holds if and only if $E$ is injective.
+
+\begin{proposition}[Lossless reduction]
+\label{prop:injective}
+Let $z$ store one value per (concept, dimensions, period-role) key for every row not derivable from the others, and let $m$ store every remaining attribute of $s$ together with the derivation rules
+\begin{equation}
+v(r, p) \;=\; \sum_{c \,\in\, \mathrm{children}(r)} w_{rc}\, v(c, p)
+\qquad\text{or}\qquad
+v(r, p) \;=\; \sum_{r' \,\in\, \mathrm{members}(r)} v(r', p)
+\label{eq:derive}
+\end{equation}
+for calculation parents and dimensional aggregates respectively. Then $E$ is injective and $D$ as defined by re-rendering $m$ and recomputing \eqref{eq:derive} is a left inverse of $E$.
+\end{proposition}
+
+The proof is by construction: two statements agreeing on $(z, m)$ agree on every stored cell and every attribute, and their derived cells are equal because \eqref{eq:derive} is a function of stored cells. The only values dropped are exact functions of kept ones, so the reduction is lossless. Two lessons from the validation build sharpen the ``key'' clause, and both are now regression tests. \emph{Dimensions:} Apple and Microsoft disaggregate revenue and cost of sales by product/service axis on the face, so the same concept legitimately appears in several rows; keys must carry the dimensional qualification. \emph{Period roles:} a cash flow statement displays the same cash concept twice, as beginning and ending balances distinguished only by the preferred-label period role; collapsing them breaks injectivity, exactly the failure mode Proposition~\ref{prop:injective} forbids. Where a filer's printed subtotal differs from \eqref{eq:derive} because the filer rounded each line independently (observed at SAP: reported subtotals off by one million at millions precision), the row is \emph{demoted to stored} and the discrepancy disclosed: reconstruction stays exact and the filing's arithmetic inconsistency is surfaced rather than hidden.
+
+In a forecast the engine advances the state, $z \mapsto z'$, and the output is rendered through the retained map, $D(z', m)$: exact line-item parity in a forecast is the same mechanism as reconstruction with $z'$ in place of $z$.
+
+\subsection{The state space as a knowledge graph}
+\label{sec:kg}
+The common state space is specified as a typed graph over the standard setters' own machine-readable ontologies: the US GAAP and IFRS XBRL taxonomies \cite{usgaap, ifrstax}, roughly 17{,}000 concepts each. Nodes carry the attributes the simulator relies on and the taxonomy already provides: period type (instant versus duration, precisely the stock/flow distinction), balance polarity (debit or credit, the sign conventions), monetary flags, and labels. Edges come in five types: \emph{composition} edges imported from the calculation linkbases (subtotal arithmetic, including the newer Calculations 1.1 arcs \cite{calc11}, which one of the four validation filers already uses); \emph{dimensional aggregation} edges for face-of-statement axes; \emph{laws of motion}, authored, recording which flows update which stocks and the cross-statement articulation; \emph{label and synonym} edges, imported, powering the untagged-mode semantic mapper; and \emph{driver attachments} from Section~\ref{sec:drivers}. The authored layers cover the simulated core, on the order of one to three hundred concepts, not seventeen thousand; in the validation build the authored role table plus a calc-descendant inheritance rule (an extension concept inherits the role of the subtotal it feeds) classified every face line of all four filers with no per-firm code.
+
+Encoding a statement builds a \emph{firm overlay} on this graph. Each native line resolves to a node: directly when tagged with a standard concept; as an anchored child of its calculation parent when tagged with a firm extension (SAP's cloud revenue lines are extensions anchored to IFRS revenue); and, in the untagged PDF-only mode, through label-index candidates accepted only if the induced composition subtree foots to the printed subtotals and polarity matches the printed signs, with unresolvable lines flagged under the abstain rule. The firm's disclosed leaves become the entries of $z$; subtotals and aggregates are marked derived and recomputed on decode; $m$ decorates the same overlay with the exact native presentation. One graph then serves five consumers: extraction disambiguation, the adapters, the engine's stock-flow wiring, driver attachment, and (later) cross-standard correspondence.
+
+Three cautions are built in, all encountered in practice during validation: filed calculation linkbases are treated as the per-firm arithmetic backbone but verified, never trusted (SAP's own subtotals violate them at printed precision); dimensional breakdowns are restricted to face-of-statement axes for the MVP (note-level axes leak into face concepts otherwise); and taxonomy versions are pinned per fiscal year.
+
+% ===== 6. Engine =====
+\section{The accounting engine: no plugs, no circularity}
+\label{sec:engine}
+The engine's contract is that it \emph{cannot} produce an unbalanced statement, and that nothing is plugged to make that true. Let the balance-sheet leaves be accounts $a \in \mathcal{A}$ with balance polarity $\beta_a \in \{+1 \text{ (debit)}, -1 \text{ (credit)}\}$. A \emph{flow} $f$ posts amounts $\phi_f(a)$ to a set of accounts; a flow is \emph{balanced} when its debit-signed legs cancel:
+\begin{equation}
+\sum_{a \in \mathcal{A}} \beta_a\, \phi_f(a) \;=\; 0 .
+\label{eq:balanced}
+\end{equation}
+Stocks evolve only through flows, $s_{t+1}(a) = s_t(a) + \sum_f \phi_f(a)$, so by linearity the accounting identity residual
+\begin{equation}
+R_t \;=\; \sum_{a} \beta_a\, s_t(a) \;=\; \text{Assets} - \text{Liabilities} - \text{Equity}
+\end{equation}
+is invariant: $R_{t+1} = R_t$ for any set of balanced flows. The engine asserts this invariance exactly on every simulated path. The base residual $R_0$ is zero for three of the four validation filers; for the fourth (SAP) the \emph{printed} leaves round to a two-million-euro imbalance at millions precision, the filer's own rounding, which the engine preserves to the cent and reports, rather than absorbing into any account. That distinction, preserve the filing's residual, add exactly zero of your own, is the operational meaning of ``no plugs.''
+
+\lead{navytwo}{Period cycle.} Each simulated period runs: (1) project income-statement leaves from the driver draw; (2) set operating-stock targets (receivables, inventory, payables, deferred revenue and their kin) through the firm's \emph{own} working-capital cash flow lines, so a stock moves only if the firm's cash flow statement has a line that carries its delta; (3) hold the discretionary schedule at reasoned levels (capital expenditure scaling with revenue, dividends growing with capped income growth, buybacks policy-scaled, debt issuance and repayment held at the filed schedule, lease payments held with additions imputed); (4) close income to retained earnings, route share-based compensation to paid-in capital, buybacks to treasury where the firm carries one; (5) apply the liquidity policy: excess cash above the operating target sweeps into the firm's own investment-purchase lines, a behavioral treasury rule, not an accounting plug, the books balance with or without it; (6) recompute every derived row through the firm's calculation arcs; (7) assert the invariants: residual invariance, and the cash tie, ending cash equals beginning cash plus the recomputed net-change row of the firm's own cash flow statement.
+
+\lead{navytwo}{Articulation.} Cross-statement identities hold by construction because both sides come from the same flow: the depreciation add-back equals the amount removed from the capital pool; working-capital rows equal the negatives of their stock deltas; IFRS-style operating add-backs (tax expense, net finance items) mirror the projected income lines with their cash counterparts (taxes paid, interest received and paid) articulated so the accrual-cash gap is zero and the related stocks stay put. The validation build's four filers exercise materially different articulation styles (US GAAP indirect with supplemental cash disclosures; IFRS starting from profit after tax with add-backs and cash items inside the operating total) and both close exactly.
+
+\lead{navytwo}{Auditability.} Every flow is journaled with its magnitude and its double-entry effect description; every run writes the journal, the input hashes, versions, configuration, and seed. Reruns are bit-identical. An auditor can take any simulated figure and walk it back to filed values and named rules.
+
+% ===== 7. Drivers =====
+\section{The driver-to-flow layer and scenarios}
+\label{sec:drivers}
+Scenarios are vectors $x = (\Delta g^{\text{GDP}},\ \Delta \pi,\ \Delta r,\ z_c,\ z_d)$: GDP growth deviation from trend (percentage points), inflation deviation (pp), a parallel short-rate shift (basis points), an industry competition shock (z-score), and a firm demand shock (z-score). The MVP driver map is reasoned and nonlinear where the economics demands it, with parameters documented, not fitted:
+\begin{align}
+g_{\text{rev}} &= w_m\, \hat{g} \;+\; \tfrac{1}{100}\big(\beta_G\, \Delta g^{\text{GDP}} + \lambda_\pi\, \Delta\pi\big) \;+\; \beta_d z_d \;-\; \kappa_r z_c \;+\; \varepsilon_g,
+\qquad \varepsilon_g \sim \mathcal{N}(0, \sigma_g^2), \label{eq:revgrowth}\\
+\Delta\!\left(\tfrac{\text{COGS}}{\text{Rev}}\right) &= \kappa_m z_c \;+\; \lambda_c\, \tfrac{\Delta\pi}{100} \;+\; \varepsilon_m,
+\qquad
+g_{\text{opex}} = \alpha\, g_{\text{rev}} + \lambda_o \tfrac{\Delta\pi}{100} + \varepsilon_o, \label{eq:margin}\\
+y' &= y + \rho_A \tfrac{\Delta r}{10^4} \ \ \text{(asset yields)},
+\qquad
+c' = c + \rho_D \tfrac{\Delta r}{10^4} \ \ \text{(debt rates)}, \quad \rho_A > \rho_D, \label{eq:rates}
+\end{align}
+with $\hat{g}$ the firm's own trailing revenue growth, $w_m$ a mean-reversion weight, and $\lambda_\pi < \lambda_c$ (inflation passes into costs faster than into prices, so a pure cost shock compresses margins); effective tax rate clipped to $[5\%, 45\%]$; dividend growth capped at $\min(g_{\text{rev}}, 10\%)$ and floored at zero; buybacks halved in deep downturns; revenue growth floored at $-35\%$. Monte Carlo runs use common random numbers across scenarios, so scenario mean differences measure the scenario response, not sampling noise. Firms without separate interest lines receive the net rate effect on their combined other-income line, sized by their own cash, securities, and debt balances. Where a driver has no line to act on, it inherits down the concept hierarchy of the knowledge graph.
+
+For a fixed scenario, Monte Carlo sampling of $(\varepsilon_g, \varepsilon_m, \varepsilon_o)$ propagates through the engine, so the output is a distribution over complete, internally consistent statements; the identity assertions run on every path. The \textbf{directional battery} requires, on scenario means versus baseline: expansion raises revenue and net income; recession lowers both; competition lowers net income and compresses gross margin; inflation without demand lowers net income; and a rate hike moves net income with the sign of the firm's own net cash position, computed from its balance sheet, not asserted. Part II replaces \eqref{eq:revgrowth}--\eqref{eq:rates}'s noise with a learned conditional joint distribution, keeping every other component fixed.
+
+% ===== 8. Robustness =====
+\section{Extraction robustness}
+\label{sec:robustness}
+Extraction is held to a far higher precision bar than the rest of the system because a misread figure invalidates everything downstream. The approach mirrors the engineering already used in the director's own tools: several readers cross-check one another, and a field is accepted only when they agree.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  node distance=3.5mm and 7mm,
+  reader/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=8mm, minimum width=34mm, inner sep=4pt, align=center},
+  gate/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center, text=navy},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
+]
+\node[reader] (r1) {R1: word geometry\\ \scriptsize column bands from positions};
+\node[reader, below=of r1] (r2) {R2: line grammar\\ \scriptsize pdfminer text engine};
+\node[reader, below=of r2] (r3) {R3: line grammar\\ \scriptsize pypdf text engine};
+\node[reader, below=of r3, draw=gold] (r4) {R4: tagged facts (when present)\\ \scriptsize signs, scale, period explicit};
+\node[gate, right=11mm of r2.east, yshift=-5mm] (gate) {Agreement gate\\ \scriptsize independence-weighted:\\ \scriptsize positional + one text engine,\\ \scriptsize or both text engines};
+\node[gate, right=10mm of gate] (ident) {Identity checks\\ \scriptsize footing, A=L+E,\\ \scriptsize cash tie, EPS};
+\node[data, right=10mm of ident, draw=fgreen, text=fgreen, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center] (out) {accepted\\ \scriptsize or flagged,\\ \scriptsize never guessed};
+\draw[arrow] (r1.east) -- ++(4mm,0) |- (gate.170);
+\draw[arrow] (r2.east) -- (gate.west|-r2.east);
+\draw[arrow] (r3.east) -- ++(4mm,0) |- (gate.190);
+\draw[arrow, color=gold] (r4.east) -- ++(6mm,0) |- (ident.south);
+\draw[arrow] (gate) -- (ident);
+\draw[arrow] (ident) -- (out);
+\end{tikzpicture}
+\caption{The reconciliation gate. Readers consume different representations of the same document; the gate weights agreement by path independence (the two line readers share a grammar, so their mutual agreement cannot outvote positional evidence); identity checks catch concordant errors that break arithmetic; tagged facts, when present, are the strongest reader and the ground truth for measuring the others.}
+\label{fig:gate}
+\end{figure}
+
+Under this gating rule the two failure modes have very different costs: a disagreement costs review time; the expensive event is \emph{silent concordance}, every reader returning the identical wrong value. With $k$ genuinely independent readers of per-field error rates $p_i$ and a collision kernel $c$ (the probability that independent errors land on the same wrong value), the silent-concordance rate is of order $c \prod_i p_i$; with observed single-reader error rates at or below the percent level, decorrelated failure modes, and the identity filter removing arithmetic-breaking survivors, the design target is toward $10^{-8}$ per field, \emph{measured} where measurement is possible and defended by construction where it is not. Three filters implement this:
+\begin{enumerate}
+  \item \textbf{Cross-reader agreement} catches discordant errors; every disagreement is surfaced, never resolved silently. The acceptance rule is independence-weighted: the geometry reader plus either text-engine reader accepts; the two text-engine readers agreeing with each other, without positional support, is accepted only where geometry has no reading at all, and recorded as the weaker rule.
+  \item \textbf{Decorrelated input paths}: word positions; two different text extraction engines under one line grammar; the filer's tagged facts when present (explicit sign, scale, period, no dependence on visual layout); optionally a vision reader and the prior year's comparatives. Layout pathologies (wrapped labels, note-reference columns, scale headers, glued currency amounts, unlabeled section totals) hit the layout readers and not the tag path; tag-path pathologies (extension tags, footnote-only values) do not afflict the layout readers.
+  \item \textbf{Accounting-identity checks} catch concordant errors that break arithmetic: footing along the calculation arcs, A $=$ L $+$ E, the cash tie, and per-share consistency, all within the decimals tolerance. They also catch genuine typos in the source filing, which are surfaced, since the extractor's ground truth is what the filing says.
+\end{enumerate}
+
+\lead{navytwo}{Tags are the best case, not a prerequisite.} Where a document carries no tags, the remaining readers still gate one another and the identities still bind; reduced redundancy surfaces as a higher flag rate, not silent error. Because the untagged mode is the one that generalizes beyond public filings, it is measured separately: the \emph{PDF-only ablation} withholds the tag path from extraction entirely and scores the result against it. Section~\ref{sec:evidence} reports that ablation at zero errors on 994 accepted cells across the four filers.
+
+\lead{navytwo}{Residual risk.} What remains silent is the intersection: errors concordant across decorrelated paths, identity-preserving, and within rounding tolerance, for example a uniform mis-scaling that multiplies every value identically (identities are scale-invariant, so only the tag path or a share-consistency check catches it). The seeded-error battery deliberately injects the correlated pathologies (wrapped labels, scale exceptions, note-reference columns, digit transpositions, dropped signs) and requires the gate to flag every one; a re-prompt of the same model on the same input is never counted as an independent check; and adjudication weight follows path independence, a standard-tag value outweighing two layout readers that agree with each other.
+
+% ===== 9. Evidence =====
+\section{Validation evidence: four filers, two standards}
+\label{sec:evidence}
+Everything in this section was produced by the reference implementation accompanying this proposal (\texttt{src/fss}, roughly 5{,}000 lines of typed Python with a pytest suite and full audit manifests), run end to end on the most recent annual reports of Apple and Microsoft (US GAAP, Form 10-K) and SAP and Spotify (IFRS, Form 20-F). PDFs were rendered from the official EDGAR primary documents; the tag path (Arelle over the filers' inline XBRL) supplies ground truth. Balance sheet, income statement, and cash flow statement, all reported columns.
+
+\lead{navytwo}{Extraction (PDF-only ablation).} Zero errors on every accepted cell, all four filers, all three statements, all columns:
+
+\noindent\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\linewidth}{X rrrrr}
+\hline
+\rowcolor{tblhead} \headtext{Filer (standard)} & \headtext{compared} & \headtext{match} & \headtext{mismatch} & \headtext{missing} & \headtext{flagged} \\ \hline
+Apple (US GAAP) & 198 & 198 & 0 & 0 & 0 \\ \hline
+Microsoft (US GAAP) & 227 & 227 & 0 & 0 & 0 \\ \hline
+SAP (IFRS) & 319 & 319 & 0 & 0 & 0 \\ \hline
+Spotify (IFRS) & 250 & 250 & 0 & 0 & 0 \\ \hline
+\rowcolor{tblhead} Total & 994 & 994 & 0 & 0 & 0 \\ \hline
+\end{tabularx}
+\captionof{table}{PDF-only extraction versus tag-path ground truth. ``Compared'' counts accepted numeric cells; the rule-of-three 95\% upper bound on the per-field error rate at 994/994 is 0.30\%. Every unmatched ground-truth row falls in a documented benign category (values printed inside a label rather than as cells; derived subtotals the filer does not print, verified through their children).}
+\end{minipage}
+
+The pathologies survived on the way to zero are the point of the exercise: wrapped labels with values on either the first or the continuation line; label-embedded amounts (``allowance of \$944 and \$830''); share counts in thousands beside dollars in millions on one statement; IFRS note-reference columns, both alphanumeric and bare-numeric; unlabeled section-total rows; superscript footnote digits fused to labels and to column years; dashes as explicit zeros; and negated-label sign conventions throughout the cash flows. Each was caught by reader disagreement or ground-truth mismatch during development, fixed as a general rule (never a firm-specific patch), and several are now seeded-error regression tests.
+
+\lead{navytwo}{Reconstruction.} $D(E(s)) = s$ exactly on all 12 statements, 1{,}162 cells: values, labels, order, signs, units, precision. SAP's sixteen filer-rounded subtotals were demoted to stored values with the discrepancies disclosed, exactly as Section~\ref{sec:reconstruction} specifies; the other three filers required none.
+
+\lead{navytwo}{Footing and identities.} Every derived cell of every extracted statement foots within the decimals tolerance; A $=$ L $+$ E and the cash ties hold on all filers (SAP's printed one-million rounding differences pass under the tolerance and are reported).
+
+\lead{navytwo}{Simulation.} Six scenarios (baseline, expansion, recession, competition, rate hike, inflation), 500 Monte Carlo paths each, per filer: zero identity violations on all 12{,}000 paths; the engine preserves each filer's base rounding residual exactly and adds none. The directional battery passes in full for all four filers, including the net-cash-position-signed rate test. Representative simulated statements (median-net-income path per scenario), the per-path metric distributions, and the flow journals are written under \texttt{out/acceptance/} for accountant review; automated plausibility bounds (growth within $[-40\%, +60\%]$, gross margin within 15pp of base, non-negative cash, positive assets, exact continuity) pass on all representative and deterministic paths.
+
+\lead{navytwo}{What this de-risks.} The three claims the full build hinges on are now demonstrated on real filings rather than argued: the taxonomy graph carries what the simulator needs and real statements land on it without manual mapping; values and presentation separate losslessly, so simulation operates on $z$ alone and re-renders natively; and the no-plug engine discipline survives contact with materially different real-world articulation styles under two standards.
+
+% ===== 10. Testing =====
+\section{Testing and acceptance plan}
+\label{sec:testing}
+Testing operates at four levels, all automated except the last:
+\begin{enumerate}
+  \item \textbf{Unit and property tests}: the number grammar (parentheses, dashes, unicode minus, glued currency, scale clauses), the display grammar (wrapped labels, unlabeled totals, section tracking), the gate's seeded-error battery (a corrupted reader must be flagged or outvoted by independent evidence, never silently accepted; correlated line-reader errors must not outvote positional evidence), encoder injectivity cases (dimensioned rows, period roles, filer-rounded subtotals), and driver response signs.
+  \item \textbf{Golden statement tests}: extracted statements for the gating set are frozen; any change in extraction output diffs against the golden copies cell by cell.
+  \item \textbf{The acceptance battery} (\texttt{python -m fss accept}): re-runs extraction accuracy, reconstruction, footing, the full Monte Carlo, directional and plausibility batteries, and writes the acceptance report and manifest. This is the go/no-go gate for any change, and its verdict is binary.
+  \item \textbf{Accountant review}: representative simulated statements per firm per scenario, rendered natively, reviewed under the ``not obviously wrong'' standard; findings feed the plausibility battery as new automated bounds.
+\end{enumerate}
+The gating set for the internship phases extends the validation set to roughly three filers per standard with one deliberately awkward inclusion each (a filer with discontinued operations mid-history, and a loss-making filer), plus one truly untagged document (an older or private-company annual report) to exercise the PDF-only semantic mapper without any same-filing metadata. Ground truth for the untagged document is hand-verified double-entry.
+
+Every accepted-cell error found at any point is a sev-1 against the extraction layer: the fix must be a general rule, demonstrated by a new seeded-error test, never a filer-specific patch.
+
+% ===== 11. Governance =====
+\section{Governance, controls, and operations}
+\label{sec:governance}
+\lead{navytwo}{Model risk alignment (SR 11-7).} The system is documented as: purpose and use (Section~\ref{sec:problem}), methodology and theory (Sections~\ref{sec:reconstruction}--\ref{sec:drivers}), data lineage (filing hashes to outputs), developmental evidence (Section~\ref{sec:evidence}), ongoing monitoring (the acceptance battery re-run on every change and on every new filing ingested), and known limitations (Section~\ref{sec:limits}). Effective challenge is enabled by determinism: any reviewer can reproduce any number from the manifest.
+
+\lead{navytwo}{Data quality (BCBS 239 posture).} Accuracy and integrity are the extraction gates themselves; completeness is measured (coverage and flag rates per statement); timeliness is bounded by EDGAR availability plus pipeline runtime (minutes per filer); adaptability is the role-table and rule architecture, changes to which are code-reviewed and battery-gated.
+
+\lead{navytwo}{Audit trail.} Per run: SHA-256 of every input document, tool and package versions, configuration, seeds, per-field provenance (each reader's raw token, the rule that accepted or flagged it), the encode demotion list, the flow journal per simulated path, and the validation verdicts. Retention follows the bank's records schedule; nothing in the pipeline mutates its inputs.
+
+\lead{navytwo}{Security and licensing.} All processing is local; the only egress is fetching public filings from EDGAR with the mandated identification headers and rate limits. Dependencies are permissively licensed (Apache-2.0, MIT, BSD); no copyleft components. Taxonomy files are cached under their publishers' terms and not redistributed. LLM-based readers, when added, run as one more gated reader with schema-constrained output and no authority to accept a field alone; the architecture neither requires nor trusts them.
+
+\lead{navytwo}{Operations.} The pipeline is a CLI (\texttt{fetch}, \texttt{extract}, \texttt{measure}, \texttt{accept}) suitable for scheduled batch execution; per-filer runtime is minutes on commodity hardware, dominated by document parsing. Failure modes are loud: a filing that cannot be located, parsed, or reconciled produces a structured error and no partial output.
+
+% ===== 12. Plan =====
+\section{Phased build plan and timeline}
+\label{sec:plan}
+The validation build compresses risk out of the original phasing: what was Phase 1's core uncertainty is now reference code. The internship phases harden and extend it to the full bar.
+
+\begin{itemize}
+  \item \textbf{Phase 0 (2 weeks): scope lock and harness industrialization.} Fix the gating set (three filers per standard, one untagged document); freeze acceptance criteria with the director and the accountant reviewer; port the validation build's battery into the team's CI; golden statements recorded.
+  \item \textbf{Phase 1 (7 weeks): extraction and adapters at the full bar.} Extend the readers (vision reader; prior-year comparatives as an additional path; the LLM semantic mapper for the untagged document under the constraint-checked hypothesis rule); adjudication UI for flagged fields; the seeded-error battery grown to the full pathology catalogue; IFRS coverage hardened beyond the two validated filers. Gate: the two extraction gates of Section~\ref{sec:success} on the full gating set, including the untagged document at its own measured bar.
+  \item \textbf{Phase 2 (2 weeks): engine integration and manual toggles.} Wire the encoded state into the engine lineage the team maintains (reconciling with the prior interns' engine where it adds capability); expose flow parameters as reviewed toggles; end-to-end demo on the gating set. This phase is integration, made fast by the validated reference.
+  \item \textbf{Phase 3 (3 weeks): drivers, scenarios, and review.} Macro layer consumed from the existing external model (Jodie's) with the documented interface; the directional battery extended with the accountant's scenario expectations; stochastic runs reviewed; plausibility bounds tightened from findings.
+  \item \textbf{Hardening (4 weeks)}: accountant sign-off cycles, adversarial filings (restatements, 52/53-week years, currency redenominations), performance, documentation to the governance standard of Section~\ref{sec:governance}.
+  \item \textbf{Phase 4 (5 weeks, conditional): learned driver distributions.} The Part II estimator, trained across firms in the common state space, validated on calibration; started only on MVP sign-off.
+\end{itemize}
+
+\noindent\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{1.7cm} X >{\raggedright\arraybackslash}p{3.4cm} >{\centering\arraybackslash}p{1.5cm}}
+\hline
+\rowcolor{tblhead} \headtext{Phase} & \headtext{Focus} & \headtext{Window} & \headtext{Weeks} \\ \hline
+Phase 0 & Scope lock, harness industrialization & 31 Aug to 11 Sep 2026 & 2 \\ \hline
+Phase 1 & Extraction and adapters at the full bar (US GAAP + IFRS + untagged) & 14 Sep to 30 Oct 2026 & 7 \\ \hline
+Phase 2 & Engine integration and manual flow toggles & 2 Nov to 13 Nov 2026 & 2 \\ \hline
+Phase 3 & Driver layer, scenarios, stochastic validation & 16 Nov to 4 Dec 2026 & 3 \\ \hline
+Hardening & Accountant review cycles, adversarial filings, docs & 7 Dec 2026 to 15 Jan 2027 & $\sim$4 \\ \hline
+Phase 4 & Learned driver distributions (conditional) & 18 Jan to 26 Feb 2027 & $\sim$5 \\ \hline
+\end{tabularx}
+\captionof{table}{Timeline across the internship window. The validation build pulls roughly two weeks of risk out of the draft plan's Phase 1, reallocated to the untagged-document bar and hardening.}
+\end{minipage}
+
+\vspace{4pt}
+\lead{navytwo}{Key milestones.} MVP feature-complete by 4 December 2026; accountant sign-off by 15 January 2027; Phase 4 begins only on sign-off.
+
+% ===== 13. Risks =====
+\section{Risk register}
+\label{sec:limits}
+\noindent\begin{minipage}{\linewidth}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{1.6cm} X}
+\hline
+\rowcolor{tblhead} \headtext{Risk} & \headtext{Rating} & \headtext{Mitigation / honest statement} \\ \hline
+Uniform mis-scaling in untagged mode (identity-invariant) & Medium & Share/EPS cross-checks break scale invariance; prior-year comparatives as a reader; flagged, not silent, when detectors disagree. Residual risk stated in every output. \\ \hline
+Filer layouts outside the grammar (new pathology) & Medium & The grammar failed loudly, never silently, on every pathology met so far; flag rate is the alarm; each fix lands as a general rule plus a seeded test. \\ \hline
+Driver realism judged insufficient by reviewer & Medium & Part I bar is directional credibility, not point accuracy; parameters documented and adjustable; Part II is the calibrated upgrade path. \\ \hline
+Filing anomalies (restatements, 53-week years, redenominations) & Medium & Hardening-phase battery; statements are period-keyed so anomalies surface as explicit mismatches. \\ \hline
+Dependence on prior interns' engine internals & Low & The validated reference engine stands alone; integration reconciles capabilities rather than assuming them. \\ \hline
+Accountant availability for the human gate & Low & Automated plausibility battery keeps the loop moving; review batches scheduled in the hardening window. \\ \hline
+\end{tabularx}
+\captionof{table}{Principal risks. Extraction correctness is deliberately absent as a line item: it is the system's central control, gated continuously, not a residual risk to accept.}
+\end{minipage}
+
+% ===== 14. Open questions =====
+\section{Open questions for alignment}
+The standards scope (US GAAP and IFRS), the precision asymmetry, exact line-item parity, the state-space specification, and the feasibility of the acceptance gates are settled, the last of these by evidence. Three items remain open:
+\begin{enumerate}
+  \item The external macro model's (Jodie's) output interface and granularity, to be confirmed before Phase 3 wiring.
+  \item The reviewer and counts for the accountant gate: a provisional definition is in place (each gating-set firm, each scenario, representative paths); the named reviewer and batch sizes need confirmation.
+  \item Which mode gates Part I acceptance: tagged public filings or the untagged document at the same bar. The pipeline measures both; the recommendation is to gate on tagged filings and report the untagged bar alongside, tightening it to parity during hardening.
+\end{enumerate}
+
+% ===== References =====
+\begin{thebibliography}{19}\small
+\bibitem{velezpareja} I.~V\'elez-Pareja and J.~Tham, ``Forecasting Financial Statements with No Plugs and No Circularity,'' \emph{The IUP Journal of Accounting Research and Audit Practices}, 2010; and I.~V\'elez-Pareja, ``To Plug or Not to Plug: A Note on Financial Statement Forecasting,'' SSRN Working Paper.
+\bibitem{godley} W.~Godley and M.~Lavoie, \emph{Monetary Economics: An Integrated Approach to Credit, Money, Income, Production and Wealth}, Palgrave Macmillan, 2007.
+\bibitem{penman} S.~Penman, \emph{Financial Statement Analysis and Security Valuation}, 5th ed., McGraw-Hill, 2013.
+\bibitem{xbrl21} XBRL International, \emph{Extensible Business Reporting Language (XBRL) 2.1}, Recommendation, 2003 (with errata).
+\bibitem{calc11} XBRL International, \emph{Calculations 1.1}, Recommendation, 2023.
+\bibitem{usgaap} Financial Accounting Standards Board, \emph{US GAAP Financial Reporting Taxonomy}, annual releases.
+\bibitem{ifrstax} IFRS Foundation, \emph{IFRS Accounting Taxonomy}, annual releases.
+\bibitem{sec33_9002} U.S. Securities and Exchange Commission, \emph{Interactive Data to Improve Financial Reporting}, Release No. 33-9002, 2009.
+\bibitem{efm} U.S. Securities and Exchange Commission, \emph{EDGAR Filer Manual, Volume II}, current version (inline XBRL requirements).
+\bibitem{esef} European Securities and Markets Authority, \emph{European Single Electronic Format (ESEF) Regulatory Technical Standard}, in force 2020.
+\bibitem{arelle} Arelle project, \emph{Arelle: An Open Source XBRL Platform}, \texttt{arelle.org}; version 2.41 used in the validation build.
+\bibitem{pubtables} B.~Smock, R.~Pesala, and R.~Abraham, ``PubTables-1M: Towards Comprehensive Table Extraction from Unstructured Documents,'' \emph{CVPR}, 2022.
+\bibitem{finqa} Z.~Chen et al., ``FinQA: A Dataset of Numerical Reasoning over Financial Data,'' \emph{EMNLP}, 2021.
+\bibitem{tatqa} F.~Zhu et al., ``TAT-QA: A Question Answering Benchmark on a Hybrid of Tabular and Textual Content in Finance,'' \emph{ACL}, 2021.
+\bibitem{sr117} Board of Governors of the Federal Reserve System and OCC, \emph{Supervisory Guidance on Model Risk Management}, SR Letter 11-7, 2011.
+\bibitem{bcbs239} Basel Committee on Banking Supervision, \emph{Principles for Effective Risk Data Aggregation and Risk Reporting} (BCBS 239), 2013.
+\bibitem{ruleofthree} B.~D. Jovanovic and P.~S. Levy, ``A Look at the Rule of Three,'' \emph{The American Statistician}, 51(2), 1997.
+\bibitem{pdfplumber} J.~Singer-Vine and contributors, \emph{pdfplumber} (MIT license); and pypdf contributors, \emph{pypdf} (BSD license): the two independent PDF engines of the validation build.
+\bibitem{spike} KG Encoding Spike report, this repository, June 2026: taxonomy-graph loading, balance-sheet overlay, footing, and round-trip on one filing.
+\end{thebibliography}
+
+\end{document}

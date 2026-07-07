@@ -40,14 +40,14 @@
    "accepted_cells": 44,
    "flags": 7,
    "scale": "1",
-   "footing_groups": 5,
-   "footing_pass": true,
+   "footing_groups": 6,
+   "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
     "lexical": 4,
-    "llm": 12,
-    "unmapped": 6
+    "llm": 11,
+    "unmapped": 7
    }
   },
   "cash_flow": {
@@ -77,7 +77,7 @@
  },
  "simulation": {
   "status": "skipped",
-  "reason": "15 flagged balance-sheet cells (adjudication required before simulation)"
+  "reason": "15 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
  },
  "llm_calls": 55
 }

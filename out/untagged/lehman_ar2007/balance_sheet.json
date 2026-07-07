@@ -420,7 +420,7 @@
   },
   {
    "order": 12,
-   "concept": "us-gaap:LongTermDebtCurrent",
+   "concept": "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowingsIncl_12",
    "dims": [],
    "label": "Short-term borrowings and current portion of long-term borrowings (including $9,035 in 2007 and $6,064 in 2006 at fair value)",
    "depth": 1,
@@ -432,7 +432,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Liabilities and Stockholders\u2019 Equity"
@@ -696,8 +696,8 @@
    "dims": [],
    "label": "Deposit liabilities at banks (including $15,986 in 2007 and $14,708 in 2006 at fair value)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -791,9 +791,375 @@
      "unit": null
     }
    ]
+  },
+  {
+   "order": 23,
+   "concept": "doc:PreferredStock_23",
+   "dims": [],
+   "label": "Preferred stock",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Stockholders\u2019 Equity"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "1095000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "1095000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "us-gaap:CommonStockSharesOutstanding",
+   "dims": [],
+   "label": "Shares outstanding: 531,887,419 in 2007 and 533,368,195 in 2006",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "61",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "61",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "ifrs-full:AdditionalPaidinCapital",
+   "dims": [],
+   "label": "Additional paid-in capital",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "9733000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "8727000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "dims": [],
+   "label": "Accumulated other comprehensive loss, net of tax",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "-310000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "-15000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+   "dims": [],
+   "label": "Retained earnings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "19698000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "15857000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "us-gaap:StockholdersEquity",
+   "dims": [],
+   "label": "Other stockholders\u2019 equity, net",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "-2263000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "-1712000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:CommonStockInTreasuryAtCost80995087SharesIn2007And76464107Sh_29",
+   "dims": [],
+   "label": "Common stock in treasury, at cost (80,995,087 shares in 2007 and 76,464,107 shares in 2006)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "-5524000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "-4822000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "doc:TotalCommonStockholdersEquity_30",
+   "dims": [],
+   "label": "Total common stockholders\u2019 equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "21395000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "18096000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "us-gaap:StockholdersEquity",
+   "dims": [],
+   "label": "Total stockholders\u2019 equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "22490000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "19191000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
+   "dims": [],
+   "label": "Total liabilities and stockholders\u2019 equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Shares issued: 612,882,506 in 2007 and 609,832,302 in 2006;"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "691063000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "503545000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
   }
  ],
  "calc_children": {
+  "doc:TotalCommonStockholdersEquity_30": [
+   [
+    "us-gaap:CommonStockSharesOutstanding",
+    "1"
+   ],
+   [
+    "ifrs-full:AdditionalPaidinCapital",
+    "1"
+   ],
+   [
+    "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+    "1"
+   ],
+   [
+    "us-gaap:RetainedEarningsAccumulatedDeficit",
+    "1"
+   ],
+   [
+    "us-gaap:StockholdersEquity",
+    "1"
+   ],
+   [
+    "doc:CommonStockInTreasuryAtCost80995087SharesIn2007And76464107Sh_29",
+    "1"
+   ]
+  ],
   "us-gaap:Assets": [
    [
     "us-gaap:CashAndCashEquivalentsAtCarryingValue",
@@ -842,7 +1208,7 @@
   ],
   "us-gaap:Liabilities": [
    [
-    "us-gaap:LongTermDebtCurrent",
+    "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowingsIncl_12",
     "1"
    ],
    [
@@ -879,6 +1245,26 @@
    ],
    [
     "us-gaap:LongTermDebtNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:LiabilitiesAndStockholdersEquity": [
+   [
+    "us-gaap:Liabilities",
+    "1"
+   ],
+   [
+    "us-gaap:StockholdersEquity",
+    "1"
+   ]
+  ],
+  "us-gaap:StockholdersEquity": [
+   [
+    "doc:PreferredStock_23",
+    "1"
+   ],
+   [
+    "doc:TotalCommonStockholdersEquity_30",
     "1"
    ]
   ]

@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "us-gaap:OtherLiabilitiesCurrent",
+   "concept": "ifrs-full:CurrentFinancialLiabilities",
    "dims": [],
    "label": "Other financial liabilities 39",
    "depth": 1,
@@ -1054,7 +1054,7 @@
     "1"
    ],
    [
-    "us-gaap:OtherLiabilitiesCurrent",
+    "ifrs-full:CurrentFinancialLiabilities",
     "1"
    ],
    [

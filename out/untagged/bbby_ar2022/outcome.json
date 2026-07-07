@@ -23,8 +23,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 11,
-    "llm": 15,
-    "unmapped": 4
+    "llm": 13,
+    "unmapped": 6
    }
   },
   "income_statement": {
@@ -38,7 +38,7 @@
    "flags": 0,
    "scale": "1000",
    "footing_groups": 3,
-   "footing_pass": false,
+   "footing_pass": true,
    "identity": null,
    "cash_tie": null,
    "mapping": {
@@ -66,14 +66,40 @@
    },
    "mapping": {
     "lexical": 6,
-    "llm": 14,
-    "unmapped": 26
+    "llm": 15,
+    "unmapped": 25
    }
   }
  },
  "simulation": {
-  "status": "skipped",
-  "reason": "income_statement footing unverified (adjudication required before simulation)"
+  "status": "ok",
+  "symbolic_balanced": true,
+  "scenarios": {
+   "baseline": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "expansion": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "recession": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "competition": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "rate_hike": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "inflation": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   }
+  }
  },
  "llm_calls": 59
 }

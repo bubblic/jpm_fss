@@ -318,7 +318,7 @@
   },
   {
    "order": 9,
-   "concept": "us-gaap:OtherAssetsCurrent",
+   "concept": "doc:OtherAssets_9",
    "dims": [],
    "label": "Other assets",
    "depth": 1,
@@ -330,7 +330,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Current assets"
@@ -488,7 +488,7 @@
   },
   {
    "order": 14,
-   "concept": "ifrs-full:EquityAndLiabilities",
+   "concept": "doc:MerchandiseCreditAndGiftCardLiabilities_14",
    "dims": [],
    "label": "Merchandise credit and gift card liabilities",
    "depth": 1,
@@ -500,7 +500,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -1054,7 +1054,7 @@
     "1"
    ],
    [
-    "us-gaap:OtherAssetsCurrent",
+    "doc:OtherAssets_9",
     "1"
    ]
   ],
@@ -1112,7 +1112,7 @@
     "1"
    ],
    [
-    "ifrs-full:EquityAndLiabilities",
+    "doc:MerchandiseCreditAndGiftCardLiabilities_14",
     "1"
    ],
    [

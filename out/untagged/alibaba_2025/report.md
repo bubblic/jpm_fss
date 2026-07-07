@@ -5,29 +5,29 @@ LLM assist: configured
 
 ## balance_sheet
 
-- pages [56, 82, 83] (llm), 27 rows x 7 columns, scale 1
-- accepted cells 120, flags 9
+- pages [310] (deterministic), 28 rows x 3 columns, scale 1
+- accepted cells 62, flags 0
 - footing: 25 verified groups, FAIL
 - A = L + E: N/A (no 'Total assets' row)
-- concept mapping: 0 lexical, 0 LLM, 27 unmapped
+- concept mapping: 8 lexical, 0 LLM, 20 unmapped
 
 ## income_statement
 
-- pages [56, 65, 69] (llm), 50 rows x 5 columns, scale 1
-- accepted cells 54, flags 156
-- footing: 49 verified groups, FAIL
-- concept mapping: 0 lexical, 0 LLM, 50 unmapped
+- pages [319, 320] (deterministic), 35 rows x 9 columns, scale 1
+- accepted cells 168, flags 18
+- footing: 34 verified groups, FAIL
+- concept mapping: 14 lexical, 0 LLM, 21 unmapped
 
 ## cash_flow
 
-- pages [75, 83, 84] (llm), 57 rows x 7 columns, scale 1
-- accepted cells 166, flags 77
-- footing: 53 verified groups, FAIL
+- pages [311, 312, 313, 314, 315] (deterministic), 71 rows x 7 columns, scale 1
+- accepted cells 167, flags 46, LLM-adjudicated 1
+- footing: 61 verified groups, FAIL
 - cash tie: N/A (no beginning/ending cash rows)
-- concept mapping: 0 lexical, 0 LLM, 57 unmapped
+- concept mapping: 4 lexical, 0 LLM, 67 unmapped
 
 ## Simulation
 
-- skipped: 9 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)
+- skipped: balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)
 
-LLM calls: 108
+LLM calls: 36

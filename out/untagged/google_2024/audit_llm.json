@@ -8,19 +8,19 @@
    "samples": [
     "12460",
     "12460",
-    "12460"
+    "76534"
    ],
    "voted": "12460",
-   "agreement": 3
+   "agreement": 2
   },
   {
    "kind": "read_cell",
    "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
    "column": 2,
    "samples": [
+    "12211",
     "84800",
-    "84800",
-    "12211"
+    "84800"
    ],
    "voted": "84800",
    "agreement": 2
@@ -109,7 +109,7 @@
   {
    "kind": "map_concept",
    "label": "Depreciation of property and equipment",
-   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+   "chosen": "ifrs-full:AdjustmentsForDepreciationExpense"
   },
   {
    "kind": "map_concept",
@@ -124,12 +124,12 @@
   {
    "kind": "map_concept",
    "label": "Other assets",
-   "chosen": "ifrs-full:OtherCurrentAssets"
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentAssets"
   },
   {
    "kind": "map_concept",
    "label": "Accrued revenue share",
-   "chosen": "ifrs-full:Revenue"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -149,7 +149,7 @@
   {
    "kind": "map_concept",
    "label": "Maturities and sales of non-marketable securities",
-   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -164,7 +164,7 @@
   {
    "kind": "map_concept",
    "label": "Net cash used in investing activities",
-   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+   "chosen": "us-gaap:NetCashProvidedByUsedInInvestingActivities"
   },
   {
    "kind": "map_concept",
@@ -194,7 +194,7 @@
   {
    "kind": "map_concept",
    "label": "Net cash used in financing activities",
-   "chosen": "ifrs-full:CashFlowsFromUsedInFinancingActivities"
+   "chosen": "us-gaap:NetCashProvidedByUsedInFinancingActivities"
   },
   {
    "kind": "map_concept",

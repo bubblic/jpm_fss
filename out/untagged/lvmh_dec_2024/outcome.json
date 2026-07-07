@@ -30,54 +30,52 @@
   "income_statement": {
    "located_by": "deterministic",
    "pages": [
-    24
+    24,
+    25
    ],
    "llm_adjudicated": 0,
-   "rows": 21,
+   "rows": 42,
    "columns": 3,
-   "accepted_cells": 63,
-   "flags": 9,
+   "accepted_cells": 121,
+   "flags": 11,
    "scale": "1000000",
-   "footing_groups": 4,
+   "footing_groups": 9,
    "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
     "lexical": 5,
-    "llm": 9,
-    "unmapped": 7
+    "llm": 13,
+    "unmapped": 24
    }
   },
   "cash_flow": {
-   "located_by": "llm",
+   "located_by": "deterministic",
    "pages": [
-    5,
-    21,
     28
    ],
-   "llm_adjudicated": 3,
-   "rows": 15,
-   "columns": 6,
-   "accepted_cells": 6,
-   "flags": 39,
-   "scale": "1",
-   "footing_groups": 4,
-   "footing_pass": true,
+   "rows": 34,
+   "columns": 4,
+   "accepted_cells": 113,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 7,
+   "footing_pass": false,
    "identity": null,
    "cash_tie": {
     "pass": null,
-    "detail": "no beginning/ending cash rows"
+    "detail": "no net-change row or activity totals"
    },
    "mapping": {
-    "lexical": 0,
-    "llm": 0,
-    "unmapped": 15
+    "lexical": 3,
+    "llm": 20,
+    "unmapped": 11
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "22 flagged balance-sheet cells; balance_sheet footing unverified; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "22 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 75
+ "llm_calls": 69
 }

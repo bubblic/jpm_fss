@@ -7,80 +7,76 @@
    "located_by": "deterministic",
    "pages": [
     87,
-    88,
-    89
+    88
    ],
    "llm_adjudicated": 0,
-   "rows": 103,
-   "columns": 9,
-   "accepted_cells": 224,
-   "flags": 211,
-   "scale": "1",
-   "footing_groups": 0,
+   "rows": 57,
+   "columns": 3,
+   "accepted_cells": 146,
+   "flags": 12,
+   "scale": "1000000",
+   "footing_groups": 4,
    "footing_pass": true,
    "identity": {
     "pass": null,
-    "detail": "no 'Total assets' row"
+    "detail": "no combined or component totals"
    },
    "cash_tie": null,
    "mapping": {
-    "lexical": 12,
-    "llm": 15,
-    "unmapped": 76
+    "lexical": 7,
+    "llm": 14,
+    "unmapped": 36
    }
   },
   "income_statement": {
    "located_by": "deterministic",
    "pages": [
-    85,
-    86,
-    87
+    85
    ],
    "llm_adjudicated": 0,
-   "rows": 58,
+   "rows": 20,
    "columns": 3,
-   "accepted_cells": 143,
-   "flags": 18,
-   "scale": "1",
+   "accepted_cells": 60,
+   "flags": 8,
+   "scale": "1000000",
    "footing_groups": 3,
    "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
-    "lexical": 9,
-    "llm": 12,
-    "unmapped": 37
+    "lexical": 0,
+    "llm": 10,
+    "unmapped": 10
    }
   },
   "cash_flow": {
    "located_by": "deterministic",
    "pages": [
-    88,
-    89
+    88
    ],
-   "llm_adjudicated": 3,
-   "rows": 74,
-   "columns": 9,
-   "accepted_cells": 169,
-   "flags": 198,
-   "scale": "1",
-   "footing_groups": 0,
+   "llm_adjudicated": 0,
+   "rows": 35,
+   "columns": 3,
+   "accepted_cells": 101,
+   "flags": 4,
+   "scale": "1000000",
+   "footing_groups": 3,
    "footing_pass": true,
    "identity": null,
    "cash_tie": {
-    "pass": null,
-    "detail": "no beginning/ending cash rows"
+    "pass": false,
+    "detail": "begin 31568 + change -7705 (activity totals, fx added) vs end 23187"
    },
    "mapping": {
-    "lexical": 3,
-    "llm": 12,
-    "unmapped": 59
+    "lexical": 0,
+    "llm": 15,
+    "unmapped": 20
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "211 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "12 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 160
+ "llm_calls": 90
 }

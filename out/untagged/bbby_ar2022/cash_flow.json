@@ -293,7 +293,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:LossOnSaleOfBusinesses_7",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Loss on sale of businesses",
    "depth": 1,
@@ -303,9 +303,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net loss to net cash (used in) provided by operating activities"
@@ -693,7 +693,7 @@
   },
   {
    "order": 17,
-   "concept": "us-gaap:AccruedIncomeTaxesCurrent",
+   "concept": "us-gaap:IncreaseDecreaseInAccruedIncomeTaxesPayable",
    "dims": [],
    "label": "Income taxes payable",
    "depth": 1,
@@ -703,7 +703,7 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,

@@ -6,16 +6,16 @@
  "role_definition": "income_statement (untagged extraction)",
  "currency": "",
  "columns": [
-  "D2021-01-01:2021-12-31",
-  "D2022-01-01:2022-12-31",
-  "D2023-01-01:2023-12-31"
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31",
+  "D2022-01-01:2022-12-31"
  ],
  "rows": [
   {
    "order": 0,
-   "concept": "doc:Row0_0",
+   "concept": "doc:941168_0",
    "dims": [],
-   "label": "\u6536\u5165",
+   "label": "\u6536\u5165 941,168",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -28,24 +28,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "717289",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "853062",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "941168",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "868687",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -53,9 +53,9 @@
   },
   {
    "order": 1,
-   "concept": "doc:Row1_1",
+   "concept": "us-gaap:CostOfRevenue",
    "dims": [],
-   "label": "\u7d93\u71df\u5229\u6f64",
+   "label": "\u71df\u696d\u6210\u672c (586,323)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -65,27 +65,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "89678",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "69638",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-586323",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "100351",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -93,9 +93,9 @@
   },
   {
    "order": 2,
-   "concept": "doc:Row2_2",
+   "concept": "us-gaap:ResearchAndDevelopmentExpense",
    "dims": [],
-   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64",
+   "label": "\u7522\u54c1\u958b\u767c\u8cbb\u7528 (52,256)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -105,27 +105,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "150308",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "61959",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-52256",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "72509",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -133,9 +133,9 @@
   },
   {
    "order": 3,
-   "concept": "doc:Row3_3",
+   "concept": "doc:115141_3",
    "dims": [],
-   "label": "\u6de8\u5229\u6f64",
+   "label": "\u92b7\u552e\u548c\u5e02\u5834\u8cbb\u7528 (115,141)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -148,24 +148,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "143284",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "47079",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-115141",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "65573",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -173,9 +173,9 @@
   },
   {
    "order": 4,
-   "concept": "doc:Row4_4",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
-   "label": "\u6d41\u52d5\u8cc7\u7522",
+   "label": "\u4e00\u822c\u53ca\u884c\u653f\u8cbb\u7528 (41,985)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -185,27 +185,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "643360",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "638535",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-41985",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "697966",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -213,9 +213,9 @@
   },
   {
    "order": 5,
-   "concept": "doc:Row5_5",
+   "concept": "us-gaap:AmortizationOfIntangibleAssets",
    "dims": [],
-   "label": "\u8cc7\u7522\u7e3d\u984d",
+   "label": "\u7121\u5f62\u8cc7\u7522\u6524\u92b7\u53ca\u6e1b\u503c (21,592)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -225,27 +225,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "1690218",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1695553",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-21592",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "1753044",
+     "value": "360",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -253,9 +253,9 @@
   },
   {
    "order": 6,
-   "concept": "doc:Row6_6",
+   "concept": "us-gaap:GoodwillImpairmentLoss",
    "dims": [],
-   "label": "\u6d41\u52d5\u8ca0\u50b5",
+   "label": "\u5546\u8b7d\u6e1b\u503c (10,521)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -265,27 +265,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "377358",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "383784",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-10521",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "385351",
+     "value": "650",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -293,129 +293,9 @@
   },
   {
    "order": 7,
-   "concept": "doc:Row7_7",
+   "concept": "doc:113350_7",
    "dims": [],
-   "label": "\u8ca0\u50b5\u7e3d\u984d",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "606584",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "613360",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "630123",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 8,
-   "concept": "doc:Row8_8",
-   "dims": [],
-   "label": "\u80a1\u6771\u6b0a\u76ca",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "937470",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "948479",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "989657",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 9,
-   "concept": "doc:Row9_9",
-   "dims": [],
-   "label": "\u6b0a\u76ca\u7e3d\u984d",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": "1074961",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1072538",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1113063",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 10,
-   "concept": "doc:Row10_10",
-   "dims": [],
-   "label": "\u4e2d\u570b\u96f6\u552e\u5546\u696d \uff0d\u5ba2\u6236\u7ba1\u7406",
+   "label": "\u7d93\u71df\u5229\u6f64 113,350",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -428,11 +308,97 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u6dd8\u5929\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "113350",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1010",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:9964_8",
+   "dims": [],
+   "label": "\u5229\u606f\u6536\u5165\u548c\u6295\u8cc7\u6de8\u6536\u76ca (9,964)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-9964",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-365",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:InterestExpense",
+   "dims": [],
+   "label": "\u5229\u606f\u8cbb\u7528 (7,947)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-7947",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -442,9 +408,43 @@
      "value": null,
      "decimals": -6,
      "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:6157_10",
+   "dims": [],
+   "label": "\u5176\u4ed6\u6de8\u6536\u652f 6,157",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "6157",
+     "decimals": -6,
+     "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -453,39 +453,39 @@
   },
   {
    "order": 11,
-   "concept": "doc:2_11",
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
    "dims": [],
-   "label": "\uff0d\u76f4\u71df\u53ca\u5176\u4ed6(2)",
+   "label": "\u6240\u5f97\u7a05\u8cbb\u7528 (22,529)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\u6dd8\u5929\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-22529",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "-78",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-37",
      "decimals": -6,
      "unit": null
     }
@@ -493,12 +493,12 @@
   },
   {
    "order": 12,
-   "concept": "doc:Row12_12",
+   "concept": "doc:7735_12",
    "dims": [],
-   "label": "(total)",
+   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca (7,735)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -508,23 +508,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u6dd8\u5929\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-7735",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -533,9 +533,9 @@
   },
   {
    "order": 13,
-   "concept": "doc:Row13_13",
+   "concept": "doc:71332_13",
    "dims": [],
-   "label": "\u4e2d\u570b\u6279\u767c\u5546\u696d",
+   "label": "\u6de8\u5229\u6f64 71,332",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -548,24 +548,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u6dd8\u5929\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "71332",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "932",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-402",
      "decimals": -6,
      "unit": null
     }
@@ -573,12 +573,12 @@
   },
   {
    "order": 14,
-   "concept": "doc:Row14_14",
+   "concept": "doc:8677_14",
    "dims": [],
-   "label": "\u6dd8\u5929\u96c6\u5718\u5408\u8a08",
+   "label": "\u6de8\u640d\u5931 8,677",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -588,24 +588,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u6dd8\u5929\u96c6\u5718\uff1a"
+    "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "8677",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "-748",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-295",
      "decimals": -6,
      "unit": null
     }
@@ -613,12 +613,12 @@
   },
   {
    "order": 15,
-   "concept": "doc:Row15_15",
+   "concept": "doc:268_15",
    "dims": [],
-   "label": "\u570b\u969b\u96f6\u552e\u5546\u696d",
+   "label": "\u593e\u5c64\u6b0a\u76ca\u7684\u589e\u503c (268)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -628,23 +628,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-268",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -653,9 +653,9 @@
   },
   {
    "order": 16,
-   "concept": "doc:Row16_16",
+   "concept": "doc:79741_16",
    "dims": [],
-   "label": "\u570b\u969b\u6279\u767c\u5546\u696d",
+   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64 79,741",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -668,24 +668,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "79741",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "184",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-697",
      "decimals": -6,
      "unit": null
     }
@@ -693,12 +693,12 @@
   },
   {
    "order": 17,
-   "concept": "doc:Row17_17",
+   "concept": "doc:996347_17",
    "dims": [],
-   "label": "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\u5408\u8a08",
+   "label": "\u6536\u5165 996,347",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -708,23 +708,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -733,38 +733,38 @@
   },
   {
    "order": 18,
-   "concept": "doc:Row18_18",
+   "concept": "us-gaap:CostOfRevenue",
    "dims": [],
-   "label": "\u96f2\u667a\u80fd\u96c6\u5718",
+   "label": "\u71df\u696d\u6210\u672c (598,285)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -773,38 +773,38 @@
   },
   {
    "order": 19,
-   "concept": "doc:Row19_19",
+   "concept": "us-gaap:ResearchAndDevelopmentExpense",
    "dims": [],
-   "label": "\u83dc\u9ce5\u96c6\u5718",
+   "label": "\u7522\u54c1\u958b\u767c\u8cbb\u7528 (57,151)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -813,12 +813,12 @@
   },
   {
    "order": 20,
-   "concept": "doc:Row20_20",
+   "concept": "doc:144021_20",
    "dims": [],
-   "label": "\u672c\u5730\u751f\u6d3b\u96c6\u5718",
+   "label": "\u92b7\u552e\u548c\u5e02\u5834\u8cbb\u7528 (144,021)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -828,23 +828,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -853,38 +853,38 @@
   },
   {
    "order": 21,
-   "concept": "doc:Row21_21",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
-   "label": "\u864e\u9be8\u6587\u5a1b\u96c6\u5718",
+   "label": "\u4e00\u822c\u53ca\u884c\u653f\u8cbb\u7528 (44,239)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -893,38 +893,38 @@
   },
   {
    "order": 22,
-   "concept": "doc:3_22",
+   "concept": "us-gaap:AmortizationOfIntangibleAssets",
    "dims": [],
-   "label": "\u6240\u6709\u5176\u4ed6(3)",
+   "label": "\u7121\u5f62\u8cc7\u7522\u6524\u92b7\u53ca\u6e1b\u503c (6,336)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "320",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -933,38 +933,38 @@
   },
   {
    "order": 23,
-   "concept": "doc:Row23_23",
+   "concept": "us-gaap:GoodwillImpairmentLoss",
    "dims": [],
-   "label": "\u672a\u5206\u6524",
+   "label": "\u5546\u8b7d\u6e1b\u503c (6,171)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4296",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -973,12 +973,12 @@
   },
   {
    "order": 24,
-   "concept": "doc:Row24_24",
+   "concept": "doc:761_24",
    "dims": [],
-   "label": "\u5206\u90e8\u9593\u62b5\u6d88",
+   "label": "\u5176\u4ed6\u6de8\u6536\u76ca 761",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -988,23 +988,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1013,9 +1013,9 @@
   },
   {
    "order": 25,
-   "concept": "doc:Row25_25",
+   "concept": "doc:140905_25",
    "dims": [],
-   "label": "\u5408\u4f75\u6536\u5165",
+   "label": "\u7d93\u71df\u5229\u6f64 140,905",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -1028,23 +1028,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\u963f\u91cc\u570b\u969b\u6578\u5b57\u5546\u696d\u96c6\u5718\uff1a"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4616",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1053,12 +1053,12 @@
   },
   {
    "order": 26,
-   "concept": "doc:Row26_26",
+   "concept": "doc:20759_26",
    "dims": [],
-   "label": "\u6536\u5165",
+   "label": "\u5229\u606f\u6536\u5165\u548c\u6295\u8cc7\u6de8\u6536\u76ca 20,759",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1068,24 +1068,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "986",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "2237",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-2867",
      "decimals": -6,
      "unit": null
     }
@@ -1093,38 +1093,38 @@
   },
   {
    "order": 27,
-   "concept": "doc:Row27_27",
+   "concept": "us-gaap:InterestExpense",
    "dims": [],
-   "label": "\u71df\u696d\u6210\u672c",
+   "label": "\u5229\u606f\u8cbb\u7528 (9,596)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-283",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1133,12 +1133,12 @@
   },
   {
    "order": 28,
-   "concept": "doc:Row28_28",
+   "concept": "doc:3387_28",
    "dims": [],
-   "label": "\u7522\u54c1\u958b\u767c\u8cbb\u7528",
+   "label": "\u5176\u4ed6\u6de8\u6536\u652f 3,387",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1148,23 +1148,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-5",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1173,39 +1173,39 @@
   },
   {
    "order": 29,
-   "concept": "doc:Row29_29",
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
    "dims": [],
-   "label": "\u92b7\u552e\u548c\u5e02\u5834\u8cbb\u7528",
+   "label": "\u6240\u5f97\u7a05\u8cbb\u7528 (35,445)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-70",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "121",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "160",
      "decimals": -6,
      "unit": null
     }
@@ -1213,12 +1213,12 @@
   },
   {
    "order": 30,
-   "concept": "doc:Row30_30",
+   "concept": "doc:5966_30",
    "dims": [],
-   "label": "\u4e00\u822c\u53ca\u884c\u653f\u8cbb\u7528",
+   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca 5,966",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1228,17 +1228,11 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1246,6 +1240,12 @@
     {
      "period": "D2023-01-01:2023-12-31",
      "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1491",
      "decimals": -6,
      "unit": null
     }
@@ -1253,9 +1253,9 @@
   },
   {
    "order": 31,
-   "concept": "doc:Row31_31",
+   "concept": "doc:125976_31",
    "dims": [],
-   "label": "\u7121\u5f62\u8cc7\u7522\u6524\u92b7\u53ca\u6e1b\u503c",
+   "label": "\u6de8\u5229\u6f64 125,976",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -1268,24 +1268,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "5244",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "2358",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-1216",
      "decimals": -6,
      "unit": null
     }
@@ -1293,12 +1293,12 @@
   },
   {
    "order": 32,
-   "concept": "doc:Row32_32",
+   "concept": "doc:4133_32",
    "dims": [],
-   "label": "\u5546\u8b7d\u6e1b\u503c",
+   "label": "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684\u6de8\u640d\u5931 4,133",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1308,23 +1308,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-2041",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1333,12 +1333,12 @@
   },
   {
    "order": 33,
-   "concept": "doc:Row33_33",
+   "concept": "doc:639_33",
    "dims": [],
-   "label": "\u5176\u4ed6\u6de8\u6536\u76ca",
+   "label": "\u593e\u5c64\u6b0a\u76ca\u7684\u589e\u503c (639)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1348,23 +1348,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2024-01-01:2024-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -1373,9 +1373,9 @@
   },
   {
    "order": 34,
-   "concept": "doc:Row34_34",
+   "concept": "doc:129470_34",
    "dims": [],
-   "label": "\u7d93\u71df\u5229\u6f64",
+   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64 129,470",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -1388,624 +1388,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "period": "D2024-01-01:2024-12-31",
+     "value": "3203",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 35,
-   "concept": "doc:Row35_35",
-   "dims": [],
-   "label": "\u5229\u606f\u6536\u5165\u548c\u6295\u8cc7\u6de8\u6536\u76ca",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
+     "value": "2358",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 36,
-   "concept": "doc:Row36_36",
-   "dims": [],
-   "label": "\u5229\u606f\u8cbb\u7528",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 37,
-   "concept": "doc:Row37_37",
-   "dims": [],
-   "label": "\u5176\u4ed6\u6de8\u6536\u652f",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 38,
-   "concept": "doc:Row38_38",
-   "dims": [],
-   "label": "\u6263\u9664\u6240\u5f97\u7a05\u53ca\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca\u524d\u7684\u5229\u6f64",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 39,
-   "concept": "doc:Row39_39",
-   "dims": [],
-   "label": "\u6240\u5f97\u7a05\u8cbb\u7528",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 40,
-   "concept": "doc:Row40_40",
-   "dims": [],
-   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 41,
-   "concept": "doc:Row41_41",
-   "dims": [],
-   "label": "\u6de8\u5229\u6f64",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 42,
-   "concept": "doc:Row42_42",
-   "dims": [],
-   "label": "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684\u6de8\u8667\u640d",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 43,
-   "concept": "doc:Row43_43",
-   "dims": [],
-   "label": "\u6b78\u5c6c\u65bc\u963f\u91cc\u5df4\u5df4\u96c6\u5718\u63a7\u80a1\u6709\u9650\u516c\u53f8\u80a1\u6771\u7684\u6de8\u5229\u6f64",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 44,
-   "concept": "doc:Row44_44",
-   "dims": [],
-   "label": "\u593e\u5c64\u6b0a\u76ca\u7684\u589e\u503c",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 45,
-   "concept": "doc:Row45_45",
-   "dims": [],
-   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\uff08\u767e\u842c\u5143\uff0c\u9664\u6bcf\u80a1\u6578\u64da\u5916\uff09"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 46,
-   "concept": "doc:Row46_46",
-   "dims": [],
-   "label": "\u57fa\u672c",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6bcf\u80a1\u6536\u76ca(1)"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 47,
-   "concept": "doc:Row47_47",
-   "dims": [],
-   "label": "\u6524\u8584",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6bcf\u80a1\u6536\u76ca(1)"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 48,
-   "concept": "doc:Row48_48",
-   "dims": [],
-   "label": "\u57fa\u672c",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6bcf\u80a1\u7f8e\u570b\u5b58\u8a17\u80a1\u6536\u76ca(1)"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 49,
-   "concept": "doc:Row49_49",
-   "dims": [],
-   "label": "\u6524\u8584",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6bcf\u80a1\u7f8e\u570b\u5b58\u8a17\u80a1\u6536\u76ca(1)"
-   ],
-   "cells": [
-    {
-     "period": "D2021-01-01:2021-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "-1216",
      "decimals": -6,
      "unit": null
     }
@@ -2013,1156 +1413,152 @@
   }
  ],
  "calc_children": {
-  "doc:2_11": [
+  "doc:113350_7": [
    [
-    "doc:Row10_10",
+    "doc:941168_0",
+    "1"
+   ],
+   [
+    "us-gaap:CostOfRevenue",
+    "1"
+   ],
+   [
+    "us-gaap:ResearchAndDevelopmentExpense",
+    "1"
+   ],
+   [
+    "doc:115141_3",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:AmortizationOfIntangibleAssets",
+    "1"
+   ],
+   [
+    "us-gaap:GoodwillImpairmentLoss",
     "1"
    ]
   ],
-  "doc:3_22": [
+  "doc:125976_31": [
    [
-    "doc:Row15_15",
+    "doc:140905_25",
     "1"
    ],
    [
-    "doc:Row16_16",
+    "doc:20759_26",
     "1"
    ],
    [
-    "doc:Row17_17",
+    "us-gaap:InterestExpense",
     "1"
    ],
    [
-    "doc:Row18_18",
+    "doc:3387_28",
     "1"
    ],
    [
-    "doc:Row19_19",
+    "us-gaap:IncomeTaxExpenseBenefit",
     "1"
    ],
    [
-    "doc:Row20_20",
-    "1"
-   ],
-   [
-    "doc:Row21_21",
+    "doc:5966_30",
     "1"
    ]
   ],
-  "doc:Row10_10": [
+  "doc:129470_34": [
    [
-    "doc:Row8_8",
+    "doc:125976_31",
     "1"
    ],
    [
-    "doc:Row9_9",
-    "1"
-   ]
-  ],
-  "doc:Row12_12": [
-   [
-    "doc:Row10_10",
+    "doc:4133_32",
     "1"
    ],
    [
-    "doc:2_11",
+    "doc:639_33",
     "1"
    ]
   ],
-  "doc:Row13_13": [
+  "doc:140905_25": [
    [
-    "doc:Row10_10",
+    "doc:996347_17",
     "1"
    ],
    [
-    "doc:2_11",
+    "us-gaap:CostOfRevenue",
     "1"
    ],
    [
-    "doc:Row12_12",
-    "1"
-   ]
-  ],
-  "doc:Row14_14": [
-   [
-    "doc:Row10_10",
+    "us-gaap:ResearchAndDevelopmentExpense",
     "1"
    ],
    [
-    "doc:2_11",
+    "doc:144021_20",
     "1"
    ],
    [
-    "doc:Row12_12",
+    "us-gaap:GeneralAndAdministrativeExpense",
     "1"
    ],
    [
-    "doc:Row13_13",
-    "1"
-   ]
-  ],
-  "doc:Row15_15": [
-   [
-    "doc:Row13_13",
+    "us-gaap:AmortizationOfIntangibleAssets",
     "1"
    ],
    [
-    "doc:Row14_14",
+    "us-gaap:GoodwillImpairmentLoss",
+    "1"
+   ],
+   [
+    "doc:761_24",
     "1"
    ]
   ],
-  "doc:Row16_16": [
+  "doc:71332_13": [
    [
-    "doc:Row15_15",
+    "doc:113350_7",
+    "1"
+   ],
+   [
+    "doc:9964_8",
+    "1"
+   ],
+   [
+    "us-gaap:InterestExpense",
+    "1"
+   ],
+   [
+    "doc:6157_10",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "1"
+   ],
+   [
+    "doc:7735_12",
     "1"
    ]
   ],
-  "doc:Row17_17": [
+  "doc:79741_16": [
    [
-    "doc:Row15_15",
+    "doc:71332_13",
     "1"
    ],
    [
-    "doc:Row16_16",
+    "doc:8677_14",
     "1"
-   ]
-  ],
-  "doc:Row18_18": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ]
-  ],
-  "doc:Row19_19": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ],
-   [
-    "doc:Row18_18",
-    "1"
-   ]
-  ],
-  "doc:Row20_20": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ],
-   [
-    "doc:Row18_18",
-    "1"
-   ],
-   [
-    "doc:Row19_19",
-    "1"
-   ]
-  ],
-  "doc:Row21_21": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ],
-   [
-    "doc:Row18_18",
-    "1"
-   ],
-   [
-    "doc:Row19_19",
-    "1"
-   ],
-   [
-    "doc:Row20_20",
-    "1"
-   ]
-  ],
-  "doc:Row23_23": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ],
-   [
-    "doc:Row18_18",
-    "1"
-   ],
-   [
-    "doc:Row19_19",
-    "1"
-   ],
-   [
-    "doc:Row20_20",
-    "1"
-   ],
-   [
-    "doc:Row21_21",
-    "1"
-   ],
-   [
-    "doc:3_22",
-    "1"
-   ]
-  ],
-  "doc:Row24_24": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ],
-   [
-    "doc:Row18_18",
-    "1"
-   ],
-   [
-    "doc:Row19_19",
-    "1"
-   ],
-   [
-    "doc:Row20_20",
-    "1"
-   ],
-   [
-    "doc:Row21_21",
-    "1"
-   ],
-   [
-    "doc:3_22",
-    "1"
-   ],
-   [
-    "doc:Row23_23",
-    "1"
-   ]
-  ],
-  "doc:Row25_25": [
-   [
-    "doc:Row15_15",
-    "1"
-   ],
-   [
-    "doc:Row16_16",
-    "1"
-   ],
-   [
-    "doc:Row17_17",
-    "1"
-   ],
-   [
-    "doc:Row18_18",
-    "1"
-   ],
-   [
-    "doc:Row19_19",
-    "1"
-   ],
-   [
-    "doc:Row20_20",
-    "1"
-   ],
-   [
-    "doc:Row21_21",
-    "1"
-   ],
-   [
-    "doc:3_22",
-    "1"
-   ],
-   [
-    "doc:Row23_23",
-    "1"
-   ],
-   [
-    "doc:Row24_24",
-    "1"
-   ]
-  ],
-  "doc:Row26_26": [
-   [
-    "doc:Row24_24",
-    "1"
-   ],
-   [
-    "doc:Row25_25",
-    "1"
-   ]
-  ],
-  "doc:Row27_27": [
-   [
-    "doc:Row26_26",
-    "1"
-   ]
-  ],
-  "doc:Row28_28": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ]
-  ],
-  "doc:Row29_29": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ]
-  ],
-  "doc:Row30_30": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ]
-  ],
-  "doc:Row31_31": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ]
-  ],
-  "doc:Row32_32": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ]
-  ],
-  "doc:Row33_33": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ]
-  ],
-  "doc:Row34_34": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ]
-  ],
-  "doc:Row35_35": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ]
-  ],
-  "doc:Row36_36": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ]
-  ],
-  "doc:Row37_37": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ]
-  ],
-  "doc:Row38_38": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ]
-  ],
-  "doc:Row39_39": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ]
-  ],
-  "doc:Row40_40": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ],
-   [
-    "doc:Row39_39",
-    "1"
-   ]
-  ],
-  "doc:Row41_41": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ],
-   [
-    "doc:Row39_39",
-    "1"
-   ],
-   [
-    "doc:Row40_40",
-    "1"
-   ]
-  ],
-  "doc:Row42_42": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ],
-   [
-    "doc:Row39_39",
-    "1"
-   ],
-   [
-    "doc:Row40_40",
-    "1"
-   ],
-   [
-    "doc:Row41_41",
-    "1"
-   ]
-  ],
-  "doc:Row43_43": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ],
-   [
-    "doc:Row39_39",
-    "1"
    ],
-   [
-    "doc:Row40_40",
-    "1"
-   ],
-   [
-    "doc:Row41_41",
-    "1"
-   ],
-   [
-    "doc:Row42_42",
-    "1"
-   ]
-  ],
-  "doc:Row44_44": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ],
-   [
-    "doc:Row39_39",
-    "1"
-   ],
-   [
-    "doc:Row40_40",
-    "1"
-   ],
-   [
-    "doc:Row41_41",
-    "1"
-   ],
-   [
-    "doc:Row42_42",
-    "1"
-   ],
-   [
-    "doc:Row43_43",
-    "1"
-   ]
-  ],
-  "doc:Row45_45": [
-   [
-    "doc:Row26_26",
-    "1"
-   ],
-   [
-    "doc:Row27_27",
-    "1"
-   ],
-   [
-    "doc:Row28_28",
-    "1"
-   ],
-   [
-    "doc:Row29_29",
-    "1"
-   ],
-   [
-    "doc:Row30_30",
-    "1"
-   ],
-   [
-    "doc:Row31_31",
-    "1"
-   ],
-   [
-    "doc:Row32_32",
-    "1"
-   ],
-   [
-    "doc:Row33_33",
-    "1"
-   ],
-   [
-    "doc:Row34_34",
-    "1"
-   ],
-   [
-    "doc:Row35_35",
-    "1"
-   ],
-   [
-    "doc:Row36_36",
-    "1"
-   ],
-   [
-    "doc:Row37_37",
-    "1"
-   ],
-   [
-    "doc:Row38_38",
-    "1"
-   ],
-   [
-    "doc:Row39_39",
-    "1"
-   ],
-   [
-    "doc:Row40_40",
-    "1"
-   ],
-   [
-    "doc:Row41_41",
-    "1"
-   ],
-   [
-    "doc:Row42_42",
-    "1"
-   ],
-   [
-    "doc:Row43_43",
-    "1"
-   ],
-   [
-    "doc:Row44_44",
-    "1"
-   ]
-  ],
-  "doc:Row46_46": [
-   [
-    "doc:Row44_44",
-    "1"
-   ],
-   [
-    "doc:Row45_45",
-    "1"
-   ]
-  ],
-  "doc:Row47_47": [
-   [
-    "doc:Row46_46",
-    "1"
-   ]
-  ],
-  "doc:Row48_48": [
-   [
-    "doc:Row46_46",
-    "1"
-   ],
-   [
-    "doc:Row47_47",
-    "1"
-   ]
-  ],
-  "doc:Row49_49": [
    [
-    "doc:Row48_48",
+    "doc:268_15",
     "1"
    ]
   ]
  },
  "notes": [
-  "columns assume 31 Dec fiscal years: [2021, 2022, 2023]"
+  "column years not detected; synthetic ordering"
  ]
 }

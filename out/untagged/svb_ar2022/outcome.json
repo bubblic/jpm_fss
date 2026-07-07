@@ -8,20 +8,20 @@
    "pages": [
     111
    ],
-   "rows": 26,
+   "rows": 25,
    "columns": 2,
-   "accepted_cells": 50,
+   "accepted_cells": 48,
    "flags": 0,
    "scale": "1000000",
    "footing_groups": 4,
-   "footing_pass": false,
+   "footing_pass": true,
    "identity": {
     "pass": null,
     "detail": "no combined or component totals"
    },
    "cash_tie": null,
    "mapping": {
-    "lexical": 8,
+    "lexical": 7,
     "llm": 8,
     "unmapped": 10
    }
@@ -31,10 +31,11 @@
    "pages": [
     112
    ],
-   "rows": 41,
+   "llm_adjudicated": 0,
+   "rows": 42,
    "columns": 3,
    "accepted_cells": 121,
-   "flags": 0,
+   "flags": 1,
    "scale": "1000000",
    "footing_groups": 4,
    "footing_pass": true,
@@ -42,8 +43,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 3,
-    "llm": 8,
-    "unmapped": 30
+    "llm": 7,
+    "unmapped": 32
    }
   },
   "cash_flow": {
@@ -51,10 +52,11 @@
    "pages": [
     117
    ],
-   "rows": 48,
+   "llm_adjudicated": 0,
+   "rows": 49,
    "columns": 3,
    "accepted_cells": 135,
-   "flags": 0,
+   "flags": 1,
    "scale": "1000000",
    "footing_groups": 6,
    "footing_pass": false,
@@ -65,14 +67,14 @@
    },
    "mapping": {
     "lexical": 4,
-    "llm": 17,
-    "unmapped": 27
+    "llm": 19,
+    "unmapped": 26
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "balance_sheet footing unverified; cash_flow footing unverified (adjudication required before simulation)"
+  "reason": "cash_flow footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 56
+ "llm_calls": 60
 }

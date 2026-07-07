@@ -15,8 +15,8 @@ LLM assist: configured
 
 - pages [124] (deterministic), 22 rows x 2 columns, scale 1
 - accepted cells 44, flags 7
-- footing: 5 verified groups, PASS
-- concept mapping: 4 lexical, 12 LLM, 6 unmapped
+- footing: 6 verified groups, FAIL
+- concept mapping: 4 lexical, 11 LLM, 7 unmapped
 
 ## cash_flow
 
@@ -28,6 +28,6 @@ LLM assist: configured
 
 ## Simulation
 
-- skipped: 15 flagged balance-sheet cells (adjudication required before simulation)
+- skipped: 15 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)
 
 LLM calls: 55

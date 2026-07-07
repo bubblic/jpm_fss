@@ -44,7 +44,7 @@
   {
    "kind": "map_concept",
    "label": "Other assets (Note 4; Note 11 at VIEs)",
-   "chosen": "ifrs-full:OtherNoncurrentNonfinancialAssets"
+   "chosen": "ifrs-full:OtherNoncurrentFinancialAssets"
   },
   {
    "kind": "map_concept",
@@ -129,7 +129,7 @@
   {
    "kind": "map_concept",
    "label": "Automotive interest expense",
-   "chosen": "ifrs-full:OperatingExpense"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -139,7 +139,7 @@
   {
    "kind": "map_concept",
    "label": "Equity income (loss) (Note 8)",
-   "chosen": "us-gaap:NetIncomeLoss"
+   "chosen": "ifrs-full:ProfitLoss"
   },
   {
    "kind": "map_concept",
@@ -164,7 +164,7 @@
   {
    "kind": "map_concept",
    "label": "Net income (loss) attributable to common stockholders",
-   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+   "chosen": "us-gaap:NetIncomeLoss"
   },
   {
    "kind": "map_concept",
@@ -214,7 +214,7 @@
   {
    "kind": "map_concept",
    "label": "Pension and OPEB income, net",
-   "chosen": "us-gaap:NonoperatingIncomeExpense"
+   "chosen": "sap:OtherNonOperatingIncomeExpensesNet"
   },
   {
    "kind": "map_concept",
@@ -254,7 +254,7 @@
   {
    "kind": "map_concept",
    "label": "Purchases of finance receivables",
-   "chosen": "ifrs-full:NoncurrentFinanceLeaseReceivables"
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
   },
   {
    "kind": "map_concept",
@@ -284,7 +284,7 @@
   {
    "kind": "map_concept",
    "label": "Net increase (decrease) in short-term debt",
-   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities"
+   "chosen": "us-gaap:CommercialPaper"
   },
   {
    "kind": "map_concept",
@@ -304,7 +304,7 @@
   {
    "kind": "map_concept",
    "label": "Issuance (redemption) of subsidiary stock (Note 20)",
-   "chosen": null
+   "chosen": "us-gaap:ProceedsFromIssuanceOfCommonStock"
   },
   {
    "kind": "map_concept",

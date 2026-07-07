@@ -13,21 +13,21 @@ LLM assist: configured
 
 ## income_statement
 
-- pages [24] (deterministic), 21 rows x 3 columns, scale 1000000
-- accepted cells 63, flags 9
-- footing: 4 verified groups, FAIL
-- concept mapping: 5 lexical, 9 LLM, 7 unmapped
+- pages [24, 25] (deterministic), 42 rows x 3 columns, scale 1000000
+- accepted cells 121, flags 11
+- footing: 9 verified groups, FAIL
+- concept mapping: 5 lexical, 13 LLM, 24 unmapped
 
 ## cash_flow
 
-- pages [5, 21, 28] (llm), 15 rows x 6 columns, scale 1
-- accepted cells 6, flags 39, LLM-adjudicated 3
-- footing: 4 verified groups, PASS
-- cash tie: N/A (no beginning/ending cash rows)
-- concept mapping: 0 lexical, 0 LLM, 15 unmapped
+- pages [28] (deterministic), 34 rows x 4 columns, scale 1000000
+- accepted cells 113, flags 0
+- footing: 7 verified groups, FAIL
+- cash tie: N/A (no net-change row or activity totals)
+- concept mapping: 3 lexical, 20 LLM, 11 unmapped
 
 ## Simulation
 
-- skipped: 22 flagged balance-sheet cells; balance_sheet footing unverified; income_statement footing unverified (adjudication required before simulation)
+- skipped: 22 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)
 
-LLM calls: 75
+LLM calls: 69

@@ -283,8 +283,8 @@
    "dims": [],
    "label": "Operating loss",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -549,8 +549,8 @@
    "dims": [],
    "label": "Net loss",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -742,6 +742,38 @@
    ],
    [
     "us-gaap:CostOfGoodsAndServicesSold",
+    "-1"
+   ]
+  ],
+  "us-gaap:NetIncomeLoss": [
+   [
+    "doc:LossBeforeProvisionBenefitFromIncomeTaxes_12",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "-1"
+   ]
+  ],
+  "us-gaap:OperatingIncomeLoss": [
+   [
+    "ifrs-full:GrossProfit",
+    "1"
+   ],
+   [
+    "us-gaap:SellingGeneralAndAdministrativeExpense",
+    "-1"
+   ],
+   [
+    "doc:Impairments_4",
+    "-1"
+   ],
+   [
+    "doc:RestructuringAndTransformationInitiativeExpenses_5",
+    "-1"
+   ],
+   [
+    "ifrs-full:ProfitLossAttributableToOwnersOfParent",
     "-1"
    ]
   ]

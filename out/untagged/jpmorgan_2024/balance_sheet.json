@@ -624,7 +624,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:ShortTermBorrowingsIncluded26521And20042AtFairValue_18",
+   "concept": "us-gaap:CommercialPaper",
    "dims": [],
    "label": "Short-term borrowings (included $26,521 and $20,042 at fair value)",
    "depth": 1,
@@ -636,7 +636,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"

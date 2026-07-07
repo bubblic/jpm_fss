@@ -17,11 +17,13 @@ def read_pages(
     reader: str = "R2_lines",
     windows: dict[int, tuple[str | None, str | None]] | None = None,
     text_options: dict[str, float] | None = None,
+    page_options: dict[int, dict[str, float] | None] | None = None,
 ) -> ReaderOutput:
     lines: list[tuple[int, int, str]] = []
     for page_index in page_indices:
         page = pdf.pages[page_index]
-        text = page.extract_text(**(text_options or {})) or ""
+        options = (page_options or {}).get(page_index) or text_options or {}
+        text = page.extract_text(**options) or ""
         page_lines = text.splitlines()
         if windows and page_index in windows:
             page_lines = window_lines(page_lines, *windows[page_index])

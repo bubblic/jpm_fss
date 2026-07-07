@@ -44,22 +44,22 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 1,
-    "llm": 6,
-    "unmapped": 6
+    "llm": 5,
+    "unmapped": 7
    }
   },
   "cash_flow": {
    "located_by": "llm",
    "pages": [
-    76
+    72
    ],
-   "llm_adjudicated": 0,
-   "rows": 6,
+   "llm_adjudicated": 1,
+   "rows": 13,
    "columns": 2,
-   "accepted_cells": 10,
-   "flags": 1,
+   "accepted_cells": 20,
+   "flags": 3,
    "scale": "1000000",
-   "footing_groups": 0,
+   "footing_groups": 1,
    "footing_pass": true,
    "identity": null,
    "cash_tie": {
@@ -68,8 +68,8 @@
    },
    "mapping": {
     "lexical": 1,
-    "llm": 3,
-    "unmapped": 2
+    "llm": 5,
+    "unmapped": 7
    }
   }
  },
@@ -78,5 +78,5 @@
   "status": "skipped",
   "reason": "1 flagged balance-sheet cells (adjudication required before simulation)"
  },
- "llm_calls": 39
+ "llm_calls": 54
 }

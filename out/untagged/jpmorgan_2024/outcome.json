@@ -15,7 +15,7 @@
    "flags": 1,
    "scale": "1000000",
    "footing_groups": 6,
-   "footing_pass": false,
+   "footing_pass": true,
    "identity": {
     "pass": false,
     "detail": "assets vs combined right-hand total"
@@ -23,29 +23,28 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 5,
-    "llm": 11,
-    "unmapped": 24
+    "llm": 12,
+    "unmapped": 23
    }
   },
   "income_statement": {
    "located_by": "deterministic",
    "pages": [
-    84
+    206
    ],
-   "llm_adjudicated": 9,
-   "rows": 28,
+   "rows": 30,
    "columns": 3,
-   "accepted_cells": 84,
+   "accepted_cells": 90,
    "flags": 0,
-   "scale": "1",
-   "footing_groups": 4,
+   "scale": "1000000",
+   "footing_groups": 3,
    "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
-    "lexical": 4,
-    "llm": 10,
-    "unmapped": 14
+    "lexical": 2,
+    "llm": 12,
+    "unmapped": 16
    }
   },
   "cash_flow": {
@@ -74,7 +73,7 @@
  },
  "simulation": {
   "status": "skipped",
-  "reason": "1 flagged balance-sheet cells; A = L + E failed; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "1 flagged balance-sheet cells; A = L + E failed; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 93
+ "llm_calls": 71
 }

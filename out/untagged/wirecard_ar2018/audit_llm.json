@@ -1,5 +1,5 @@
 {
- "calls": 39,
+ "calls": 54,
  "decisions": [
   {
    "kind": "select_pages",
@@ -15,10 +15,10 @@
    "samples": [
     "None",
     "None",
-    "0.0"
+    "None"
    ],
    "voted": "None",
-   "agreement": 1
+   "agreement": 3
   },
   {
    "kind": "map_concept",
@@ -70,12 +70,12 @@
    "label": "The increase in expenses for almost all subitems goes As par",
    "column": 1,
    "samples": [
-    "None",
     "157.1",
-    "None"
+    "157.1",
+    "157.1"
    ],
-   "voted": "None",
-   "agreement": 1
+   "voted": "157.1",
+   "agreement": 3
   },
   {
    "kind": "read_cell",
@@ -84,10 +84,10 @@
    "samples": [
     "160.4",
     "160.4",
-    "None"
+    "160.4"
    ],
    "voted": "160.4",
-   "agreement": 2
+   "agreement": 3
   },
   {
    "kind": "read_cell",
@@ -95,11 +95,11 @@
    "column": 1,
    "samples": [
     "157.1",
-    "None",
+    "157.1",
     "None"
    ],
-   "voted": "None",
-   "agreement": 1
+   "voted": "157.1",
+   "agreement": 2
   },
   {
    "kind": "map_concept",
@@ -119,7 +119,7 @@
   {
    "kind": "map_concept",
    "label": "Equipment and leasing",
-   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
   },
   {
    "kind": "map_concept",
@@ -144,7 +144,7 @@
   {
    "kind": "map_concept",
    "label": "The increase in expenses for almost all subitems goes As par",
-   "chosen": "ck0001639920:AdjustmentsForIncreaseDecreaseInProvisions"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -155,13 +155,56 @@
    "kind": "select_pages",
    "query": "cash flow",
    "pages": [
+    72,
     76
    ]
   },
   {
    "kind": "read_cell",
-   "label": "curities). The remaining funds were held as deposits with so",
+   "label": "relating to the areas of acquiring, issuing and payment stri",
+   "column": 1,
+   "samples": [
+    "11.6",
+    "11.6",
+    "11.6"
+   ],
+   "voted": "11.6",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "relating to the areas of acquiring, issuing and payment stri",
+   "column": 0,
+   "value": "11.6"
+  },
+  {
+   "kind": "read_cell",
+   "label": "The increase in expenses for almost all subitems goes As par",
+   "column": 1,
+   "samples": [
+    "157.1",
+    "157.1",
+    "157.1"
+   ],
+   "voted": "157.1",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "The increase in expenses for almost all subitems goes As par",
    "column": 2,
+   "samples": [
+    "160.4",
+    "160.4",
+    "160.4"
+   ],
+   "voted": "160.4",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "gion. determined using the previously applicable model of in",
+   "column": 1,
    "samples": [
     "None",
     "None",
@@ -172,23 +215,53 @@
   },
   {
    "kind": "map_concept",
-   "label": "Medium-term financing agreements",
+   "label": "Legal and financial statement costs",
    "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Internally-generated intangible assets",
-   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+   "label": "Consulting expenses and consulting-related expenses",
+   "chosen": "us-gaap:OperatingExpenses"
   },
   {
    "kind": "map_concept",
-   "label": "Other intangible assets (software)",
-   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+   "label": "Office expenses",
+   "chosen": "us-gaap:OperatingExpenses"
   },
   {
    "kind": "map_concept",
-   "label": "curities). The remaining funds were held as deposits with so",
-   "chosen": "us-gaap:ShortTermInvestments"
+   "label": "Equipment and leasing",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Travel, sales and marketing",
+   "chosen": "ifrs-full:SalesAndMarketingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Personnel-related expenses",
+   "chosen": "ifrs-full:OperatingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Insurance payments, contributions and levies",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "The increase in expenses for almost all subitems goes As par",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "gion. determined using the previously applicable model of in",
+   "chosen": null
   }
  ]
 }

@@ -64,7 +64,7 @@
   {
    "kind": "map_concept",
    "label": "Other financial liabilities 39",
-   "chosen": "us-gaap:OtherLiabilitiesCurrent"
+   "chosen": "ifrs-full:CurrentFinancialLiabilities"
   },
   {
    "kind": "map_concept",
@@ -84,7 +84,7 @@
   {
    "kind": "map_concept",
    "label": "FinTech and Business Services",
-   "chosen": "ifrs-full:RevenueFromRenderingOfInformationTechnologyMaintenanceAndSupportServices"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -104,7 +104,7 @@
   {
    "kind": "map_concept",
    "label": "Other gains/(losses), net 8",
-   "chosen": "us-gaap:NonoperatingIncomeExpense"
+   "chosen": "sap:OtherNonOperatingIncomeExpensesNet"
   },
   {
    "kind": "map_concept",
@@ -119,7 +119,7 @@
   {
    "kind": "map_concept",
    "label": "Share of profit/(loss) of associates and joint ventures, net",
-   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+   "chosen": "ifrs-full:ProfitLoss"
   },
   {
    "kind": "map_concept",
@@ -144,12 +144,12 @@
   {
    "kind": "map_concept",
    "label": "of the Company (in RMB per share) \u2013 basic 13(a)",
-   "chosen": null
+   "chosen": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
   },
   {
    "kind": "map_concept",
    "label": "\u2013 diluted 13(b)",
-   "chosen": "us-gaap:EarningsPerShareDiluted"
+   "chosen": "ifrs-full:DilutedEarningsLossPerShare"
   },
   {
    "kind": "map_concept",
@@ -159,22 +159,22 @@
   {
    "kind": "map_concept",
    "label": "Net cash flows generated from operating activities",
-   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+   "chosen": "ifrs-full:CashFlowsFromUsedInOperatingActivities"
   },
   {
    "kind": "map_concept",
    "label": "Payments for business combinations, net of cash acquired",
-   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+   "chosen": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities"
   },
   {
    "kind": "map_concept",
    "label": "Net inflow of cash from disposals of investments in subsidia",
-   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+   "chosen": "msft:ProceedsFromInvestments"
   },
   {
    "kind": "map_concept",
    "label": "Purchase of/prepayments for property, plant and equipment, c",
-   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+   "chosen": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
   },
   {
    "kind": "map_concept",
@@ -259,7 +259,7 @@
   {
    "kind": "map_concept",
    "label": "Payments for shares purchased/withheld for share award schem",
-   "chosen": "ifrs-full:AdjustmentsForSharebasedPayments"
+   "chosen": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases"
   },
   {
    "kind": "map_concept",
@@ -269,7 +269,7 @@
   {
    "kind": "map_concept",
    "label": "Payments for acquisition of non-controlling interests in non",
-   "chosen": "ifrs-full:NoncontrollingInterests"
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
   },
   {
    "kind": "map_concept",

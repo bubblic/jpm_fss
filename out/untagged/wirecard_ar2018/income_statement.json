@@ -146,7 +146,7 @@
   },
   {
    "order": 4,
-   "concept": "us-gaap:DepreciationDepletionAndAmortization",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Equipment and leasing",
    "depth": 1,
@@ -384,7 +384,7 @@
   },
   {
    "order": 11,
-   "concept": "ck0001639920:AdjustmentsForIncreaseDecreaseInProvisions",
+   "concept": "doc:TheIncreaseInExpensesForAlmostAllSubitemsGoesAsPartOfTheFirs_11",
    "dims": [],
    "label": "The increase in expenses for almost all subitems goes As part of the first-time application of IFRS",
    "depth": 1,
@@ -396,7 +396,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Other operating expenses"
@@ -466,7 +466,7 @@
     "1"
    ],
    [
-    "us-gaap:DepreciationDepletionAndAmortization",
+    "us-gaap:GeneralAndAdministrativeExpense",
     "1"
    ],
    [

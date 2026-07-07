@@ -253,7 +253,7 @@
   },
   {
    "order": 6,
-   "concept": "us-gaap:NonoperatingIncomeExpense",
+   "concept": "sap:OtherNonOperatingIncomeExpensesNet",
    "dims": [],
    "label": "Pension and OPEB income, net",
    "depth": 1,
@@ -573,7 +573,7 @@
   },
   {
    "order": 14,
-   "concept": "ifrs-full:NoncurrentFinanceLeaseReceivables",
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
    "dims": [],
    "label": "Purchases of finance receivables",
    "depth": 1,
@@ -583,7 +583,7 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
@@ -813,7 +813,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:NetIncreaseDecreaseInShortTermDebt_20",
+   "concept": "us-gaap:CommercialPaper",
    "dims": [],
    "label": "Net increase (decrease) in short-term debt",
    "depth": 1,
@@ -823,9 +823,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -973,7 +973,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:IssuanceRedemptionOfSubsidiaryStockNote20_24",
+   "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock",
    "dims": [],
    "label": "Issuance (redemption) of subsidiary stock (Note 20)",
    "depth": 1,
@@ -985,7 +985,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -1335,7 +1335,7 @@
  "calc_children": {
   "doc:NetCashProvidedByUsedInFinancingActivities_27": [
    [
-    "doc:NetIncreaseDecreaseInShortTermDebt_20",
+    "us-gaap:CommercialPaper",
     "1"
    ],
    [
@@ -1351,7 +1351,7 @@
     "1"
    ],
    [
-    "doc:IssuanceRedemptionOfSubsidiaryStockNote20_24",
+    "us-gaap:ProceedsFromIssuanceOfCommonStock",
     "1"
    ],
    [
@@ -1395,7 +1395,7 @@
     "1"
    ],
    [
-    "ifrs-full:NoncurrentFinanceLeaseReceivables",
+    "us-gaap:PaymentsToAcquireInvestments",
     "1"
    ],
    [
@@ -1441,7 +1441,7 @@
     "1"
    ],
    [
-    "us-gaap:NonoperatingIncomeExpense",
+    "sap:OtherNonOperatingIncomeExpensesNet",
     "1"
    ],
    [

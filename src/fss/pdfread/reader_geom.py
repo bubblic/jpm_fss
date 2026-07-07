@@ -143,15 +143,17 @@ def read_pages(
     reader: str = "R1_geometry",
     windows: dict[int, tuple[str | None, str | None]] | None = None,
     text_options: dict[str, float] | None = None,
+    page_options: dict[int, dict[str, float] | None] | None = None,
 ) -> ReaderOutput:
     from fss.pdfread.rows import window_lines
 
     assembler = RowAssembler(reader)
     for page_index in page_indices:
         page = pdf.pages[page_index]
+        options = (page_options or {}).get(page_index) or text_options or {}
         words = [
             _Word(w["text"], float(w["x0"]), float(w["x1"]), float(w["top"]))
-            for w in page.extract_words(keep_blank_chars=False, **(text_options or {}))
+            for w in page.extract_words(keep_blank_chars=False, **options)
         ]
         lines = _cluster_lines(words)
         if windows and page_index in windows:

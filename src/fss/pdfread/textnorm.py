@@ -25,10 +25,22 @@ class NumToken:
     raw: str
 
 
+_FULLWIDTH = str.maketrans(
+    {
+        "（": "(",
+        "）": ")",
+        "，": ",",
+        "．": ".",
+        "－": "-",
+        **{chr(0xFF10 + d): str(d) for d in range(10)},  # ０-９
+    }
+)
+
+
 def parse_number(token: str) -> NumToken | None:
     """Parse one whitespace-delimited token; None when it is not a value."""
     raw = token
-    text = token.strip()
+    text = token.strip().translate(_FULLWIDTH)
     for mark in CURRENCY_MARKS:
         text = text.replace(mark, "")
     text = text.strip().rstrip(",;:").strip()
@@ -135,6 +147,16 @@ _SHARES_IN_THOUSANDS = re.compile(
 _SHARES_EXCEPTED = re.compile(r"except\s+(?:number\s+of\s+)?shares?\b|except\s+share\b", re.IGNORECASE)
 
 
+_CONDENSED_SCALES: tuple[tuple[re.Pattern[str], Decimal], ...] = (
+    # fused-text headers ("(millionsofdollars)") and CJK scale words;
+    # note the Chinese 億 is 10^8, not a billion
+    (re.compile(r"millionsof|inmillions|百萬|百万|rmbmillions?", re.IGNORECASE), Decimal(10) ** 6),
+    (re.compile(r"thousandsof|inthousands|千元|千美元", re.IGNORECASE), Decimal(10) ** 3),
+    (re.compile(r"inbillions", re.IGNORECASE), Decimal(10) ** 9),
+    (re.compile(r"億元|亿元"), Decimal(10) ** 8),
+)
+
+
 def detect_scale(header_text: str) -> ScalePolicy:
     """Read the scale policy from the statement's header block."""
     statement_scale = Decimal(1)
@@ -145,6 +167,14 @@ def detect_scale(header_text: str) -> ScalePolicy:
             statement_scale = scale
             matched = found.group(0)
             break
+    if statement_scale == 1:
+        squeezed = "".join(header_text.split())
+        for pattern, scale in _CONDENSED_SCALES:
+            found = pattern.search(squeezed)
+            if found:
+                statement_scale = scale
+                matched = found.group(0)
+                break
     if _SHARES_IN_THOUSANDS.search(header_text):
         share_scale = Decimal(10) ** 3
     elif _SHARES_EXCEPTED.search(header_text):

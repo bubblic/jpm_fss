@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "ifrs-full:RevenueFromRenderingOfInformationTechnologyMaintenanceAndSupportServices",
+   "concept": "doc:FintechAndBusinessServices_2",
    "dims": [],
    "label": "FinTech and Business Services",
    "depth": 1,
@@ -90,9 +90,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Revenues"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "us-gaap:NonoperatingIncomeExpense",
+   "concept": "sap:OtherNonOperatingIncomeExpensesNet",
    "dims": [],
    "label": "Other gains/(losses), net 8",
    "depth": 1,
@@ -454,12 +454,12 @@
   },
   {
    "order": 13,
-   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+   "concept": "ifrs-full:ProfitLoss",
    "dims": [],
    "label": "Share of profit/(loss) of associates and joint ventures, net",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "us-gaap:EarningsPerShareDiluted",
+   "concept": "ifrs-full:DilutedEarningsLossPerShare",
    "dims": [],
    "label": "\u2013 diluted 13(b)",
    "depth": 1,
@@ -780,7 +780,7 @@
     "1"
    ],
    [
-    "ifrs-full:RevenueFromRenderingOfInformationTechnologyMaintenanceAndSupportServices",
+    "doc:FintechAndBusinessServices_2",
     "1"
    ],
    [
@@ -820,7 +820,7 @@
     "1"
    ],
    [
-    "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+    "ifrs-full:ProfitLoss",
     "1"
    ]
   ],
@@ -838,7 +838,7 @@
     "1"
    ],
    [
-    "us-gaap:NonoperatingIncomeExpense",
+    "sap:OtherNonOperatingIncomeExpensesNet",
     "1"
    ]
   ]

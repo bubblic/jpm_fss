@@ -18,18 +18,18 @@ LLM assist: configured
 - pages [72] (llm), 13 rows x 2 columns, scale 1000000
 - accepted cells 20, flags 3, LLM-adjudicated 1
 - footing: 1 verified groups, PASS
-- concept mapping: 1 lexical, 6 LLM, 6 unmapped
+- concept mapping: 1 lexical, 5 LLM, 7 unmapped
 
 ## cash_flow
 
-- pages [76] (llm), 6 rows x 2 columns, scale 1000000
-- accepted cells 10, flags 1
-- footing: 0 verified groups, PASS
+- pages [72] (llm), 13 rows x 2 columns, scale 1000000
+- accepted cells 20, flags 3, LLM-adjudicated 1
+- footing: 1 verified groups, PASS
 - cash tie: N/A (no beginning/ending cash rows)
-- concept mapping: 1 lexical, 3 LLM, 2 unmapped
+- concept mapping: 1 lexical, 5 LLM, 7 unmapped
 
 ## Simulation
 
 - skipped: 1 flagged balance-sheet cells (adjudication required before simulation)
 
-LLM calls: 39
+LLM calls: 54

@@ -13,89 +13,9 @@
  "rows": [
   {
    "order": 0,
-   "concept": "ifrs-full:Revenue",
+   "concept": "doc:InvestmentBankingFees_0",
    "dims": [],
-   "label": "Total net revenue",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected income statement data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "177556",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "158104",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "128695",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 1,
-   "concept": "us-gaap:OperatingExpenses",
-   "dims": [],
-   "label": "Total noninterest expense",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected income statement data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "91797",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "87172",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "76140",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 2,
-   "concept": "doc:PreProvisionProfitA_2",
-   "dims": [],
-   "label": "Pre-provision profit(a)",
+   "label": "Investment banking fees",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -108,24 +28,104 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Selected income statement data"
+    "Revenue"
    ],
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": "85759",
+     "value": "8910000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "70932",
+     "value": "6519000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "52555",
+     "value": "6686000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:PrincipalTransactions_1",
+   "dims": [],
+   "label": "Principal transactions",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "24787000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "24460000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "19912000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:LendingAndDepositRelatedFees_2",
+   "dims": [],
+   "label": "Lending- and deposit-related fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "7606000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "7413000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "7098000000",
      "decimals": -6,
      "unit": null
     }
@@ -133,7 +133,447 @@
   },
   {
    "order": 3,
-   "concept": "doc:ProvisionForCreditLosses_3",
+   "concept": "doc:AssetManagementFees_3",
+   "dims": [],
+   "label": "Asset management fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "17801000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "15220000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "14096000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:CommissionsAndOtherFees_4",
+   "dims": [],
+   "label": "Commissions and other fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "7530000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "6836000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "6581000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "doc:InvestmentSecuritiesLosses_5",
+   "dims": [],
+   "label": "Investment securities losses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-1021000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-3180000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-2380000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "ifrs-full:FinanceIncome",
+   "dims": [],
+   "label": "Mortgage fees and related income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "1401000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1176000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1250000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "ifrs-full:OtherOperatingIncomeExpense",
+   "dims": [],
+   "label": "Card income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "5497000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "4784000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4420000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "us-gaap:NonoperatingIncomeExpense",
+   "dims": [],
+   "label": "Other income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "12462000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "5609000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4322000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "ifrs-full:Revenue",
+   "dims": [],
+   "label": "Noninterest revenue",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "84973000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "68837000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "61985000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "ifrs-full:FinanceIncome",
+   "dims": [],
+   "label": "Interest income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "193933000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "170588000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "92807000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:InterestExpense_11",
+   "dims": [],
+   "label": "Interest expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "101350000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "81321000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "26097000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "ifrs-full:FinanceIncomeCost",
+   "dims": [],
+   "label": "Net interest income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "92583000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "89267000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "66710000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "ifrs-full:Revenue",
+   "dims": [],
+   "label": "Total net revenue",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenue"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "177556000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "158104000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "128695000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:ProvisionForCreditLosses_14",
    "dims": [],
    "label": "Provision for credit losses",
    "depth": 1,
@@ -148,32 +588,312 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Selected income statement data"
+    "Revenue"
    ],
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": "10678",
+     "value": "10678000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "9320",
+     "value": "9320000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "6389",
+     "value": "6389000000",
      "decimals": -6,
      "unit": null
     }
    ]
   },
   {
-   "order": 4,
-   "concept": "doc:IncomeBeforeIncomeTaxExpense_4",
+   "order": 15,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Compensation expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "51357000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "46465000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "41636000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Occupancy expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "5026000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "4590000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4696000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Technology, communications and equipment expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "9831000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "9246000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "9358000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "doc:ProfessionalAndOutsideServices_18",
+   "dims": [],
+   "label": "Professional and outside services",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "11057000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "10235000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "10174000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:Marketing_19",
+   "dims": [],
+   "label": "Marketing",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4974000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "4591000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "3911000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:OtherExpense_20",
+   "dims": [],
+   "label": "Other expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "9552000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "12045000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "6365000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "ifrs-full:OperatingExpense",
+   "dims": [],
+   "label": "Total noninterest expense",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "91797000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "87172000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "76140000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "doc:IncomeBeforeIncomeTaxExpense_22",
    "dims": [],
    "label": "Income before income tax expense",
    "depth": 1,
@@ -188,31 +908,31 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Selected income statement data"
+    "Noninterest expense"
    ],
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": "75081",
+     "value": "75081000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "61612",
+     "value": "61612000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "46166",
+     "value": "46166000000",
      "decimals": -6,
      "unit": null
     }
    ]
   },
   {
-   "order": 5,
+   "order": 23,
    "concept": "ifrs-full:AdjustmentsForIncomeTaxExpense",
    "dims": [],
    "label": "Income tax expense",
@@ -228,31 +948,31 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Selected income statement data"
+    "Noninterest expense"
    ],
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": "16610",
+     "value": "16610000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "12060",
+     "value": "12060000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "8490",
+     "value": "8490000000",
      "decimals": -6,
      "unit": null
     }
    ]
   },
   {
-   "order": 6,
+   "order": 24,
    "concept": "us-gaap:NetIncomeLoss",
    "dims": [],
    "label": "Net income",
@@ -268,34 +988,34 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Selected income statement data"
+    "Noninterest expense"
    ],
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": "58471",
+     "value": "58471000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "49552",
+     "value": "49552000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "37676",
+     "value": "37676000000",
      "decimals": -6,
      "unit": null
     }
    ]
   },
   {
-   "order": 7,
-   "concept": "us-gaap:NetIncomeLoss",
+   "order": 25,
+   "concept": "doc:NetIncomeApplicableToCommonStockholders_25",
    "dims": [],
-   "label": "Net income: Basic",
+   "label": "Net income applicable to common stockholders",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -303,12 +1023,52 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "56868000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "47760000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "35892000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "us-gaap:EarningsPerShareBasic",
+   "dims": [],
+   "label": "Basic earnings per share",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Earnings per share data"
+    "Net income per common share data"
    ],
    "cells": [
     {
@@ -332,10 +1092,10 @@
    ]
   },
   {
-   "order": 8,
-   "concept": "us-gaap:EarningsPerShareDiluted",
+   "order": 27,
+   "concept": "doc:DilutedEarningsPerShare_27",
    "dims": [],
-   "label": "Diluted",
+   "label": "Diluted earnings per share",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -343,12 +1103,12 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Earnings per share data"
+    "Net income per common share data"
    ],
    "cells": [
     {
@@ -372,10 +1132,10 @@
    ]
   },
   {
-   "order": 9,
-   "concept": "doc:AverageSharesBasic_9",
+   "order": 28,
+   "concept": "doc:WeightedAverageBasicShares_28",
    "dims": [],
-   "label": "Average shares: Basic",
+   "label": "Weighted-average basic shares",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -388,7 +1148,7 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Earnings per share data"
+    "Net income per common share data"
    ],
    "cells": [
     {
@@ -412,50 +1172,10 @@
    ]
   },
   {
-   "order": 10,
-   "concept": "us-gaap:EarningsPerShareDiluted",
+   "order": 29,
+   "concept": "doc:WeightedAverageDilutedShares_29",
    "dims": [],
-   "label": "Diluted",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Earnings per share data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "2879.0",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "2943.1",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "2970.0",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 11,
-   "concept": "doc:MarketCapitalization_11",
-   "dims": [],
-   "label": "Market capitalization",
+   "label": "Weighted-average diluted shares",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -468,672 +1188,69 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Market and per common share data"
+    "Net income per common share data"
    ],
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": "670618",
+     "value": "2879000000.0",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "489320",
+     "value": "2943100000.0",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "393484",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 12,
-   "concept": "us-gaap:CommonStockSharesOutstanding",
-   "dims": [],
-   "label": "Common shares at period-end",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Market and per common share data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "2797.6",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "2876.6",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "2934.2",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 13,
-   "concept": "doc:BookValuePerShare_13",
-   "dims": [],
-   "label": "Book value per share",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Market and per common share data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "116.07",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "104.45",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "90.29",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 14,
-   "concept": "doc:TangibleBookValuePerShareTbvpsA_14",
-   "dims": [],
-   "label": "Tangible book value per share (\u201cTBVPS\u201d)(a)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Market and per common share data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "97.30",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "86.08",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "73.12",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 15,
-   "concept": "us-gaap:PaymentsOfDividendsCommonStock",
-   "dims": [],
-   "label": "Cash dividends declared per share",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Market and per common share data"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "4.80",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "4.10",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "4.00",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 16,
-   "concept": "ifrs-full:Equity",
-   "dims": [],
-   "label": "Return on common equity (\u201cROE\u201d)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "18",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "17",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "14",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 17,
-   "concept": "ifrs-full:Equity",
-   "dims": [],
-   "label": "Return on tangible common equity (\u201cROTCE\u201d)(a)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "22",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "21",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "18",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 18,
-   "concept": "us-gaap:Assets",
-   "dims": [],
-   "label": "Return on assets (\u201cROA\u201d)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1.43",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1.30",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "0.98",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 19,
-   "concept": "doc:OverheadRatio_19",
-   "dims": [],
-   "label": "Overhead ratio",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "52",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "55",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "59",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 20,
-   "concept": "doc:LoansToDepositsRatio_20",
-   "dims": [],
-   "label": "Loans-to-deposits ratio",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "56",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "55",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "49",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 21,
-   "concept": "doc:FirmLiquidityCoverageRatioLcrAverageB_21",
-   "dims": [],
-   "label": "Firm Liquidity coverage ratio (\u201cLCR\u201d) (average)(b)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "113",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "113",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "112",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 22,
-   "concept": "doc:JpmorganChaseBankNALcrAverageB_22",
-   "dims": [],
-   "label": "JPMorgan Chase Bank, N.A. LCR (average)(b)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "124",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "129",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "151",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 23,
-   "concept": "ifrs-full:Equity",
-   "dims": [],
-   "label": "Common equity Tier 1 (\u201cCET1\u201d) capital ratio(c)(d)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "15.7",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "15.0",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "13.2",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 24,
-   "concept": "doc:Tier1CapitalRatioCD_24",
-   "dims": [],
-   "label": "Tier 1 capital ratio(c)(d)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "16.8",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "16.6",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "14.9",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 25,
-   "concept": "ifrs-full:Equity",
-   "dims": [],
-   "label": "Total capital ratio(c)(d)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "18.5",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "18.5",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "16.8",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 26,
-   "concept": "doc:Tier1LeverageRatioBC_26",
-   "dims": [],
-   "label": "Tier 1 leverage ratio(b)(c)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "7.2",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "7.2",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "6.6",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 27,
-   "concept": "doc:SupplementaryLeverageRatioSlrBC_27",
-   "dims": [],
-   "label": "Supplementary leverage ratio (\u201cSLR\u201d)(b)(c)",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Selected ratios and metrics"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "6.1",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "6.1",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "5.6",
+     "value": "2970000000.0",
      "decimals": -6,
      "unit": null
     }
    ]
   }
  ],
- "calc_children": {},
+ "calc_children": {
+  "ifrs-full:OperatingExpense": [
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "doc:ProfessionalAndOutsideServices_18",
+    "1"
+   ],
+   [
+    "doc:Marketing_19",
+    "1"
+   ],
+   [
+    "doc:OtherExpense_20",
+    "1"
+   ]
+  ],
+  "ifrs-full:Revenue": [
+   [
+    "ifrs-full:Revenue",
+    "1"
+   ],
+   [
+    "ifrs-full:FinanceIncomeCost",
+    "1"
+   ]
+  ]
+ },
  "notes": [
-  "column years not detected; synthetic ordering"
+  "columns assume 31 Dec fiscal years: [2024, 2023, 2022]"
  ]
 }

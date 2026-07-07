@@ -297,8 +297,8 @@
    "dims": [],
    "label": "Net revenues",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1221,6 +1221,16 @@
    [
     "doc:CumulativeEffectOfAccountingChange_27",
     "1"
+   ]
+  ],
+  "doc:NetRevenues_7": [
+   [
+    "ifrs-full:Revenue",
+    "1"
+   ],
+   [
+    "doc:InterestExpense_6",
+    "-1"
    ]
   ],
   "ifrs-full:Revenue": [

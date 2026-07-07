@@ -6,25 +6,26 @@
   "balance_sheet": {
    "located_by": "deterministic",
    "pages": [
-    132
+    475,
+    476
    ],
-   "llm_adjudicated": 2,
-   "rows": 29,
-   "columns": 6,
-   "accepted_cells": 164,
-   "flags": 4,
-   "scale": "1000000",
-   "footing_groups": 2,
-   "footing_pass": false,
+   "llm_adjudicated": 0,
+   "rows": 50,
+   "columns": 2,
+   "accepted_cells": 94,
+   "flags": 37,
+   "scale": "1",
+   "footing_groups": 7,
+   "footing_pass": true,
    "identity": {
     "pass": true,
     "detail": "assets vs combined right-hand total"
    },
    "cash_tie": null,
    "mapping": {
-    "lexical": 11,
-    "llm": 10,
-    "unmapped": 8
+    "lexical": 14,
+    "llm": 15,
+    "unmapped": 21
    }
   },
   "income_statement": {
@@ -49,34 +50,33 @@
    }
   },
   "cash_flow": {
-   "located_by": "llm",
+   "located_by": "deterministic",
    "pages": [
-    128,
-    478,
-    539
+    478
    ],
-   "rows": 8,
+   "llm_adjudicated": 2,
+   "rows": 29,
    "columns": 2,
-   "accepted_cells": 16,
-   "flags": 0,
+   "accepted_cells": 50,
+   "flags": 2,
    "scale": "1000000",
-   "footing_groups": 0,
-   "footing_pass": true,
+   "footing_groups": 3,
+   "footing_pass": false,
    "identity": null,
    "cash_tie": {
-    "pass": null,
-    "detail": "no beginning/ending cash rows"
+    "pass": false,
+    "detail": "begin 43522 + change 28291 (activity totals, fx inside change) vs end 40296"
    },
    "mapping": {
-    "lexical": 5,
-    "llm": 3,
-    "unmapped": 0
+    "lexical": 1,
+    "llm": 19,
+    "unmapped": 9
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "4 flagged balance-sheet cells; balance_sheet footing unverified; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "37 flagged balance-sheet cells; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 58
+ "llm_calls": 90
 }

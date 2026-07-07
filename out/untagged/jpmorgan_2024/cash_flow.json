@@ -333,7 +333,7 @@
   },
   {
    "order": 8,
-   "concept": "msft:ProceedsFromInvestments",
+   "concept": "doc:ProceedsFromSalesSecuritizationsAndPaydownsOfLoansHeldForSal_8",
    "dims": [],
    "label": "Proceeds from sales, securitizations and paydowns of loans held-for-sale",
    "depth": 1,
@@ -345,7 +345,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -613,7 +613,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:OtherOperatingAdjustments_15",
+   "concept": "ifrs-full:OtherAdjustmentsForNoncashItems",
    "dims": [],
    "label": "Other operating adjustments",
    "depth": 1,
@@ -625,7 +625,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Net change in"
@@ -1013,7 +1013,7 @@
   },
   {
    "order": 25,
-   "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
+   "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
    "dims": [],
    "label": "Net cash used in First Republic Acquisition",
    "depth": 1,
@@ -1093,7 +1093,7 @@
   },
   {
    "order": 27,
-   "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
+   "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
    "dims": [],
    "label": "Net cash (used in)/provided by investing activities",
    "depth": 1,

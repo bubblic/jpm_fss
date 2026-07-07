@@ -333,7 +333,7 @@
   },
   {
    "order": 8,
-   "concept": "ifrs-full:OperatingExpense",
+   "concept": "doc:AutomotiveInterestExpense_8",
    "dims": [],
    "label": "Automotive interest expense",
    "depth": 1,
@@ -345,7 +345,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -537,8 +537,8 @@
    "dims": [],
    "label": "Net income (loss)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -853,6 +853,16 @@
   }
  ],
  "calc_children": {
+  "ifrs-full:ProfitLoss": [
+   [
+    "doc:IncomeLossBeforeIncomeTaxes_11",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "-1"
+   ]
+  ],
   "ifrs-full:ProfitLossFromOperatingActivities": [
    [
     "ifrs-full:Revenue",

@@ -1,90 +1,339 @@
 {
- "calls": 40,
+ "calls": 90,
  "decisions": [
   {
    "kind": "map_concept",
-   "label": "Investments in subsidiaries",
-   "chosen": "ck0001639920:LongTermInvestments1"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Other receivables",
-   "chosen": "ifrs-full:TradeAndOtherCurrentReceivables"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Share capital and premium",
-   "chosen": "ifrs-full:IssuedCapital"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Accumulated losses",
-   "chosen": "us-gaap:RetainedEarningsAccumulatedDeficit"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Deficiency in equity",
-   "chosen": "ifrs-full:Equity"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Borrowings",
+   "label": "Borrowings 22",
    "chosen": "ifrs-full:LongtermBorrowings"
   },
   {
    "kind": "map_concept",
-   "label": "Borrowings",
+   "label": "Deferred income tax liabilities 24",
+   "chosen": "ifrs-full:DeferredTaxLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other payables 25",
+   "chosen": "ifrs-full:NoncurrentPayables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Borrowings 22",
+   "chosen": "ifrs-full:LongtermBorrowings"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Current income tax liabilities 26",
+   "chosen": "ifrs-full:CurrentTaxLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net current liabilities",
+   "chosen": "ifrs-full:CurrentLiabilities"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Losses for the year",
+   "column": 1,
+   "samples": [
+    "-125814",
+    "-125814",
+    "-125814"
+   ],
+   "voted": "-125814",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Losses for the year",
+   "column": 2,
+   "samples": [
+    "-686219",
+    "-686219",
+    "-686219"
+   ],
+   "voted": "-686219",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Share of other comprehensive income of investments accounted",
+   "column": 1,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Share of other comprehensive income of investments accounted",
+   "column": 2,
+   "samples": [
+    "31",
+    "31",
+    "31"
+   ],
+   "voted": "31",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Share of other comprehensive income of investments accounted",
+   "column": 1,
+   "value": "31"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Exchange difference arising on translation of financial stat",
+   "column": 1,
+   "samples": [
+    "63",
+    "63",
+    "63"
+   ],
+   "voted": "63",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Exchange difference arising on translation of financial stat",
+   "column": 0,
+   "value": "63"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Exchange difference arising on translation of financial stat",
+   "column": 2,
+   "samples": [
+    "536",
+    "536",
+    "536"
+   ],
+   "voted": "536",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Exchange difference arising on translation of financial stat",
+   "column": 1,
+   "value": "536"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Change in fair value of financial assets at fair value throu",
+   "column": 1,
+   "samples": [
+    "380",
+    "380",
+    "380"
+   ],
+   "voted": "380",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Change in fair value of financial assets at fair value throu",
+   "column": 0,
+   "value": "380"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Change in fair value of financial assets at fair value throu",
+   "column": 2,
+   "samples": [
+    "-982",
+    "-982",
+    "-982"
+   ],
+   "voted": "-982",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Other comprehensive income/(loss) for the year, net of tax",
+   "column": 1,
+   "samples": [
+    "443",
+    "443",
+    "443"
+   ],
+   "voted": "443",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Other comprehensive income/(loss) for the year, net of tax",
+   "column": 0,
+   "value": "443"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Other comprehensive income/(loss) for the year, net of tax",
+   "column": 2,
+   "samples": [
+    "-415",
+    "-415",
+    "-415"
+   ],
+   "voted": "-415",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total comprehensive loss for the year",
+   "column": 1,
+   "samples": [
+    "-125371",
+    "-125371",
+    "-125371"
+   ],
+   "voted": "-125371",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total comprehensive loss for the year",
+   "column": 2,
+   "samples": [
+    "-686634",
+    "-686634",
+    "-686634"
+   ],
+   "voted": "-686634",
+   "agreement": 3
+  },
+  {
+   "kind": "map_concept",
+   "label": "Gross profit/(loss)",
+   "chosen": "ifrs-full:GrossProfit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Fair value gains/(losses) on investment properties, net 8",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Write down of properties under development and completed pro",
+   "chosen": "us-gaap:CostOfGoodsAndServicesSold"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Impairment losses on financial assets",
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other losses, net 27",
+   "chosen": "sap:OtherNonOperatingIncomeExpensesNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other income 28",
+   "chosen": "us-gaap:NonoperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Selling and marketing costs 29",
+   "chosen": "us-gaap:SellingAndMarketingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Administrative expenses 29",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Impairment loss of investments accounted for using equity me",
+   "chosen": "ifrs-full:AdjustmentsForImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLossTradeAndOtherReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other operating expenses 29",
+   "chosen": "ifrs-full:OperatingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Operating loss",
+   "chosen": "us-gaap:OperatingIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Share of profits/(losses) of investments accounted for using",
    "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Dividend payables",
-   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
+   "label": "Fair value losses on financial assets at fair value through ",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
   },
   {
    "kind": "map_concept",
-   "label": "Segment assets",
-   "chosen": "ifrs-full:Assets"
+   "label": "Fair value losses on contingent consideration payables",
+   "chosen": "us-gaap:NetIncomeLoss"
   },
   {
    "kind": "map_concept",
-   "label": "Unallocated assets",
-   "chosen": "ifrs-full:OtherCurrentAssets"
+   "label": "Fair value gains/(losses) on financial guarantee contracts",
+   "chosen": "us-gaap:NetIncomeLoss"
   },
   {
    "kind": "map_concept",
-   "label": "Interest in associates",
+   "label": "Finance costs, net 31",
+   "chosen": "ifrs-full:FinanceCosts"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Losses before income tax",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income tax (expenses)/credit 32",
+   "chosen": "ifrs-full:IncomeTaxExpenseContinuingOperations"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Losses for the year",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Share of other comprehensive income of investments accounted",
+   "chosen": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Exchange difference arising on translation of financial stat",
    "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Segment liabilities",
-   "chosen": "us-gaap:Liabilities"
+   "label": "Change in fair value of financial assets at fair value throu",
+   "chosen": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax"
   },
   {
    "kind": "map_concept",
-   "label": "Unallocated liabilities",
-   "chosen": "ifrs-full:Liabilities"
+   "label": "Other comprehensive income/(loss) for the year, net of tax",
+   "chosen": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax"
   },
   {
    "kind": "map_concept",
-   "label": "Capital expenditure",
-   "chosen": null
+   "label": "Total comprehensive loss for the year",
+   "chosen": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax"
   },
   {
-   "kind": "select_pages",
-   "query": "cash flow",
-   "pages": [
-    52,
-    53,
-    146,
-    147
-   ]
+   "kind": "map_concept",
+   "label": "Shareholders of the Company",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
   },
   {
    "kind": "map_concept",
    "label": "Net cash generated from operations 35",
-   "chosen": "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
   },
   {
    "kind": "map_concept",
@@ -109,7 +358,7 @@
   {
    "kind": "map_concept",
    "label": "Proceeds from disposal of investment properties",
-   "chosen": null
+   "chosen": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
   },
   {
    "kind": "map_concept",
@@ -119,7 +368,7 @@
   {
    "kind": "map_concept",
    "label": "Purchase of intangible assets",
-   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
   },
   {
    "kind": "map_concept",
@@ -139,7 +388,7 @@
   {
    "kind": "map_concept",
    "label": "Purchase of financial assets at fair value through profit or",
-   "chosen": "ifrs-full:OtherNoncurrentFinancialAssets"
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
   },
   {
    "kind": "map_concept",
@@ -169,7 +418,7 @@
   {
    "kind": "map_concept",
    "label": "Capital injection from non-controlling interest",
-   "chosen": "ifrs-full:NoncontrollingInterests"
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
   },
   {
    "kind": "map_concept",

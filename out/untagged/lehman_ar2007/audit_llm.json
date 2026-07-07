@@ -1,5 +1,5 @@
 {
- "calls": 90,
+ "calls": 50,
  "decisions": [
   {
    "kind": "map_concept",
@@ -9,7 +9,7 @@
   {
    "kind": "map_concept",
    "label": "Financial instruments and other inventory positions owned (i",
-   "chosen": null
+   "chosen": "us-gaap:IncreaseDecreaseInOtherOperatingAssets"
   },
   {
    "kind": "map_concept",
@@ -34,7 +34,7 @@
   {
    "kind": "map_concept",
    "label": "Short-term borrowings and current portion of long-term borro",
-   "chosen": "us-gaap:LongTermDebtCurrent"
+   "chosen": "ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings"
   },
   {
    "kind": "map_concept",
@@ -65,6 +65,31 @@
    "kind": "map_concept",
    "label": "Long-term borrowings (including $27,204 in 2007 and $11,025 ",
    "chosen": "us-gaap:LongTermDebtNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Preferred stock",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Shares outstanding: 531,887,419 in 2007 and 533,368,195 in 2",
+   "chosen": "us-gaap:CommonStockSharesOutstanding"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additional paid-in capital",
+   "chosen": "ifrs-full:AdditionalPaidinCapital"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accumulated other comprehensive loss, net of tax",
+   "chosen": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other stockholders\u2019 equity, net",
+   "chosen": "us-gaap:StockholdersEquity"
   },
   {
    "kind": "map_concept",
@@ -150,10 +175,9 @@
    "kind": "select_pages",
    "query": "cash flow",
    "pages": [
-    62,
     89,
     112,
-    113,
+    141,
     143,
     151,
     152,
@@ -163,172 +187,15 @@
   },
   {
    "kind": "read_cell",
-   "label": "Weighted-average credit loss assumption 0.5% 2.4%",
-   "column": 4,
-   "samples": [
-    "None",
-    "2.4",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 1
-  },
-  {
-   "kind": "read_cell",
-   "label": "Effect of 10% adverse change 107",
+   "label": "Condensed Consolidating Balance Sheet at November",
    "column": 1,
    "samples": [
-    "None",
-    "None",
-    "None"
+    "190886",
+    "190886",
+    "190886"
    ],
-   "voted": "None",
+   "voted": "190886",
    "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Effect of 20% adverse change 197",
-   "column": 1,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Effect of 10% adverse change 245",
-   "column": 1,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Effect of 20% adverse change 489",
-   "column": 1,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "The amount of investment-grade interests in securitizations ",
-   "column": 3,
-   "samples": [
-    "2500",
-    "130",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 1
-  },
-  {
-   "kind": "read_cell",
-   "label": "The amount of investment-grade interests in securitizations ",
-   "column": 4,
-   "samples": [
-    "2.5",
-    "2.5",
-    "664"
-   ],
-   "voted": "2.5",
-   "agreement": 2
-  },
-  {
-   "kind": "read_cell",
-   "label": "At November 30,2007, other interests in securitizations incl",
-   "column": 1,
-   "samples": [
-    "2400",
-    "2.4",
-    "2400000000"
-   ],
-   "voted": "None",
-   "agreement": 1
-  },
-  {
-   "kind": "read_cell",
-   "label": "At November 30,2007, other interests in securitizations incl",
-   "column": 4,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "of non-investment grade commercial mortgages and the remaind",
-   "column": 2,
-   "samples": [
-    "26",
-    "26",
-    "26"
-   ],
-   "voted": "26",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "In millions Grade Grade Oth er Grade Grade Oth er 898",
-   "column": 1,
-   "samples": [
-    "898",
-    "898",
-    "898"
-   ],
-   "voted": "898",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Balance, beginning of period",
-   "column": 3,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "adjudication_capped",
-   "max_cells": 12,
-   "note": "remaining flags left for review"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Non-cash compensation",
-   "chosen": "ifrs-full:OtherAdjustmentsForNoncashItems"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Deferred tax provision/(benefit)",
-   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Tax benefit from the issuance of stock-based awards",
-   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Other adjustments",
-   "chosen": "ifrs-full:OtherAdjustmentsToReconcileProfitLoss"
   },
   {
    "kind": "map_concept",
@@ -342,38 +209,23 @@
   },
   {
    "kind": "map_concept",
-   "label": "Resale agreements, net of repurchase agreements",
-   "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Securities borrowed, net of securities loaned",
-   "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Other secured borrowings",
-   "chosen": "us-gaap:OtherLiabilitiesCurrent"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Receivables from brokers, dealers and clearing organizations",
+   "label": "Receivables and other assets",
    "chosen": "ifrs-full:TradeAndOtherCurrentReceivables"
   },
   {
    "kind": "map_concept",
-   "label": "Receivables from customers",
+   "label": "Equity in net assets of subsidiaries",
    "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Financial instruments and other inventory positions sold but",
-   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+   "label": "Short-term borrowings and current portion of long- term borr",
+   "chosen": "ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings"
   },
   {
    "kind": "map_concept",
-   "label": "Payables to brokers, dealers and clearing organizations",
-   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
+   "label": "Financial instruments and other inventory positions sold but",
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -382,43 +234,18 @@
   },
   {
    "kind": "map_concept",
-   "label": "Other receivables and assets and minority interests",
-   "chosen": "us-gaap:IncreaseDecreaseInOtherOperatingAssets"
+   "label": "Deposit liabilities at banks",
+   "chosen": "us-gaap:LiabilitiesCurrent"
   },
   {
    "kind": "map_concept",
-   "label": "Net cash used in operating activities",
-   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+   "label": "Long-term borrowings",
+   "chosen": "us-gaap:LongTermDebtNoncurrent"
   },
   {
    "kind": "map_concept",
-   "label": "Purchase of property, equipment and leasehold improvements, ",
-   "chosen": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Business acquisitions, net of cash acquired",
-   "chosen": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Proceeds from sale of business",
+   "label": "Equity in income of subsidiaries",
    "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Net cash used in investing activities",
-   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Tax benefit from the issuance of stock-based awards",
-   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Issuance of short-term borrowings, net",
-   "chosen": "us-gaap:CommercialPaper"
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "calls": 56,
+ "calls": 60,
  "decisions": [
   {
    "kind": "map_concept",
@@ -19,7 +19,7 @@
   {
    "kind": "map_concept",
    "label": "Total investment securities",
-   "chosen": "us-gaap:Assets"
+   "chosen": "us-gaap:MarketableSecuritiesNoncurrent"
   },
   {
    "kind": "map_concept",
@@ -64,7 +64,7 @@
   {
    "kind": "map_concept",
    "label": "Other liabilities",
-   "chosen": "ifrs-full:Liabilities"
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
   },
   {
    "kind": "map_concept",
@@ -80,6 +80,18 @@
    "kind": "map_concept",
    "label": "Additional paid-in capital",
    "chosen": "ifrs-full:AdditionalPaidinCapital"
+  },
+  {
+   "kind": "read_cell",
+   "label": "SVB FINANCIAL GROUP AND SUBSIDIARIES",
+   "column": 2,
+   "samples": [
+    "3289",
+    "3179",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 1
   },
   {
    "kind": "map_concept",
@@ -119,7 +131,7 @@
   {
    "kind": "map_concept",
    "label": "Net interest income after provision for credit losses",
-   "chosen": null
+   "chosen": "ifrs-full:AdjustmentsForFinanceIncomeCost"
   },
   {
    "kind": "map_concept",
@@ -152,9 +164,16 @@
    "chosen": "us-gaap:GeneralAndAdministrativeExpense"
   },
   {
-   "kind": "map_concept",
-   "label": "Professional services",
-   "chosen": "ifrs-full:ServicesExpense"
+   "kind": "read_cell",
+   "label": "SVB FINANCIAL GROUP AND SUBSIDIARIES",
+   "column": 2,
+   "samples": [
+    "2073",
+    "2073",
+    "2073"
+   ],
+   "voted": "2073",
+   "agreement": 3
   },
   {
    "kind": "map_concept",
@@ -174,7 +193,7 @@
   {
    "kind": "map_concept",
    "label": "Changes in fair values of derivatives, net",
-   "chosen": null
+   "chosen": "ifrs-full:IncreaseDecreaseInCashAndCashEquivalentsBeforeEffectOfExchangeRateChanges"
   },
   {
    "kind": "map_concept",
@@ -184,7 +203,7 @@
   {
    "kind": "map_concept",
    "label": "Distributions of earnings from non-marketable and other equi",
-   "chosen": null
+   "chosen": "us-gaap:LongTermInvestments"
   },
   {
    "kind": "map_concept",
@@ -214,7 +233,7 @@
   {
    "kind": "map_concept",
    "label": "Losses from the write-off of premises and equipment and righ",
-   "chosen": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets"
+   "chosen": "ck0001639920:AdjustmentForWriteOffOfContentAssets"
   },
   {
    "kind": "map_concept",
@@ -244,7 +263,7 @@
   {
    "kind": "map_concept",
    "label": "Purchases of AFS securities",
-   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+   "chosen": "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt"
   },
   {
    "kind": "map_concept",
@@ -275,11 +294,6 @@
    "kind": "map_concept",
    "label": "Proceeds from sales and distributions of capital of non-mark",
    "chosen": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Net increase in loans",
-   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentAssets"
   }
  ]
 }

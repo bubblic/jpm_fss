@@ -12,9 +12,9 @@
  "rows": [
   {
    "order": 0,
-   "concept": "ck0001639920:LongTermInvestments1",
+   "concept": "ifrs-full:LongtermBorrowings",
    "dims": [],
-   "label": "Investments in subsidiaries",
+   "label": "Borrowings 22",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -22,23 +22,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Non-current assets (a)"
+    "Non-current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": null,
+     "value": "25268000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": null,
+     "value": "4724000000",
      "decimals": -6,
      "unit": null
     }
@@ -46,9 +46,9 @@
   },
   {
    "order": 1,
-   "concept": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
+   "concept": "doc:ContingentConsiderationPayables23_1",
    "dims": [],
-   "label": "Property, plant and equipment",
+   "label": "Contingent consideration payables 23",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -56,23 +56,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Non-current assets (a)"
+    "Non-current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "1000000",
+     "value": "51000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "2000000",
+     "value": "58000000",
      "decimals": -6,
      "unit": null
     }
@@ -80,33 +80,33 @@
   },
   {
    "order": 2,
-   "concept": "doc:Row2_2",
+   "concept": "doc:DeferredIncomeTaxLiabilities24_2",
    "dims": [],
-   "label": "(total)",
+   "label": "Deferred income tax liabilities 24",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Non-current assets (a)"
+    "Non-current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "1000000",
+     "value": "47869000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "2000000",
+     "value": "43800000000",
      "decimals": -6,
      "unit": null
     }
@@ -114,9 +114,9 @@
   },
   {
    "order": 3,
-   "concept": "doc:AmountsDueFromSubsidiariesB_3",
+   "concept": "doc:OtherPayables25_3",
    "dims": [],
-   "label": "Amounts due from subsidiaries (b)",
+   "label": "Other payables 25",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -124,23 +124,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "Non-current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "98434000000",
+     "value": "11301000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "105932000000",
+     "value": "10432000000",
      "decimals": -6,
      "unit": null
     }
@@ -148,33 +148,33 @@
   },
   {
    "order": 4,
-   "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
+   "concept": "doc:Row4_4",
    "dims": [],
-   "label": "Other receivables",
+   "label": "(total)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "Non-current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "392000000",
+     "value": "84489000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "306000000",
+     "value": "59014000000",
      "decimals": -6,
      "unit": null
     }
@@ -182,9 +182,9 @@
   },
   {
    "order": 5,
-   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "concept": "ifrs-full:LongtermBorrowings",
    "dims": [],
-   "label": "Cash and cash equivalents",
+   "label": "Borrowings 22",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -192,23 +192,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Current assets"
+    "Current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "7000000",
+     "value": "587123000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "6000000",
+     "value": "602653000000",
      "decimals": -6,
      "unit": null
     }
@@ -216,33 +216,33 @@
   },
   {
    "order": 6,
-   "concept": "doc:Row6_6",
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
    "dims": [],
-   "label": "(total)",
+   "label": "Trade and other payables 25",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Current assets"
+    "Current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "98833000000",
+     "value": "1002264000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "106244000000",
+     "value": "893341000000",
      "decimals": -6,
      "unit": null
     }
@@ -250,33 +250,33 @@
   },
   {
    "order": 7,
-   "concept": "us-gaap:Assets",
+   "concept": "ifrs-full:CurrentContractLiabilities",
    "dims": [],
-   "label": "Total assets",
+   "label": "Contract liabilities 25",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Current assets"
+    "Current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "98834000000",
+     "value": "721021000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "106246000000",
+     "value": "974347000000",
      "decimals": -6,
      "unit": null
     }
@@ -284,9 +284,9 @@
   },
   {
    "order": 8,
-   "concept": "ifrs-full:IssuedCapital",
+   "concept": "ifrs-full:CurrentTaxLiabilities",
    "dims": [],
-   "label": "Share capital and premium",
+   "label": "Current income tax liabilities 26",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -299,18 +299,18 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Company"
+    "Current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "4226000000",
+     "value": "42515000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "4226000000",
+     "value": "50795000000",
      "decimals": -6,
      "unit": null
     }
@@ -318,33 +318,33 @@
   },
   {
    "order": 9,
-   "concept": "ifrs-full:OtherReserves",
+   "concept": "doc:Row9_9",
    "dims": [],
-   "label": "Other reserves",
+   "label": "(total)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Company"
+    "Current liabilities"
    ],
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "6544000000",
+     "value": "2352923000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "6100000000",
+     "value": "2521136000000",
      "decimals": -6,
      "unit": null
     }
@@ -352,278 +352,6 @@
   },
   {
    "order": 10,
-   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
-   "dims": [],
-   "label": "Accumulated losses",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Company"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "-109389000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "-89394000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 11,
-   "concept": "ifrs-full:Equity",
-   "dims": [],
-   "label": "Deficiency in equity",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Company"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "-98619000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "-79068000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 12,
-   "concept": "ifrs-full:LongtermBorrowings",
-   "dims": [],
-   "label": "Borrowings",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Non-current liability"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "99621000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "90806000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 13,
-   "concept": "doc:Row13_13",
-   "dims": [],
-   "label": "(total)",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Non-current liability"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "99621000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "90806000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 14,
-   "concept": "doc:AmountsDueToSubsidiaries_14",
-   "dims": [],
-   "label": "Amounts due to subsidiaries",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "93876000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "90887000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 15,
-   "concept": "doc:Borrowings_15",
-   "dims": [],
-   "label": "Borrowings",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "2304000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "2109000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 16,
-   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
-   "dims": [],
-   "label": "Dividend payables",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "1652000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "1512000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 17,
-   "concept": "doc:Row17_17",
-   "dims": [],
-   "label": "(total)",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "97832000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "94508000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 18,
    "concept": "us-gaap:Liabilities",
    "dims": [],
    "label": "Total liabilities",
@@ -644,26 +372,26 @@
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "197453000000",
+     "value": "2437412000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "185314000000",
+     "value": "2580150000000",
      "decimals": -6,
      "unit": null
     }
    ]
   },
   {
-   "order": 19,
-   "concept": "ifrs-full:EquityAndLiabilities",
+   "order": 11,
+   "concept": "ifrs-full:CurrentLiabilities",
    "dims": [],
-   "label": "Total equity and liabilities",
+   "label": "Net current liabilities",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -678,13 +406,47 @@
    "cells": [
     {
      "period": "I2022-12-31",
-     "value": "98834000000",
+     "value": "-687734000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2021-12-31",
-     "value": "106246000000",
+     "value": "-627315000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "ifrs-full:EquityAndLiabilities",
+   "dims": [],
+   "label": "Total equity and liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "1838338000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "2107096000000",
      "decimals": -6,
      "unit": null
     }
@@ -692,77 +454,49 @@
   }
  ],
  "calc_children": {
-  "doc:Row13_13": [
+  "doc:Row4_4": [
    [
     "ifrs-full:LongtermBorrowings",
     "1"
-   ]
-  ],
-  "doc:Row17_17": [
+   ],
    [
-    "doc:AmountsDueToSubsidiaries_14",
+    "doc:ContingentConsiderationPayables23_1",
     "1"
    ],
    [
-    "doc:Borrowings_15",
+    "doc:DeferredIncomeTaxLiabilities24_2",
+    "1"
+   ],
+   [
+    "doc:OtherPayables25_3",
+    "1"
+   ]
+  ],
+  "doc:Row9_9": [
+   [
+    "ifrs-full:LongtermBorrowings",
     "1"
    ],
    [
     "ifrs-full:TradeAndOtherCurrentPayables",
     "1"
-   ]
-  ],
-  "doc:Row2_2": [
+   ],
    [
-    "ck0001639920:LongTermInvestments1",
+    "ifrs-full:CurrentContractLiabilities",
     "1"
    ],
    [
-    "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
-    "1"
-   ]
-  ],
-  "doc:Row6_6": [
-   [
-    "doc:AmountsDueFromSubsidiariesB_3",
-    "1"
-   ],
-   [
-    "ifrs-full:TradeAndOtherCurrentReceivables",
-    "1"
-   ],
-   [
-    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
-    "1"
-   ]
-  ],
-  "ifrs-full:EquityAndLiabilities": [
-   [
-    "ifrs-full:Equity",
-    "1"
-   ],
-   [
-    "us-gaap:Liabilities",
-    "1"
-   ]
-  ],
-  "us-gaap:Assets": [
-   [
-    "doc:Row2_2",
-    "1"
-   ],
-   [
-    "doc:Row6_6",
+    "ifrs-full:CurrentTaxLiabilities",
     "1"
    ]
   ],
   "us-gaap:Liabilities": [
    [
-    "doc:Row13_13",
+    "doc:Row4_4",
     "1"
    ],
    [
-    "doc:Row17_17",
+    "doc:Row9_9",
     "1"
    ]
   ]

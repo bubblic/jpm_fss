@@ -37,13 +37,13 @@
    "flags": 0,
    "scale": "1000000",
    "footing_groups": 4,
-   "footing_pass": false,
+   "footing_pass": true,
    "identity": null,
    "cash_tie": null,
    "mapping": {
     "lexical": 2,
-    "llm": 9,
-    "unmapped": 10
+    "llm": 8,
+    "unmapped": 11
    }
   },
   "cash_flow": {
@@ -65,14 +65,14 @@
    },
    "mapping": {
     "lexical": 2,
-    "llm": 17,
-    "unmapped": 14
+    "llm": 19,
+    "unmapped": 12
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "cash_flow footing unverified (adjudication required before simulation)"
  },
  "llm_calls": 62
 }

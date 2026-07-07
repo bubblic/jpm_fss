@@ -518,7 +518,7 @@
   },
   {
    "order": 15,
-   "concept": "us-gaap:EarningsPerShareDiluted",
+   "concept": "ifrs-full:BasicEarningsLossPerShare",
    "dims": [],
    "label": "Basic/diluted earnings per preferred share in 11",
    "depth": 1,

@@ -7,16 +7,16 @@ LLM assist: configured
 
 - pages [208] (deterministic), 40 rows x 2 columns, scale 1000000
 - accepted cells 78, flags 1
-- footing: 6 verified groups, FAIL
+- footing: 6 verified groups, PASS
 - A = L + E: FAIL (assets vs combined right-hand total)
-- concept mapping: 5 lexical, 11 LLM, 24 unmapped
+- concept mapping: 5 lexical, 12 LLM, 23 unmapped
 
 ## income_statement
 
-- pages [84] (deterministic), 28 rows x 3 columns, scale 1
-- accepted cells 84, flags 0, LLM-adjudicated 9
-- footing: 4 verified groups, FAIL
-- concept mapping: 4 lexical, 10 LLM, 14 unmapped
+- pages [206] (deterministic), 30 rows x 3 columns, scale 1000000
+- accepted cells 90, flags 0
+- footing: 3 verified groups, FAIL
+- concept mapping: 2 lexical, 12 LLM, 16 unmapped
 
 ## cash_flow
 
@@ -28,6 +28,6 @@ LLM assist: configured
 
 ## Simulation
 
-- skipped: 1 flagged balance-sheet cells; A = L + E failed; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)
+- skipped: 1 flagged balance-sheet cells; A = L + E failed; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)
 
-LLM calls: 93
+LLM calls: 71

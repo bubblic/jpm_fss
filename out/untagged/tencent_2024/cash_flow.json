@@ -16,8 +16,8 @@
    "dims": [],
    "label": "Cash generated from operations 43(a)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
    "dims": [],
    "label": "Net cash flows generated from operating activities",
    "depth": 1,
@@ -114,7 +114,7 @@
   },
   {
    "order": 3,
-   "concept": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
+   "concept": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
    "dims": [],
    "label": "Payments for business combinations, net of cash acquired",
    "depth": 1,
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
+   "concept": "msft:ProceedsFromInvestments",
    "dims": [],
    "label": "Net inflow of cash from disposals of investments in subsidiaries",
    "depth": 1,
@@ -182,7 +182,7 @@
   },
   {
    "order": 5,
-   "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
    "dims": [],
    "label": "Purchase of/prepayments for property, plant and equipment, construction in progress and investment properties",
    "depth": 1,
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "ifrs-full:AdjustmentsForSharebasedPayments",
+   "concept": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
    "dims": [],
    "label": "Payments for shares purchased/withheld for share award schemes",
    "depth": 1,
@@ -804,7 +804,7 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "ifrs-full:NoncontrollingInterests",
+   "concept": "sap:TransactionsWithNoncontrollingInterests",
    "dims": [],
    "label": "Payments for acquisition of non-controlling interests in non wholly-owned subsidiaries",
    "depth": 1,
@@ -872,7 +872,7 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
@@ -1210,7 +1210,7 @@
     "1"
    ],
    [
-    "ifrs-full:AdjustmentsForSharebasedPayments",
+    "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
     "1"
    ],
    [
@@ -1218,7 +1218,7 @@
     "1"
    ],
    [
-    "ifrs-full:NoncontrollingInterests",
+    "sap:TransactionsWithNoncontrollingInterests",
     "1"
    ],
    [
@@ -1234,7 +1234,7 @@
     "1"
    ]
   ],
-  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
+  "ifrs-full:CashFlowsFromUsedInOperatingActivities": [
    [
     "us-gaap:NetCashProvidedByUsedInOperatingActivities",
     "1"

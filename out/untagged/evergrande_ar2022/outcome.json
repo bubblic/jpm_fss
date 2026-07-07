@@ -6,62 +6,63 @@
   "balance_sheet": {
    "located_by": "deterministic",
    "pages": [
-    156
+    46,
+    47
    ],
-   "rows": 20,
+   "llm_adjudicated": 0,
+   "rows": 13,
    "columns": 2,
-   "accepted_cells": 38,
-   "flags": 0,
+   "accepted_cells": 26,
+   "flags": 8,
    "scale": "1000000",
-   "footing_groups": 7,
-   "footing_pass": true,
+   "footing_groups": 4,
+   "footing_pass": false,
    "identity": {
-    "pass": true,
-    "detail": "assets vs combined right-hand total"
+    "pass": null,
+    "detail": "no 'Total assets' row"
    },
    "cash_tie": null,
    "mapping": {
-    "lexical": 6,
-    "llm": 7,
-    "unmapped": 7
+    "lexical": 4,
+    "llm": 4,
+    "unmapped": 5
    }
   },
   "income_statement": {
    "located_by": "deterministic",
    "pages": [
-    92,
-    93,
-    94
+    48,
+    49
    ],
-   "rows": 9,
-   "columns": 5,
-   "accepted_cells": 25,
-   "flags": 0,
+   "llm_adjudicated": 5,
+   "rows": 34,
+   "columns": 2,
+   "accepted_cells": 60,
+   "flags": 21,
    "scale": "1",
-   "footing_groups": 2,
-   "footing_pass": true,
+   "footing_groups": 9,
+   "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
-    "lexical": 2,
-    "llm": 1,
-    "unmapped": 6
+    "lexical": 4,
+    "llm": 21,
+    "unmapped": 9
    }
   },
   "cash_flow": {
-   "located_by": "llm",
+   "located_by": "deterministic",
    "pages": [
     52,
-    53,
-    146
+    53
    ],
    "llm_adjudicated": 0,
-   "rows": 59,
+   "rows": 34,
    "columns": 2,
-   "accepted_cells": 112,
+   "accepted_cells": 63,
    "flags": 1,
    "scale": "1000000",
-   "footing_groups": 4,
+   "footing_groups": 3,
    "footing_pass": false,
    "identity": null,
    "cash_tie": {
@@ -69,15 +70,15 @@
     "detail": "begin 5435 + change -1103 (net-change row, fx added) vs end 4334"
    },
    "mapping": {
-    "lexical": 6,
-    "llm": 21,
-    "unmapped": 32
+    "lexical": 4,
+    "llm": 23,
+    "unmapped": 7
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "cash_flow footing unverified (adjudication required before simulation)"
+  "reason": "8 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 40
+ "llm_calls": 90
 }

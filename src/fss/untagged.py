@@ -34,7 +34,7 @@ import pdfplumber
 
 from fss import llm as llm_module
 from fss.paths import DATA_DIR, OUT_DIR
-from fss.pdfread import locate
+from fss.pdfread import locate, zh
 from fss.pdfread.assemble import read_statement_pages
 from fss.pdfread.llm_assist import LLMAudit, adjudicate_flags, map_concept, select_pages
 from fss.reconcile import ReconciledStatement, canon_label, reconcile
@@ -50,7 +50,7 @@ CF_NET_CHANGE = re.compile(r"net (increase|decrease|change)", re.IGNORECASE)
 CASH_ENDPOINT = re.compile(
     r"beginning|at january|start of|end of|at december|ending balance", re.IGNORECASE
 )
-YEAR = re.compile(r"\b(19|20)\d{2}\b")
+YEAR = re.compile(r"\b(19|20)\d{2}\b|(19|20)\d{2}(?=年)")
 # income-statement subtotal concepts: the cascade anchors
 DERIVED_IS_LOCALS = {
     "GrossProfit",
@@ -197,6 +197,93 @@ SUBTOTAL_LABELS = {
 }
 
 
+def _solve_weights(
+    values_by_column: list[dict[int, Decimal]],
+    child_indices: list[int],
+    total_by_column: list[Decimal | None],
+    node_budget: int = 120_000,
+) -> list[Decimal] | None:
+    """Search child weights in {+1, 0, -1} that reproduce the total.
+
+    This is the arithmetic a human does with a pencil when a printed
+    statement carries netting the labels do not spell out ("Net revenues"
+    = revenues minus interest expense; "Total assets" skipping the gross
+    loans that a "Net loans" line already absorbs). The reference column
+    proposes candidate weightings (branch and bound, nearest rows first,
+    magnitude pruning); every OTHER checkable column must then agree, so a
+    coincidental subset on one column dies on the next. Returns weights
+    aligned with child_indices, or None.
+    """
+    reference = max(
+        range(len(values_by_column)),
+        key=lambda c: (total_by_column[c] is not None)
+        * (1 + len(values_by_column[c])),
+    )
+    target = total_by_column[reference]
+    if target is None:
+        return None
+    values = values_by_column[reference]
+    usable = [i for i in child_indices if i in values]
+    if len(usable) < 2:
+        return None
+    # nearest the total first: totals summarize adjacent content
+    usable = sorted(usable, reverse=True)[:20]
+    suffix_max = [Decimal(0)] * (len(usable) + 1)
+    for pos in range(len(usable) - 1, -1, -1):
+        suffix_max[pos] = suffix_max[pos + 1] + abs(values[usable[pos]])
+    solutions: list[dict[int, Decimal]] = []
+    nodes = 0
+
+    def descend(pos: int, running: Decimal, weights: dict[int, Decimal]) -> None:
+        nonlocal nodes
+        nodes += 1
+        if nodes > node_budget or len(solutions) >= 24:
+            return
+        used = [w for w in weights.values() if w]
+        tolerance = Decimal("0.5") * (len(used) + 1)
+        if pos == len(usable):
+            if len(used) >= 2 and abs(running - target) <= tolerance:
+                solutions.append(dict(weights))
+            return
+        max_tolerance = Decimal("0.5") * (len(usable) + 1)
+        if abs(running - target) > suffix_max[pos] + max_tolerance:
+            return  # even all-in cannot reach the target
+        index = usable[pos]
+        for weight in (Decimal(1), Decimal(0), Decimal(-1)):
+            weights[index] = weight
+            descend(pos + 1, running + weight * values[index], weights)
+        del weights[index]
+
+    descend(0, Decimal(0), {})
+    if not solutions:
+        return None
+
+    def preference(solution: dict[int, Decimal]) -> tuple:
+        used = [i for i, w in solution.items() if w]
+        flips = sum(1 for w in solution.values() if w < 0)
+        span = (max(used) - min(used) + 1) - len(used) if used else 99
+        return (flips, span, -len(used))
+
+    for solution in sorted(solutions, key=preference):
+        agreed = checked = 0
+        for column, column_values in enumerate(values_by_column):
+            total = total_by_column[column]
+            terms = [
+                w * column_values[i]
+                for i, w in solution.items()
+                if w and i in column_values
+            ]
+            if total is None or len(terms) < 2:
+                continue
+            checked += 1
+            tolerance = Decimal("0.5") * (len(terms) + 1)
+            if abs(sum(terms) - total) <= tolerance:
+                agreed += 1
+        if checked and agreed == checked:
+            return [solution.get(i, Decimal(0)) for i in child_indices]
+    return None
+
+
 def _footing(
     reconciled: ReconciledStatement,
     statement: str,
@@ -315,6 +402,35 @@ def _footing(
                 break
             if best is None or (checked and passed > best.columns_passed):
                 best = group
+        if not (best and best.columns_checked and best.columns_passed == best.columns_checked):
+            # label-driven candidates failed: solve for the weights the
+            # printed arithmetic itself implies (netting, absorbed
+            # mini-totals), cross-checked on every column
+            window = stack[-20:]
+            values_by_column: list[dict[int, Decimal]] = []
+            total_by_column: list[Decimal | None] = []
+            for column in range(reconciled.n_columns):
+                values_by_column.append(
+                    {
+                        i: rows[i].printed[column]
+                        for i in window
+                        if rows[i].printed[column] is not None and not flagged(i, column)
+                    }
+                )
+                usable_total = (
+                    rows[index].printed[column] is not None
+                    and not flagged(index, column)
+                )
+                total_by_column.append(
+                    rows[index].printed[column] if usable_total else None
+                )
+            solved = _solve_weights(values_by_column, window, total_by_column)
+            if solved is not None:
+                children = [i for i, w in zip(window, solved) if w]
+                weights = [w for w, i in zip(solved, window) if w]
+                checked, passed, _ = verify(index, children, weights)
+                if checked and passed == checked:
+                    best = FootingGroup(index, children, weights, checked, passed, "solved")
         if best is None:
             stack.append(index)
             continue
@@ -469,6 +585,11 @@ def map_rows(
             or dictionary.get(_condensed(bare))
         )
         source = "lexical"
+        if info is None and zh.has_cjk(row.label):
+            found = zh.lookup(row.label)
+            if found is not None:
+                local, balance, period_type = found
+                info = ConceptInfo(f"us-gaap:{local}", balance, period_type, True)
         if info is None and llm_client is not None and row.label.strip() and llm_budget > 0:
             llm_budget -= 1
             shortlist = _shortlist(bare, tokens)
@@ -664,6 +785,53 @@ def _default_balance(statement: str, section: str, label: str) -> str:
     return "debit"
 
 
+def _snap_llm_pages(
+    picked: list[int],
+    pages: list["locate.PageInfo"],
+    assigned: dict[str, list[int]],
+    statement: str,
+) -> list[int]:
+    """LLM page picks -> one dense contiguous cluster.
+
+    The LLM proposes 1-based page numbers with no contiguity guarantee;
+    merging scattered pages into one table produces junk grids. Group the
+    surviving picks into contiguous clusters (gap <= 1) and keep the best
+    by density, anchor evidence, and proximity to statements already
+    located deterministically.
+    """
+    survivors = sorted(
+        p - 1
+        for p in set(picked)
+        if 0 <= p - 1 < len(pages) and pages[p - 1].value_rows >= locate.MIN_VALUE_ROWS
+    )
+    if not survivors:
+        return []
+    clusters: list[list[int]] = [[survivors[0]]]
+    for index in survivors[1:]:
+        if index - clusters[-1][-1] <= 2:
+            clusters[-1].append(index)
+        else:
+            clusters.append([index])
+    located_spans = [run for run in assigned.values() if run]
+
+    def cluster_score(cluster: list[int]) -> float:
+        score = float(sum(pages[i].value_rows for i in cluster))
+        if any(locate.ANCHORS[statement].search(pages[i].text) for i in cluster):
+            score += 40.0  # the statement's own vocabulary beats mere density
+        near = min(
+            (locate._span_gap(cluster, run) for run in located_spans),
+            default=999,
+        )
+        if near <= 8:
+            score += 25.0
+        elif near <= 20:
+            score += 8.0
+        return score
+
+    best = max(clusters, key=cluster_score)
+    return best[:3]
+
+
 # ---------------------------------------------------------------------------
 # per-document run
 # ---------------------------------------------------------------------------
@@ -699,14 +867,15 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
         candidates = {
             info.index + 1: info.text[:2400] for info in sorted(rich_pages, key=lambda i: i.index)
         }
+        assigned = locate.assign_statements(pages)
         for statement_kind in STATEMENTS:
             record: dict[str, Any] = {}
             outcome["statements"][statement_kind] = record
             try:
-                try:
-                    page_indices = locate.locate_statement(pages, statement_kind)
+                page_indices = assigned.get(statement_kind)
+                if page_indices:
                     record["located_by"] = "deterministic"
-                except RuntimeError:
+                else:
                     if llm_client is None:
                         record["error"] = "not located (no LLM fallback configured)"
                         continue
@@ -714,13 +883,10 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
                     picked = select_pages(llm_client, audit, candidates, query)
                     # the LLM proposes; the same density bar the deterministic
                     # locator uses disposes (prose pages with a few figures
-                    # do not qualify as statement pages)
-                    page_indices = [
-                        p - 1
-                        for p in picked
-                        if p - 1 < len(pages)
-                        and pages[p - 1].value_rows >= locate.MIN_VALUE_ROWS
-                    ][:3]
+                    # do not qualify as statement pages), and only ONE
+                    # contiguous cluster survives: a statement is never
+                    # scattered across the document
+                    page_indices = _snap_llm_pages(picked, pages, assigned, statement_kind)
                     record["located_by"] = "llm"
                     if not page_indices:
                         record["error"] = "not located (LLM candidates failed the density bar)"

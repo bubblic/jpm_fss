@@ -415,8 +415,8 @@
    "dims": [],
    "label": "Net income",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -539,6 +539,16 @@
    [
     "us-gaap:NonoperatingIncomeExpense",
     "1"
+   ]
+  ],
+  "us-gaap:NetIncomeLoss": [
+   [
+    "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "-1"
    ]
   ],
   "us-gaap:OperatingExpenses": [

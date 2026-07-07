@@ -13,7 +13,45 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:Loans_0",
+   "concept": "doc:SvbFinancialGroupAndSubsidiaries_0",
+   "dims": [],
+   "label": "SVB FINANCIAL GROUP AND SUBSIDIARIES",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:Loans_1",
    "dims": [],
    "label": "Loans",
    "depth": 1,
@@ -52,8 +90,8 @@
    ]
   },
   {
-   "order": 1,
-   "concept": "doc:Taxable_1",
+   "order": 2,
+   "concept": "doc:Taxable_2",
    "dims": [],
    "label": "Taxable",
    "depth": 1,
@@ -92,8 +130,8 @@
    ]
   },
   {
-   "order": 2,
-   "concept": "doc:NonTaxable_2",
+   "order": 3,
+   "concept": "doc:NonTaxable_3",
    "dims": [],
    "label": "Non-taxable",
    "depth": 1,
@@ -132,7 +170,7 @@
    ]
   },
   {
-   "order": 3,
+   "order": 4,
    "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
    "dims": [],
    "label": "Federal funds sold, securities purchased under agreements to resell and other short-term investment securities",
@@ -172,7 +210,7 @@
    ]
   },
   {
-   "order": 4,
+   "order": 5,
    "concept": "ifrs-full:FinanceIncome",
    "dims": [],
    "label": "Total interest income",
@@ -212,8 +250,8 @@
    ]
   },
   {
-   "order": 5,
-   "concept": "doc:Deposits_5",
+   "order": 6,
+   "concept": "doc:Deposits_6",
    "dims": [],
    "label": "Deposits",
    "depth": 1,
@@ -252,8 +290,8 @@
    ]
   },
   {
-   "order": 6,
-   "concept": "doc:Borrowings_6",
+   "order": 7,
+   "concept": "doc:Borrowings_7",
    "dims": [],
    "label": "Borrowings",
    "depth": 1,
@@ -292,7 +330,7 @@
    ]
   },
   {
-   "order": 7,
+   "order": 8,
    "concept": "ifrs-full:OperatingExpense",
    "dims": [],
    "label": "Total interest expense",
@@ -332,8 +370,8 @@
    ]
   },
   {
-   "order": 8,
-   "concept": "doc:NetInterestIncome_8",
+   "order": 9,
+   "concept": "doc:NetInterestIncome_9",
    "dims": [],
    "label": "Net interest income",
    "depth": 1,
@@ -372,8 +410,8 @@
    ]
   },
   {
-   "order": 9,
-   "concept": "doc:ProvisionForCreditLosses_9",
+   "order": 10,
+   "concept": "doc:ProvisionForCreditLosses_10",
    "dims": [],
    "label": "Provision for credit losses",
    "depth": 1,
@@ -412,8 +450,8 @@
    ]
   },
   {
-   "order": 10,
-   "concept": "doc:NetInterestIncomeAfterProvisionForCreditLosses_10",
+   "order": 11,
+   "concept": "doc:NetInterestIncomeAfterProvisionForCreditLosses_11",
    "dims": [],
    "label": "Net interest income after provision for credit losses",
    "depth": 1,
@@ -452,7 +490,7 @@
    ]
   },
   {
-   "order": 11,
+   "order": 12,
    "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
    "label": "Gains (losses) on investment securities, net",
@@ -492,8 +530,8 @@
    ]
   },
   {
-   "order": 12,
-   "concept": "doc:GainsOnEquityWarrantAssetsNet_12",
+   "order": 13,
+   "concept": "doc:GainsOnEquityWarrantAssetsNet_13",
    "dims": [],
    "label": "Gains on equity warrant assets, net",
    "depth": 1,
@@ -532,8 +570,8 @@
    ]
   },
   {
-   "order": 13,
-   "concept": "doc:ClientInvestmentFees_13",
+   "order": 14,
+   "concept": "doc:ClientInvestmentFees_14",
    "dims": [],
    "label": "Client investment fees",
    "depth": 1,
@@ -572,8 +610,8 @@
    ]
   },
   {
-   "order": 14,
-   "concept": "doc:WealthManagementAndTrustFees_14",
+   "order": 15,
+   "concept": "doc:WealthManagementAndTrustFees_15",
    "dims": [],
    "label": "Wealth management and trust fees",
    "depth": 1,
@@ -612,8 +650,8 @@
    ]
   },
   {
-   "order": 15,
-   "concept": "doc:ForeignExchangeFees_15",
+   "order": 16,
+   "concept": "doc:ForeignExchangeFees_16",
    "dims": [],
    "label": "Foreign exchange fees",
    "depth": 1,
@@ -652,8 +690,8 @@
    ]
   },
   {
-   "order": 16,
-   "concept": "doc:CreditCardFees_16",
+   "order": 17,
+   "concept": "doc:CreditCardFees_17",
    "dims": [],
    "label": "Credit card fees",
    "depth": 1,
@@ -692,8 +730,8 @@
    ]
   },
   {
-   "order": 17,
-   "concept": "doc:DepositServiceCharges_17",
+   "order": 18,
+   "concept": "doc:DepositServiceCharges_18",
    "dims": [],
    "label": "Deposit service charges",
    "depth": 1,
@@ -732,8 +770,8 @@
    ]
   },
   {
-   "order": 18,
-   "concept": "doc:LendingRelatedFees_18",
+   "order": 19,
+   "concept": "doc:LendingRelatedFees_19",
    "dims": [],
    "label": "Lending related fees",
    "depth": 1,
@@ -772,8 +810,8 @@
    ]
   },
   {
-   "order": 19,
-   "concept": "doc:LettersOfCreditAndStandbyLettersOfCreditFees_19",
+   "order": 20,
+   "concept": "doc:LettersOfCreditAndStandbyLettersOfCreditFees_20",
    "dims": [],
    "label": "Letters of credit and standby letters of credit fees",
    "depth": 1,
@@ -812,7 +850,7 @@
    ]
   },
   {
-   "order": 20,
+   "order": 21,
    "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Investment banking revenue",
@@ -852,8 +890,8 @@
    ]
   },
   {
-   "order": 21,
-   "concept": "doc:Commissions_21",
+   "order": 22,
+   "concept": "doc:Commissions_22",
    "dims": [],
    "label": "Commissions",
    "depth": 1,
@@ -892,7 +930,7 @@
    ]
   },
   {
-   "order": 22,
+   "order": 23,
    "concept": "us-gaap:OtherNoncashIncomeExpense",
    "dims": [],
    "label": "Other",
@@ -932,7 +970,7 @@
    ]
   },
   {
-   "order": 23,
+   "order": 24,
    "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Total noninterest income",
@@ -972,7 +1010,7 @@
    ]
   },
   {
-   "order": 24,
+   "order": 25,
    "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Compensation and benefits",
@@ -1012,8 +1050,8 @@
    ]
   },
   {
-   "order": 25,
-   "concept": "ifrs-full:ServicesExpense",
+   "order": 26,
+   "concept": "doc:ProfessionalServices_26",
    "dims": [],
    "label": "Professional services",
    "depth": 1,
@@ -1025,7 +1063,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Noninterest expense"
@@ -1052,8 +1090,8 @@
    ]
   },
   {
-   "order": 26,
-   "concept": "doc:PremisesAndEquipment_26",
+   "order": 27,
+   "concept": "doc:PremisesAndEquipment_27",
    "dims": [],
    "label": "Premises and equipment",
    "depth": 1,
@@ -1092,8 +1130,8 @@
    ]
   },
   {
-   "order": 27,
-   "concept": "doc:NetOccupancy_27",
+   "order": 28,
+   "concept": "doc:NetOccupancy_28",
    "dims": [],
    "label": "Net occupancy",
    "depth": 1,
@@ -1132,8 +1170,8 @@
    ]
   },
   {
-   "order": 28,
-   "concept": "doc:BusinessDevelopmentAndTravel_28",
+   "order": 29,
+   "concept": "doc:BusinessDevelopmentAndTravel_29",
    "dims": [],
    "label": "Business development and travel",
    "depth": 1,
@@ -1172,8 +1210,8 @@
    ]
   },
   {
-   "order": 29,
-   "concept": "doc:FdicAndStateAssessments_29",
+   "order": 30,
+   "concept": "doc:FdicAndStateAssessments_30",
    "dims": [],
    "label": "FDIC and state assessments",
    "depth": 1,
@@ -1212,8 +1250,8 @@
    ]
   },
   {
-   "order": 30,
-   "concept": "doc:MergerRelatedCharges_30",
+   "order": 31,
+   "concept": "doc:MergerRelatedCharges_31",
    "dims": [],
    "label": "Merger-related charges",
    "depth": 1,
@@ -1252,7 +1290,7 @@
    ]
   },
   {
-   "order": 31,
+   "order": 32,
    "concept": "us-gaap:OtherNoncashIncomeExpense",
    "dims": [],
    "label": "Other",
@@ -1292,8 +1330,8 @@
    ]
   },
   {
-   "order": 32,
-   "concept": "doc:TotalNoninterestExpense_32",
+   "order": 33,
+   "concept": "doc:TotalNoninterestExpense_33",
    "dims": [],
    "label": "Total noninterest expense",
    "depth": 1,
@@ -1332,8 +1370,8 @@
    ]
   },
   {
-   "order": 33,
-   "concept": "doc:IncomeBeforeIncomeTaxExpense_33",
+   "order": 34,
+   "concept": "doc:IncomeBeforeIncomeTaxExpense_34",
    "dims": [],
    "label": "Income before income tax expense",
    "depth": 1,
@@ -1372,7 +1410,7 @@
    ]
   },
   {
-   "order": 34,
+   "order": 35,
    "concept": "ifrs-full:AdjustmentsForIncomeTaxExpense",
    "dims": [],
    "label": "Income tax expense",
@@ -1412,8 +1450,8 @@
    ]
   },
   {
-   "order": 35,
-   "concept": "doc:NetIncomeBeforeNoncontrollingInterestsAndDividends_35",
+   "order": 36,
+   "concept": "doc:NetIncomeBeforeNoncontrollingInterestsAndDividends_36",
    "dims": [],
    "label": "Net income before noncontrolling interests and dividends",
    "depth": 1,
@@ -1452,8 +1490,8 @@
    ]
   },
   {
-   "order": 36,
-   "concept": "doc:NetLossIncomeAttributableToNoncontrollingInterests_36",
+   "order": 37,
+   "concept": "doc:NetLossIncomeAttributableToNoncontrollingInterests_37",
    "dims": [],
    "label": "Net loss (income) attributable to noncontrolling interests",
    "depth": 1,
@@ -1492,8 +1530,8 @@
    ]
   },
   {
-   "order": 37,
-   "concept": "doc:PreferredStockDividends_37",
+   "order": 38,
+   "concept": "doc:PreferredStockDividends_38",
    "dims": [],
    "label": "Preferred stock dividends",
    "depth": 1,
@@ -1532,8 +1570,8 @@
    ]
   },
   {
-   "order": 38,
-   "concept": "doc:NetIncomeAvailableToCommonStockholders_38",
+   "order": 39,
+   "concept": "doc:NetIncomeAvailableToCommonStockholders_39",
    "dims": [],
    "label": "Net income available to common stockholders",
    "depth": 1,
@@ -1572,8 +1610,8 @@
    ]
   },
   {
-   "order": 39,
-   "concept": "doc:EarningsPerCommonShareBasic_39",
+   "order": 40,
+   "concept": "doc:EarningsPerCommonShareBasic_40",
    "dims": [],
    "label": "Earnings per common share\u2014basic",
    "depth": 1,
@@ -1612,8 +1650,8 @@
    ]
   },
   {
-   "order": 40,
-   "concept": "doc:EarningsPerCommonShareDiluted_40",
+   "order": 41,
+   "concept": "doc:EarningsPerCommonShareDiluted_41",
    "dims": [],
    "label": "Earnings per common share\u2014diluted",
    "depth": 1,
@@ -1653,33 +1691,33 @@
   }
  ],
  "calc_children": {
-  "doc:TotalNoninterestExpense_32": [
+  "doc:TotalNoninterestExpense_33": [
    [
     "us-gaap:GeneralAndAdministrativeExpense",
     "1"
    ],
    [
-    "ifrs-full:ServicesExpense",
+    "doc:ProfessionalServices_26",
     "1"
    ],
    [
-    "doc:PremisesAndEquipment_26",
+    "doc:PremisesAndEquipment_27",
     "1"
    ],
    [
-    "doc:NetOccupancy_27",
+    "doc:NetOccupancy_28",
     "1"
    ],
    [
-    "doc:BusinessDevelopmentAndTravel_28",
+    "doc:BusinessDevelopmentAndTravel_29",
     "1"
    ],
    [
-    "doc:FdicAndStateAssessments_29",
+    "doc:FdicAndStateAssessments_30",
     "1"
    ],
    [
-    "doc:MergerRelatedCharges_30",
+    "doc:MergerRelatedCharges_31",
     "1"
    ],
    [
@@ -1689,15 +1727,15 @@
   ],
   "ifrs-full:FinanceIncome": [
    [
-    "doc:Loans_0",
+    "doc:Loans_1",
     "1"
    ],
    [
-    "doc:Taxable_1",
+    "doc:Taxable_2",
     "1"
    ],
    [
-    "doc:NonTaxable_2",
+    "doc:NonTaxable_3",
     "1"
    ],
    [
@@ -1707,11 +1745,11 @@
   ],
   "ifrs-full:OperatingExpense": [
    [
-    "doc:Deposits_5",
+    "doc:Deposits_6",
     "1"
    ],
    [
-    "doc:Borrowings_6",
+    "doc:Borrowings_7",
     "1"
    ]
   ],
@@ -1721,35 +1759,35 @@
     "1"
    ],
    [
-    "doc:GainsOnEquityWarrantAssetsNet_12",
+    "doc:GainsOnEquityWarrantAssetsNet_13",
     "1"
    ],
    [
-    "doc:ClientInvestmentFees_13",
+    "doc:ClientInvestmentFees_14",
     "1"
    ],
    [
-    "doc:WealthManagementAndTrustFees_14",
+    "doc:WealthManagementAndTrustFees_15",
     "1"
    ],
    [
-    "doc:ForeignExchangeFees_15",
+    "doc:ForeignExchangeFees_16",
     "1"
    ],
    [
-    "doc:CreditCardFees_16",
+    "doc:CreditCardFees_17",
     "1"
    ],
    [
-    "doc:DepositServiceCharges_17",
+    "doc:DepositServiceCharges_18",
     "1"
    ],
    [
-    "doc:LendingRelatedFees_18",
+    "doc:LendingRelatedFees_19",
     "1"
    ],
    [
-    "doc:LettersOfCreditAndStandbyLettersOfCreditFees_19",
+    "doc:LettersOfCreditAndStandbyLettersOfCreditFees_20",
     "1"
    ],
    [
@@ -1757,7 +1795,7 @@
     "1"
    ],
    [
-    "doc:Commissions_21",
+    "doc:Commissions_22",
     "1"
    ],
    [

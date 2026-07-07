@@ -15,8 +15,8 @@ LLM assist: configured
 
 - pages [61] (deterministic), 21 rows x 3 columns, scale 1000000
 - accepted cells 63, flags 0
-- footing: 4 verified groups, FAIL
-- concept mapping: 2 lexical, 9 LLM, 10 unmapped
+- footing: 4 verified groups, PASS
+- concept mapping: 2 lexical, 8 LLM, 11 unmapped
 
 ## cash_flow
 
@@ -24,10 +24,10 @@ LLM assist: configured
 - accepted cells 97, flags 0
 - footing: 5 verified groups, FAIL
 - cash tie: PASS (begin 21948 + change -31 (net-change row, fx inside change) vs end 21917)
-- concept mapping: 2 lexical, 17 LLM, 14 unmapped
+- concept mapping: 2 lexical, 19 LLM, 12 unmapped
 
 ## Simulation
 
-- skipped: cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)
+- skipped: cash_flow footing unverified (adjudication required before simulation)
 
 LLM calls: 62

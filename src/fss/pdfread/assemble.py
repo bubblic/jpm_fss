@@ -37,15 +37,27 @@ def read_statement_pages(
     region so a page carrying two statements feeds the readers only one.
     """
     windows: dict[int, tuple[str | None, str | None]] | None = None
+    page_options: dict[int, dict[str, float] | None] | None = None
     if pages_info is not None:
         windows = {
             index: locate.crop_texts(pages_info[index], statement)
             for index in page_indices
             if index < len(pages_info)
         }
+        # pages that needed their own de-fusing tolerance keep it here too,
+        # so the readers see the same text the locator scored
+        page_options = {
+            index: pages_info[index].text_options
+            for index in page_indices
+            if index < len(pages_info) and pages_info[index].text_options
+        }
     options = text_options or {}
-    geometry = reader_geom.read_pages(pdf, page_indices, windows=windows, text_options=options)
-    lines = reader_lines.read_pages(pdf, page_indices, windows=windows, text_options=options)
+    geometry = reader_geom.read_pages(
+        pdf, page_indices, windows=windows, text_options=options, page_options=page_options
+    )
+    lines = reader_lines.read_pages(
+        pdf, page_indices, windows=windows, text_options=options, page_options=page_options
+    )
     pypdf_reader = reader_pypdf.read_pages(pdf_path, page_indices, windows=windows)
     header_text = " ".join(geometry.header_lines + lines.header_lines)
     scale = detect_scale(header_text)
@@ -62,8 +74,11 @@ def extract_pdf_statements(pdf_path: Path) -> dict[str, PdfExtraction]:
     out: dict[str, PdfExtraction] = {}
     with pdfplumber.open(str(pdf_path)) as pdf:
         pages = locate.scan_pages(pdf)
+        assigned = locate.assign_statements(pages)
         for statement in ("balance_sheet", "income_statement", "cash_flow"):
-            page_indices = locate.locate_statement(pages, statement)
+            page_indices = assigned.get(statement)
+            if not page_indices:
+                raise RuntimeError(f"could not locate {statement} pages")
             out[statement] = read_statement_pages(
                 pdf, pdf_path, statement, page_indices, pages
             )

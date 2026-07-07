@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "us-gaap:Assets",
+   "concept": "doc:TotalInvestmentSecurities_4",
    "dims": [],
    "label": "Total investment securities",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
     "Assets"
@@ -658,7 +658,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:OtherLiabilities_19",
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
    "dims": [],
    "label": "Other liabilities",
    "depth": 1,
@@ -670,7 +670,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -859,44 +859,10 @@
      "unit": null
     }
    ]
-  },
-  {
-   "order": 25,
-   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
-   "dims": [],
-   "label": "Retained earnings",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "SVBFG stockholders\u2019 equity"
-   ],
-   "cells": [
-    {
-     "period": "I2022-12-31",
-     "value": "8951000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2021-12-31",
-     "value": "7442000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
   }
  ],
  "calc_children": {
-  "us-gaap:Assets": [
+  "doc:TotalInvestmentSecurities_4": [
    [
     "doc:AvailableForSaleSecuritiesAtFairValueCostOf28602And27370Resp_1",
     "1"
@@ -907,6 +873,44 @@
    ],
    [
     "us-gaap:LongTermInvestments",
+    "1"
+   ]
+  ],
+  "us-gaap:Assets": [
+   [
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "1"
+   ],
+   [
+    "doc:TotalInvestmentSecurities_4",
+    "1"
+   ],
+   [
+    "doc:LoansAmortizedCost_5",
+    "1"
+   ],
+   [
+    "doc:AllowanceForCreditLossesLoans_6",
+    "1"
+   ],
+   [
+    "us-gaap:PropertyPlantAndEquipmentNet",
+    "1"
+   ],
+   [
+    "us-gaap:Goodwill",
+    "1"
+   ],
+   [
+    "us-gaap:FiniteLivedIntangibleAssetsNet",
+    "1"
+   ],
+   [
+    "ifrs-full:RightofuseAssets",
+    "1"
+   ],
+   [
+    "doc:AccruedInterestReceivableAndOtherAssets_12",
     "1"
    ]
   ],
@@ -924,7 +928,7 @@
     "1"
    ],
    [
-    "doc:OtherLiabilities_19",
+    "us-gaap:OtherLiabilitiesCurrent",
     "1"
    ],
    [

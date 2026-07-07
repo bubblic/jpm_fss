@@ -6,16 +6,15 @@
  "role_definition": "income_statement (untagged extraction)",
  "currency": "",
  "columns": [
-  "D2024-01-01:2024-12-31",
-  "D2023-01-01:2023-12-31",
-  "D2022-01-01:2022-12-31"
+  "D2022-01-01:2022-12-31",
+  "D2021-01-01:2021-12-31"
  ],
  "rows": [
   {
    "order": 0,
-   "concept": "doc:SegmentAssets_0",
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
    "dims": [],
-   "label": "Segment assets",
+   "label": "Revenue 5",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -23,29 +22,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "RMB million RMB million RMB million RMB million RMB million"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1632364",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "63062",
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
-     "value": "7144",
+     "value": "230067",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "250013",
      "decimals": -6,
      "unit": null
     }
@@ -53,9 +46,9 @@
   },
   {
    "order": 1,
-   "concept": "doc:UnallocatedAssets_1",
+   "concept": "us-gaap:CostOfGoodsAndServicesSold",
    "dims": [],
-   "label": "Unallocated assets",
+   "label": "Cost of sales 29",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -65,27 +58,21 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "RMB million RMB million RMB million RMB million RMB million"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "-205080",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-268461",
      "decimals": -6,
      "unit": null
     }
@@ -93,39 +80,33 @@
   },
   {
    "order": 2,
-   "concept": "us-gaap:Assets",
+   "concept": "ifrs-full:GrossProfit",
    "dims": [],
-   "label": "Total assets",
+   "label": "Gross profit/(loss)",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "debit",
+   "period_type": "duration",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "RMB million RMB million RMB million RMB million RMB million"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "24987",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-18448",
      "decimals": -6,
      "unit": null
     }
@@ -133,9 +114,9 @@
   },
   {
    "order": 3,
-   "concept": "doc:InterestInAssociates_3",
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
-   "label": "Interest in associates",
+   "label": "Fair value gains/(losses) on investment properties, net 8",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -143,29 +124,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Segment assets include"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "9283",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
-     "value": "16",
+     "value": "1807",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-31267",
      "decimals": -6,
      "unit": null
     }
@@ -173,9 +148,9 @@
   },
   {
    "order": 4,
-   "concept": "doc:InterestInJointVentures_4",
+   "concept": "doc:WriteDownOfPropertiesUnderDevelopmentAndCompletedPropertiesH_4",
    "dims": [],
-   "label": "Interest in joint ventures",
+   "label": "Write down of properties under development and completed properties held for sales",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -183,29 +158,23 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Segment assets include"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "14567",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "-1685",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-373681",
      "decimals": -6,
      "unit": null
     }
@@ -213,39 +182,33 @@
   },
   {
    "order": 5,
-   "concept": "us-gaap:Liabilities",
+   "concept": "ifrs-full:OtherCurrentFinancialAssets",
    "dims": [],
-   "label": "Segment liabilities",
+   "label": "Impairment losses on financial assets",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Segment assets include"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1649288",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
-     "value": "8557",
+     "value": "-12384",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-50376",
      "decimals": -6,
      "unit": null
     }
@@ -253,9 +216,247 @@
   },
   {
    "order": 6,
-   "concept": "doc:UnallocatedLiabilities_6",
+   "concept": "sap:OtherNonOperatingIncomeExpensesNet",
    "dims": [],
-   "label": "Unallocated liabilities",
+   "label": "Other losses, net 27",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-38230",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-45985",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "us-gaap:NonoperatingIncomeExpense",
+   "dims": [],
+   "label": "Other income 28",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1987",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2286",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "us-gaap:SellingAndMarketingExpense",
+   "dims": [],
+   "label": "Selling and marketing costs 29",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-6068",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-31945",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Administrative expenses 29",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-6678",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-16527",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "ifrs-full:AdjustmentsForImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLossTradeAndOtherReceivables",
+   "dims": [],
+   "label": "Impairment loss of investments accounted for using equity method",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-18006",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-8097",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "ifrs-full:OperatingExpense",
+   "dims": [],
+   "label": "Other operating expenses 29",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-10138",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-7489",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "dims": [],
+   "label": "Operating loss",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-64408",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-581529",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:ShareOfProfitsLossesOfInvestmentsAccountedForUsingEquityMeth_13",
+   "dims": [],
+   "label": "Share of profits/(losses) of investments accounted for using equity method 14",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -268,23 +469,255 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Segment assets include"
+    "Notes RMB million RMB million"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": null,
+     "period": "D2022-01-01:2022-12-31",
+     "value": "39",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-19722",
      "decimals": -6,
      "unit": null
-    },
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+   "dims": [],
+   "label": "Fair value losses on financial assets at fair value through profit or loss 16",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
     {
      "period": "D2022-01-01:2022-12-31",
+     "value": "-2041",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-1936",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Fair value losses on contingent consideration payables",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-2555",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Fair value gains/(losses) on financial guarantee contracts",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1129",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-51530",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "ifrs-full:FinanceCosts",
+   "dims": [],
+   "label": "Finance costs, net 31",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-47482",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-41623",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "ifrs-full:ProfitLossBeforeTax",
+   "dims": [],
+   "label": "Losses before income tax",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-112763",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-698895",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:IncomeTaxExpensesCredit32_19",
+   "dims": [],
+   "label": "Income tax (expenses)/credit 32",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-13051",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "12676",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Losses for the year",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Notes RMB million RMB million"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -292,10 +725,10 @@
    ]
   },
   {
-   "order": 7,
-   "concept": "us-gaap:Liabilities",
+   "order": 21,
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
    "dims": [],
-   "label": "Total liabilities",
+   "label": "Share of other comprehensive income of investments accounted for using the equity method",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -308,34 +741,28 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Segment assets include"
+    "(Item that may be subsequently reclassified to profit or loss)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
      "period": "D2022-01-01:2022-12-31",
      "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "31",
      "decimals": -6,
      "unit": null
     }
    ]
   },
   {
-   "order": 8,
-   "concept": "doc:CapitalExpenditure_8",
+   "order": 22,
+   "concept": "doc:ExchangeDifferenceArisingOnTranslationOfFinancialStatementsO_22",
    "dims": [],
-   "label": "Capital expenditure",
+   "label": "Exchange difference arising on translation of financial statements of foreign operations",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -348,24 +775,392 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Segment assets include"
+    "(Item that may be subsequently reclassified to profit or loss)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1249",
+     "period": "D2022-01-01:2022-12-31",
+     "value": "63",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "455",
+     "period": "D2021-01-01:2021-12-31",
+     "value": "536",
      "decimals": -6,
      "unit": null
-    },
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "dims": [],
+   "label": "Change in fair value of financial assets at fair value through other comprehensive income, net of tax",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "(Item that may not be subsequently reclassified to profit or loss)"
+   ],
+   "cells": [
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": "352",
+     "value": "380",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "dims": [],
+   "label": "Other comprehensive income/(loss) for the year, net of tax",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "(Item that may not be subsequently reclassified to profit or loss)"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "443",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "dims": [],
+   "label": "Total comprehensive loss for the year",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "(Item that may not be subsequently reclassified to profit or loss)"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+   "dims": [],
+   "label": "Shareholders of the Company",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Loss attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-105914",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-476035",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Non-controlling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Loss attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-19900",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-210184",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:Row28_28",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Loss attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-125814",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-686219",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:ShareholdersOfTheCompany_29",
+   "dims": [],
+   "label": "Shareholders of the Company",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Total comprehensive loss attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-105116",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-476095",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Non-controlling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Total comprehensive loss attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-20255",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-210539",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "doc:Row31_31",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Total comprehensive loss attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-125371",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-686634",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "doc:TheCompanyForTheYearExpressedInRmbPerShareBasicLossPerShare3_32",
+   "dims": [],
+   "label": "the Company for the year (expressed in RMB per share) \u2014 Basic loss per share 33",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Loss per share for loss attributable to shareholders of"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-8.021",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-36.006",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "concept": "doc:DilutedLossPerShare33_33",
+   "dims": [],
+   "label": "\u2014 Diluted loss per share 33",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Loss per share for loss attributable to shareholders of"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-8.021",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-36.006",
      "decimals": -6,
      "unit": null
     }
@@ -373,28 +1168,122 @@
   }
  ],
  "calc_children": {
-  "us-gaap:Assets": [
+  "doc:Row28_28": [
    [
-    "doc:SegmentAssets_0",
+    "ifrs-full:ProfitLossAttributableToOwnersOfParent",
     "1"
    ],
    [
-    "doc:UnallocatedAssets_1",
+    "ifrs-full:NoncontrollingInterests",
     "1"
    ]
   ],
-  "us-gaap:Liabilities": [
+  "doc:Row31_31": [
    [
-    "us-gaap:Liabilities",
+    "doc:ShareholdersOfTheCompany_29",
     "1"
    ],
    [
-    "doc:UnallocatedLiabilities_6",
+    "ifrs-full:NoncontrollingInterests",
+    "1"
+   ]
+  ],
+  "ifrs-full:GrossProfit": [
+   [
+    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "1"
+   ],
+   [
+    "us-gaap:CostOfGoodsAndServicesSold",
+    "1"
+   ]
+  ],
+  "ifrs-full:ProfitLossBeforeTax": [
+   [
+    "us-gaap:OperatingIncomeLoss",
+    "1"
+   ],
+   [
+    "doc:ShareOfProfitsLossesOfInvestmentsAccountedForUsingEquityMeth_13",
+    "1"
+   ],
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+    "1"
+   ],
+   [
+    "us-gaap:NetIncomeLoss",
+    "1"
+   ],
+   [
+    "us-gaap:NetIncomeLoss",
+    "1"
+   ],
+   [
+    "ifrs-full:FinanceCosts",
+    "1"
+   ]
+  ],
+  "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax": [
+   [
+    "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+    "1"
+   ],
+   [
+    "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+    "1"
+   ]
+  ],
+  "us-gaap:NetIncomeLoss": [
+   [
+    "doc:IncomeTaxExpensesCredit32_19",
+    "1"
+   ]
+  ],
+  "us-gaap:OperatingIncomeLoss": [
+   [
+    "ifrs-full:GrossProfit",
+    "1"
+   ],
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+    "1"
+   ],
+   [
+    "doc:WriteDownOfPropertiesUnderDevelopmentAndCompletedPropertiesH_4",
+    "1"
+   ],
+   [
+    "ifrs-full:OtherCurrentFinancialAssets",
+    "1"
+   ],
+   [
+    "sap:OtherNonOperatingIncomeExpensesNet",
+    "1"
+   ],
+   [
+    "us-gaap:NonoperatingIncomeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:SellingAndMarketingExpense",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "ifrs-full:AdjustmentsForImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLossTradeAndOtherReceivables",
+    "1"
+   ],
+   [
+    "ifrs-full:OperatingExpense",
     "1"
    ]
   ]
  },
  "notes": [
-  "column years not detected; synthetic ordering"
+  "columns assume 31 Dec fiscal years: [2022, 2021]"
  ]
 }

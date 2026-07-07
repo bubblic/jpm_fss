@@ -12,9 +12,9 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:StrategicTransactionsMA_0",
+   "concept": "doc:RelatingToTheAreasOfAcquiringIssuingAndPaymentStrictedTheCon_0",
    "dims": [],
-   "label": "Strategic transactions/M&A",
+   "label": "relating to the areas of acquiring, issuing and payment stricted. The consolidated personnel expense ratio fell by transactions primarily comprises, besides interchanges, 0.9 percentage points year on year to",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -26,19 +26,17 @@
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
-   "section": [
-    "ness in the Asia-Pacific region as well as the range of This mainly affects"
-   ],
+   "section": [],
    "cells": [
     {
      "period": "D2018-01-01:2018-12-31",
-     "value": "42500000.0",
+     "value": "11.6",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2017-01-01:2017-12-31",
-     "value": "265000000.0",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -46,9 +44,9 @@
   },
   {
    "order": 1,
-   "concept": "doc:MediumTermFinancingAgreements_1",
+   "concept": "doc:LegalAndFinancialStatementCosts_1",
    "dims": [],
-   "label": "Medium-term financing agreements",
+   "label": "Legal and financial statement costs",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -61,18 +59,18 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+    "Other operating expenses"
    ],
    "cells": [
     {
      "period": "D2018-01-01:2018-12-31",
-     "value": "115000000.0",
+     "value": "17000000.0",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2017-01-01:2017-12-31",
-     "value": "0.0",
+     "value": "17900000.0",
      "decimals": -6,
      "unit": null
     }
@@ -80,12 +78,12 @@
   },
   {
    "order": 2,
-   "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
-   "label": "Internally-generated intangible assets",
+   "label": "Consulting expenses and consulting-related expenses",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -95,18 +93,18 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+    "Other operating expenses"
    ],
    "cells": [
     {
      "period": "D2018-01-01:2018-12-31",
-     "value": "45.1",
+     "value": "28900000.0",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2017-01-01:2017-12-31",
-     "value": "45.3",
+     "value": "24000000.0",
      "decimals": -6,
      "unit": null
     }
@@ -114,12 +112,12 @@
   },
   {
    "order": 3,
-   "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
-   "label": "Other intangible assets (software)",
+   "label": "Office expenses",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -129,46 +127,12 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+    "Other operating expenses"
    ],
    "cells": [
     {
      "period": "D2018-01-01:2018-12-31",
-     "value": "7.6",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2017-01-01:2017-12-31",
-     "value": "32.8",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 4,
-   "concept": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
-   "dims": [],
-   "label": "Property, plant and equipment",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "ness in the Asia-Pacific region as well as the range of This mainly affects"
-   ],
-   "cells": [
-    {
-     "period": "D2018-01-01:2018-12-31",
-     "value": "23500000.0",
+     "value": "18300000.0",
      "decimals": -6,
      "unit": null
     },
@@ -181,10 +145,10 @@
    ]
   },
   {
-   "order": 5,
-   "concept": "us-gaap:ShortTermInvestments",
+   "order": 4,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
-   "label": "curities). The remaining funds were held as deposits with sometimes provides the financing based on detailed indi- the central bank and demand and short-term fixed-term vidual assessments and suitable security",
+   "label": "Equipment and leasing",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -197,7 +161,279 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "ers and short-term and medium-term interest-bearing se- agement, technology and banking services here but also"
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "24.9",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "21.9",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "doc:TravelSalesAndMarketing_5",
+   "dims": [],
+   "label": "Travel, sales and marketing",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "23000000.0",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "20900000.0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "ifrs-full:OperatingExpense",
+   "dims": [],
+   "label": "Personnel-related expenses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "20.1",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "15.7",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:InsurancePaymentsContributionsAndLevies_7",
+   "dims": [],
+   "label": "Insurance payments, contributions and levies",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "6.2",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "3.5",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:AllowancesNA_8",
+   "dims": [],
+   "label": "Allowances n/a",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "18.9",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:OtherNoncashIncomeExpense",
+   "dims": [],
+   "label": "Other",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "18.8",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "22.7",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "us-gaap:OperatingExpenses",
+   "dims": [],
+   "label": "Total",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "157.1",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "160.4",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:TheIncreaseInExpensesForAlmostAllSubitemsGoesAsPartOfTheFirs_11",
+   "dims": [],
+   "label": "The increase in expenses for almost all subitems goes As part of the first-time application of IFRS",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Other operating expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:GionDeterminedUsingThePreviouslyApplicableModelOfInCurredLos_12",
+   "dims": [],
+   "label": "gion. determined using the previously applicable model of in- curred losses in accordance with IAS",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Citi credit card acceptance business in the Asia-Pacific re- debt losses. In the previous year, impairments were still"
    ],
    "cells": [
     {
@@ -215,7 +451,46 @@
    ]
   }
  ],
- "calc_children": {},
+ "calc_children": {
+  "us-gaap:OperatingExpenses": [
+   [
+    "doc:LegalAndFinancialStatementCosts_1",
+    "1"
+   ],
+   [
+    "us-gaap:OperatingExpenses",
+    "1"
+   ],
+   [
+    "us-gaap:OperatingExpenses",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "doc:TravelSalesAndMarketing_5",
+    "1"
+   ],
+   [
+    "ifrs-full:OperatingExpense",
+    "1"
+   ],
+   [
+    "doc:InsurancePaymentsContributionsAndLevies_7",
+    "1"
+   ],
+   [
+    "doc:AllowancesNA_8",
+    "1"
+   ],
+   [
+    "us-gaap:OtherNoncashIncomeExpense",
+    "1"
+   ]
+  ]
+ },
  "notes": [
   "columns assume 31 Dec fiscal years: [2018, 2017]"
  ]

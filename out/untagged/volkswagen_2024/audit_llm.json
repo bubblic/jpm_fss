@@ -1,118 +1,117 @@
 {
- "calls": 58,
+ "calls": 90,
  "decisions": [
   {
    "kind": "read_cell",
-   "label": "Financial services receivables",
+   "label": "of the Volkswagen Group as of December 31,2024 million Note ",
    "column": 1,
    "samples": [
-    "101087",
-    "101087",
-    "101087"
+    "632905",
+    "632905",
+    "632905"
    ],
-   "voted": "101087",
+   "voted": "632905",
    "agreement": 3
   },
   {
-   "kind": "adjudicated",
-   "label": "Financial services receivables",
-   "column": 0,
-   "value": "101087"
+   "kind": "read_cell",
+   "label": "of the Volkswagen Group as of December 31,2024 million Note ",
+   "column": 2,
+   "samples": [
+    "600649",
+    "600649",
+    "600649"
+   ],
+   "voted": "600649",
+   "agreement": 3
   },
   {
    "kind": "read_cell",
-   "label": "Financial services receivables",
+   "label": "Consolidated Financial Statements Balance Sheet million Note",
+   "column": 1,
+   "samples": [
+    "93333",
+    "93333",
+    "93333"
+   ],
+   "voted": "93333",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Consolidated Financial Statements Balance Sheet million Note",
    "column": 2,
    "samples": [
-    "94774",
-    "94474",
-    "94474"
+    "361005",
+    "361005",
+    "89109"
    ],
-   "voted": "94474",
+   "voted": "361005",
    "agreement": 2
   },
   {
-   "kind": "adjudicated",
-   "label": "Financial services receivables",
-   "column": 1,
-   "value": "94474"
-  },
-  {
-   "kind": "read_cell",
-   "label": "Financial services receivables",
-   "column": 1,
-   "samples": [
-    "101087",
-    "101087",
-    "101087"
-   ],
-   "voted": "101087",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Financial services receivables",
-   "column": 2,
-   "samples": [
-    "94474",
-    "94474",
-    "94474"
-   ],
-   "voted": "94474",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Financial liabilities",
-   "column": 1,
-   "samples": [
-    "137061",
-    "137061",
-    "137061"
-   ],
-   "voted": "137061",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Financial liabilities",
-   "column": 2,
-   "samples": [
-    "122323",
-    "122323",
-    "122323"
-   ],
-   "voted": "122323",
-   "agreement": 3
+   "kind": "map_concept",
+   "label": "of the Volkswagen Group as of December 31,2024 million Note ",
+   "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Lease assets",
+   "label": "Lease assets 14,33",
    "chosen": "ifrs-full:RightofuseAssets"
   },
   {
    "kind": "map_concept",
-   "label": "Financial services receivables",
-   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+   "label": "Investment property 14",
+   "chosen": "ifrs-full:PropertyPlantAndEquipment"
   },
   {
    "kind": "map_concept",
-   "label": "and other equity investments, other receivables and financia",
+   "label": "Equity-accounted investments 15",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other equity investments 15",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial services receivables 16",
    "chosen": "ifrs-full:OtherNoncurrentFinancialAssets"
   },
   {
    "kind": "map_concept",
-   "label": "Financial services receivables",
+   "label": "Other receivables 18",
+   "chosen": "ifrs-full:NoncurrentReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Tax receivables 19",
+   "chosen": "ifrs-full:CurrentTaxAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trade receivables 21",
+   "chosen": "ifrs-full:TradeAndOtherCurrentReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial services receivables 16",
    "chosen": "ifrs-full:OtherCurrentFinancialAssets"
   },
   {
    "kind": "map_concept",
-   "label": "Other receivables and financial assets",
-   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+   "label": "Other receivables 18",
+   "chosen": "ifrs-full:TradeAndOtherCurrentReceivables"
   },
   {
    "kind": "map_concept",
-   "label": "Marketable securities and time deposits",
+   "label": "Tax receivables 19",
+   "chosen": "ifrs-full:CurrentTaxAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Marketable securities and time deposits 22",
    "chosen": "us-gaap:MarketableSecuritiesCurrent"
   },
   {
@@ -122,13 +121,13 @@
   },
   {
    "kind": "map_concept",
-   "label": "Equity",
-   "chosen": "ifrs-full:Equity"
+   "label": "Subscribed capital",
+   "chosen": "ifrs-full:IssuedCapital"
   },
   {
    "kind": "map_concept",
-   "label": "Equity attributable to Volkswagen AG shareholders",
-   "chosen": "ifrs-full:EquityAttributableToOwnersOfParent"
+   "label": "Capital reserve",
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -142,28 +141,33 @@
   },
   {
    "kind": "map_concept",
-   "label": "Provisions for pensions",
-   "chosen": "ifrs-full:NoncurrentProvisions"
+   "label": "Other financial liabilities 26",
+   "chosen": "ifrs-full:NoncurrentFinancialLiabilities"
   },
   {
    "kind": "map_concept",
-   "label": "Other liabilities",
-   "chosen": "us-gaap:OtherLiabilitiesCurrent"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Trade payables",
-   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Other liabilities",
+   "label": "Other liabilities 27",
    "chosen": "us-gaap:OtherLiabilitiesNoncurrent"
   },
   {
    "kind": "map_concept",
-   "label": "Liabilities associated with assets held for sale",
-   "chosen": null
+   "label": "Provisions for pensions 29",
+   "chosen": "ifrs-full:NoncurrentProvisions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provisions for taxes 28",
+   "chosen": "ifrs-full:NoncurrentProvisions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other provisions 30",
+   "chosen": "ifrs-full:NoncurrentProvisions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trade payables 31",
+   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
   },
   {
    "kind": "read_cell",
@@ -205,7 +209,7 @@
   {
    "kind": "map_concept",
    "label": "Share of the result of equity-accounted investments 7",
-   "chosen": "ifrs-full:EquityAttributableToOwnersOfParent"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -245,34 +249,192 @@
   {
    "kind": "map_concept",
    "label": "Basic/diluted earnings per preferred share in 11",
-   "chosen": "us-gaap:EarningsPerShareDiluted"
+   "chosen": "ifrs-full:BasicEarningsLossPerShare"
   },
   {
-   "kind": "select_pages",
-   "query": "cash flow",
-   "pages": [
-    128,
-    478,
-    539,
-    540,
-    672,
-    673
-   ]
+   "kind": "read_cell",
+   "label": "Cash flow statement of the Volkswagen Group for the period J",
+   "column": 1,
+   "samples": [
+    "43522",
+    "43522",
+    "43522"
+   ],
+   "voted": "43522",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Capital transactions with non-controlling interest sharehold",
+   "column": 1,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Effect of exchange rate changes on cash and cash equivalents",
+   "column": 1,
+   "samples": [
+    "55",
+    "55",
+    "55"
+   ],
+   "voted": "55",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Effect of exchange rate changes on cash and cash equivalents",
+   "column": 0,
+   "value": "55"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Change of loss allowance within cash and cash equivalents",
+   "column": 1,
+   "samples": [
+    "1",
+    "1",
+    "1"
+   ],
+   "voted": "1",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Change of loss allowance within cash and cash equivalents",
+   "column": 0,
+   "value": "1"
   },
   {
    "kind": "map_concept",
-   "label": "Non-controlling interests in %1",
-   "chosen": "ifrs-full:NoncontrollingInterests"
+   "label": "Cash flow statement of the Volkswagen Group for the period J",
+   "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Sales revenue",
-   "chosen": "ifrs-full:Revenue"
+   "label": "Cash and cash equivalents at beginning of period",
+   "chosen": "ifrs-full:CashAndCashEquivalents"
   },
   {
    "kind": "map_concept",
-   "label": "Earnings after tax",
-   "chosen": "ifrs-full:ProfitLoss"
+   "label": "Earnings before tax",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Depreciation and amortization of, and impairment losses on, ",
+   "chosen": "ifrs-full:AdjustmentsForDepreciationExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Amortization of and impairment losses on capitalized develop",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Impairment losses on equity investments\u00b9",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Depreciation of and impairment losses on lease assets\u00b9",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Gain/loss on disposal of non-current assets and equity inves",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Share of the result of equity-accounted investments",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other non-cash expense/income",
+   "chosen": "us-gaap:OtherNoncashIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Change in liabilities (excluding financial liabilities)",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Change in provisions",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash flows from operating activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Disposal of other equity investments",
+   "chosen": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of intangible assets, property, plant",
+   "chosen": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Change in investments in securities and time deposits \u2013203",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Capital contributions/capital redemptions \u20131,144",
+   "chosen": "ifrs-full:IssuedCapital"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Capital transactions with non-controlling interest sharehold",
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of bonds",
+   "chosen": "us-gaap:ProceedsFromIssuanceOfLongTermDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of unlisted notes",
+   "chosen": "us-gaap:ProceedsFromIssuanceOfLongTermDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Changes in other financial liabilities",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherNoncurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash flows from financing activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Effect of exchange rate changes on cash and cash equivalents",
+   "chosen": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Change of loss allowance within cash and cash equivalents",
+   "chosen": "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash and cash equivalents at end of period",
+   "chosen": "ifrs-full:CashAndCashEquivalents"
   }
  ]
 }

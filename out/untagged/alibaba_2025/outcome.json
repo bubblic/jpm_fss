@@ -4,17 +4,14 @@
  "llm": true,
  "statements": {
   "balance_sheet": {
-   "located_by": "llm",
+   "located_by": "deterministic",
    "pages": [
-    56,
-    82,
-    83
+    310
    ],
-   "llm_adjudicated": 0,
-   "rows": 27,
-   "columns": 7,
-   "accepted_cells": 120,
-   "flags": 9,
+   "rows": 28,
+   "columns": 3,
+   "accepted_cells": 62,
+   "flags": 0,
    "scale": "1",
    "footing_groups": 25,
    "footing_pass": false,
@@ -24,48 +21,49 @@
    },
    "cash_tie": null,
    "mapping": {
-    "lexical": 0,
+    "lexical": 8,
     "llm": 0,
-    "unmapped": 27
+    "unmapped": 20
    }
   },
   "income_statement": {
-   "located_by": "llm",
+   "located_by": "deterministic",
    "pages": [
-    56,
-    65,
-    69
+    319,
+    320
    ],
    "llm_adjudicated": 0,
-   "rows": 50,
-   "columns": 5,
-   "accepted_cells": 54,
-   "flags": 156,
+   "rows": 35,
+   "columns": 9,
+   "accepted_cells": 168,
+   "flags": 18,
    "scale": "1",
-   "footing_groups": 49,
+   "footing_groups": 34,
    "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
-    "lexical": 0,
+    "lexical": 14,
     "llm": 0,
-    "unmapped": 50
+    "unmapped": 21
    }
   },
   "cash_flow": {
-   "located_by": "llm",
+   "located_by": "deterministic",
    "pages": [
-    75,
-    83,
-    84
+    311,
+    312,
+    313,
+    314,
+    315
    ],
-   "llm_adjudicated": 0,
-   "rows": 57,
+   "llm_adjudicated": 1,
+   "rows": 71,
    "columns": 7,
-   "accepted_cells": 166,
-   "flags": 77,
+   "accepted_cells": 167,
+   "flags": 46,
    "scale": "1",
-   "footing_groups": 53,
+   "footing_groups": 61,
    "footing_pass": false,
    "identity": null,
    "cash_tie": {
@@ -73,9 +71,9 @@
     "detail": "no beginning/ending cash rows"
    },
    "mapping": {
-    "lexical": 0,
+    "lexical": 4,
     "llm": 0,
-    "unmapped": 57
+    "unmapped": 67
    }
   }
  },
@@ -84,7 +82,7 @@
  },
  "simulation": {
   "status": "skipped",
-  "reason": "9 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 108
+ "llm_calls": 36
 }

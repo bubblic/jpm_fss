@@ -1,253 +1,9 @@
 {
- "calls": 160,
+ "calls": 90,
  "decisions": [
   {
    "kind": "read_cell",
-   "label": "Notesandaccountsreceivable\u2013net 6",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Crudeoil,productsandmerchandise 3",
-   "column": 7,
-   "samples": [
-    "19444",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 1
-  },
-  {
-   "kind": "read_cell",
-   "label": "Investments,advancesandlong-termreceivables 8",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Property,plantandequipment,atcost,lessaccumulateddepreciatio",
-   "column": 7,
-   "samples": [
-    "294318",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 1
-  },
-  {
-   "kind": "read_cell",
-   "label": "Notesandloanspayable 6",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Accountspayableandaccruedliabilities 6",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Long-termdebt 14",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Postretirementbenefitsreserves 17",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Deferredincometaxliabilities 19",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Accumulatedothercomprehensiveincome 4",
-   "column": 7,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Depreciationanddepletion(includesimpairments) 2,9",
-   "column": 6,
-   "samples": [
-    "24040",
-    "None",
-    "24040"
-   ],
-   "voted": "24040",
-   "agreement": 2
-  },
-  {
-   "kind": "read_cell",
-   "label": "Deferredincometaxcharges/(credits) 19",
-   "column": 6,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "adjudication_capped",
-   "max_cells": 12,
-   "note": "remaining flags left for review"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Cashandcashequivalents\u2013restricted",
-   "chosen": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Notesandaccountsreceivable\u2013net 6",
-   "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Investments,advancesandlong-termreceivables 8",
-   "chosen": "ck0001639920:LongTermInvestments1"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Property,plantandequipment,atcost,lessaccumulateddepreciatio",
-   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Otherassets,includingintangibles\u2013net",
-   "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Accountspayableandaccruedliabilities 6",
-   "chosen": "us-gaap:AccountsPayableCurrent"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Incometaxespayable",
-   "chosen": "ifrs-full:CurrentTaxLiabilitiesCurrent"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Deferredincometaxliabilities 19",
-   "chosen": "ifrs-full:DeferredTaxLiabilities"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Long-termobligationstoequitycompanies",
-   "chosen": "us-gaap:LongTermDebtNoncurrent"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Otherlong-termobligations",
-   "chosen": "us-gaap:OtherLiabilitiesNoncurrent"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Commonstockwithoutparvalue (9,000millionsharesauthorized,8,0",
-   "chosen": "us-gaap:CommonStockSharesIssued"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Accumulatedothercomprehensiveincome 4",
-   "chosen": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Commonstockheldintreasury (3,666millionsharesin2024and4,048m",
-   "chosen": "ifrs-full:TreasuryShares"
-  },
-  {
-   "kind": "map_concept",
-   "label": "ExxonMobilshareofequity",
-   "chosen": "ifrs-full:Equity"
-  },
-  {
-   "kind": "map_concept",
-   "label": "TotalLiabilitiesandEquity",
-   "chosen": "ifrs-full:EquityAndLiabilities"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Netincome(loss)includingnoncontrollinginterests",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Depreciationanddepletion(includesimpairments) 2,9",
-   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Deferredincometaxcharges/(credits) 19",
-   "chosen": "us-gaap:DeferredIncomeTaxLiabilitiesNet"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Otherlong-termobligationprovisionsinexcessof/(lessthan)payme",
-   "chosen": "ifrs-full:NoncurrentProvisions"
-  },
-  {
-   "kind": "read_cell",
-   "label": "Notesandaccountsreceivable\u2013net 6",
+   "label": "Notes and accounts receivable \u2013 net 6",
    "column": 1,
    "samples": [
     "43681",
@@ -259,7 +15,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Crudeoil,productsandmerchandise 3",
+   "label": "Crude oil, products and merchandise 3",
    "column": 1,
    "samples": [
     "19444",
@@ -271,7 +27,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Investments,advancesandlong-termreceivables 8",
+   "label": "Investments, advances and long-term receivables 8",
    "column": 1,
    "samples": [
     "47200",
@@ -283,7 +39,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Property,plantandequipment,atcost,lessaccumulateddepreciatio",
+   "label": "Property, plant and equipment, at cost, less accumulated dep",
    "column": 1,
    "samples": [
     "294318",
@@ -295,7 +51,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Notesandloanspayable 6",
+   "label": "Notes and loans payable 6",
    "column": 1,
    "samples": [
     "4955",
@@ -307,7 +63,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Accountspayableandaccruedliabilities 6",
+   "label": "Accounts payable and accrued liabilities 6",
    "column": 1,
    "samples": [
     "61297",
@@ -319,19 +75,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Long-termdebt 14",
-   "column": 1,
-   "samples": [
-    "36755",
-    "36755",
-    "36755"
-   ],
-   "voted": "36755",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Postretirementbenefitsreserves 17",
+   "label": "Postretirement benefits reserves 17",
    "column": 1,
    "samples": [
     "9700",
@@ -343,7 +87,7 @@
   },
   {
    "kind": "read_cell",
-   "label": "Deferredincometaxliabilities 19",
+   "label": "Deferred income tax liabilities 19",
    "column": 1,
    "samples": [
     "39042",
@@ -354,378 +98,334 @@
    "agreement": 3
   },
   {
-   "kind": "read_cell",
-   "label": "Accumulatedothercomprehensiveincome 4",
-   "column": 1,
-   "samples": [
-    "-14619",
-    "-14619",
-    "-14619"
-   ],
-   "voted": "-14619",
-   "agreement": 3
+   "kind": "map_concept",
+   "label": "Cash and cash equivalents \u2013 restricted",
+   "chosen": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
   },
   {
    "kind": "map_concept",
-   "label": "Salesandotheroperatingrevenue 18",
-   "chosen": "ifrs-full:Revenue"
+   "label": "Notes and accounts receivable \u2013 net 6",
+   "chosen": "us-gaap:AccountsReceivableNetCurrent"
   },
   {
    "kind": "map_concept",
-   "label": "Incomefromequityaffiliates 7",
+   "label": "Materials and supplies",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Investments, advances and long-term receivables 8",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Property, plant and equipment, at cost, less accumulated dep",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets, including intangibles \u2013 net",
+   "chosen": "us-gaap:FiniteLivedIntangibleAssetsNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Notes and loans payable 6",
+   "chosen": "ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts payable and accrued liabilities 6",
+   "chosen": "us-gaap:AccountsPayableCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income taxes payable",
+   "chosen": "us-gaap:AccruedIncomeTaxesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred income tax liabilities 19",
+   "chosen": "ifrs-full:DeferredTaxLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term obligations to equity companies",
+   "chosen": "us-gaap:LongTermDebtNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other long-term obligations",
+   "chosen": "us-gaap:OtherLiabilitiesNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Common stock without par value (9,000 million shares authori",
+   "chosen": "us-gaap:CommonStockSharesIssued"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) including noncontrolling interests",
    "chosen": "us-gaap:NetIncomeLoss"
   },
   {
    "kind": "map_concept",
-   "label": "Totalrevenuesandotherincome",
-   "chosen": "ifrs-full:Revenue"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Productionandmanufacturingexpenses",
-   "chosen": "ifrs-full:OperatingExpense"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Selling,generalandadministrativeexpenses",
-   "chosen": "us-gaap:SellingGeneralAndAdministrativeExpense"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Depreciationanddepletion(includesimpairments) 2,9",
+   "label": "Depreciation and depletion (includes impairments) 2,9",
    "chosen": "us-gaap:DepreciationDepletionAndAmortization"
   },
   {
    "kind": "map_concept",
-   "label": "Explorationexpenses,includingdryholes",
-   "chosen": "ifrs-full:OperatingExpense"
+   "label": "Deferred income tax charges/(credits) 19",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
   },
   {
    "kind": "map_concept",
-   "label": "Non-servicepensionandpostretirementbenefitexpense 17",
+   "label": "Postretirement benefits expense in excess of/(less than) net",
    "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Totalcostsandotherdeductions",
-   "chosen": "ifrs-full:CostOfSales"
+   "label": "Other long-term obligation provisions in excess of/(less tha",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherNoncurrentLiabilities"
   },
   {
    "kind": "map_concept",
-   "label": "Income(loss)beforeincometaxes",
-   "chosen": "ifrs-full:ProfitLossBeforeTax"
+   "label": "Dividends received greater than/(less than) equity in curren",
+   "chosen": "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities"
   },
   {
    "kind": "map_concept",
-   "label": "Incometaxexpense(benefit) 19",
-   "chosen": "us-gaap:IncomeTaxExpenseBenefit"
+   "label": "Notes and accounts receivable reduction/(increase)",
+   "chosen": "us-gaap:IncreaseDecreaseInAccountsReceivable"
   },
   {
    "kind": "map_concept",
-   "label": "Netincome(loss)includingnoncontrollinginterests",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Netincome(loss)attributabletononcontrollinginterests",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Netincome(loss)attributabletoExxonMobil",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Earnings(loss)percommonshare(dollars) 12",
-   "chosen": "ifrs-full:BasicEarningsLossPerShare"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Earnings(loss)percommonshare-assumingdilution(dollars) 12",
-   "chosen": "ifrs-full:DilutedEarningsLossPerShare"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Netincome(loss)includingnoncontrollinginterests",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Adjustmentforforeignexchangetranslation(gain)/lossincludedin",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Amortizationandsettlementofpostretirementbenefitsreservesadj",
-   "chosen": "ifrs-full:FinanceCosts"
-  },
-  {
-   "kind": "read_cell",
-   "label": "Depreciationanddepletion(includesimpairments) 2,9",
-   "column": 6,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Deferredincometaxcharges/(credits) 19",
-   "column": 6,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Net(gain)/lossonassetsales 5",
-   "column": 6,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 1,
-   "samples": [
-    "15746",
-    "15746",
-    "15746"
-   ],
-   "voted": "15746",
-   "agreement": 3
-  },
-  {
-   "kind": "adjudicated",
-   "label": "BalanceasofDecember31,2021",
-   "column": 0,
-   "value": "15746"
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 2,
-   "samples": [
-    "392059",
-    "392059",
-    "392059"
-   ],
-   "voted": "392059",
-   "agreement": 3
-  },
-  {
-   "kind": "adjudicated",
-   "label": "BalanceasofDecember31,2021",
-   "column": 1,
-   "value": "392059"
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 3,
-   "samples": [
-    "-13764",
-    "-13764",
-    "-13764"
-   ],
-   "voted": "-13764",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 4,
-   "samples": [
-    "-225464",
-    "-225464",
-    "-225464"
-   ],
-   "voted": "-225464",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 5,
-   "samples": [
-    "168577",
-    "168577",
-    "168577"
-   ],
-   "voted": "168577",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 6,
-   "samples": [
-    "7106",
-    "7106",
-    "7106"
-   ],
-   "voted": "7106",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "BalanceasofDecember31,2021",
-   "column": 7,
-   "samples": [
-    "175683",
-    "175683",
-    "175683"
-   ],
-   "voted": "175683",
-   "agreement": 3
-  },
-  {
-   "kind": "read_cell",
-   "label": "Amortizationofstock-basedawards",
-   "column": 1,
-   "samples": [
-    "481",
-    "481",
-    "481"
-   ],
-   "voted": "481",
-   "agreement": 3
-  },
-  {
-   "kind": "adjudicated",
-   "label": "Amortizationofstock-basedawards",
-   "column": 0,
-   "value": "481"
-  },
-  {
-   "kind": "read_cell",
-   "label": "Amortizationofstock-basedawards",
-   "column": 2,
-   "samples": [
-    "None",
-    "None",
-    "None"
-   ],
-   "voted": "None",
-   "agreement": 3
-  },
-  {
-   "kind": "adjudication_capped",
-   "max_cells": 12,
-   "note": "remaining flags left for review"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Netincome(loss)includingnoncontrollinginterests",
-   "chosen": "us-gaap:NetIncomeLoss"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Depreciationanddepletion(includesimpairments) 2,9",
-   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Deferredincometaxcharges/(credits) 19",
-   "chosen": "us-gaap:DeferredIncomeTaxLiabilitiesNet"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Otherlong-termobligationprovisionsinexcessof/(lessthan)payme",
-   "chosen": "ifrs-full:NoncurrentProvisions"
-  },
-  {
-   "kind": "map_concept",
-   "label": "Dividendsreceivedgreaterthan/(lessthan)equityincurrentearnin",
-   "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Notesandaccountsreceivablereduction/(increase)",
-   "chosen": null
-  },
-  {
-   "kind": "map_concept",
-   "label": "Inventoriesreduction/(increase)",
+   "label": "Inventories reduction/(increase)",
    "chosen": "us-gaap:IncreaseDecreaseInInventories"
   },
   {
    "kind": "map_concept",
-   "label": "Othercurrentassetsreduction/(increase)",
-   "chosen": null
+   "label": "Other current assets reduction/(increase)",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentAssets"
   },
   {
    "kind": "map_concept",
-   "label": "Accountsandotherpayablesincrease/(reduction)",
-   "chosen": "us-gaap:IncreaseDecreaseInAccountsPayable"
+   "label": "Accounts and other payables increase/(reduction)",
+   "chosen": "ifrs-full:AdjustmentsForIncreaseDecreaseInTradeAndOtherPayables"
   },
   {
    "kind": "map_concept",
-   "label": "Net(gain)/lossonassetsales 5",
-   "chosen": "us-gaap:NetIncomeLoss"
+   "label": "Sales and other operating revenue 18",
+   "chosen": "sap:RevenueFromCloudAndSoftware"
   },
   {
    "kind": "map_concept",
-   "label": "Allotheritems-net",
+   "label": "Income from equity affiliates 7",
+   "chosen": "ifrs-full:ProfitLossFromOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other income",
+   "chosen": "us-gaap:NonoperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total revenues and other income",
    "chosen": "ifrs-full:OtherOperatingIncomeExpense"
   },
   {
    "kind": "map_concept",
-   "label": "Netcashprovidedbyoperatingactivities",
-   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+   "label": "Production and manufacturing expenses",
+   "chosen": "us-gaap:OperatingExpenses"
   },
   {
    "kind": "map_concept",
-   "label": "Additionstoproperty,plantandequipment",
-   "chosen": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+   "label": "Selling, general and administrative expenses",
+   "chosen": "us-gaap:SellingGeneralAndAdministrativeExpense"
   },
   {
    "kind": "map_concept",
-   "label": "Proceedsfromassetsalesandreturnsofinvestments",
-   "chosen": "msft:ProceedsFromInvestments"
+   "label": "Depreciation and depletion (includes impairments) 2,9",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
   },
   {
    "kind": "map_concept",
-   "label": "Otherinvestingactivitiesincludingcollectionofadvances",
+   "label": "Exploration expenses, including dry holes",
+   "chosen": "ifrs-full:OperatingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-service pension and postretirement benefit expense 17",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest expense",
    "chosen": null
   },
   {
    "kind": "map_concept",
-   "label": "Netcashusedininvestingactivities",
-   "chosen": "us-gaap:NetCashProvidedByUsedInInvestingActivities"
+   "label": "Other taxes and duties 19",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
   },
   {
    "kind": "map_concept",
-   "label": "Additionstolong-termdebt(1)",
+   "label": "Total costs and other deductions",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income (loss) before income taxes",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income tax expense (benefit) 19",
+   "chosen": "us-gaap:IncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) including noncontrolling interests",
+   "chosen": "ifrs-full:ProfitLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) attributable to noncontrolling interests",
+   "chosen": "ifrs-full:ProfitLossAttributableToNoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) attributable to ExxonMobil",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Earnings (loss) per common share (dollars) 12",
+   "chosen": "ifrs-full:BasicEarningsLossPerShare"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Earnings (loss) per common share - assuming dilution (dollar",
+   "chosen": "ifrs-full:DilutedEarningsLossPerShare"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) including noncontrolling interests",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Depreciation and depletion (includes impairments) 2,9",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred income tax charges/(credits) 19",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Postretirement benefits expense in excess of/(less than) net",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other long-term obligation provisions in excess of/(less tha",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherNoncurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Dividends received greater than/(less than) equity in curren",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Notes and accounts receivable reduction/(increase)",
+   "chosen": "us-gaap:IncreaseDecreaseInAccountsReceivable"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Inventories reduction/(increase)",
+   "chosen": "us-gaap:IncreaseDecreaseInInventories"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other current assets reduction/(increase)",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts and other payables increase/(reduction)",
+   "chosen": "ifrs-full:AdjustmentsForIncreaseDecreaseInTradeAndOtherPayables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net (gain)/loss on asset sales 5",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "All other items - net",
+   "chosen": "sap:OtherNonOperatingIncomeExpensesNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash provided by operating activities",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additions to property, plant and equipment",
+   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from asset sales and returns of investments",
+   "chosen": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additional investments and advances",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other investing activities including collection of advances",
+   "chosen": "ifrs-full:OtherInflowsOutflowsOfCashClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash acquired from mergers and acquisitions",
+   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in investing activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additions to long-term debt (1)",
    "chosen": "us-gaap:ProceedsFromIssuanceOfLongTermDebt"
   },
   {
    "kind": "map_concept",
-   "label": "Reductionsinlong-termdebt",
+   "label": "Reductions in long-term debt",
    "chosen": "us-gaap:RepaymentsOfLongTermDebt"
   },
   {
    "kind": "map_concept",
-   "label": "Additionstoshort-termdebt",
+   "label": "Additions to short-term debt",
    "chosen": "us-gaap:CommercialPaper"
   },
   {
    "kind": "map_concept",
-   "label": "Reductionsinshort-termdebt",
+   "label": "Reductions in short-term debt",
    "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additions/(reductions) in debt with three months or less mat",
+   "chosen": "us-gaap:ProceedsFromRepaymentsOfShortTermDebtMaturingInThreeMonthsOrLess"
   }
  ]
 }

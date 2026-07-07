@@ -37,7 +37,44 @@ def _cluster_lines(words: list[_Word]) -> list[list[_Word]]:
             lines[-1].append(word)
         else:
             lines.append([word])
-    return [sorted(line, key=lambda w: w.x0) for line in lines]
+    return [_repair_line(sorted(line, key=lambda w: w.x0)) for line in lines]
+
+
+_FRAGMENT_GAP = 8.0  # points: split-number fragments sit closer than columns
+
+
+def _repair_line(line: list[_Word]) -> list[_Word]:
+    """Merge number fragments the PDF generator broke apart.
+
+    Position-aware version of rows.repair_tokens: two adjacent tokens merge
+    when they sit within a sub-column gap and the joint (also with bare
+    digit fragments like "7" + "53") parses as one number while the left
+    piece alone is incomplete or suspiciously short.
+    """
+    from fss.pdfread.rows import _PARTIAL_NUMBER, _incomplete
+    from fss.pdfread.textnorm import parse_number
+
+    repaired: list[_Word] = []
+    for word in line:
+        previous = repaired[-1] if repaired else None
+        if previous is not None and (word.x0 - previous.x1) < _FRAGMENT_GAP:
+            joint = previous.text + word.text
+            closes = (
+                word.text == ")"
+                and previous.text.startswith("(")
+                and parse_number(joint) is not None
+            )
+            grows = _incomplete(previous.text) and _PARTIAL_NUMBER.match(joint)
+            digit_pair = (
+                previous.text.replace("(", "").replace(",", "").isdigit()
+                and word.text.replace(")", "").replace(",", "").replace(".", "").isdigit()
+                and parse_number(joint) is not None
+            )
+            if closes or grows or digit_pair:
+                repaired[-1] = _Word(joint, previous.x0, word.x1, previous.top)
+                continue
+        repaired.append(word)
+    return repaired
 
 
 def _numeric_words(line: list[_Word]) -> list[tuple[_Word, NumToken]]:
@@ -100,7 +137,14 @@ def _detect_bands(lines: list[list[_Word]], page_width: float) -> list[float]:
     return [sum(edge for edge, _ in cluster) / len(cluster) for cluster in kept]
 
 
-def read_pages(pdf: Any, page_indices: list[int], reader: str = "R1_geometry") -> ReaderOutput:
+def read_pages(
+    pdf: Any,
+    page_indices: list[int],
+    reader: str = "R1_geometry",
+    windows: dict[int, tuple[str | None, str | None]] | None = None,
+) -> ReaderOutput:
+    from fss.pdfread.rows import window_lines
+
     assembler = RowAssembler(reader)
     for page_index in page_indices:
         page = pdf.pages[page_index]
@@ -109,6 +153,17 @@ def read_pages(pdf: Any, page_indices: list[int], reader: str = "R1_geometry") -
             for w in page.extract_words(keep_blank_chars=False)
         ]
         lines = _cluster_lines(words)
+        if windows and page_index in windows:
+            texts = [" ".join(word.text for word in line) for line in lines]
+            kept = window_lines(texts, *windows[page_index])
+            if kept:
+                keep_set = set()
+                cursor = 0
+                for index, text in enumerate(texts):
+                    if cursor < len(kept) and text == kept[cursor]:
+                        keep_set.add(index)
+                        cursor += 1
+                lines = [line for index, line in enumerate(lines) if index in keep_set]
         bands = _detect_bands(lines, float(page.width))
         if not bands:
             assembler.notes.append(f"page {page_index}: no value bands found")

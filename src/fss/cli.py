@@ -12,6 +12,10 @@ def main() -> int:
     sub.add_parser("fetch", help="acquire filings, warm DTS caches, render PDFs")
     sub.add_parser("extract", help="tag-path extraction of all statements")
     sub.add_parser("measure", help="PDF-only accuracy vs ground truth")
+    untagged = sub.add_parser(
+        "untagged", help="untagged-PDF sweep (annual report PDFs, no XBRL)"
+    )
+    untagged.add_argument("paths", nargs="*", help="PDF files or folders")
     accept = sub.add_parser("accept", help="full acceptance battery")
     accept.add_argument("--paths", type=int, default=None, help="Monte Carlo paths")
     accept.add_argument("--seed", type=int, default=None, help="random seed")
@@ -37,6 +41,14 @@ def main() -> int:
         from fss import measure
 
         measure.main()
+        return 0
+    if args.command == "untagged":
+        import sys
+
+        from fss import untagged as untagged_module
+
+        sys.argv = ["untagged", *args.paths]
+        untagged_module.main()
         return 0
     if args.command == "accept":
         from fss import accept as accept_module

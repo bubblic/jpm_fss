@@ -105,10 +105,29 @@ _MONETARY_VETO = re.compile(
     r"common stock|paid-?in capital|par value|treasury|compensation|repurchase|settlement"
 )
 
+_CURRENCY_WORD = r"(?:[€$£¥]|rmb|hk\$|us\$|eur|usd|chf|sek|jpy)"
 _SCALE_PATTERNS: tuple[tuple[re.Pattern[str], Decimal], ...] = (
-    (re.compile(r"in\s+(?:[€$£]\s*)?millions|[€$£]\s*millions?\b", re.IGNORECASE), Decimal(10) ** 6),
-    (re.compile(r"in\s+(?:[€$£]\s*)?thousands|[€$£]\s*thousands?\b", re.IGNORECASE), Decimal(10) ** 3),
-    (re.compile(r"in\s+(?:[€$£]\s*)?billions", re.IGNORECASE), Decimal(10) ** 9),
+    (
+        re.compile(
+            rf"in\s+(?:{_CURRENCY_WORD}\s*)?millions?\b"
+            rf"|{_CURRENCY_WORD}\s*'?\s*millions?\b"
+            rf"|millions?\s+of\s+{_CURRENCY_WORD}"
+            r"|millions?\s+of\s+(?:euros?|dollars|renminbi)"
+            r"|\bin\s+millions?\b",
+            re.IGNORECASE,
+        ),
+        Decimal(10) ** 6,
+    ),
+    (
+        re.compile(
+            rf"in\s+(?:{_CURRENCY_WORD}\s*)?thousands?\b"
+            rf"|{_CURRENCY_WORD}\s*'?\s*thousands?\b"
+            rf"|thousands?\s+of\s+{_CURRENCY_WORD}",
+            re.IGNORECASE,
+        ),
+        Decimal(10) ** 3,
+    ),
+    (re.compile(rf"in\s+(?:{_CURRENCY_WORD}\s*)?billions?\b", re.IGNORECASE), Decimal(10) ** 9),
 )
 _SHARES_IN_THOUSANDS = re.compile(
     r"shares?,?\s*(?:which\s+are\s+|are\s+)?reflected\s+in\s+thousands", re.IGNORECASE

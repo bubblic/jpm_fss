@@ -124,9 +124,13 @@ def run_company(key: str, paths: int, seed: int) -> dict:
         if not check.passed and (check.label, check.period) in demoted_cells
     )
 
-    # 4. simulation under every scenario
-    results = run_all_scenarios(key, statements, paths=paths, seed=seed)
+    # 4. symbolic verification, then simulation under every scenario
+    # (TensorFlow fan; Decimal replays for the audit artifacts)
+    results, symbolic_verdict = run_all_scenarios(key, statements, paths=paths, seed=seed)
     mc_violations = sum(result.violations for result in results.values())
+    max_residual = max(
+        (result.max_residual for result in results.values()), default=Decimal(0)
+    )
 
     # 5. directional battery
     projector = Projector(key, statements)
@@ -214,6 +218,13 @@ def run_company(key: str, paths: int, seed: int) -> dict:
         "footing_excused": footing_excused,
         "footing_pass": not footing_failures,
         "mc_violations": mc_violations,
+        "max_identity_residual": str(max_residual),
+        "symbolic": {
+            "balanced": symbolic_verdict.balanced,
+            "acyclic": symbolic_verdict.acyclic,
+            "residual": symbolic_verdict.residual,
+            "culprits": symbolic_verdict.culprits,
+        },
         "directional": [
             {"name": check.name, "detail": check.detail, "passed": check.passed}
             for check in directional
@@ -335,10 +346,22 @@ def write_report(outcomes: list[dict]) -> Path:
         add("")
         add("### Plausibility (representative and deterministic paths, all scenarios)")
         add("")
+        symbolic = outcome.get("symbolic", {})
+        add(
+            "- symbolic closure: "
+            + (
+                "PROVEN (flow system cancels for all parameter values; "
+                "computation DAG acyclic)"
+                if symbolic.get("balanced") and symbolic.get("acyclic")
+                else f"FAILED ({symbolic.get('residual')}, culprits {symbolic.get('culprits')})"
+            )
+        )
         add(
             f"- {outcome['plausibility_total'] - len(outcome['plausibility_failures'])} of "
-            f"{outcome['plausibility_total']} checks pass; Monte Carlo identity "
-            f"violations: {outcome['mc_violations']}"
+            f"{outcome['plausibility_total']} checks pass; Monte Carlo (TensorFlow) "
+            f"identity violations: {outcome['mc_violations']}; max per-path "
+            f"identity residual: {outcome.get('max_identity_residual', '0')} "
+            "(tolerance 1 currency unit)"
         )
         for failure in outcome["plausibility_failures"]:
             add(f"- FAIL {failure}")

@@ -96,17 +96,19 @@ def _dec(value: float) -> Decimal:
     return Decimal(str(round(value, 6)))
 
 
-def realize(
+def draw_from_shocks(
     scenario: Scenario,
     base_growth: Decimal,
-    rng: random.Random,
-    stochastic: bool = True,
+    eps_g: Decimal,
+    eps_m: Decimal,
+    eps_o: Decimal,
 ) -> DriverDraw:
-    """Map (scenario, firm momentum, noise) to one driver draw."""
-    eps_g = _dec(rng.gauss(0.0, float(REVENUE_SIGMA))) if stochastic else Decimal(0)
-    eps_m = _dec(rng.gauss(0.0, float(MARGIN_SIGMA))) if stochastic else Decimal(0)
-    eps_o = _dec(rng.gauss(0.0, float(OPEX_SIGMA))) if stochastic else Decimal(0)
+    """The deterministic scenario response for given noise shocks.
 
+    This is the single source of truth for the driver map: the Decimal
+    engine and the TensorFlow simulation both express exactly these
+    formulas, and the agreement test in tests/ holds them together.
+    """
     momentum = MOMENTUM_WEIGHT * base_growth
     macro = (
         BETA_GDP * scenario.gdp_growth_pp + INFLATION_REVENUE_PASS * scenario.inflation_pp
@@ -145,3 +147,16 @@ def realize(
         dividend_growth=dividend_growth,
         buyback_factor=buyback_factor,
     )
+
+
+def realize(
+    scenario: Scenario,
+    base_growth: Decimal,
+    rng: random.Random,
+    stochastic: bool = True,
+) -> DriverDraw:
+    """Map (scenario, firm momentum, sampled noise) to one driver draw."""
+    eps_g = _dec(rng.gauss(0.0, float(REVENUE_SIGMA))) if stochastic else Decimal(0)
+    eps_m = _dec(rng.gauss(0.0, float(MARGIN_SIGMA))) if stochastic else Decimal(0)
+    eps_o = _dec(rng.gauss(0.0, float(OPEX_SIGMA))) if stochastic else Decimal(0)
+    return draw_from_shocks(scenario, base_growth, eps_g, eps_m, eps_o)

@@ -191,6 +191,44 @@ class RowAssembler:
         return ReaderOutput(self.reader, self.rows, self.header_lines, self.notes)
 
 
+_PARTIAL_NUMBER = re.compile(r"^\(?\$?[0-9][0-9,]*(?:\.[0-9]*)?\)?,?$|^\($")
+
+
+def _incomplete(token: str) -> bool:
+    """A fragment that cannot stand as a finished number on its own."""
+    if token == "(":
+        return True
+    if token.endswith(","):
+        return True
+    if token.startswith("(") and ")" not in token:
+        return True
+    return False
+
+
+def repair_tokens(tokens: list[str]) -> list[str]:
+    """Heal tokenization damage in loosely-set PDFs.
+
+    Some generators (notably DOCX-exported reports) break numbers apart:
+    "245, 122" for 245,122, "(64,551 )" with an orphaned parenthesis,
+    "(96," "970" ")" fully exploded. Merging is syntactic and conservative:
+    a fragment joins its neighbor only when the left piece is incomplete
+    (trailing comma, unclosed parenthesis) or the neighbor is a bare ")",
+    and the joint still looks like (part of) one number.
+    """
+    repaired: list[str] = []
+    for token in tokens:
+        previous = repaired[-1] if repaired else None
+        if previous is not None:
+            joint = previous + token
+            closes = token == ")" and previous.startswith("(") and parse_number(joint)
+            grows = _incomplete(previous) and _PARTIAL_NUMBER.match(joint)
+            if closes or grows:
+                repaired[-1] = joint
+                continue
+        repaired.append(token)
+    return repaired
+
+
 def split_trailing_values(tokens: list[str]) -> tuple[list[str], list[NumToken]]:
     """Split whitespace tokens into (label tokens, trailing value run).
 
@@ -226,7 +264,40 @@ def parse_text_lines(lines: list[tuple[int, int, str]], reader: str) -> ReaderOu
     """Line-based parsing shared by the two text-engine readers."""
     assembler = RowAssembler(reader)
     for page, line_no, text in lines:
-        tokens = text.split()
+        tokens = repair_tokens(text.split())
         label_tokens, values = split_trailing_values(tokens)
         assembler.feed(page, line_no, " ".join(label_tokens), list(values), text)
     return assembler.finish()
+
+
+def _normalized(text: str) -> str:
+    return " ".join(text.lower().split())
+
+
+def window_lines(
+    lines: list[str], start_anchor: str | None, stop_anchor: str | None
+) -> list[str]:
+    """The sub-list of lines between two anchor texts (statement cropping).
+
+    Text engines render the same line with different spacing, so anchors
+    match by normalized containment either way. A missing start anchor
+    means the statement continues from the prior page (start at the top);
+    a missing stop anchor runs to the end of the page.
+    """
+    start_index = 0
+    if start_anchor:
+        anchor = _normalized(start_anchor)
+        for index, line in enumerate(lines):
+            normalized = _normalized(line)
+            if normalized and (anchor in normalized or normalized in anchor):
+                start_index = index
+                break
+    end_index = len(lines)
+    if stop_anchor:
+        anchor = _normalized(stop_anchor)
+        for index in range(start_index + 1, len(lines)):
+            normalized = _normalized(lines[index])
+            if normalized and (anchor in normalized or normalized in anchor):
+                end_index = index
+                break
+    return lines[start_index:end_index]

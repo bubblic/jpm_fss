@@ -51,6 +51,50 @@ TERMINALS: dict[str, re.Pattern[str]] = {
 TOP_LINES = 8
 MIN_VALUE_ROWS = 6
 MAX_CONTINUATIONS = 2
+ANY_TITLE = re.compile(
+    r"balance sheet|statements? of financial position|income statements?|"
+    r"statements? of (operations|income|earnings)|cash flows? statements?|"
+    r"statements? of cash flows|statements? of (stockholders|shareholders|changes in)"
+    r"|comprehensive income",
+    re.IGNORECASE,
+)
+
+
+def _title_line_index(info: "PageInfo", statement: str) -> int | None:
+    """Line index of this statement's title on the page, if present."""
+    hints = TITLE_HINTS[statement]
+    vetos = TITLE_VETO[statement]
+    for index, line in enumerate(info.lines):
+        lowered = " ".join(line.lower().split())
+        if not lowered or len(lowered) > 110:
+            continue
+        if any(v in lowered for v in vetos):
+            continue
+        if any(h in lowered for h in hints):
+            return index
+    return None
+
+
+def crop_region(info: "PageInfo", statement: str) -> tuple[int, int]:
+    """(start_line, end_line) bounding this statement's region on the page.
+
+    The region runs from this statement's title (or the page top when the
+    statement continues from a prior page) to the next different statement
+    title, so a page carrying two statements feeds the readers only one.
+    """
+    start = _title_line_index(info, statement)
+    begin = start if start is not None else 0
+    end = len(info.lines)
+    for index in range(begin + 1, len(info.lines)):
+        lowered = " ".join(info.lines[index].lower().split())
+        if len(lowered) > 110:
+            continue
+        if ANY_TITLE.search(lowered):
+            hints = TITLE_HINTS[statement]
+            if not any(h in lowered for h in hints):
+                end = index
+                break
+    return begin, end
 
 
 @dataclass
@@ -102,6 +146,16 @@ def _other_title_hit(info: PageInfo, statement: str) -> bool:
     )
 
 
+def crop_texts(info: PageInfo, statement: str) -> tuple[str | None, str | None]:
+    """(start_anchor, stop_anchor) line texts bounding the statement region."""
+    begin, end = crop_region(info, statement)
+    start_text = info.lines[begin].strip() if begin > 0 or _title_line_index(info, statement) == 0 else None
+    if _title_line_index(info, statement) is None:
+        start_text = None  # continuation page: start at the top
+    stop_text = info.lines[end].strip() if end < len(info.lines) else None
+    return start_text, stop_text
+
+
 def locate_statement(pages: list[PageInfo], statement: str) -> list[int]:
     """Best start page by score, extended through continuation pages."""
     candidates: list[tuple[float, PageInfo]] = []
@@ -116,17 +170,24 @@ def locate_statement(pages: list[PageInfo], statement: str) -> list[int]:
         raise RuntimeError(f"could not locate {statement} pages")
     best = max(candidates, key=lambda item: (item[0], -item[1].index))[1]
     chosen = [best.index]
-    terminal_seen = bool(TERMINALS[statement].search(best.text))
-    cursor = best.index
+    # statements printed across pages often repeat the title on every page:
+    # take the whole contiguous title-hit run around the best page
+    cursor = best.index - 1
+    while cursor >= 0 and pages[cursor].value_rows >= 3 and _title_hit(pages[cursor], statement):
+        chosen.insert(0, cursor)
+        cursor -= 1
+    begin, end = crop_region(best, statement)
+    terminal_seen = bool(TERMINALS[statement].search("\n".join(best.lines[begin:end])))
+    cursor = chosen[-1]
     while not terminal_seen and len(chosen) <= MAX_CONTINUATIONS:
         cursor += 1
         if cursor >= len(pages):
             break
         info = pages[cursor]
-        if info.value_rows < MIN_VALUE_ROWS:
-            break
-        if _other_title_hit(info, statement):
+        region_begin, region_end = crop_region(info, statement)
+        region = info.lines[region_begin:region_end]
+        if _value_row_count(region) < 3:
             break
         chosen.append(info.index)
-        terminal_seen = bool(TERMINALS[statement].search(info.text))
+        terminal_seen = bool(TERMINALS[statement].search("\n".join(region)))
     return chosen

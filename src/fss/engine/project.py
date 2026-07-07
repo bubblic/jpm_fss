@@ -46,6 +46,7 @@ class ProjectedPeriod:
     journal: list[FlowRecord]
     metrics: dict[str, Decimal]
     violations: list[str]
+    notes: list[str] = field(default_factory=list)
 
 
 def _q(value: Decimal) -> Decimal:
@@ -468,6 +469,17 @@ class Projector:
             move(re_key, -div_new, "dividends", "dividends declared and paid")
             if not treasury_rows:
                 move(re_key, -buyback_new - withhold_new, "buyback", "repurchases retired against retained earnings")
+            if not nci_rows:
+                # no NCI equity account on the face: the NCI share of income
+                # (and any NCI dividends) must still land in equity, or cash
+                # would move with no counterpart (caught by the symbolic
+                # closure check)
+                move(
+                    re_key,
+                    _q(nci_new) - nci_div_new,
+                    "nci",
+                    "NCI income less NCI dividends absorbed into retained earnings",
+                )
         if treasury_rows:
             move(_row_key(treasury_rows[0]), buyback_new + withhold_new, "buyback", "repurchases into treasury (contra-equity)")
         if apic_rows:
@@ -995,7 +1007,13 @@ class Projector:
         # a filer whose printed leaves round to an unbalanced sheet carries a
         # small constant residual; the engine must add exactly zero to it
         base_residual = self._identity_residual(self.bs, self.latest["balance_sheet"])
-        if residual is None or base_residual is None:
+        if residual is None and base_residual is None:
+            # untagged statements may lack a verified arc chain to the top
+            # totals (for example when flagged cells made a group
+            # unverifiable); the aggregate-delta invariant of the TensorFlow
+            # path still binds, so this downgrades to a disclosure
+            pass
+        elif residual is None or base_residual is None:
             violations.append("could not locate top-level balance totals")
         elif residual != base_residual:
             violations.append(

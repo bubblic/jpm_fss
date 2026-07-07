@@ -1,9 +1,17 @@
 """Monte Carlo simulation and the directional scenario battery.
 
-For a fixed scenario the driver noise is sampled N times and every path is
-propagated through the engine, so the output is a distribution of complete,
-internally consistent statements. The directional battery compares scenario
-means against the baseline with the signs economics requires.
+The stochastic fan runs in TensorFlow (fss.tfsim): all paths of a scenario
+execute as one vectorized float64 pass, following the batched-tensor
+pattern of previous_llm_extractor, with per-path numeric identity checks.
+Selected paths (the median-net-income path and the noise-free path) are
+replayed bit-exactly through the Decimal engine, fed with the very shocks
+TensorFlow drew, to produce the audit artifacts: full native statements
+and the flow journal. Common random numbers across scenarios make mean
+differences measure the scenario response.
+
+Before any simulation, the firm's flow system is verified symbolically
+(fss.symbolic): the accounting identity must cancel for all parameter
+values and the computation DAG must be acyclic.
 """
 from __future__ import annotations
 
@@ -13,9 +21,10 @@ from decimal import Decimal
 from statistics import median
 
 from fss.config import MONTE_CARLO_PATHS, RANDOM_SEED
-from fss.drivers import SCENARIOS, Scenario, realize
+from fss.drivers import SCENARIOS, Scenario, draw_from_shocks, realize
 from fss.engine.project import ProjectedPeriod, Projector
 from fss.statements import StructuredStatement
+from fss.symbolic import SymbolicVerdict, verify_engine_closure
 
 
 @dataclass
@@ -26,6 +35,7 @@ class ScenarioResult:
     representative: ProjectedPeriod  # the median-net-income path
     deterministic: ProjectedPeriod  # noise-free path (scenario response only)
     violations: int  # paths with any identity/plausibility violation
+    max_residual: Decimal = Decimal(0)  # largest |A-(L+E)| delta across paths
 
     def mean(self, metric: str) -> Decimal:
         values = self.metrics[metric]
@@ -37,14 +47,66 @@ class ScenarioResult:
         return values[index]
 
 
+def run_scenario_tf(
+    projector: Projector,
+    compiled_firm,
+    scenario: Scenario,
+    paths: int,
+    seed: int,
+) -> ScenarioResult:
+    """The TensorFlow fan plus Decimal replays of the paths that matter."""
+    import numpy as np
+
+    from fss import tfsim
+
+    base_growth = projector.base_growth()
+    fan = tfsim.simulate_paths(compiled_firm, scenario, paths, seed)
+    metrics = {
+        name: [Decimal(repr(float(value))) for value in values]
+        for name, values in fan.metrics.items()
+    }
+    ni = fan.metrics["net_income"]
+    median_index = int(np.argsort(ni)[len(ni) // 2])
+    eps = fan.shocks[median_index]
+    representative = projector.project(
+        draw_from_shocks(
+            scenario,
+            base_growth,
+            Decimal(repr(float(eps[0]))),
+            Decimal(repr(float(eps[1]))),
+            Decimal(repr(float(eps[2]))),
+        )
+    )
+    deterministic = projector.project(
+        draw_from_shocks(scenario, base_growth, Decimal(0), Decimal(0), Decimal(0))
+    )
+    violations = fan.identity_violations
+    if representative.violations or deterministic.violations:
+        violations += 1
+    return ScenarioResult(
+        scenario=scenario,
+        paths=paths,
+        metrics=metrics,
+        representative=representative,
+        deterministic=deterministic,
+        violations=violations,
+        max_residual=Decimal(repr(fan.max_residual)),
+    )
+
+
 def run_scenario(
     company: str,
     statements: dict[str, StructuredStatement],
     scenario: Scenario,
     paths: int = MONTE_CARLO_PATHS,
     seed: int = RANDOM_SEED,
+    backend: str = "tf",
 ) -> ScenarioResult:
     projector = Projector(company, statements)
+    if backend == "tf":
+        from fss import tfsim
+
+        return run_scenario_tf(projector, tfsim.compile_firm(projector), scenario, paths, seed)
     base_growth = projector.base_growth()
     metrics: dict[str, list[Decimal]] = {}
     results: list[ProjectedPeriod] = []
@@ -82,11 +144,35 @@ def run_all_scenarios(
     statements: dict[str, StructuredStatement],
     paths: int = MONTE_CARLO_PATHS,
     seed: int = RANDOM_SEED,
-) -> dict[str, ScenarioResult]:
-    return {
-        key: run_scenario(company, statements, scenario, paths, seed)
-        for key, scenario in SCENARIOS.items()
-    }
+    backend: str = "tf",
+) -> tuple[dict[str, ScenarioResult], SymbolicVerdict]:
+    """Symbolic verification first, then every scenario's fan.
+
+    Mirrors the interns' pipeline: SymPy equations -> symbolic checking ->
+    TensorFlow operations -> numerical checking. A firm whose flow system
+    does not cancel symbolically is refused simulation outright.
+    """
+    projector = Projector(company, statements)
+    verdict = verify_engine_closure(projector)
+    if not verdict.balanced or not verdict.acyclic:
+        raise RuntimeError(
+            f"symbolic verification failed for {company}: residual "
+            f"{verdict.residual}, culprits {verdict.culprits}, acyclic {verdict.acyclic}"
+        )
+    if backend == "tf":
+        from fss import tfsim
+
+        compiled_firm = tfsim.compile_firm(projector)
+        results = {
+            key: run_scenario_tf(projector, compiled_firm, scenario, paths, seed)
+            for key, scenario in SCENARIOS.items()
+        }
+    else:
+        results = {
+            key: run_scenario(company, statements, scenario, paths, seed, backend)
+            for key, scenario in SCENARIOS.items()
+        }
+    return results, verdict
 
 
 @dataclass(frozen=True)

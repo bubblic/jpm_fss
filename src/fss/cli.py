@@ -16,6 +16,7 @@ def main() -> int:
         "untagged", help="untagged-PDF sweep (annual report PDFs, no XBRL)"
     )
     untagged.add_argument("paths", nargs="*", help="PDF files or folders")
+    sub.add_parser("llm-check", help="verify the Azure LLM endpoint round-trips")
     accept = sub.add_parser("accept", help="full acceptance battery")
     accept.add_argument("--paths", type=int, default=None, help="Monte Carlo paths")
     accept.add_argument("--seed", type=int, default=None, help="random seed")
@@ -50,6 +51,21 @@ def main() -> int:
         sys.argv = ["untagged", *args.paths]
         untagged_module.main()
         return 0
+    if args.command == "llm-check":
+        from fss import llm
+
+        client = llm.default_client()
+        if client is None:
+            print("AZURE_DEEPSEEK_ENDPOINT is not set (checked env and .env)")
+            return 1
+        response = client.ask_json(
+            message="gen-ai-response",
+            prompt='Health check. Return ONLY JSON: {"ok": true}',
+            parameters={},
+            reasoning=False,
+        )
+        print(f"endpoint round-trip response: {response}")
+        return 0 if response.get("ok") else 1
     if args.command == "accept":
         from fss import accept as accept_module
         from fss.config import MONTE_CARLO_PATHS, RANDOM_SEED

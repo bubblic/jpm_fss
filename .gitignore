@@ -8,3 +8,4 @@ out/graph.graphml
 proposal/*.aux
 proposal/*.log
 proposal/*.out
+.env

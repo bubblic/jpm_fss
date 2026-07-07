@@ -63,6 +63,13 @@
  "footing_excused": 0,
  "footing_pass": true,
  "mc_violations": 0,
+ "max_identity_residual": "0.000001430511474609375",
+ "symbolic": {
+  "balanced": true,
+  "acyclic": true,
+  "residual": "0",
+  "culprits": []
+ },
  "directional": [
   {
    "name": "expansion raises revenue",
@@ -71,7 +78,7 @@
   },
   {
    "name": "expansion raises net income",
-   "detail": "expansion vs baseline, mean net_income: +137,253,388",
+   "detail": "expansion vs baseline, mean net_income: +137,708,868",
    "passed": true
   },
   {
@@ -81,12 +88,12 @@
   },
   {
    "name": "recession lowers net income",
-   "detail": "recession vs baseline, mean net_income: -264,544,966",
+   "detail": "recession vs baseline, mean net_income: -265,198,660",
    "passed": true
   },
   {
    "name": "competition lowers net income",
-   "detail": "competition vs baseline, mean net_income: -282,451,092",
+   "detail": "competition vs baseline, mean net_income: -282,828,694",
    "passed": true
   },
   {
@@ -96,12 +103,12 @@
   },
   {
    "name": "inflation lowers net income",
-   "detail": "inflation vs baseline, mean net_income: -204,498,739",
+   "detail": "inflation vs baseline, mean net_income: -204,540,863",
    "passed": true
   },
   {
    "name": "rate hike moves income with the firm's net cash position",
-   "detail": "rate_hike vs baseline, mean net_income: +94,687,596",
+   "detail": "rate_hike vs baseline, mean net_income: +94,680,575",
    "passed": true
   }
  ],
@@ -113,102 +120,102 @@
  "fans": {
   "net_income": {
    "baseline": [
-    "2,310",
+    "2,324",
     "2,062",
-    "2,205",
-    "2,314",
-    "2,421",
-    "2,555"
+    "2,228",
+    "2,328",
+    "2,427",
+    "2,549"
    ],
    "expansion": [
-    "2,447",
-    "2,197",
-    "2,339",
-    "2,454",
-    "2,563",
+    "2,462",
+    "2,196",
+    "2,364",
+    "2,466",
+    "2,568",
     "2,694"
    ],
    "recession": [
-    "2,046",
-    "1,805",
-    "1,941",
-    "2,052",
-    "2,155",
-    "2,285"
+    "2,059",
+    "1,802",
+    "1,965",
+    "2,064",
+    "2,161",
+    "2,278"
    ],
    "competition": [
-    "2,028",
-    "1,791",
-    "1,925",
-    "2,034",
-    "2,138",
-    "2,259"
+    "2,041",
+    "1,789",
+    "1,950",
+    "2,046",
+    "2,140",
+    "2,262"
    ],
    "rate_hike": [
-    "2,405",
-    "2,158",
-    "2,300",
-    "2,409",
-    "2,516",
-    "2,649"
+    "2,419",
+    "2,157",
+    "2,324",
+    "2,423",
+    "2,522",
+    "2,644"
    ],
    "inflation": [
-    "2,106",
-    "1,864",
-    "2,001",
-    "2,112",
-    "2,218",
-    "2,343"
+    "2,119",
+    "1,863",
+    "2,026",
+    "2,123",
+    "2,221",
+    "2,345"
    ]
   },
   "revenue": {
    "baseline": [
-    "18,212",
-    "17,354",
-    "17,836",
-    "18,219",
+    "18,224",
+    "17,357",
+    "17,882",
+    "18,232",
     "18,581",
-    "19,070"
+    "19,035"
    ],
    "expansion": [
-    "18,951",
-    "18,093",
-    "18,575",
-    "18,958",
+    "18,963",
+    "18,096",
+    "18,621",
+    "18,971",
     "19,320",
-    "19,809"
+    "19,774"
    ],
    "recession": [
-    "17,164",
-    "16,306",
-    "16,788",
-    "17,171",
+    "17,175",
+    "16,309",
+    "16,834",
+    "17,184",
     "17,533",
-    "18,022"
+    "17,987"
    ],
    "competition": [
-    "17,826",
-    "16,968",
-    "17,450",
-    "17,833",
-    "18,194",
-    "18,683"
+    "17,837",
+    "16,971",
+    "17,495",
+    "17,846",
+    "18,195",
+    "18,648"
    ],
    "rate_hike": [
-    "18,230",
-    "17,371",
-    "17,853",
-    "18,236",
-    "18,598",
-    "19,087"
+    "18,241",
+    "17,374",
+    "17,899",
+    "18,250",
+    "18,599",
+    "19,052"
    ],
    "inflation": [
-    "18,316",
-    "17,457",
-    "17,939",
-    "18,322",
-    "18,684",
-    "19,173"
+    "18,327",
+    "17,460",
+    "17,985",
+    "18,335",
+    "18,685",
+    "19,138"
    ]
   }
  }

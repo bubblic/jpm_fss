@@ -1,62 +1,62 @@
 [
  {
   "flow": "wc:Increase/decrease in trade and other rec",
-  "amount": "662556600",
+  "amount": "621063899",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade and other rec",
-  "amount": "21638553",
+  "amount": "20283435",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in other assets",
-  "amount": "318821243",
+  "amount": "298855018",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in other assets",
-  "amount": "438627358",
+  "amount": "411158258",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade payables, pro",
-  "amount": "231885128",
+  "amount": "235883938",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade payables, pro",
-  "amount": "481308907",
+  "amount": "451166869",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade payables, pro",
-  "amount": "53302306",
+  "amount": "49964242",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade payables, pro",
-  "amount": "190773",
+  "amount": "194063",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade payables, pro",
-  "amount": "52011934",
+  "amount": "48754679",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in trade payables, pro",
-  "amount": "54592679",
+  "amount": "51173804",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in contract liabilitie",
-  "amount": "653226215",
+  "amount": "612317831",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Increase/decrease in contract liabilitie",
-  "amount": "14293356",
+  "amount": "13398232",
   "effect": "working-capital stock move"
  },
  {
@@ -71,47 +71,47 @@
  },
  {
   "flow": "capital",
-  "amount": "-329776386",
+  "amount": "-326220756",
   "effect": "capex and lease additions less depreciation and amortization"
  },
  {
   "flow": "close",
-  "amount": "8168419520",
+  "amount": "8139592664",
   "effect": "net income attributable to parent"
  },
  {
   "flow": "dividends",
-  "amount": "-3015268577",
+  "amount": "-2998217719",
   "effect": "dividends declared and paid"
  },
  {
   "flow": "buyback",
-  "amount": "2835094943",
+  "amount": "2830016360",
   "effect": "repurchases into treasury (contra-equity)"
  },
  {
   "flow": "sbc",
-  "amount": "1863244710",
+  "amount": "1852708361",
   "effect": "share-based compensation and option exercises credited to paid-in capital"
  },
  {
   "flow": "nci",
-  "amount": "186013912",
+  "amount": "185362131",
   "effect": "income attributable to NCI less NCI dividends"
  },
  {
   "flow": "securities",
-  "amount": "139232426",
+  "amount": "146618714",
   "effect": "net investment purchases incl. liquidity sweep"
  },
  {
   "flow": "securities",
-  "amount": "652113729",
+  "amount": "686708399",
   "effect": "net investment purchases incl. liquidity sweep"
  },
  {
   "flow": "cash",
-  "amount": "815912397",
+  "amount": "764815768",
   "effect": "net change per cash flow statement"
  }
 ]

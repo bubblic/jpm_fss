@@ -9,25 +9,25 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | Line item | D2025-09-28:2026-09-27 | D2024-09-29:2025-09-27 |
 | --- | ---: | ---: |
 | **Income Statement [Abstract]** |  |  |
-| Products | 320,733 | 307,003 |
-| Services | 114,040 | 109,158 |
-| **Net sales** | 434,772 | 416,161 |
-| Products | 203,291 | 194,116 |
-| Services | 28,113 | 26,844 |
-| **Cost of sales** | 231,404 | 220,960 |
-| **Gross margin** | 203,368 | 195,201 |
+| Products | 322,172 | 307,003 |
+| Services | 114,552 | 109,158 |
+| **Net sales** | 436,724 | 416,161 |
+| Products | 205,417 | 194,116 |
+| Services | 28,407 | 26,844 |
+| **Cost of sales** | 233,824 | 220,960 |
+| **Gross margin** | 202,900 | 195,201 |
 | **Operating expenses:** |  |  |
-| &nbsp;&nbsp;Research and development | 35,868 | 34,550 |
-| &nbsp;&nbsp;Selling, general and administrative | 28,654 | 27,601 |
-| &nbsp;&nbsp;**Total operating expenses** | 64,522 | 62,151 |
-| **Operating income** | 138,846 | 133,050 |
+| &nbsp;&nbsp;Research and development | 35,382 | 34,550 |
+| &nbsp;&nbsp;Selling, general and administrative | 28,265 | 27,601 |
+| &nbsp;&nbsp;**Total operating expenses** | 63,647 | 62,151 |
+| **Operating income** | 139,253 | 133,050 |
 | Other income/(expense), net | -321 | -321 |
-| **Income before provision for income taxes** | 138,525 | 132,729 |
-| Provision for income taxes | 21,624 | 20,719 |
-| **Net income** | 116,901 | 112,010 |
+| **Income before provision for income taxes** | 138,932 | 132,729 |
+| Provision for income taxes | 21,687 | 20,719 |
+| **Net income** | 117,244 | 112,010 |
 | **Earnings per share:** |  |  |
-| &nbsp;&nbsp;Basic (in dollars per share) | 8.03 | 7.49 |
-| &nbsp;&nbsp;Diluted (in dollars per share) | 8.00 | 7.46 |
+| &nbsp;&nbsp;Basic (in dollars per share) | 8.05 | 7.49 |
+| &nbsp;&nbsp;Diluted (in dollars per share) | 8.02 | 7.46 |
 | **Shares used in computing earnings per share:** |  |  |
 | &nbsp;&nbsp;Basic (in shares) | 14,563,400,190 | 14,948,500,000 |
 | &nbsp;&nbsp;Diluted (in shares) | 14,618,149,455 | 15,004,697,000 |
@@ -41,41 +41,41 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | **Statement of Financial Position [Abstract]** |  |  |
 | **ASSETS:** |  |  |
 | **Current assets:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Cash and cash equivalents | 37,541 | 35,934 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Marketable securities | 19,996 | 18,763 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Accounts receivable, net | 41,556 | 39,777 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Vendor non-trade receivables | 34,664 | 33,180 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Inventories | 5,988 | 5,718 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Other current assets | 15,237 | 14,585 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Total current assets** | 154,982 | 147,957 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Cash and cash equivalents | 37,710 | 35,934 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Marketable securities | 20,100 | 18,763 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Accounts receivable, net | 41,742 | 39,777 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Vendor non-trade receivables | 34,819 | 33,180 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Inventories | 6,051 | 5,718 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Other current assets | 15,306 | 14,585 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Total current assets** | 155,728 | 147,957 |
 | **Non-current assets:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Marketable securities | 82,829 | 77,723 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Property, plant and equipment, net | 50,896 | 49,834 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Other non-current assets | 87,471 | 83,727 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Total non-current assets** | 221,197 | 211,284 |
-| &nbsp;&nbsp;**Total assets** | 376,178 | 359,241 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Marketable securities | 83,260 | 77,723 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Property, plant and equipment, net | 50,901 | 49,834 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Other non-current assets | 87,864 | 83,727 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Total non-current assets** | 222,025 | 211,284 |
+| &nbsp;&nbsp;**Total assets** | 377,753 | 359,241 |
 | **LIABILITIES AND SHAREHOLDERS’ EQUITY:** |  |  |
 | **Current liabilities:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Accounts payable | 73,162 | 69,860 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Other current liabilities | 69,356 | 66,387 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Accounts payable | 73,927 | 69,860 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Other current liabilities | 69,667 | 66,387 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Deferred revenue | 9,055 | 9,055 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Commercial paper | 7,293 | 7,979 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Term debt | 11,288 | 12,350 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Total current liabilities** | 170,154 | 165,631 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Total current liabilities** | 171,230 | 165,631 |
 | **Non-current liabilities:** |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;Term debt | 71,593 | 78,328 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Other non-current liabilities | 43,407 | 41,549 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Total non-current liabilities** | 115,000 | 119,877 |
-| &nbsp;&nbsp;**Total liabilities** | 285,154 | 285,508 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Other non-current liabilities | 43,602 | 41,549 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Total non-current liabilities** | 115,195 | 119,877 |
+| &nbsp;&nbsp;**Total liabilities** | 286,425 | 285,508 |
 | &nbsp;&nbsp;Commitments and contingencies | 0 | — |
 | &nbsp;&nbsp;Common stock, shares outstanding (in shares) | 14,773,260,000 | 14,773,260,000 |
 | &nbsp;&nbsp;Common stock, shares issued (in shares) | 14,773,260,000 | 14,773,260,000 |
 | **Shareholders’ equity:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Common stock and additional paid-in capital, $0.00001 par value: 50,400,000 shares authorized; 14,773,260 and 15,116,786 shares issued and outstanding, respectively | 107,006 | 93,568 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Accumulated deficit | -10,411 | -14,264 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Common stock and additional paid-in capital, $0.00001 par value: 50,400,000 shares authorized; 14,773,260 and 15,116,786 shares issued and outstanding, respectively | 107,067 | 93,568 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Accumulated deficit | -10,168 | -14,264 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Accumulated other comprehensive loss | -5,571 | -5,571 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Total shareholders’ equity** | 91,024 | 73,733 |
-| &nbsp;&nbsp;**Total liabilities and shareholders’ equity** | 376,178 | 359,241 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Total shareholders’ equity** | 91,328 | 73,733 |
+| &nbsp;&nbsp;**Total liabilities and shareholders’ equity** | 377,753 | 359,241 |
 
 *Monetary amounts in USD millions; per-share amounts as reported.*
 
@@ -86,38 +86,38 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | **Statement of Cash Flows [Abstract]** |  |  |
 | Cash, cash equivalents, and restricted cash and cash equivalents, beginning balances | 35,934 | 29,943 |
 | **Operating activities:** |  |  |
-| &nbsp;&nbsp;Net income | 116,901 | 112,010 |
+| &nbsp;&nbsp;Net income | 117,244 | 112,010 |
 | **Adjustments to reconcile net income to cash generated by operating activities:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Depreciation and amortization | 12,221 | 11,698 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Share-based compensation expense | 13,438 | 12,863 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Depreciation and amortization | 12,276 | 11,698 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Share-based compensation expense | 13,499 | 12,863 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Other | -0 | -89 |
 | **Changes in operating assets and liabilities:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accounts receivable, net | -1,779 | -6,682 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vendor non-trade receivables | -1,484 | -347 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inventories | -270 | 1,400 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other current and non-current assets | -4,397 | -9,197 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accounts payable | 3,302 | 902 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other current and non-current liabilities | 4,827 | -11,076 |
-| &nbsp;&nbsp;**Cash generated by operating activities** | 142,760 | 111,482 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accounts receivable, net | -1,965 | -6,682 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vendor non-trade receivables | -1,639 | -347 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inventories | -333 | 1,400 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other current and non-current assets | -4,858 | -9,197 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accounts payable | 4,067 | 902 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other current and non-current liabilities | 5,333 | -11,076 |
+| &nbsp;&nbsp;**Cash generated by operating activities** | 143,624 | 111,482 |
 | **Investing activities:** |  |  |
-| &nbsp;&nbsp;Purchases of marketable securities | -60,135 | -24,407 |
+| &nbsp;&nbsp;Purchases of marketable securities | -60,671 | -24,407 |
 | &nbsp;&nbsp;Proceeds from maturities of marketable securities | 40,907 | 40,907 |
 | &nbsp;&nbsp;Proceeds from sales of marketable securities | 12,890 | 12,890 |
-| &nbsp;&nbsp;Payments for acquisition of property, plant and equipment | -13,284 | -12,715 |
+| &nbsp;&nbsp;Payments for acquisition of property, plant and equipment | -13,343 | -12,715 |
 | &nbsp;&nbsp;Other | -0 | -1,480 |
-| &nbsp;&nbsp;**Cash generated by investing activities** | -19,622 | 15,195 |
+| &nbsp;&nbsp;**Cash generated by investing activities** | -20,217 | 15,195 |
 | **Financing activities:** |  |  |
-| &nbsp;&nbsp;Payments for taxes related to net share settlement of equity awards | -6,227 | -5,960 |
-| &nbsp;&nbsp;Payments for dividends and dividend equivalents | -16,111 | -15,421 |
+| &nbsp;&nbsp;Payments for taxes related to net share settlement of equity awards | -6,254 | -5,960 |
+| &nbsp;&nbsp;Payments for dividends and dividend equivalents | -16,183 | -15,421 |
 | &nbsp;&nbsp;Repurchases of common stock | -90,711 | -90,711 |
 | &nbsp;&nbsp;Proceeds from issuance of term debt, net | 4,481 | 4,481 |
 | &nbsp;&nbsp;Repayments of term debt | -10,932 | -10,932 |
 | &nbsp;&nbsp;Proceeds from/(Repayments of) commercial paper, net | -2,032 | -2,032 |
 | &nbsp;&nbsp;Other | 0 | -111 |
-| &nbsp;&nbsp;**Cash used in financing activities** | -121,531 | -120,686 |
-| **Increase/(Decrease) in cash, cash equivalents, and restricted cash and cash equivalents** | 1,607 | 5,991 |
-| Cash, cash equivalents, and restricted cash and cash equivalents, ending balances | 37,541 | 35,934 |
+| &nbsp;&nbsp;**Cash used in financing activities** | -121,631 | -120,686 |
+| **Increase/(Decrease) in cash, cash equivalents, and restricted cash and cash equivalents** | 1,776 | 5,991 |
+| Cash, cash equivalents, and restricted cash and cash equivalents, ending balances | 37,710 | 35,934 |
 | **Supplemental cash flow disclosure:** |  |  |
-| &nbsp;&nbsp;Cash paid for income taxes, net | 21,624 | 43,369 |
+| &nbsp;&nbsp;Cash paid for income taxes, net | 21,687 | 43,369 |
 
 *Monetary amounts in USD millions; per-share amounts as reported.*

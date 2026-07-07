@@ -1,42 +1,42 @@
 [
  {
   "flow": "wc:Accounts receivable, net",
-  "amount": "3100619962",
+  "amount": "2581717387",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Vendor non-trade receivables",
-  "amount": "2586383346",
+  "amount": "2153540561",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Inventories",
-  "amount": "450594006",
+  "amount": "314048573",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Other current and non-current assets",
-  "amount": "1136901781",
+  "amount": "946636199",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Other current and non-current assets",
-  "amount": "6526525569",
+  "amount": "5434282416",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Accounts payable",
-  "amount": "5505158662",
+  "amount": "3836906837",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Other current and non-current liabilitie",
-  "amount": "5174871343",
+  "amount": "4308833551",
   "effect": "working-capital stock move"
  },
  {
   "flow": "wc:Other current and non-current liabilitie",
-  "amount": "3238747487",
+  "amount": "2696728655",
   "effect": "working-capital stock move"
  },
  {
@@ -56,42 +56,42 @@
  },
  {
   "flow": "capital",
-  "amount": "1096275222",
+  "amount": "1083008160",
   "effect": "capex and lease additions less depreciation and amortization"
  },
  {
   "flow": "close",
-  "amount": "122278136822",
+  "amount": "122612359430",
   "effect": "net income attributable to parent"
  },
  {
   "flow": "dividends",
-  "amount": "-16623068040",
+  "amount": "-16421896594",
   "effect": "dividends declared and paid"
  },
  {
   "flow": "buyback",
-  "amount": "-97135582421",
+  "amount": "-97057832482",
   "effect": "repurchases retired against retained earnings"
  },
  {
   "flow": "sbc",
-  "amount": "13865671759",
+  "amount": "13697870170",
   "effect": "share-based compensation and option exercises credited to paid-in capital"
  },
  {
   "flow": "securities",
-  "amount": "1968471373",
+  "amount": "2011616990",
   "effect": "net investment purchases incl. liquidity sweep"
  },
  {
   "flow": "securities",
-  "amount": "8154106513",
+  "amount": "8332830959",
   "effect": "net investment purchases incl. liquidity sweep"
  },
  {
   "flow": "cash",
-  "amount": "2801057840",
+  "amount": "2332288322",
   "effect": "net change per cash flow statement"
  }
 ]

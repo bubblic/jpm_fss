@@ -9,23 +9,23 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | Line item | D2026-01-01:2026-12-31 | D2025-01-01:2025-12-31 |
 | --- | ---: | ---: |
 | **Profit or loss [abstract]** |  |  |
-| Revenue | 17,976 | 17,186 |
-| Cost of revenue | 12,454 | 11,690 |
-| **Gross profit** | 5,522 | 5,496 |
-| Research and development | 1,439 | 1,393 |
-| Sales and marketing | 1,473 | 1,426 |
-| General and administrative | 495 | 479 |
-| **Total operating expense** | 3,407 | 3,298 |
-| **Operating income/(loss)** | 2,115 | 2,198 |
+| Revenue | 19,384 | 17,186 |
+| Cost of revenue | 13,605 | 11,690 |
+| **Gross profit** | 5,779 | 5,496 |
+| Research and development | 1,542 | 1,393 |
+| Sales and marketing | 1,579 | 1,426 |
+| General and administrative | 530 | 479 |
+| **Total operating expense** | 3,651 | 3,298 |
+| **Operating income/(loss)** | 2,128 | 2,198 |
 | Finance income | 292 | 292 |
 | Finance costs | -266 | -266 |
 | **Finance income/(costs) - net** | 26 | 26 |
-| **Income/(loss) before tax** | 2,141 | 2,224 |
-| Income tax expense | 107 | 12 |
-| **Net income/(loss) attributable to owners of the parent** | 2,034 | 2,212 |
+| **Income/(loss) before tax** | 2,154 | 2,224 |
+| Income tax expense | 108 | 12 |
+| **Net income/(loss) attributable to owners of the parent** | 2,046 | 2,212 |
 | **Earnings/(loss) per share attributable to owners of the parent** |  |  |
-| &nbsp;&nbsp;Basic (euro per share) | 9.67 | 10.77 |
-| &nbsp;&nbsp;Diluted (euro per share) | 9.44 | 10.51 |
+| &nbsp;&nbsp;Basic (euro per share) | 9.73 | 10.77 |
+| &nbsp;&nbsp;Diluted (euro per share) | 9.49 | 10.51 |
 | **Weighted-average ordinary shares outstanding** |  |  |
 | &nbsp;&nbsp;Basic (in shares) | 210,317,769 | 205,412,951 |
 | &nbsp;&nbsp;Diluted (in shares) | 215,535,678 | 210,509,173 |
@@ -39,31 +39,31 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | **Statement of financial position [abstract]** |  |  |
 | **Assets** |  |  |
 | **Non-current assets** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Lease right-of-use assets | 251 | 234 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Property and equipment | 201 | 188 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Lease right-of-use assets | 249 | 234 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Property and equipment | 200 | 188 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Goodwill | 1,083 | 1,083 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Intangible assets | 41 | 41 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Long term investments | 2,757 | 2,181 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Restricted cash and other non-current assets | 64 | 61 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Finance lease receivables | 72 | 69 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Long term investments | 2,608 | 2,181 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Restricted cash and other non-current assets | 69 | 61 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Finance lease receivables | 78 | 69 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Deferred tax assets | 662 | 662 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Non-current assets** | 5,131 | 4,519 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Non-current assets** | 4,989 | 4,519 |
 | **Current assets** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Trade and other receivables | 839 | 802 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Trade and other receivables | 905 | 802 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Income tax receivable | 116 | 116 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Short term investments | 5,321 | 4,209 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Cash and cash equivalents | 5,500 | 5,258 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Other current assets | 116 | 111 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Current assets** | 11,892 | 10,496 |
-| &nbsp;&nbsp;**Total assets** | 17,023 | 15,015 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Short term investments | 5,033 | 4,209 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Cash and cash equivalents | 5,930 | 5,258 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Other current assets | 125 | 111 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Current assets** | 12,109 | 10,496 |
+| &nbsp;&nbsp;**Total assets** | 17,098 | 15,015 |
 | **Equity and liabilities** |  |  |
 | **Equity** |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;Share capital | 0 | 0 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Other paid in capital | 7,126 | 6,496 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Treasury shares | -1,392 | -701 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Other paid in capital | 7,147 | 6,496 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Treasury shares | -1,412 | -701 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Other reserves | 3,366 | 3,366 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Accumulated deficit | 1,202 | -832 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Equity attributable to owners of the parent** | 10,302 | 8,329 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Accumulated deficit | 1,214 | -832 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Equity attributable to owners of the parent** | 10,315 | 8,329 |
 | **Non-current liabilities** |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;Exchangeable Notes | 0 | 0 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Lease liabilities | 433 | 433 |
@@ -74,14 +74,14 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | **Current liabilities** |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;Trade and other payables | 1,194 | 1,194 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Income tax payable | 72 | 72 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Deferred revenue | 744 | 711 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Deferred revenue | 802 | 711 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Accrued expenses and other liabilities | 2,589 | 2,589 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Exchangeable Notes | 1,458 | 1,458 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Provisions | 53 | 51 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Provisions | 58 | 51 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Derivative liabilities | 10 | 10 |
-| &nbsp;&nbsp;&nbsp;&nbsp;**Current liabilities** | 6,120 | 6,085 |
-| &nbsp;&nbsp;**Total liabilities** | 6,721 | 6,686 |
-| **Total equity and liabilities** | 17,023 | 15,015 |
+| &nbsp;&nbsp;&nbsp;&nbsp;**Current liabilities** | 6,182 | 6,085 |
+| &nbsp;&nbsp;**Total liabilities** | 6,784 | 6,686 |
+| **Total equity and liabilities** | 17,098 | 15,015 |
 
 *Monetary amounts in EUR millions; per-share amounts as reported.*
 
@@ -91,47 +91,47 @@ Median-net-income path of 500 Monte Carlo paths; prior year shown as comparative
 | --- | ---: | ---: |
 | **Statement of cash flows [abstract]** |  |  |
 | **Operating activities** |  |  |
-| &nbsp;&nbsp;Net income/(loss) | 2,034 | 2,212 |
+| &nbsp;&nbsp;Net income/(loss) | 2,046 | 2,212 |
 | **Adjustments to reconcile net income/(loss) to net cash flows** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;Depreciation of property and equipment and lease right-of-use assets | 83 | 79 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Amortization of intangible assets | 24 | 23 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Depreciation of property and equipment and lease right-of-use assets | 89 | 79 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Amortization of intangible assets | 26 | 23 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Impairment charges on real estate assets | 0 | 8 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Write-off of content assets | 0 | 0 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Share-based compensation expense | 258 | 247 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Share-based compensation expense | 279 | 247 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Finance income | -292 | -292 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Finance costs | 266 | 266 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Income tax expense | 107 | 12 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Income tax expense | 108 | 12 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Other | 0 | 10 |
 | **Changes in working capital:** |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Increase)/decrease in trade receivables and other assets | -48 | -115 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Increase)/decrease in trade receivables and other assets | -133 | -115 |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increase in trade and other liabilities | 0 | 281 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increase in deferred revenue | 33 | 60 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increase/(decrease) in provisions | 2 | 22 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increase in deferred revenue | 91 | 60 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increase/(decrease) in provisions | 7 | 22 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Interest paid | -266 | -36 |
 | &nbsp;&nbsp;&nbsp;&nbsp;Interest received | 269 | 242 |
-| &nbsp;&nbsp;&nbsp;&nbsp;Income tax paid | -107 | -86 |
-| &nbsp;&nbsp;**Net cash flows from operating activities** | 2,363 | 2,933 |
+| &nbsp;&nbsp;&nbsp;&nbsp;Income tax paid | -108 | -86 |
+| &nbsp;&nbsp;**Net cash flows from operating activities** | 2,381 | 2,933 |
 | **Investing activities** |  |  |
 | &nbsp;&nbsp;Business combinations, net of cash acquired | -0 | -9 |
 | &nbsp;&nbsp;Payment of deferred consideration pertaining to business combinations | -0 | -9 |
-| &nbsp;&nbsp;Purchases of property and equipment | -64 | -61 |
+| &nbsp;&nbsp;Purchases of property and equipment | -69 | -61 |
 | &nbsp;&nbsp;Purchases of short term investments | -19,271 | -19,271 |
-| &nbsp;&nbsp;Sales and maturities of short term investments | 17,583 | 17,545 |
+| &nbsp;&nbsp;Sales and maturities of short term investments | 18,020 | 17,545 |
 | &nbsp;&nbsp;Change in restricted cash | 0 | 2 |
 | &nbsp;&nbsp;Dividends received | 23 | 23 |
 | &nbsp;&nbsp;Other | 0 | -5 |
-| &nbsp;&nbsp;**Net cash flows used in investing activities** | -1,729 | -1,785 |
+| &nbsp;&nbsp;**Net cash flows used in investing activities** | -1,297 | -1,785 |
 | **Financing activities** |  |  |
 | &nbsp;&nbsp;Payments of lease liabilities | -73 | -73 |
 | &nbsp;&nbsp;Lease incentives received | 0 | 0 |
 | &nbsp;&nbsp;Repurchases of ordinary shares | -439 | -439 |
 | &nbsp;&nbsp;Proceeds from exercise of stock options | 372 | 372 |
-| &nbsp;&nbsp;Payments for employee taxes withheld from restricted stock unit releases | -252 | -241 |
-| &nbsp;&nbsp;**Net cash flows (used in)/from financing activities** | -392 | -381 |
-| **Net increase in cash and cash equivalents** | 242 | 767 |
+| &nbsp;&nbsp;Payments for employee taxes withheld from restricted stock unit releases | -272 | -241 |
+| &nbsp;&nbsp;**Net cash flows (used in)/from financing activities** | -412 | -381 |
+| **Net increase in cash and cash equivalents** | 672 | 767 |
 | Cash and cash equivalents at January 1 | 5,258 | 4,781 |
 | Net foreign exchange (losses)/gains on cash and cash equivalents | 0 | -290 |
-| Cash and cash equivalents at December 31 | 5,500 | 5,258 |
+| Cash and cash equivalents at December 31 | 5,930 | 5,258 |
 | **Supplemental disclosure of cash flow information** |  |  |
 | **Non-cash investing and financing activities** |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;Recognition of lease right-of-use asset in exchange for lease liabilities | 85 | 85 |

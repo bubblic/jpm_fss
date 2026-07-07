@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:FintechAndBusinessServices_2",
+   "concept": "ifrs-full:RevenueFromRenderingOfInformationTechnologyMaintenanceAndSupportServices",
    "dims": [],
    "label": "FinTech and Business Services",
    "depth": 1,
@@ -90,9 +90,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:CostOfRevenues7_4",
+   "concept": "ifrs-full:CostOfSales",
    "dims": [],
    "label": "Cost of revenues 7",
    "depth": 1,
@@ -158,9 +158,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -216,7 +216,7 @@
   },
   {
    "order": 6,
-   "concept": "doc:SellingAndMarketingExpenses7_6",
+   "concept": "us-gaap:SellingAndMarketingExpense",
    "dims": [],
    "label": "Selling and marketing expenses 7",
    "depth": 1,
@@ -228,7 +228,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -250,7 +250,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:GeneralAndAdministrativeExpenses7_7",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "General and administrative expenses 7",
    "depth": 1,
@@ -262,7 +262,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:OtherGainsLossesNet8_8",
+   "concept": "us-gaap:NonoperatingIncomeExpense",
    "dims": [],
    "label": "Other gains/(losses), net 8",
    "depth": 1,
@@ -294,9 +294,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:NetGainsLossesFromInvestmentsAndOthers9_10",
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
    "label": "Net gains/(losses) from investments and others 9",
    "depth": 1,
@@ -362,9 +362,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -386,7 +386,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:InterestIncome10_11",
+   "concept": "ifrs-full:FinanceIncome",
    "dims": [],
    "label": "Interest income 10",
    "depth": 1,
@@ -396,9 +396,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -454,19 +454,19 @@
   },
   {
    "order": 13,
-   "concept": "doc:ShareOfProfitLossOfAssociatesAndJointVenturesNet_13",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Share of profit/(loss) of associates and joint ventures, net",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -488,7 +488,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:ProfitBeforeIncomeTax_14",
+   "concept": "ifrs-full:ProfitLossBeforeTax",
    "dims": [],
    "label": "Profit before income tax",
    "depth": 1,
@@ -498,9 +498,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:ProfitForTheYear_16",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Profit for the year",
    "depth": 1,
@@ -566,9 +566,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -590,19 +590,19 @@
   },
   {
    "order": 17,
-   "concept": "doc:EquityHoldersOfTheCompany_17",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Equity holders of the Company",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Attributable to"
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:Diluted13B_21",
+   "concept": "us-gaap:EarningsPerShareDiluted",
    "dims": [],
    "label": "\u2013 diluted 13(b)",
    "depth": 1,
@@ -736,9 +736,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Earnings per share for profit attributable to equity holders"
@@ -760,41 +760,9 @@
   }
  ],
  "calc_children": {
-  "doc:ProfitBeforeIncomeTax_14": [
-   [
-    "ifrs-full:ProfitLossFromOperatingActivities",
-    "1"
-   ],
-   [
-    "doc:NetGainsLossesFromInvestmentsAndOthers9_10",
-    "1"
-   ],
-   [
-    "doc:InterestIncome10_11",
-    "1"
-   ],
-   [
-    "ifrs-full:FinanceCosts",
-    "1"
-   ],
-   [
-    "doc:ShareOfProfitLossOfAssociatesAndJointVenturesNet_13",
-    "1"
-   ]
-  ],
-  "doc:ProfitForTheYear_16": [
-   [
-    "doc:ProfitBeforeIncomeTax_14",
-    "1"
-   ],
-   [
-    "doc:IncomeTaxExpense12A_15",
-    "1"
-   ]
-  ],
   "doc:Row19_19": [
    [
-    "doc:EquityHoldersOfTheCompany_17",
+    "ifrs-full:ProfitLossAttributableToOwnersOfParent",
     "1"
    ],
    [
@@ -812,7 +780,7 @@
     "1"
    ],
    [
-    "doc:FintechAndBusinessServices_2",
+    "ifrs-full:RevenueFromRenderingOfInformationTechnologyMaintenanceAndSupportServices",
     "1"
    ],
    [
@@ -820,7 +788,39 @@
     "1"
    ],
    [
-    "doc:CostOfRevenues7_4",
+    "ifrs-full:CostOfSales",
+    "1"
+   ]
+  ],
+  "ifrs-full:ProfitLossAttributableToOwnersOfParent": [
+   [
+    "ifrs-full:ProfitLossBeforeTax",
+    "1"
+   ],
+   [
+    "doc:IncomeTaxExpense12A_15",
+    "1"
+   ]
+  ],
+  "ifrs-full:ProfitLossBeforeTax": [
+   [
+    "ifrs-full:ProfitLossFromOperatingActivities",
+    "1"
+   ],
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+    "1"
+   ],
+   [
+    "ifrs-full:FinanceIncome",
+    "1"
+   ],
+   [
+    "ifrs-full:FinanceCosts",
+    "1"
+   ],
+   [
+    "ifrs-full:ProfitLossAttributableToOwnersOfParent",
     "1"
    ]
   ],
@@ -830,15 +830,15 @@
     "1"
    ],
    [
-    "doc:SellingAndMarketingExpenses7_6",
+    "us-gaap:SellingAndMarketingExpense",
     "1"
    ],
    [
-    "doc:GeneralAndAdministrativeExpenses7_7",
+    "us-gaap:GeneralAndAdministrativeExpense",
     "1"
    ],
    [
-    "doc:OtherGainsLossesNet8_8",
+    "us-gaap:NonoperatingIncomeExpense",
     "1"
    ]
   ]

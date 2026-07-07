@@ -1,7 +1,7 @@
 {
  "document": "lehman_ar2007",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\lehman\\ar2007.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
@@ -23,8 +23,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 3,
-    "llm": 0,
-    "unmapped": 20
+    "llm": 8,
+    "unmapped": 12
    }
   },
   "income_statement": {
@@ -43,17 +43,40 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 3,
-    "llm": 0,
-    "unmapped": 27
+    "llm": 6,
+    "unmapped": 21
    }
   },
   "cash_flow": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    62,
+    89,
+    112
+   ],
+   "llm_adjudicated": 0,
+   "rows": 54,
+   "columns": 4,
+   "accepted_cells": 119,
+   "flags": 24,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 3,
+    "llm": 13,
+    "unmapped": 38
+   }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "not all three statements extracted"
+  "reason": "income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 90
 }

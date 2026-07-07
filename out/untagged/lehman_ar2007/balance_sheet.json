@@ -46,7 +46,7 @@
   },
   {
    "order": 1,
-   "concept": "doc:CashAndSecuritiesSegregatedAndOnDepositForRegulatoryAndOther_1",
+   "concept": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
    "dims": [],
    "label": "Cash and securities segregated and on deposit for regulatory and other purposes",
    "depth": 1,
@@ -58,7 +58,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:SecuritiesBorrowed_4",
+   "concept": "us-gaap:MarketableSecuritiesCurrent",
    "dims": [],
    "label": "Securities borrowed",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Collateralized agreements"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:PropertyEquipmentAndLeaseholdImprovementsNetOfAccumulatedDep_8",
+   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
    "dims": [],
    "label": "Property, equipment and leasehold improvements (net of accumulated depreciation and amortization of $2,438 in 2007 and $1,925 in 2006)",
    "depth": 1,
@@ -296,7 +296,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Receivables"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:IdentifiableIntangibleAssetsAndGoodwillNetOfAccumulatedAmort_10",
+   "concept": "us-gaap:FiniteLivedIntangibleAssetsNet",
    "dims": [],
    "label": "Identifiable intangible assets and goodwill (net of accumulated amortization of $340 in 2007 and $293 in 2006)",
    "depth": 1,
@@ -364,7 +364,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Receivables"
@@ -420,7 +420,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowingsIncl_12",
+   "concept": "us-gaap:LongTermDebtCurrent",
    "dims": [],
    "label": "Short-term borrowings and current portion of long-term borrowings (including $9,035 in 2007 and $6,064 in 2006 at fair value)",
    "depth": 1,
@@ -432,7 +432,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities and Stockholders\u2019 Equity"
@@ -522,7 +522,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:SecuritiesLoaned_15",
+   "concept": "us-gaap:MarketableSecuritiesCurrent",
    "dims": [],
    "label": "Securities loaned",
    "depth": 1,
@@ -534,7 +534,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Collateralized financings"
@@ -692,7 +692,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:DepositLiabilitiesAtBanksIncluding15986In2007And14708In2006A_20",
+   "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
    "dims": [],
    "label": "Deposit liabilities at banks (including $15,986 in 2007 and $14,708 in 2006 at fair value)",
    "depth": 1,
@@ -704,7 +704,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "4/6/26, 7:56 AM"
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:LongTermBorrowingsIncluding27204In2007And11025In2006AtFairVa_21",
+   "concept": "us-gaap:LongTermDebtNoncurrent",
    "dims": [],
    "label": "Long-term borrowings (including $27,204 in 2007 and $11,025 in 2006 at fair value)",
    "depth": 1,
@@ -736,9 +736,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "4/6/26, 7:56 AM"
@@ -800,7 +800,7 @@
     "1"
    ],
    [
-    "doc:CashAndSecuritiesSegregatedAndOnDepositForRegulatoryAndOther_1",
+    "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
     "1"
    ],
    [
@@ -812,7 +812,7 @@
     "1"
    ],
    [
-    "doc:SecuritiesBorrowed_4",
+    "us-gaap:MarketableSecuritiesCurrent",
     "1"
    ],
    [
@@ -828,7 +828,7 @@
     "1"
    ],
    [
-    "doc:PropertyEquipmentAndLeaseholdImprovementsNetOfAccumulatedDep_8",
+    "us-gaap:PropertyPlantAndEquipmentNet",
     "1"
    ],
    [
@@ -836,13 +836,13 @@
     "1"
    ],
    [
-    "doc:IdentifiableIntangibleAssetsAndGoodwillNetOfAccumulatedAmort_10",
+    "us-gaap:FiniteLivedIntangibleAssetsNet",
     "1"
    ]
   ],
   "us-gaap:Liabilities": [
    [
-    "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowingsIncl_12",
+    "us-gaap:LongTermDebtCurrent",
     "1"
    ],
    [
@@ -854,7 +854,7 @@
     "1"
    ],
    [
-    "doc:SecuritiesLoaned_15",
+    "us-gaap:MarketableSecuritiesCurrent",
     "1"
    ],
    [
@@ -874,11 +874,11 @@
     "1"
    ],
    [
-    "doc:DepositLiabilitiesAtBanksIncluding15986In2007And14708In2006A_20",
+    "us-gaap:LiabilitiesAndStockholdersEquity",
     "1"
    ],
    [
-    "doc:LongTermBorrowingsIncluding27204In2007And11025In2006AtFairVa_21",
+    "us-gaap:LongTermDebtNoncurrent",
     "1"
    ]
   ]

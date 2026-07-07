@@ -22,6 +22,7 @@ Every call, prompt digest, vote, and decision lands in the audit record.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from decimal import Decimal, InvalidOperation
 from typing import Any
@@ -81,7 +82,7 @@ def select_pages(
     audit: LLMAudit,
     pages: dict[int, str],
     query: str,
-    batch_size: int = 40,
+    batch_size: int = 25,
 ) -> list[int]:
     """The user's batched page-identification pattern."""
     valid = sorted(pages)
@@ -90,6 +91,11 @@ def select_pages(
         batch = {n: pages[n] for n in valid[start : start + batch_size]}
         prompt = PAGE_PROMPT.format(query=query, pages=_page_blocks(batch))
         audit.calls += 1
+        print(
+            f"    llm select_pages [{query[:30]}] batch {start // batch_size + 1} "
+            f"({len(batch)} pages)...",
+            flush=True,
+        )
         response = client.ask_json(
             message="gen-ai-response", prompt=prompt, parameters={}, reasoning=False
         )
@@ -128,6 +134,7 @@ def read_cell(
 ) -> Decimal | None:
     """Median-voted LLM reading of one cell (the hallucination control)."""
     samples: list[Decimal | None] = []
+    print(f"    llm read_cell {label[:40]!r} col{column} x{runs}...", flush=True)
     for run in range(runs):
         audit.calls += 1
         response = client.ask_json(
@@ -155,25 +162,51 @@ def read_cell(
     return voted.value
 
 
+def _label_window(pages_text: str, label: str, radius: int = 18) -> str:
+    """The lines around the row's occurrence: a small, targeted prompt is
+    faster, cheaper, and harder to distract than whole statement pages."""
+    lines = pages_text.splitlines()
+    needle = "".join(label.lower().split())[:40]
+    for index, line in enumerate(lines):
+        if needle and needle in "".join(line.lower().split()):
+            start = max(0, index - radius)
+            return "\n".join(lines[start : index + radius])
+    return pages_text[:6000]
+
+
 def adjudicate_flags(
     client: LLMClient,
     audit: LLMAudit,
     reconciled,
     pages_text: str,
     runs: int = 3,
+    max_cells: int = 12,
 ) -> int:
     """Second-look at flagged cells; accept only LLM-and-reader agreement.
 
     Returns the number of flags resolved. The LLM's voted value must equal
     one of the deterministic readers' raw readings exactly; a value nobody
-    read stays flagged (the LLM cannot introduce numbers).
+    read stays flagged (the LLM cannot introduce numbers). At most
+    ``max_cells`` flagged cells are adjudicated per statement (cost bound);
+    the remainder stay flagged for human review.
     """
     resolved = 0
+    attempted = 0
     for row in reconciled.rows:
+        if not re.search(r"[A-Za-z]{3}|[一-鿿]{2}", row.label):
+            continue  # numeric/blank pseudo-labels are not line items
         for column, prov in enumerate(row.provenance):
             if prov.rule != "flagged":
                 continue
-            voted = read_cell(client, audit, pages_text, row.label, column + 1, runs)
+            if attempted >= max_cells:
+                audit.record(
+                    "adjudication_capped",
+                    {"max_cells": max_cells, "note": "remaining flags left for review"},
+                )
+                return resolved
+            attempted += 1
+            context = _label_window(pages_text, row.label)
+            voted = read_cell(client, audit, context, row.label, column + 1, runs)
             if voted is None:
                 continue
             reader_values = set()

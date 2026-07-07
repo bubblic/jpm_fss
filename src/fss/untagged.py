@@ -120,7 +120,24 @@ def _shortlist(label: str, tokens: dict[str, set[str]], top: int = 8) -> list[st
         ),
         reverse=True,
     )
-    return [concept for score, concept in scored[:top] if score > 0.15]
+    result = [concept for score, concept in scored[:top] if score > 0.15]
+    if result:
+        return result
+    # Fused-label fallback: tightly-set PDFs glue words together, so token
+    # overlap scores zero. Score by how many of a concept's long words
+    # appear as substrings of the space-free label instead.
+    condensed = _condensed(label)
+    if len(condensed) >= 12:
+        contained = []
+        for concept, concept_words in tokens.items():
+            long_words = [w for w in concept_words if len(w) >= 4]
+            if not long_words:
+                continue
+            hit = sum(1 for w in long_words if w in condensed)
+            contained.append((hit / len(long_words), concept))
+        contained.sort(reverse=True)
+        return [concept for score, concept in contained[:top] if score >= 0.5]
+    return []
 
 
 # ---------------------------------------------------------------------------
@@ -439,12 +456,22 @@ def map_rows(
     """Row -> taxonomy concept, lexical first, LLM-over-shortlist second."""
     stats = {"lexical": 0, "llm": 0, "unmapped": 0}
     concepts: dict[int, ConceptInfo] = {}
+    llm_budget = 25  # mapping calls per statement (cost bound)
     for index, row in enumerate(reconciled.rows):
         canon = canon_label(row.label)
-        info = dictionary.get(canon) or dictionary.get(_condensed(row.label))
+        # Filers often print a note reference after the label ("Long-term
+        # debt 14"); lookups try the bare label too.
+        bare = re.sub(r"\s+\(?\d{1,3}\)?$", "", row.label)
+        info = (
+            dictionary.get(canon)
+            or dictionary.get(_condensed(row.label))
+            or dictionary.get(canon_label(bare))
+            or dictionary.get(_condensed(bare))
+        )
         source = "lexical"
-        if info is None and llm_client is not None and row.label.strip():
-            shortlist = _shortlist(row.label, tokens)
+        if info is None and llm_client is not None and row.label.strip() and llm_budget > 0:
+            llm_budget -= 1
+            shortlist = _shortlist(bare, tokens)
             if shortlist:
                 chosen = map_concept(
                     llm_client, audit, statement_kind, row.section, row.label, shortlist
@@ -454,7 +481,14 @@ def map_rows(
                     if matches:
                         info = matches[0]
                         source = "llm"
-        if info is not None and statement_kind == "balance_sheet":
+        veto_applies = statement_kind == "balance_sheet" or (
+            # exact lexical label hits are trusted on the income statement
+            # ("Provision for income taxes" is a debit despite the word
+            # "income"); the polarity veto there only screens LLM choices
+            statement_kind == "income_statement"
+            and source == "llm"
+        )
+        if info is not None and veto_applies:
             side_debit = _expected_debit(statement_kind, row.section, row.label)
             if side_debit is not None and (info.balance == "debit") != side_debit:
                 if "treasury" not in canon:
@@ -602,9 +636,18 @@ def build_statement(
 
 
 def _expected_debit(statement: str, section: str, label: str) -> bool | None:
+    text = f"{section} {label}".lower()
+    if statement == "income_statement":
+        # mis-polarized income-statement mappings flip signed-cascade
+        # footing groups, so they get the same veto as balance-sheet rows;
+        # expense words match first ("income tax expense" is a debit)
+        if re.search(r"cost|expense|charge|depreciation|amorti|impairment|provision", text):
+            return True
+        if re.search(r"revenue|sales|income|profit|gain|earnings", text):
+            return False
+        return None
     if statement != "balance_sheet":
         return None
-    text = f"{section} {label}".lower()
     if "asset" in text:
         return True
     if any(word in text for word in ("liabilit", "equity", "payable", "capital")):
@@ -648,10 +691,13 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
         if text_options:
             outcome["text_options"] = text_options
         pages = locate.scan_pages(pdf, text_options)
+        rich_pages = sorted(
+            (info for info in pages if info.value_rows >= locate.MIN_VALUE_ROWS),
+            key=lambda info: info.value_rows,
+            reverse=True,
+        )[:80]  # bound the LLM page-fallback prompt volume
         candidates = {
-            info.index + 1: info.text[:2400]
-            for info in pages
-            if info.value_rows >= locate.MIN_VALUE_ROWS
+            info.index + 1: info.text[:2400] for info in sorted(rich_pages, key=lambda i: i.index)
         }
         for statement_kind in STATEMENTS:
             record: dict[str, Any] = {}
@@ -666,10 +712,18 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
                         continue
                     query = statement_kind.replace("_", " ")
                     picked = select_pages(llm_client, audit, candidates, query)
-                    page_indices = [p - 1 for p in picked][:3]
+                    # the LLM proposes; the same density bar the deterministic
+                    # locator uses disposes (prose pages with a few figures
+                    # do not qualify as statement pages)
+                    page_indices = [
+                        p - 1
+                        for p in picked
+                        if p - 1 < len(pages)
+                        and pages[p - 1].value_rows >= locate.MIN_VALUE_ROWS
+                    ][:3]
                     record["located_by"] = "llm"
                     if not page_indices:
-                        record["error"] = "not located"
+                        record["error"] = "not located (LLM candidates failed the density bar)"
                         continue
                 record["pages"] = [p + 1 for p in page_indices]
                 extraction = read_statement_pages(
@@ -683,6 +737,12 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
                     record["llm_adjudicated"] = adjudicate_flags(
                         llm_client, audit, reconciled, pages_text
                     )
+                    # adjudication rewrites provenance rules in place; drop
+                    # resolved entries so the flag count and the simulation
+                    # gate see the post-adjudication state
+                    reconciled.flags = [
+                        p for p in reconciled.flags if p.rule == "flagged"
+                    ]
                 concepts, mapping_stats = map_rows(
                     statement_kind, reconciled, dictionary, tokens, llm_client, audit
                 )
@@ -729,6 +789,22 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
                 "the statement pages are likely images; an OCR/vision reader "
                 "is required for this document"
             )
+    digitless = [
+        info.index + 1
+        for info in pages
+        if len(info.text) >= 800 and not any(ch.isdigit() for ch in info.text)
+    ]
+    if len(digitless) >= 8:
+        note = (
+            f"{len(digitless)} text-bearing pages (e.g. pages "
+            f"{digitless[0]}-{digitless[-1]}) extract with ZERO digits: their "
+            "fonts lack unicode mappings for numerals, so no text engine can "
+            "read numbers there. If the statements live in that region, any "
+            "rows extracted elsewhere are condensed summaries, not the "
+            "statement face; an OCR/vision reader is required."
+        )
+        existing = outcome.get("diagnosis")
+        outcome["diagnosis"] = f"{existing} {note}" if existing else note
     outcome["simulation"] = _try_simulation(
         document, statements, simulate_paths, seed, outcome["statements"]
     )

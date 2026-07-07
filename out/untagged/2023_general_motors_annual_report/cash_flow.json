@@ -53,7 +53,7 @@
   },
   {
    "order": 1,
-   "concept": "doc:DepreciationAndImpairmentOfEquipmentOnOperatingLeasesNet_1",
+   "concept": "us-gaap:DepreciationDepletionAndAmortization",
    "dims": [],
    "label": "Depreciation and impairment of Equipment on operating leases, net",
    "depth": 1,
@@ -65,7 +65,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -93,7 +93,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:DepreciationAmortizationAndImpairmentChargesOnPropertyNet_2",
+   "concept": "us-gaap:DepreciationDepletionAndAmortization",
    "dims": [],
    "label": "Depreciation, amortization and impairment charges on Property, net",
    "depth": 1,
@@ -105,7 +105,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -133,7 +133,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:ForeignCurrencyRemeasurementAndTransactionGainsLosses_3",
+   "concept": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
    "dims": [],
    "label": "Foreign currency remeasurement and transaction (gains) losses",
    "depth": 1,
@@ -145,7 +145,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -253,7 +253,7 @@
   },
   {
    "order": 6,
-   "concept": "doc:PensionAndOpebIncomeNet_6",
+   "concept": "us-gaap:NonoperatingIncomeExpense",
    "dims": [],
    "label": "Pension and OPEB income, net",
    "depth": 1,
@@ -263,9 +263,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -333,7 +333,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:ChangeInOtherOperatingAssetsAndLiabilitiesNote24_8",
+   "concept": "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities",
    "dims": [],
    "label": "Change in other operating assets and liabilities (Note 24)",
    "depth": 1,
@@ -345,7 +345,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -373,7 +373,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:OtherOperatingActivities_9",
+   "concept": "ifrs-full:OtherOperatingIncomeExpense",
    "dims": [],
    "label": "Other operating activities",
    "depth": 1,
@@ -383,9 +383,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -413,7 +413,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:NetCashProvidedByUsedInOperatingActivities_10",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
    "dims": [],
    "label": "Net cash provided by (used in) operating activities",
    "depth": 1,
@@ -423,9 +423,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -453,7 +453,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:ExpendituresForProperty_11",
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
    "dims": [],
    "label": "Expenditures for property",
    "depth": 1,
@@ -463,9 +463,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -493,7 +493,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:AvailableForSaleMarketableSecuritiesAcquisitions_12",
+   "concept": "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
    "dims": [],
    "label": "Available-for-sale marketable securities, acquisitions",
    "depth": 1,
@@ -503,9 +503,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -533,7 +533,7 @@
   },
   {
    "order": 13,
-   "concept": "doc:AvailableForSaleMarketableSecuritiesLiquidations_13",
+   "concept": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt",
    "dims": [],
    "label": "Available-for-sale marketable securities, liquidations",
    "depth": 1,
@@ -545,7 +545,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -573,7 +573,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:PurchasesOfFinanceReceivables_14",
+   "concept": "ifrs-full:NoncurrentFinanceLeaseReceivables",
    "dims": [],
    "label": "Purchases of finance receivables",
    "depth": 1,
@@ -585,7 +585,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -653,7 +653,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:PurchasesOfLeasedVehicles_16",
+   "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
    "dims": [],
    "label": "Purchases of leased vehicles",
    "depth": 1,
@@ -663,9 +663,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -773,7 +773,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:NetCashProvidedByUsedInInvestingActivities_19",
+   "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
    "dims": [],
    "label": "Net cash provided by (used in) investing activities",
    "depth": 1,
@@ -785,7 +785,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -853,7 +853,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:ProceedsFromIssuanceOfDebtOriginalMaturitiesGreaterThanThree_21",
+   "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
    "dims": [],
    "label": "Proceeds from issuance of debt (original maturities greater than three months)",
    "depth": 1,
@@ -865,7 +865,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -893,7 +893,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:PaymentsOnDebtOriginalMaturitiesGreaterThanThreeMonths_22",
+   "concept": "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
    "dims": [],
    "label": "Payments on debt (original maturities greater than three months)",
    "depth": 1,
@@ -903,9 +903,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -933,7 +933,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:PaymentsToPurchaseCommonStockNote20_23",
+   "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
    "dims": [],
    "label": "Payments to purchase common stock (Note 20)",
    "depth": 1,
@@ -943,9 +943,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -1053,7 +1053,7 @@
   },
   {
    "order": 26,
-   "concept": "doc:OtherFinancingActivities_26",
+   "concept": "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
    "dims": [],
    "label": "Other financing activities",
    "depth": 1,
@@ -1065,7 +1065,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -1339,15 +1339,15 @@
     "1"
    ],
    [
-    "doc:ProceedsFromIssuanceOfDebtOriginalMaturitiesGreaterThanThree_21",
+    "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
     "1"
    ],
    [
-    "doc:PaymentsOnDebtOriginalMaturitiesGreaterThanThreeMonths_22",
+    "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
     "1"
    ],
    [
-    "doc:PaymentsToPurchaseCommonStockNote20_23",
+    "us-gaap:PaymentsForRepurchaseOfCommonStock",
     "1"
    ],
    [
@@ -1359,25 +1359,43 @@
     "1"
    ],
    [
-    "doc:OtherFinancingActivities_26",
+    "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
     "1"
    ]
   ],
-  "doc:NetCashProvidedByUsedInInvestingActivities_19": [
+  "doc:NetIncreaseDecreaseInCashCashEquivalentsAndRestrictedCash_29": [
    [
-    "doc:ExpendituresForProperty_11",
+    "us-gaap:NetCashProvidedByUsedInOperatingActivities",
     "1"
    ],
    [
-    "doc:AvailableForSaleMarketableSecuritiesAcquisitions_12",
+    "us-gaap:NetCashProvidedByUsedInInvestingActivities",
     "1"
    ],
    [
-    "doc:AvailableForSaleMarketableSecuritiesLiquidations_13",
+    "doc:NetCashProvidedByUsedInFinancingActivities_27",
     "1"
    ],
    [
-    "doc:PurchasesOfFinanceReceivables_14",
+    "doc:EffectOfExchangeRateChangesOnCashCashEquivalentsAndRestricte_28",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInInvestingActivities": [
+   [
+    "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncurrentFinanceLeaseReceivables",
     "1"
    ],
    [
@@ -1385,7 +1403,7 @@
     "1"
    ],
    [
-    "doc:PurchasesOfLeasedVehicles_16",
+    "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
     "1"
    ],
    [
@@ -1397,21 +1415,21 @@
     "1"
    ]
   ],
-  "doc:NetCashProvidedByUsedInOperatingActivities_10": [
+  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
    [
     "ifrs-full:ProfitLoss",
     "1"
    ],
    [
-    "doc:DepreciationAndImpairmentOfEquipmentOnOperatingLeasesNet_1",
+    "us-gaap:DepreciationDepletionAndAmortization",
     "1"
    ],
    [
-    "doc:DepreciationAmortizationAndImpairmentChargesOnPropertyNet_2",
+    "us-gaap:DepreciationDepletionAndAmortization",
     "1"
    ],
    [
-    "doc:ForeignCurrencyRemeasurementAndTransactionGainsLosses_3",
+    "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
     "1"
    ],
    [
@@ -1423,7 +1441,7 @@
     "1"
    ],
    [
-    "doc:PensionAndOpebIncomeNet_6",
+    "us-gaap:NonoperatingIncomeExpense",
     "1"
    ],
    [
@@ -1431,29 +1449,11 @@
     "1"
    ],
    [
-    "doc:ChangeInOtherOperatingAssetsAndLiabilitiesNote24_8",
+    "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities",
     "1"
    ],
    [
-    "doc:OtherOperatingActivities_9",
-    "1"
-   ]
-  ],
-  "doc:NetIncreaseDecreaseInCashCashEquivalentsAndRestrictedCash_29": [
-   [
-    "doc:NetCashProvidedByUsedInOperatingActivities_10",
-    "1"
-   ],
-   [
-    "doc:NetCashProvidedByUsedInInvestingActivities_19",
-    "1"
-   ],
-   [
-    "doc:NetCashProvidedByUsedInFinancingActivities_27",
-    "1"
-   ],
-   [
-    "doc:EffectOfExchangeRateChangesOnCashCashEquivalentsAndRestricte_28",
+    "ifrs-full:OtherOperatingIncomeExpense",
     "1"
    ]
   ]

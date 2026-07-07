@@ -1,4 +1,315 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 62,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Marketable debt securities (Note 4)",
+   "chosen": "us-gaap:MarketableSecuritiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts and notes receivable, net of allowance of $298 and ",
+   "chosen": "us-gaap:AccountsReceivableNetCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "GM Financial receivables, net of allowance of $906 and $869 ",
+   "chosen": "us-gaap:AccountsReceivableNetCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "GM Financial receivables, net of allowance of $1,438 and $1,",
+   "chosen": "ifrs-full:NoncurrentReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity in net assets of nonconsolidated affiliates (Note 8)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Property, net (Note 9)",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Goodwill and intangible assets, net (Note 10)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equipment on operating leases, net (Note 7; Note 11 at VIEs)",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets (Note 4; Note 11 at VIEs)",
+   "chosen": "ifrs-full:OtherNoncurrentNonfinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts payable (principally trade)",
+   "chosen": "us-gaap:AccountsPayableCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "GM Financial (Note 11 at VIEs)",
+   "chosen": "ifrs-full:CurrentFinancialLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued liabilities (Note 12)",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "GM Financial (Note 11 at VIEs)",
+   "chosen": "ifrs-full:NoncurrentFinancialLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Postretirement benefits other than pensions (Note 15)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other liabilities (Note 12)",
+   "chosen": "us-gaap:OtherLiabilitiesNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Noncontrolling interest - Cruise stock incentive awards (Not",
+   "chosen": "ifrs-full:NoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Common stock, $0.01 par value",
+   "chosen": "us-gaap:CommonStockSharesIssued"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additional paid-in capital",
+   "chosen": "ifrs-full:AdditionalPaidinCapital"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total Liabilities and Equity",
+   "chosen": "ifrs-full:EquityAndLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "GM Financial",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total net sales and revenue (Note 3)",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Automotive and other cost of sales",
+   "chosen": "ifrs-full:CostOfSales"
+  },
+  {
+   "kind": "map_concept",
+   "label": "GM Financial interest, operating and other expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Automotive and other selling, general and administrative exp",
+   "chosen": "us-gaap:SellingGeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total costs and expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Automotive interest expense",
+   "chosen": "ifrs-full:OperatingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest income and other non-operating income, net (Note 19",
+   "chosen": "sap:OtherNonOperatingIncomeExpensesNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity income (loss) (Note 8)",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income (loss) before income taxes",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income tax expense (benefit) (Note 17)",
+   "chosen": "us-gaap:IncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net loss (income) attributable to noncontrolling interests",
+   "chosen": "ifrs-full:ProfitLossAttributableToNoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) attributable to stockholders",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income (loss) attributable to common stockholders",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Basic earnings per common share",
+   "chosen": "us-gaap:EarningsPerShareBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Weighted-average common shares outstanding \u2013 basic",
+   "chosen": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Diluted earnings per common share",
+   "chosen": "us-gaap:EarningsPerShareDiluted"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Weighted-average common shares outstanding \u2013 diluted",
+   "chosen": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Depreciation and impairment of Equipment on operating leases",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Depreciation, amortization and impairment charges on Propert",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Foreign currency remeasurement and transaction (gains) losse",
+   "chosen": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Undistributed earnings of nonconsolidated affiliates, net",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Pension contributions and OPEB payments",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Pension and OPEB income, net",
+   "chosen": "us-gaap:NonoperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provision (benefit) for deferred taxes",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Change in other operating assets and liabilities (Note 24)",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other operating activities",
+   "chosen": "ifrs-full:OtherOperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash provided by (used in) operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Expenditures for property",
+   "chosen": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Available-for-sale marketable securities, acquisitions",
+   "chosen": "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Available-for-sale marketable securities, liquidations",
+   "chosen": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of finance receivables",
+   "chosen": "ifrs-full:NoncurrentFinanceLeaseReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Principal collections and recoveries on finance receivables",
+   "chosen": "ifrs-full:NoncurrentReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of leased vehicles",
+   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from termination of leased vehicles",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other investing activities",
+   "chosen": "ifrs-full:OtherInflowsOutflowsOfCashClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash provided by (used in) investing activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net increase (decrease) in short-term debt",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of debt (original maturities greater ",
+   "chosen": "us-gaap:ProceedsFromIssuanceOfLongTermDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments on debt (original maturities greater than three mon",
+   "chosen": "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments to purchase common stock (Note 20)",
+   "chosen": "us-gaap:PaymentsForRepurchaseOfCommonStock"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Issuance (redemption) of subsidiary stock (Note 20)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other financing activities",
+   "chosen": "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities"
+  }
+ ]
 }

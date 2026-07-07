@@ -1,17 +1,18 @@
 {
  "document": "google_2024",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\google_2024.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
    "pages": [
     57
    ],
+   "llm_adjudicated": 1,
    "rows": 26,
    "columns": 2,
-   "accepted_cells": 50,
-   "flags": 2,
+   "accepted_cells": 51,
+   "flags": 1,
    "scale": "1000000",
    "footing_groups": 5,
    "footing_pass": true,
@@ -22,8 +23,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 15,
-    "llm": 0,
-    "unmapped": 11
+    "llm": 6,
+    "unmapped": 5
    }
   },
   "income_statement": {
@@ -42,8 +43,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 7,
-    "llm": 0,
-    "unmapped": 6
+    "llm": 2,
+    "unmapped": 4
    }
   },
   "cash_flow": {
@@ -51,6 +52,7 @@
    "pages": [
     61
    ],
+   "llm_adjudicated": 0,
    "rows": 34,
    "columns": 3,
    "accepted_cells": 99,
@@ -65,14 +67,14 @@
    },
    "mapping": {
     "lexical": 12,
-    "llm": 0,
-    "unmapped": 22
+    "llm": 19,
+    "unmapped": 3
    }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "2 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
+  "reason": "1 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 42
 }

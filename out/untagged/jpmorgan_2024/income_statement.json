@@ -13,7 +13,7 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:TotalNetRevenue_0",
+   "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Total net revenue",
    "depth": 1,
@@ -25,7 +25,7 @@
    "period_type": "duration",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected income statement data"
@@ -33,19 +33,19 @@
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": null,
+     "value": "177556",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "158104",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "128695",
      "decimals": -6,
      "unit": null
     }
@@ -53,19 +53,19 @@
   },
   {
    "order": 1,
-   "concept": "doc:TotalNoninterestExpense_1",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
    "label": "Total noninterest expense",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected income statement data"
@@ -73,19 +73,19 @@
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": null,
+     "value": "91797",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "87172",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "76140",
      "decimals": -6,
      "unit": null
     }
@@ -293,7 +293,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:NetIncomeBasic_7",
+   "concept": "us-gaap:NetIncomeLoss",
    "dims": [],
    "label": "Net income: Basic",
    "depth": 1,
@@ -303,9 +303,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Earnings per share data"
@@ -493,7 +493,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:CommonSharesAtPeriodEnd_12",
+   "concept": "us-gaap:CommonStockSharesOutstanding",
    "dims": [],
    "label": "Common shares at period-end",
    "depth": 1,
@@ -502,10 +502,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Market and per common share data"
@@ -613,7 +613,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:CashDividendsDeclaredPerShare_15",
+   "concept": "us-gaap:PaymentsOfDividendsCommonStock",
    "dims": [],
    "label": "Cash dividends declared per share",
    "depth": 1,
@@ -623,9 +623,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Market and per common share data"
@@ -653,7 +653,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:ReturnOnCommonEquityRoe_16",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Return on common equity (\u201cROE\u201d)",
    "depth": 1,
@@ -662,10 +662,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected ratios and metrics"
@@ -673,19 +673,19 @@
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": null,
+     "value": "18",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "17",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "14",
      "decimals": -6,
      "unit": null
     }
@@ -693,7 +693,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:ReturnOnTangibleCommonEquityRotceA_17",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Return on tangible common equity (\u201cROTCE\u201d)(a)",
    "depth": 1,
@@ -702,10 +702,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected ratios and metrics"
@@ -733,7 +733,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:ReturnOnAssetsRoa_18",
+   "concept": "us-gaap:Assets",
    "dims": [],
    "label": "Return on assets (\u201cROA\u201d)",
    "depth": 1,
@@ -742,10 +742,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
+   "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected ratios and metrics"
@@ -933,7 +933,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:CommonEquityTier1Cet1CapitalRatioCD_23",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Common equity Tier 1 (\u201cCET1\u201d) capital ratio(c)(d)",
    "depth": 1,
@@ -942,10 +942,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected ratios and metrics"
@@ -1013,19 +1013,19 @@
   },
   {
    "order": 25,
-   "concept": "doc:TotalCapitalRatioCD_25",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Total capital ratio(c)(d)",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Selected ratios and metrics"
@@ -1033,19 +1033,19 @@
    "cells": [
     {
      "period": "D2024-01-01:2024-12-31",
-     "value": null,
+     "value": "18.5",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": null,
+     "value": "18.5",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2022-01-01:2022-12-31",
-     "value": null,
+     "value": "16.8",
      "decimals": -6,
      "unit": null
     }
@@ -1132,52 +1132,7 @@
    ]
   }
  ],
- "calc_children": {
-  "doc:TotalCapitalRatioCD_25": [
-   [
-    "doc:ReturnOnCommonEquityRoe_16",
-    "1"
-   ],
-   [
-    "doc:ReturnOnTangibleCommonEquityRotceA_17",
-    "1"
-   ],
-   [
-    "doc:ReturnOnAssetsRoa_18",
-    "1"
-   ],
-   [
-    "doc:OverheadRatio_19",
-    "1"
-   ],
-   [
-    "doc:LoansToDepositsRatio_20",
-    "1"
-   ],
-   [
-    "doc:FirmLiquidityCoverageRatioLcrAverageB_21",
-    "1"
-   ],
-   [
-    "doc:JpmorganChaseBankNALcrAverageB_22",
-    "1"
-   ],
-   [
-    "doc:CommonEquityTier1Cet1CapitalRatioCD_23",
-    "1"
-   ],
-   [
-    "doc:Tier1CapitalRatioCD_24",
-    "1"
-   ]
-  ],
-  "doc:TotalNoninterestExpense_1": [
-   [
-    "doc:TotalNetRevenue_0",
-    "1"
-   ]
-  ]
- },
+ "calc_children": {},
  "notes": [
   "column years not detected; synthetic ordering"
  ]

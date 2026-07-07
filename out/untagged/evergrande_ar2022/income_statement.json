@@ -213,19 +213,19 @@
   },
   {
    "order": 5,
-   "concept": "doc:SegmentLiabilities_5",
+   "concept": "us-gaap:Liabilities",
    "dims": [],
    "label": "Segment liabilities",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Segment assets include"
@@ -385,7 +385,7 @@
   ],
   "us-gaap:Liabilities": [
    [
-    "doc:SegmentLiabilities_5",
+    "us-gaap:Liabilities",
     "1"
    ],
    [

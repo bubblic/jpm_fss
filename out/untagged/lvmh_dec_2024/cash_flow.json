@@ -1,20 +1,21 @@
 {
- "company": "volkswagen_2024",
+ "company": "lvmh_dec_2024",
  "standard": "untagged",
- "statement": "income_statement",
- "linkrole": "document:volkswagen_2024:income_statement",
- "role_definition": "income_statement (untagged extraction)",
+ "statement": "cash_flow",
+ "linkrole": "document:lvmh_dec_2024:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
  "currency": "",
  "columns": [
-  "D2024-01-01:2024-12-31",
-  "D2023-01-01:2023-12-31"
+  "D2022-01-01:2022-12-31",
+  "D2023-01-01:2023-12-31",
+  "D2024-01-01:2024-12-31"
  ],
  "rows": [
   {
    "order": 0,
-   "concept": "doc:IncomeStatementOfTheVolkswagenGroupForThePeriodJanuary1ToDec_0",
+   "concept": "doc:EurMillionsEurMillionsEur15952_0",
    "dims": [],
-   "label": "Income Statement of the Volkswagen Group for the period January 1 to December",
+   "label": "(EUR millions) (EUR millions) (EUR) 15,952",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -29,14 +30,20 @@
    "section": [],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "312024000000",
+     "value": "15174",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -44,9 +51,9 @@
   },
   {
    "order": 1,
-   "concept": "ifrs-full:Revenue",
+   "concept": "doc:14751_1",
    "dims": [],
-   "label": "Sales revenue 1",
+   "label": "14,751",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -54,21 +61,27 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "324656000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "322284000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -76,9 +89,9 @@
   },
   {
    "order": 2,
-   "concept": "doc:GrossResult_2",
+   "concept": "doc:12958_2",
    "dims": [],
-   "label": "Gross result",
+   "label": "12,958",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -90,19 +103,23 @@
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
-   "section": [
-    "Cost of sales 2 \u2013265,184 \u2013261,299"
-   ],
+   "section": [],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "59472000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "60985000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -110,9 +127,9 @@
   },
   {
    "order": 3,
-   "concept": "doc:OtherOperatingIncome5_3",
+   "concept": "doc:EurMillionsEurMillionsEurMillions18924_3",
    "dims": [],
-   "label": "Other operating income 5",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -125,18 +142,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Administrative expenses 4 \u201312,754 \u201312,729"
+    "operating activities investments free cash flow (a)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "14974000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "15152000000",
+     "value": "18400",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -144,9 +167,9 @@
   },
   {
    "order": 4,
-   "concept": "doc:OperatingResult_4",
+   "concept": "doc:18400_4",
    "dims": [],
-   "label": "Operating result",
+   "label": "18,400",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -159,18 +182,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Other operating expenses 6 \u201320,312 \u201319,534"
+    "operating activities investments free cash flow (a)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "19060000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "22528000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -178,9 +207,9 @@
   },
   {
    "order": 5,
-   "concept": "doc:ShareOfTheResultOfEquityAccountedInvestments7_5",
+   "concept": "doc:17833_5",
    "dims": [],
-   "label": "Share of the result of equity-accounted investments 7",
+   "label": "17,833",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -193,18 +222,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Other operating expenses 6 \u201320,312 \u201319,534"
+    "operating activities investments free cash flow (a)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "375000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "2291000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -212,12 +247,12 @@
   },
   {
    "order": 6,
-   "concept": "doc:InterestIncome8_6",
+   "concept": "doc:Row6_6",
    "dims": [],
-   "label": "Interest income 8",
+   "label": "(total)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -227,18 +262,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Other operating expenses 6 \u201320,312 \u201319,534"
+    "operating activities investments free cash flow (a)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "2419000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "2658000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -246,12 +287,12 @@
   },
   {
    "order": 7,
-   "concept": "doc:FinancialResult2255_7",
+   "concept": "doc:Row7_7",
    "dims": [],
-   "label": "Financial result \u20132,255",
+   "label": "(total)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -261,18 +302,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Other financial result 9 \u20131,602 \u2013739"
+    "operating activities investments free cash flow (a)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2022-01-01:2022-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "570000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -280,9 +327,9 @@
   },
   {
    "order": 8,
-   "concept": "ifrs-full:ProfitLossBeforeTax",
+   "concept": "doc:ASeeTheConsolidatedCashFlow_8",
    "dims": [],
-   "label": "Earnings before tax",
+   "label": "(a) See the consolidated cash flow",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -290,23 +337,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Other financial result 9 \u20131,602 \u2013739"
+    "operating activities investments free cash flow (a)"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "16806000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "23099000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -314,9 +367,9 @@
   },
   {
    "order": 9,
-   "concept": "doc:Deferred_9",
+   "concept": "doc:EurEurMillionsEurMillionsAndPercentage13001300B_9",
    "dims": [],
-   "label": "Deferred",
+   "label": "(EUR) (EUR millions) (EUR millions and percentage) 13.00 13.00 (b)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -329,18 +382,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Current \u20135,858 \u20136,791"
+    "Dividend per share (a) Net financial debt (a) debt/Equity ratio"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1447000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "1554000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -348,77 +407,9 @@
   },
   {
    "order": 10,
-   "concept": "ifrs-full:ProfitLoss",
+   "concept": "doc:1200_10",
    "dims": [],
-   "label": "Earnings after tax",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current \u20135,858 \u20136,791"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "12394000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "17861000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 11,
-   "concept": "ifrs-full:NoncontrollingInterests",
-   "dims": [],
-   "label": "Non-controlling interests",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "of which attributable to"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1043000000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1329000000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 12,
-   "concept": "doc:VolkswagenAgHybridCapitalInvestors_12",
-   "dims": [],
-   "label": "Volkswagen AG hybrid capital investors",
+   "label": "12.00",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -431,18 +422,104 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "of which attributable to"
+    "Dividend per share (a) Net financial debt (a) debt/Equity ratio"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "630000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "586000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:Row11_11",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Dividend per share (a) Net financial debt (a) debt/Equity ratio"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:Row12_12",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Dividend per share (a) Net financial debt (a) debt/Equity ratio"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -450,33 +527,39 @@
   },
   {
    "order": 13,
-   "concept": "us-gaap:StockholdersEquity",
+   "concept": "doc:ExcludingTheImpactOfTaxRegulationsPurchaseCommitmentsForMino_13",
    "dims": [],
-   "label": "Volkswagen AG shareholders",
+   "label": "excluding the impact of tax regulations \u201cPurchase commitments for minority applicable to the recipient. interests\u2019",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
+   "period_type": "duration",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "of which attributable to"
+    "(a) Gross amount paid for the fiscal year, (a) Excluding \u201cLease liabilities\u201d and"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "10721000000",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "15947000000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -484,9 +567,9 @@
   },
   {
    "order": 14,
-   "concept": "ifrs-full:BasicEarningsLossPerShare",
+   "concept": "doc:MeetingOfApril172025FinancialStatements_14",
    "dims": [],
-   "label": "Basic/diluted earnings per ordinary share in 11",
+   "label": "Meeting of April 17,2025. financial statements.",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -494,65 +577,94 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "of which attributable to"
+    "(b) Amount proposed at the Shareholders\u2019 to the condensed consolidated"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "21.36",
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "D2023-01-01:2023-12-31",
-     "value": "31.79",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 15,
-   "concept": "us-gaap:EarningsPerShareDiluted",
-   "dims": [],
-   "label": "Basic/diluted earnings per preferred share in 11",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "of which attributable to"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "21.42",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "31.85",
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
    ]
   }
  ],
- "calc_children": {},
+ "calc_children": {
+  "doc:Row11_11": [
+   [
+    "doc:EurEurMillionsEurMillionsAndPercentage13001300B_9",
+    "1"
+   ],
+   [
+    "doc:1200_10",
+    "1"
+   ]
+  ],
+  "doc:Row12_12": [
+   [
+    "doc:EurEurMillionsEurMillionsAndPercentage13001300B_9",
+    "1"
+   ],
+   [
+    "doc:1200_10",
+    "1"
+   ],
+   [
+    "doc:Row11_11",
+    "1"
+   ]
+  ],
+  "doc:Row6_6": [
+   [
+    "doc:EurMillionsEurMillionsEurMillions18924_3",
+    "1"
+   ],
+   [
+    "doc:18400_4",
+    "1"
+   ],
+   [
+    "doc:17833_5",
+    "1"
+   ]
+  ],
+  "doc:Row7_7": [
+   [
+    "doc:EurMillionsEurMillionsEurMillions18924_3",
+    "1"
+   ],
+   [
+    "doc:18400_4",
+    "1"
+   ],
+   [
+    "doc:17833_5",
+    "1"
+   ],
+   [
+    "doc:Row6_6",
+    "1"
+   ]
+  ]
+ },
  "notes": [
-  "column years not detected; synthetic ordering"
+  "columns assume 31 Dec fiscal years: [2022, 2023, 2024]"
  ]
 }

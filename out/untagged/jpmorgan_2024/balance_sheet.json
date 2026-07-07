@@ -12,7 +12,7 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:CashAndDueFromBanks_0",
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
    "dims": [],
    "label": "Cash and due from banks",
    "depth": 1,
@@ -24,7 +24,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:FederalFundsSoldAndSecuritiesPurchasedUnderResaleAgreementsI_2",
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
    "dims": [],
    "label": "Federal funds sold and securities purchased under resale agreements (included $286,771 and $259,813 at fair value)",
    "depth": 1,
@@ -92,7 +92,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -386,7 +386,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:AccruedInterestAndAccountsReceivable_11",
+   "concept": "us-gaap:AccountsReceivableNetCurrent",
    "dims": [],
    "label": "Accrued interest and accounts receivable",
    "depth": 1,
@@ -398,7 +398,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -420,7 +420,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:PremisesAndEquipment_12",
+   "concept": "ifrs-full:PropertyPlantAndEquipment",
    "dims": [],
    "label": "Premises and equipment",
    "depth": 1,
@@ -432,7 +432,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -454,7 +454,7 @@
   },
   {
    "order": 13,
-   "concept": "doc:GoodwillMsrsAndOtherIntangibleAssets_13",
+   "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
    "dims": [],
    "label": "Goodwill, MSRs and other intangible assets",
    "depth": 1,
@@ -466,7 +466,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -488,7 +488,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:OtherAssetsIncluded15122And12306AtFairValueAndAssetsPledgedO_14",
+   "concept": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
    "dims": [],
    "label": "Other assets (included $15,122 and $12,306 at fair value and assets pledged of $6,288 and $6,764)",
    "depth": 1,
@@ -500,7 +500,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -522,19 +522,19 @@
   },
   {
    "order": 15,
-   "concept": "doc:TotalAssetsA_15",
+   "concept": "us-gaap:Assets",
    "dims": [],
    "label": "Total assets(a)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -658,7 +658,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:TradingLiabilities_19",
+   "concept": "us-gaap:LiabilitiesCurrent",
    "dims": [],
    "label": "Trading liabilities",
    "depth": 1,
@@ -670,7 +670,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -692,7 +692,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:AccountsPayableAndOtherLiabilitiesIncluded5893And5637AtFairV_20",
+   "concept": "us-gaap:AccountsPayableCurrent",
    "dims": [],
    "label": "Accounts payable and other liabilities (included $5,893 and $5,637 at fair value)",
    "depth": 1,
@@ -704,7 +704,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -760,7 +760,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:LongTermDebtIncluded100780And87924AtFairValue_22",
+   "concept": "us-gaap:LongTermDebtNoncurrent",
    "dims": [],
    "label": "Long-term debt (included $100,780 and $87,924 at fair value)",
    "depth": 1,
@@ -772,7 +772,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:TotalLiabilitiesA_23",
+   "concept": "us-gaap:Liabilities",
    "dims": [],
    "label": "Total liabilities(a)",
    "depth": 1,
@@ -806,7 +806,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -1372,36 +1372,6 @@
   }
  ],
  "calc_children": {
-  "doc:TotalLiabilitiesA_23": [
-   [
-    "doc:DepositsIncluded33768And78384AtFairValue_16",
-    "1"
-   ],
-   [
-    "doc:FederalFundsPurchasedAndSecuritiesLoanedOrSoldUnderRepurchas_17",
-    "1"
-   ],
-   [
-    "doc:ShortTermBorrowingsIncluded26521And20042AtFairValue_18",
-    "1"
-   ],
-   [
-    "doc:TradingLiabilities_19",
-    "1"
-   ],
-   [
-    "doc:AccountsPayableAndOtherLiabilitiesIncluded5893And5637AtFairV_20",
-    "1"
-   ],
-   [
-    "doc:BeneficialInterestsIssuedByConsolidatedViesIncluded1And1AtFa_21",
-    "1"
-   ],
-   [
-    "doc:LongTermDebtIncluded100780And87924AtFairValue_22",
-    "1"
-   ]
-  ],
   "us-gaap:Assets": [
    [
     "doc:TradingAssets_33",
@@ -1428,7 +1398,7 @@
   ],
   "us-gaap:LiabilitiesAndStockholdersEquity": [
    [
-    "doc:TotalLiabilitiesA_23",
+    "us-gaap:Liabilities",
     "1"
    ],
    [

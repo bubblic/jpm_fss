@@ -127,7 +127,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:MarketingAndSellingExpenses_3",
+   "concept": "us-gaap:SellingAndMarketingExpense",
    "dims": [],
    "label": "Marketing and selling expenses",
    "depth": 1,
@@ -139,7 +139,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -165,7 +165,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:GeneralAndAdministrativeExpenses_4",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "General and administrative expenses",
    "depth": 1,
@@ -177,7 +177,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -203,7 +203,7 @@
   },
   {
    "order": 5,
-   "concept": "doc:IncomeLossFromJointVenturesAndAssociates8_5",
+   "concept": "ifrs-full:ProfitLoss",
    "dims": [],
    "label": "Income/(Loss) from joint ventures and associates 8",
    "depth": 1,
@@ -213,9 +213,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -241,19 +241,19 @@
   },
   {
    "order": 6,
-   "concept": "doc:ProfitFromRecurringOperations24_6",
+   "concept": "ifrs-full:ProfitLossFromContinuingOperations",
    "dims": [],
    "label": "Profit from recurring operations 24",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -545,7 +545,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:NetProfitBeforeMinorityInterests_14",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Net profit before minority interests",
    "depth": 1,
@@ -555,9 +555,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -583,7 +583,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:MinorityInterests18_15",
+   "concept": "ifrs-full:NoncontrollingInterests",
    "dims": [],
    "label": "Minority interests 18",
    "depth": 1,
@@ -592,10 +592,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
+   "period_type": "instant",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -621,7 +621,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:NetProfitGroupShare_16",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Net profit, Group share",
    "depth": 1,
@@ -631,9 +631,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -659,7 +659,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:BasicGroupShareOfNetEarningsPerShareEur28_17",
+   "concept": "ifrs-full:BasicEarningsLossPerShare",
    "dims": [],
    "label": "Basic Group share of net earnings per share (EUR) 28",
    "depth": 1,
@@ -669,9 +669,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -735,7 +735,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:DilutedGroupShareOfNetEarningsPerShareEur28_19",
+   "concept": "us-gaap:EarningsPerShareDiluted",
    "dims": [],
    "label": "Diluted Group share of net earnings per share (EUR) 28",
    "depth": 1,
@@ -745,9 +745,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -811,9 +811,27 @@
   }
  ],
  "calc_children": {
+  "ifrs-full:ProfitLossFromContinuingOperations": [
+   [
+    "us-gaap:GrossProfit",
+    "1"
+   ],
+   [
+    "us-gaap:SellingAndMarketingExpense",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "ifrs-full:ProfitLoss",
+    "1"
+   ]
+  ],
   "ifrs-full:ProfitLossFromOperatingActivities": [
    [
-    "doc:ProfitFromRecurringOperations24_6",
+    "ifrs-full:ProfitLossFromContinuingOperations",
     "1"
    ],
    [

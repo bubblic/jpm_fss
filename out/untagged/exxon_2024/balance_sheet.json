@@ -46,7 +46,7 @@
   },
   {
    "order": 1,
-   "concept": "doc:CashandcashequivalentsRestricted_1",
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
    "dims": [],
    "label": "Cashandcashequivalents\u2013restricted",
    "depth": 1,
@@ -58,7 +58,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Currentassets"
@@ -250,7 +250,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:InvestmentsAdvancesandlongTermreceivables8_7",
+   "concept": "ck0001639920:LongTermInvestments1",
    "dims": [],
    "label": "Investments,advancesandlong-termreceivables 8",
    "depth": 1,
@@ -262,7 +262,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Inventories"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:PropertyPlantandequipmentAtcostLessaccumulateddepreciationan_8",
+   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
    "dims": [],
    "label": "Property,plantandequipment,atcost,lessaccumulateddepreciationanddepletion 9",
    "depth": 1,
@@ -296,7 +296,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Inventories"
@@ -420,7 +420,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:Accountspayableandaccruedliabilities6_12",
+   "concept": "us-gaap:AccountsPayableCurrent",
    "dims": [],
    "label": "Accountspayableandaccruedliabilities 6",
    "depth": 1,
@@ -432,7 +432,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Currentliabilities"
@@ -454,7 +454,7 @@
   },
   {
    "order": 13,
-   "concept": "doc:Incometaxespayable_13",
+   "concept": "ifrs-full:CurrentTaxLiabilitiesCurrent",
    "dims": [],
    "label": "Incometaxespayable",
    "depth": 1,
@@ -466,7 +466,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Currentliabilities"
@@ -624,7 +624,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:LongTermobligationstoequitycompanies_18",
+   "concept": "us-gaap:LongTermDebtNoncurrent",
    "dims": [],
    "label": "Long-termobligationstoequitycompanies",
    "depth": 1,
@@ -636,7 +636,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Currentliabilities"
@@ -658,7 +658,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:OtherlongTermobligations_19",
+   "concept": "us-gaap:OtherLiabilitiesNoncurrent",
    "dims": [],
    "label": "Otherlong-termobligations",
    "depth": 1,
@@ -670,7 +670,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Currentliabilities"
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:Commonstockwithoutparvalue9000Millionsharesauthorized8019Mil_21",
+   "concept": "us-gaap:CommonStockSharesIssued",
    "dims": [],
    "label": "Commonstockwithoutparvalue (9,000millionsharesauthorized,8,019millionsharesissued)",
    "depth": 1,
@@ -736,9 +736,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "EQUITY"
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:Accumulatedothercomprehensiveincome4_23",
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
    "dims": [],
    "label": "Accumulatedothercomprehensiveincome 4",
    "depth": 1,
@@ -806,7 +806,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "EQUITY"
@@ -828,7 +828,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:Commonstockheldintreasury3666Millionsharesin2024And4048Milli_24",
+   "concept": "ifrs-full:TreasuryShares",
    "dims": [],
    "label": "Commonstockheldintreasury (3,666millionsharesin2024and4,048millionsharesin2023)",
    "depth": 1,
@@ -838,9 +838,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "EQUITY"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:Exxonmobilshareofequity_25",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "ExxonMobilshareofequity",
    "depth": 1,
@@ -874,7 +874,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "EQUITY"
@@ -964,7 +964,7 @@
   },
   {
    "order": 28,
-   "concept": "doc:Totalliabilitiesandequity_28",
+   "concept": "ifrs-full:EquityAndLiabilities",
    "dims": [],
    "label": "TotalLiabilitiesandEquity",
    "depth": 1,
@@ -976,7 +976,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "EQUITY"
@@ -998,7 +998,7 @@
   },
   {
    "order": 29,
-   "concept": "doc:NetincomeLossIncludingnoncontrollinginterests_29",
+   "concept": "us-gaap:NetIncomeLoss",
    "dims": [],
    "label": "Netincome(loss)includingnoncontrollinginterests",
    "depth": 1,
@@ -1007,10 +1007,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "debit",
+   "period_type": "duration",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "CASHFLOWSFROMOPERATINGACTIVITIES"
@@ -1032,7 +1032,7 @@
   },
   {
    "order": 30,
-   "concept": "doc:DepreciationanddepletionIncludesimpairments29_30",
+   "concept": "us-gaap:DepreciationDepletionAndAmortization",
    "dims": [],
    "label": "Depreciationanddepletion(includesimpairments) 2,9",
    "depth": 1,
@@ -1041,10 +1041,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
+   "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustmentsfornoncashtransactions"
@@ -1066,7 +1066,7 @@
   },
   {
    "order": 31,
-   "concept": "doc:DeferredincometaxchargesCredits19_31",
+   "concept": "us-gaap:DeferredIncomeTaxLiabilitiesNet",
    "dims": [],
    "label": "Deferredincometaxcharges/(credits) 19",
    "depth": 1,
@@ -1076,9 +1076,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustmentsfornoncashtransactions"

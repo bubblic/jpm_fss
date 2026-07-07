@@ -1,4 +1,494 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 93,
+ "decisions": [
+  {
+   "kind": "read_cell",
+   "label": "(a) The following table presents information on assets and l",
+   "column": 2,
+   "samples": [
+    "3547515",
+    "3547515",
+    "3547515"
+   ],
+   "voted": "3547515",
+   "agreement": 3
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash and due from banks",
+   "chosen": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Federal funds sold and securities purchased under resale agr",
+   "chosen": "us-gaap:CashAndCashEquivalentsAtCarryingValue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Securities borrowed (included $83,962 and $70,086 at fair va",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trading assets (included assets pledged of $136,070 and $128",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Available-for-sale securities (amortized cost of $411,045 an",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Held-to-maturity securities",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Investment securities, net of allowance for credit losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loans (included $41,350 and $38,851 at fair value)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Allowance for loan losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loans, net of allowance for loan losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued interest and accounts receivable",
+   "chosen": "us-gaap:AccountsReceivableNetCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Premises and equipment",
+   "chosen": "ifrs-full:PropertyPlantAndEquipment"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Goodwill, MSRs and other intangible assets",
+   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets (included $15,122 and $12,306 at fair value and",
+   "chosen": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total assets(a)",
+   "chosen": "us-gaap:Assets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deposits (included $33,768 and $78,384 at fair value)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Federal funds purchased and securities loaned or sold under ",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Short-term borrowings (included $26,521 and $20,042 at fair ",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trading liabilities",
+   "chosen": "us-gaap:LiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts payable and other liabilities (included $5,893 and ",
+   "chosen": "us-gaap:AccountsPayableCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Beneficial interests issued by consolidated VIEs (included $",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term debt (included $100,780 and $87,924 at fair value)",
+   "chosen": "us-gaap:LongTermDebtNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total liabilities(a)",
+   "chosen": "us-gaap:Liabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Preferred stock ($1 par value; authorized 200,000,000 shares",
+   "chosen": null
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total net revenue",
+   "column": 1,
+   "samples": [
+    "177556",
+    "177556",
+    "177556"
+   ],
+   "voted": "177556",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Total net revenue",
+   "column": 0,
+   "value": "177556"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total net revenue",
+   "column": 2,
+   "samples": [
+    "158104",
+    "158104",
+    "158104"
+   ],
+   "voted": "158104",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Total net revenue",
+   "column": 1,
+   "value": "158104"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total net revenue",
+   "column": 3,
+   "samples": [
+    "128695",
+    "128695",
+    "128695"
+   ],
+   "voted": "128695",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Total net revenue",
+   "column": 2,
+   "value": "128695"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total noninterest expense",
+   "column": 1,
+   "samples": [
+    "91797",
+    "91797",
+    "91797"
+   ],
+   "voted": "91797",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Total noninterest expense",
+   "column": 0,
+   "value": "91797"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total noninterest expense",
+   "column": 2,
+   "samples": [
+    "87172",
+    "87172",
+    "87172"
+   ],
+   "voted": "87172",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Total noninterest expense",
+   "column": 1,
+   "value": "87172"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Total noninterest expense",
+   "column": 3,
+   "samples": [
+    "76140",
+    "76140",
+    "76140"
+   ],
+   "voted": "76140",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Total noninterest expense",
+   "column": 2,
+   "value": "76140"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "column": 1,
+   "samples": [
+    "18",
+    "18",
+    "18"
+   ],
+   "voted": "18",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "column": 0,
+   "value": "18"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "column": 2,
+   "samples": [
+    "17",
+    "17",
+    "17"
+   ],
+   "voted": "17",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "column": 1,
+   "value": "17"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "column": 3,
+   "samples": [
+    "14",
+    "14",
+    "14"
+   ],
+   "voted": "14",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "column": 2,
+   "value": "14"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total net revenue",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total noninterest expense",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Pre-provision profit(a)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provision for credit losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income before income tax expense",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income: Basic",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Average shares: Basic",
+   "chosen": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Common shares at period-end",
+   "chosen": "us-gaap:CommonStockSharesOutstanding"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Book value per share",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Tangible book value per share (\u201cTBVPS\u201d)(a)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash dividends declared per share",
+   "chosen": "us-gaap:PaymentsOfDividendsCommonStock"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Return on common equity (\u201cROE\u201d)",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Return on tangible common equity (\u201cROTCE\u201d)(a)",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Return on assets (\u201cROA\u201d)",
+   "chosen": "us-gaap:Assets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Common equity Tier 1 (\u201cCET1\u201d) capital ratio(c)(d)",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total capital ratio(c)(d)",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provision for credit losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred tax (benefit)/expense",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Initial gain on the Visa share exchange",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Originations and purchases of loans held-for-sale",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sales, securitizations and paydowns of loans h",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trading assets",
+   "chosen": "us-gaap:AssetsCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Securities borrowed",
+   "chosen": "us-gaap:MarketableSecuritiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued interest and accounts receivable",
+   "chosen": "us-gaap:IncreaseDecreaseInAccountsReceivable"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trading liabilities",
+   "chosen": "us-gaap:LiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts payable and other liabilities",
+   "chosen": "us-gaap:AccountsPayableCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other operating adjustments",
+   "chosen": "ifrs-full:OtherAdjustmentsToReconcileProfitLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash (used in)/provided by operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from paydowns and maturities",
+   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from paydowns and maturities",
+   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sales",
+   "chosen": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sales and securitizations of loans held-for-in",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other changes in loans, net",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in First Republic Acquisition",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "All other investing activities, net",
+   "chosen": "us-gaap:NetCashProvidedByUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash (used in)/provided by investing activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  }
+ ]
 }

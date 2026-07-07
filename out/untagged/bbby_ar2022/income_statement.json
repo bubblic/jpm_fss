@@ -127,7 +127,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:SellingGeneralAndAdministrativeExpenses_3",
+   "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Selling, general and administrative expenses",
    "depth": 1,
@@ -139,7 +139,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -241,7 +241,7 @@
   },
   {
    "order": 6,
-   "concept": "doc:LossOnSaleOfBusinesses_6",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Loss on sale of businesses",
    "depth": 1,
@@ -251,9 +251,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -279,7 +279,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:OperatingLoss_7",
+   "concept": "us-gaap:OperatingIncomeLoss",
    "dims": [],
    "label": "Operating loss",
    "depth": 1,
@@ -289,9 +289,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -355,7 +355,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:LossOnPreferredStockWarrantsAndDerivativeLiabilities_9",
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
    "label": "Loss on preferred stock warrants and derivative liabilities",
    "depth": 1,
@@ -365,9 +365,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -393,7 +393,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:LossOnDeconsolidationOfSubsidiaries_10",
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
    "dims": [],
    "label": "Loss on deconsolidation of subsidiaries",
    "depth": 1,
@@ -403,9 +403,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -507,7 +507,7 @@
   },
   {
    "order": 13,
-   "concept": "doc:ProvisionBenefitFromIncomeTaxes_13",
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
    "dims": [],
    "label": "Provision (benefit) from income taxes",
    "depth": 1,
@@ -519,7 +519,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -545,7 +545,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:NetLoss_14",
+   "concept": "us-gaap:NetIncomeLoss",
    "dims": [],
    "label": "Net loss",
    "depth": 1,
@@ -555,9 +555,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -583,7 +583,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:NetLossPerShareBasic_15",
+   "concept": "ifrs-full:BasicEarningsLossPerShare",
    "dims": [],
    "label": "Net loss per share - Basic",
    "depth": 1,
@@ -593,9 +593,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [
@@ -621,7 +621,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:NetLossPerShareDiluted_16",
+   "concept": "ifrs-full:DilutedEarningsLossPerShare",
    "dims": [],
    "label": "Net loss per share - Diluted",
    "depth": 1,
@@ -631,9 +631,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [],
    "cells": [

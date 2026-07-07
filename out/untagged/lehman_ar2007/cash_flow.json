@@ -1,21 +1,21 @@
 {
- "company": "exxon_2024",
+ "company": "lehman_ar2007",
  "standard": "untagged",
- "statement": "income_statement",
- "linkrole": "document:exxon_2024:income_statement",
- "role_definition": "income_statement (untagged extraction)",
+ "statement": "cash_flow",
+ "linkrole": "document:lehman_ar2007:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
  "currency": "",
  "columns": [
-  "D2024-01-01:2024-12-31",
-  "D2023-01-01:2023-12-31",
-  "D2022-01-01:2022-12-31"
+  "D2007-01-01:2007-12-31",
+  "D2006-01-01:2006-12-31",
+  "D2005-01-01:2005-12-31"
  ],
  "rows": [
   {
    "order": 0,
-   "concept": "ifrs-full:Revenue",
+   "concept": "us-gaap:NetIncomeLoss",
    "dims": [],
-   "label": "Salesandotheroperatingrevenue 18",
+   "label": "Net income",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -28,24 +28,24 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Revenuesandotherincome"
+    "Cash Flows From Operating Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "339247",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "334697",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "4192000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "398675",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "4007000000",
      "decimals": -6,
      "unit": null
     }
@@ -53,9 +53,9 @@
   },
   {
    "order": 1,
-   "concept": "us-gaap:NetIncomeLoss",
+   "concept": "us-gaap:DepreciationDepletionAndAmortization",
    "dims": [],
-   "label": "Incomefromequityaffiliates 7",
+   "label": "Depreciation and amortization",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -63,29 +63,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Revenuesandotherincome"
+    "Adjustments to reconcile net income to net cash used in operating activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "6194",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "6385",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "577000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "11463",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "514000000",
      "decimals": -6,
      "unit": null
     }
@@ -93,9 +93,9 @@
   },
   {
    "order": 2,
-   "concept": "doc:Otherincome_2",
+   "concept": "ifrs-full:OtherAdjustmentsForNoncashItems",
    "dims": [],
-   "label": "Otherincome",
+   "label": "Non-cash compensation",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -105,27 +105,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Revenuesandotherincome"
+    "Adjustments to reconcile net income to net cash used in operating activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "4144",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "3500",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "1791000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "3542",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "1706000000",
      "decimals": -6,
      "unit": null
     }
@@ -133,9 +133,9 @@
   },
   {
    "order": 3,
-   "concept": "ifrs-full:Revenue",
+   "concept": "doc:CumulativeEffectOfAccountingChange_3",
    "dims": [],
-   "label": "Totalrevenuesandotherincome",
+   "label": "Cumulative effect of accounting change",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -143,29 +143,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Revenuesandotherincome"
+    "Adjustments to reconcile net income to net cash used in operating activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "349585",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "344582",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "413680",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-47000000",
      "decimals": -6,
      "unit": null
     }
@@ -173,9 +173,9 @@
   },
   {
    "order": 4,
-   "concept": "doc:Crudeoilandproductpurchases_4",
+   "concept": "doc:DeferredTaxProvisionBenefit_4",
    "dims": [],
-   "label": "Crudeoilandproductpurchases",
+   "label": "Deferred tax provision/(benefit)",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -188,24 +188,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Adjustments to reconcile net income to net cash used in operating activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "199454",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "193029",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "418000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "228959",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-60000000",
      "decimals": -6,
      "unit": null
     }
@@ -213,9 +213,9 @@
   },
   {
    "order": 5,
-   "concept": "ifrs-full:OperatingExpense",
+   "concept": "doc:TaxBenefitFromTheIssuanceOfStockBasedAwards_5",
    "dims": [],
-   "label": "Productionandmanufacturingexpenses",
+   "label": "Tax benefit from the issuance of stock-based awards",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -225,27 +225,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Adjustments to reconcile net income to net cash used in operating activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "39609",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "36885",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "42609",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -253,9 +253,9 @@
   },
   {
    "order": 6,
-   "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
+   "concept": "doc:OtherAdjustments_6",
    "dims": [],
-   "label": "Selling,generalandadministrativeexpenses",
+   "label": "Other adjustments",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -265,27 +265,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Adjustments to reconcile net income to net cash used in operating activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "9976",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "9919",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-114000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "10095",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "3000000",
      "decimals": -6,
      "unit": null
     }
@@ -293,9 +293,9 @@
   },
   {
    "order": 7,
-   "concept": "us-gaap:DepreciationDepletionAndAmortization",
+   "concept": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
    "dims": [],
-   "label": "Depreciationanddepletion(includesimpairments) 2,9",
+   "label": "Cash and securities segregated and on deposit for regulatory and other purposes",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -308,24 +308,24 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "23442",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "20641",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-6652000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "24040",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-347000000",
      "decimals": -6,
      "unit": null
     }
@@ -333,9 +333,9 @@
   },
   {
    "order": 8,
-   "concept": "ifrs-full:OperatingExpense",
+   "concept": "ifrs-full:OtherCurrentFinancialAssets",
    "dims": [],
-   "label": "Explorationexpenses,includingdryholes",
+   "label": "Financial instruments and other inventory positions owned",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -348,24 +348,24 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "826",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "751",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-78903000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1025",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-46102000000",
      "decimals": -6,
      "unit": null
     }
@@ -373,9 +373,9 @@
   },
   {
    "order": 9,
-   "concept": "doc:NonServicepensionandpostretirementbenefitexpense17_9",
+   "concept": "doc:ResaleAgreementsNetOfRepurchaseAgreements_9",
    "dims": [],
-   "label": "Non-servicepensionandpostretirementbenefitexpense 17",
+   "label": "Resale agreements, net of repurchase agreements",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -388,24 +388,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "121",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "714",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3039000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "482",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "6111000000",
      "decimals": -6,
      "unit": null
     }
@@ -413,9 +413,9 @@
   },
   {
    "order": 10,
-   "concept": "doc:Interestexpense_10",
+   "concept": "doc:SecuritiesBorrowedNetOfSecuritiesLoaned_10",
    "dims": [],
-   "label": "Interestexpense",
+   "label": "Securities borrowed, net of securities loaned",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -428,24 +428,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "996",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "849",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-1608000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "798",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-18383000000",
      "decimals": -6,
      "unit": null
     }
@@ -453,9 +453,9 @@
   },
   {
    "order": 11,
-   "concept": "doc:Othertaxesandduties19_11",
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
    "dims": [],
-   "label": "Othertaxesandduties 19",
+   "label": "Other secured borrowings",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -463,29 +463,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "26288",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "29011",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3964000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "27919",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-4088000000",
      "decimals": -6,
      "unit": null
     }
@@ -493,9 +493,9 @@
   },
   {
    "order": 12,
-   "concept": "ifrs-full:CostOfSales",
+   "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
    "dims": [],
-   "label": "Totalcostsandotherdeductions",
+   "label": "Receivables from brokers, dealers and clearing organizations",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -508,24 +508,24 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "300712",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "291799",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-3556000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "335927",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "5000000",
      "decimals": -6,
      "unit": null
     }
@@ -533,9 +533,9 @@
   },
   {
    "order": 13,
-   "concept": "doc:IncomeLossBeforeincometaxes_13",
+   "concept": "doc:ReceivablesFromCustomers_13",
    "dims": [],
-   "label": "Income(loss)beforeincometaxes",
+   "label": "Receivables from customers",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -548,24 +548,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "48873",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "52783",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-11152000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "77753",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-5583000000",
      "decimals": -6,
      "unit": null
     }
@@ -573,9 +573,9 @@
   },
   {
    "order": 14,
-   "concept": "us-gaap:IncomeTaxExpenseBenefit",
+   "concept": "ifrs-full:OtherCurrentFinancialAssets",
    "dims": [],
-   "label": "Incometaxexpense(benefit) 19",
+   "label": "Financial instruments and other inventory positions sold but not yet purchased",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -588,24 +588,24 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "13810",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "15429",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "23415000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "20176",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "15224000000",
      "decimals": -6,
      "unit": null
     }
@@ -613,9 +613,9 @@
   },
   {
    "order": 15,
-   "concept": "doc:NetincomeLossIncludingnoncontrollinginterests_15",
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
    "dims": [],
-   "label": "Netincome(loss)includingnoncontrollinginterests",
+   "label": "Payables to brokers, dealers and clearing organizations",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -623,29 +623,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "35063",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "37354",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "884000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "57577",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "347000000",
      "decimals": -6,
      "unit": null
     }
@@ -653,9 +653,9 @@
   },
   {
    "order": 16,
-   "concept": "doc:NetincomeLossAttributabletononcontrollinginterests_16",
+   "concept": "doc:PayablesToCustomers_16",
    "dims": [],
-   "label": "Netincome(loss)attributabletononcontrollinginterests",
+   "label": "Payables to customers",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -668,24 +668,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1383",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1344",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "19511000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1837",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "9552000000",
      "decimals": -6,
      "unit": null
     }
@@ -693,9 +693,9 @@
   },
   {
    "order": 17,
-   "concept": "doc:NetincomeLossAttributabletoexxonmobil_17",
+   "concept": "doc:AccruedLiabilitiesAndOtherPayables_17",
    "dims": [],
-   "label": "Netincome(loss)attributabletoExxonMobil",
+   "label": "Accrued liabilities and other payables",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -708,24 +708,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "33680",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "36010",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "302000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "55740",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "2032000000",
      "decimals": -6,
      "unit": null
     }
@@ -733,9 +733,9 @@
   },
   {
    "order": 18,
-   "concept": "doc:EarningsLossPercommonshareDollars12_18",
+   "concept": "us-gaap:IncreaseDecreaseInOtherOperatingAssets",
    "dims": [],
-   "label": "Earnings(loss)percommonshare(dollars) 12",
+   "label": "Other receivables and assets and minority interests",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -743,29 +743,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "7.84",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "8.89",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-1703000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "13.26",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-1267000000",
      "decimals": -6,
      "unit": null
     }
@@ -773,39 +773,39 @@
   },
   {
    "order": 19,
-   "concept": "doc:EarningsLossPercommonshareAssumingdilutionDollars12_19",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
    "dims": [],
-   "label": "Earnings(loss)percommonshare-assumingdilution(dollars) 12",
+   "label": "Net cash used in operating activities",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Costsandotherdeductions"
+    "Net change in"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "7.84",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "8.89",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-45595000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "13.26",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-36376000000",
      "decimals": -6,
      "unit": null
     }
@@ -813,9 +813,9 @@
   },
   {
    "order": 20,
-   "concept": "us-gaap:NetIncomeLoss",
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
    "dims": [],
-   "label": "Netincome(loss)includingnoncontrollinginterests",
+   "label": "Purchase of property, equipment and leasehold improvements, net",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -828,24 +828,24 @@
    "is_extension": false,
    "anchor": null,
    "section": [
-    "CONSOLIDATEDSTATEMENTOFCOMPREHENSIVEINCOME"
+    "Cash Flows From Investing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "35063",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "37354",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-966000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "57577",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-586000000",
      "decimals": -6,
      "unit": null
     }
@@ -853,9 +853,49 @@
   },
   {
    "order": 21,
-   "concept": "doc:Foreignexchangetranslationadjustment_21",
+   "concept": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
    "dims": [],
-   "label": "Foreignexchangetranslationadjustment",
+   "label": "Business acquisitions, net of cash acquired",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash Flows From Investing Activities"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-965000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-206000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "doc:ProceedsFromSaleOfBusiness_22",
+   "dims": [],
+   "label": "Proceeds from sale of business",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -868,63 +908,23 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Investing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "-3550",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1241",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "-3482",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 22,
-   "concept": "us-gaap:NetIncomeLoss",
-   "dims": [],
-   "label": "Adjustmentforforeignexchangetranslation(gain)/lossincludedinnetincome",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "609",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "233000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
+     "period": "D2005-01-01:2005-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
@@ -933,39 +933,39 @@
   },
   {
    "order": 23,
-   "concept": "doc:PostretirementbenefitsreservesadjustmentExcludingamortizatio_23",
+   "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
    "dims": [],
-   "label": "Postretirementbenefitsreservesadjustment(excludingamortization)",
+   "label": "Net cash used in investing activities",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Investing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "557",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "-369",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-1698000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "3395",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-792000000",
      "decimals": -6,
      "unit": null
     }
@@ -973,9 +973,9 @@
   },
   {
    "order": 24,
-   "concept": "ifrs-full:FinanceCosts",
+   "concept": "doc:DerivativeContractsWithAFinancingElement_24",
    "dims": [],
-   "label": "Amortizationandsettlementofpostretirementbenefitsreservesadjustmentincludedinnet periodicbenefitcosts",
+   "label": "Derivative contracts with a financing element",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -985,27 +985,27 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "43",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "61",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "242000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "403",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "159000000",
      "decimals": -6,
      "unit": null
     }
@@ -1013,9 +1013,9 @@
   },
   {
    "order": 25,
-   "concept": "doc:TotalothercomprehensiveincomeLoss_25",
+   "concept": "doc:TaxBenefitFromTheIssuanceOfStockBasedAwards_25",
    "dims": [],
-   "label": "Totalothercomprehensiveincome(loss)",
+   "label": "Tax benefit from the issuance of stock-based awards",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1028,24 +1028,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "-2950",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1542",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "434000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "316",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "836000000",
      "decimals": -6,
      "unit": null
     }
@@ -1053,9 +1053,9 @@
   },
   {
    "order": 26,
-   "concept": "doc:ComprehensiveincomeLossIncludingnoncontrollinginterests_26",
+   "concept": "us-gaap:CommercialPaper",
    "dims": [],
-   "label": "Comprehensiveincome(loss)includingnoncontrollinginterests",
+   "label": "Issuance of short-term borrowings, net",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1063,29 +1063,29 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "32113",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "38896",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3381000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "57893",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "4819000000",
      "decimals": -6,
      "unit": null
     }
@@ -1093,9 +1093,9 @@
   },
   {
    "order": 27,
-   "concept": "doc:ComprehensiveincomeLossAttributabletononcontrollinginterests_27",
+   "concept": "doc:DepositLiabilitiesAtBanks_27",
    "dims": [],
-   "label": "Comprehensiveincome(loss)attributabletononcontrollinginterests",
+   "label": "Deposit liabilities at banks",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1108,24 +1108,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "1063",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1605",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "7068000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1659",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "6345000000",
      "decimals": -6,
      "unit": null
     }
@@ -1133,9 +1133,9 @@
   },
   {
    "order": 28,
-   "concept": "doc:ComprehensiveincomeLossAttributabletoexxonmobil_28",
+   "concept": "doc:IssuanceOfLongTermBorrowings_28",
    "dims": [],
-   "label": "Comprehensiveincome(loss)attributabletoExxonMobil",
+   "label": "Issuance of long-term borrowings",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1148,24 +1148,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Othercomprehensiveincome(loss)(netofincometaxes)"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
-     "value": "31050",
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "37291",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "86302000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "56234",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "48115000000",
      "decimals": -6,
      "unit": null
     }
@@ -1173,39 +1173,39 @@
   },
   {
    "order": 29,
-   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "concept": "doc:PrincipalPaymentsOfLongTermBorrowingsIncludingTheCurrentPort_29",
    "dims": [],
-   "label": "Cashandcashequivalents",
+   "label": "Principal payments of long-term borrowings, including the current portion of long term borrowings",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
+   "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentassets"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "23029",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-46255000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "31539",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-19636000000",
      "decimals": -6,
      "unit": null
     }
@@ -1213,9 +1213,9 @@
   },
   {
    "order": 30,
-   "concept": "doc:CashandcashequivalentsRestricted_30",
+   "concept": "doc:IssuanceOfCommonStock_30",
    "dims": [],
-   "label": "Cashandcashequivalents\u2013restricted",
+   "label": "Issuance of common stock",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1228,24 +1228,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentassets"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "158",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "84000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "29",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "119000000",
      "decimals": -6,
      "unit": null
     }
@@ -1253,9 +1253,9 @@
   },
   {
    "order": 31,
-   "concept": "doc:NotesandaccountsreceivableNet6_31",
+   "concept": "doc:IssuanceOfTreasuryStock_31",
    "dims": [],
-   "label": "Notesandaccountsreceivable\u2013net 6",
+   "label": "Issuance of treasury stock",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1268,24 +1268,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentassets"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "43681",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "359000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "38015",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "518000000",
      "decimals": -6,
      "unit": null
     }
@@ -1293,9 +1293,9 @@
   },
   {
    "order": 32,
-   "concept": "doc:CrudeoilProductsandmerchandise3_32",
+   "concept": "doc:PurchaseOfTreasuryStock_32",
    "dims": [],
-   "label": "Crudeoil,productsandmerchandise 3",
+   "label": "Purchase of treasury stock",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1308,24 +1308,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "19444",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-2605000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "20528",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-2678000000",
      "decimals": -6,
      "unit": null
     }
@@ -1333,9 +1333,9 @@
   },
   {
    "order": 33,
-   "concept": "doc:Materialsandsupplies_33",
+   "concept": "doc:RetirementOfPreferredStock_33",
    "dims": [],
-   "label": "Materialsandsupplies",
+   "label": "Retirement of preferred stock",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1348,24 +1348,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "4080",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "4592",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1373,39 +1373,39 @@
   },
   {
    "order": 34,
-   "concept": "us-gaap:OtherAssetsCurrent",
+   "concept": "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
    "dims": [],
-   "label": "Othercurrentassets",
+   "label": "Dividends paid",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "debit",
+   "period_type": "duration",
+   "balance": "credit",
    "is_monetary": true,
    "is_extension": false,
    "anchor": null,
    "section": [
-    "Inventories"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1598",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "-418000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1906",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-342000000",
      "decimals": -6,
      "unit": null
     }
@@ -1413,39 +1413,39 @@
   },
   {
    "order": 35,
-   "concept": "us-gaap:AssetsCurrent",
+   "concept": "doc:NetCashProvidedByFinancingActivities_35",
    "dims": [],
-   "label": "Totalcurrentassets",
+   "label": "Net cash provided by financing activities",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
+   "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "Cash Flows From Financing Activities"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "91990",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "48592000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "96609",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "38255000000",
      "decimals": -6,
      "unit": null
     }
@@ -1453,9 +1453,9 @@
   },
   {
    "order": 36,
-   "concept": "doc:InvestmentsAdvancesandlongTermreceivables8_36",
+   "concept": "doc:WeightedAverageCreditLossAssumption0524_36",
    "dims": [],
-   "label": "Investments,advancesandlong-termreceivables 8",
+   "label": "Weighted-average credit loss assumption 0.5% 2.4%",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1468,24 +1468,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "4/6/26, 7:56 AM"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "47200",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "47630",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1493,9 +1493,9 @@
   },
   {
    "order": 37,
-   "concept": "doc:PropertyPlantandequipmentAtcostLessaccumulateddepreciationan_37",
+   "concept": "doc:EffectOf10AdverseChange107_37",
    "dims": [],
-   "label": "Property,plantandequipment,atcost,lessaccumulateddepreciationanddepletion 9",
+   "label": "Effect of 10% adverse change 107",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1508,24 +1508,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "4/6/26, 7:56 AM"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "294318",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "70000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "214940",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "109000000",
      "decimals": -6,
      "unit": null
     }
@@ -1533,9 +1533,9 @@
   },
   {
    "order": 38,
-   "concept": "doc:OtherassetsIncludingintangiblesNet_38",
+   "concept": "doc:EffectOf20AdverseChange197_38",
    "dims": [],
-   "label": "Otherassets,includingintangibles\u2013net",
+   "label": "Effect of 20% adverse change 197",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1548,24 +1548,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "4/6/26, 7:56 AM"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "19967",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "131000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "17138",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "196000000",
      "decimals": -6,
      "unit": null
     }
@@ -1573,39 +1573,39 @@
   },
   {
    "order": 39,
-   "concept": "us-gaap:Assets",
+   "concept": "doc:EffectOf10AdverseChange245_39",
    "dims": [],
-   "label": "TotalAssets",
+   "label": "Effect of 10% adverse change 245",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
+   "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Inventories"
+    "Weighted-average discount rate 7.7% 19.4% 7.3% 7.2% 18.4% 5.8%"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "453475",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "124000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "376317",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "76000000",
      "decimals": -6,
      "unit": null
     }
@@ -1613,9 +1613,9 @@
   },
   {
    "order": 40,
-   "concept": "doc:Notesandloanspayable6_40",
+   "concept": "doc:EffectOf20AdverseChange489_40",
    "dims": [],
-   "label": "Notesandloanspayable 6",
+   "label": "Effect of 20% adverse change 489",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1628,24 +1628,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "Weighted-average discount rate 7.7% 19.4% 7.3% 7.2% 18.4% 5.8%"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "4955",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "232000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "4090",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "147000000",
      "decimals": -6,
      "unit": null
     }
@@ -1653,9 +1653,9 @@
   },
   {
    "order": 41,
-   "concept": "doc:Accountspayableandaccruedliabilities6_41",
+   "concept": "doc:TheAmountOfInvestmentGradeInterestsInSecuritizationsRelatedT_41",
    "dims": [],
-   "label": "Accountspayableandaccruedliabilities 6",
+   "label": "The amount of investment-grade interests in securitizations related to agency collateralized",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1668,24 +1668,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "Weighted-average discount rate 7.7% 19.4% 7.3% 7.2% 18.4% 5.8%"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "61297",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "58037",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1693,9 +1693,9 @@
   },
   {
    "order": 42,
-   "concept": "doc:Incometaxespayable_42",
+   "concept": "doc:AtNovember302007OtherInterestsInSecuritizationsIncludedAppro_42",
    "dims": [],
-   "label": "Incometaxespayable",
+   "label": "At November 30,2007, other interests in securitizations included approximately",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1708,24 +1708,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "November 30,2007 and 2006, respectively."
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "4055",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "3189",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1733,39 +1733,39 @@
   },
   {
    "order": 43,
-   "concept": "us-gaap:LiabilitiesCurrent",
+   "concept": "doc:OfNonInvestmentGradeCommercialMortgagesAndTheRemainderRelate_43",
    "dims": [],
-   "label": "Totalcurrentliabilities",
+   "label": "of non-investment grade commercial mortgages and the remainder relates to municipal",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
+   "period_type": "duration",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "November 30,2007 and 2006, respectively."
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "70307",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "65316",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1773,39 +1773,39 @@
   },
   {
    "order": 44,
-   "concept": "us-gaap:LongTermDebtNoncurrent",
+   "concept": "doc:InMillionsGradeGradeOthErGradeGradeOthEr898_44",
    "dims": [],
-   "label": "Long-termdebt 14",
+   "label": "In millions Grade Grade Oth er Grade Grade Oth er 898",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
+   "period_type": "duration",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "Invest ment Investment Invest ment Investment"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "36755",
+     "period": "D2006-01-01:2006-12-31",
+     "value": "664000000",
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "37483",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "216000000",
      "decimals": -6,
      "unit": null
     }
@@ -1813,12 +1813,12 @@
   },
   {
    "order": 45,
-   "concept": "doc:Postretirementbenefitsreserves17_45",
+   "concept": "doc:Row45_45",
    "dims": [],
-   "label": "Postretirementbenefitsreserves 17",
+   "label": "(total)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -1828,24 +1828,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "activities for the year ended November 30,2007 and 2006 are as follows"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "9700",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "10496",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1853,39 +1853,39 @@
   },
   {
    "order": 46,
-   "concept": "doc:Deferredincometaxliabilities19_46",
+   "concept": "doc:BalanceBeginningOfPeriod_46",
    "dims": [],
-   "label": "Deferredincometaxliabilities 19",
+   "label": "Balance, beginning of period",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
-   "preferred_label": null,
+   "preferred_label": "http://www.xbrl.org/2003/role/periodStartLabel",
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
+   "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "activities for the year ended November 30,2007 and 2006 are as follows"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "39042",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "24452",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -1893,9 +1893,9 @@
   },
   {
    "order": 47,
-   "concept": "doc:LongTermobligationstoequitycompanies_47",
+   "concept": "doc:AdditionsNet_47",
    "dims": [],
-   "label": "Long-termobligationstoequitycompanies",
+   "label": "Additions, net",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1908,24 +1908,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "activities for the year ended November 30,2007 and 2006 are as follows"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "1346",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "1804",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "368000000",
      "decimals": -6,
      "unit": null
     }
@@ -1933,9 +1933,9 @@
   },
   {
    "order": 48,
-   "concept": "doc:OtherlongTermobligations_48",
+   "concept": "doc:PaydownsServicingFees_48",
    "dims": [],
-   "label": "Otherlong-termobligations",
+   "label": "Paydowns/servicing fees",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1948,24 +1948,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "Changes in fair value"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "25719",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "24228",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "-209000000",
      "decimals": -6,
      "unit": null
     }
@@ -1973,39 +1973,39 @@
   },
   {
    "order": 49,
-   "concept": "us-gaap:Liabilities",
+   "concept": "doc:ResultingFromChangesInValuationAssumptions_49",
    "dims": [],
-   "label": "TotalLiabilities",
+   "label": "Resulting from changes in valuation assumptions",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
+   "period_type": "duration",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Currentliabilities"
+    "Changes in fair value"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "182869",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "163779",
+     "period": "D2005-01-01:2005-12-31",
+     "value": "195000000",
      "decimals": -6,
      "unit": null
     }
@@ -2013,9 +2013,9 @@
   },
   {
    "order": 50,
-   "concept": "doc:Commonstockwithoutparvalue9000Millionsharesauthorized8019Mil_50",
+   "concept": "doc:ChangeDueToSfas156Adoption_50",
    "dims": [],
-   "label": "Commonstockwithoutparvalue (9,000millionsharesauthorized,8,019millionsharesissued)",
+   "label": "Change due to SFAS 156 adoption",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -2028,24 +2028,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "EQUITY"
+    "Changes in fair value"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "46238",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "17781",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -2053,39 +2053,39 @@
   },
   {
    "order": 51,
-   "concept": "doc:Earningsreinvested_51",
+   "concept": "doc:BalanceEndOfPeriod_51",
    "dims": [],
-   "label": "Earningsreinvested",
+   "label": "Balance, end of period",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
-   "preferred_label": null,
+   "preferred_label": "http://www.xbrl.org/2003/role/periodEndLabel",
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
+   "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
    "section": [
-    "EQUITY"
+    "Changes in fair value"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "470903",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "453927",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -2093,9 +2093,9 @@
   },
   {
    "order": 52,
-   "concept": "doc:Accumulatedothercomprehensiveincome4_52",
+   "concept": "doc:TheFollowingTableShowsTheMainAssumptionsUsedToDetermineThe_52",
    "dims": [],
-   "label": "Accumulatedothercomprehensiveincome 4",
+   "label": "The following table shows the main assumptions used to determine the",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -2108,24 +2108,24 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "EQUITY"
+    "into hedging transactions."
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "-14619",
+     "period": "D2006-01-01:2006-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "-11989",
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -2133,12 +2133,12 @@
   },
   {
    "order": 53,
-   "concept": "doc:Commonstockheldintreasury3666Millionsharesin2024And4048Milli_53",
+   "concept": "doc:Row53_53",
    "dims": [],
-   "label": "Commonstockheldintreasury (3,666millionsharesin2024and4,048millionsharesin2023)",
+   "label": "(total)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -2148,192 +2148,191 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "EQUITY"
+    "sensitivity of our MSRs\u2019 fair value measurements to changes in these assumptions, and cash flows received on contractual servicing"
    ],
    "cells": [
     {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2007-01-01:2007-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "-238817",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "-254917",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 54,
-   "concept": "doc:Exxonmobilshareofequity_54",
-   "dims": [],
-   "label": "ExxonMobilshareofequity",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "EQUITY"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2006-01-01:2006-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "263705",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "204802",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 55,
-   "concept": "ifrs-full:NoncontrollingInterests",
-   "dims": [],
-   "label": "Noncontrollinginterests",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "EQUITY"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
+     "period": "D2005-01-01:2005-12-31",
      "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "6901",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "7736",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 56,
-   "concept": "ifrs-full:Equity",
-   "dims": [],
-   "label": "TotalEquity",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "EQUITY"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "270606",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "212538",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 57,
-   "concept": "doc:Totalliabilitiesandequity_57",
-   "dims": [],
-   "label": "TotalLiabilitiesandEquity",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "duration",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "EQUITY"
-   ],
-   "cells": [
-    {
-     "period": "D2024-01-01:2024-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2023-01-01:2023-12-31",
-     "value": "453475",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "D2022-01-01:2022-12-31",
-     "value": "376317",
      "decimals": -6,
      "unit": null
     }
    ]
   }
  ],
- "calc_children": {},
+ "calc_children": {
+  "doc:NetCashProvidedByFinancingActivities_35": [
+   [
+    "doc:DerivativeContractsWithAFinancingElement_24",
+    "1"
+   ],
+   [
+    "doc:TaxBenefitFromTheIssuanceOfStockBasedAwards_25",
+    "1"
+   ],
+   [
+    "us-gaap:CommercialPaper",
+    "1"
+   ],
+   [
+    "doc:DepositLiabilitiesAtBanks_27",
+    "1"
+   ],
+   [
+    "doc:IssuanceOfLongTermBorrowings_28",
+    "1"
+   ],
+   [
+    "doc:PrincipalPaymentsOfLongTermBorrowingsIncludingTheCurrentPort_29",
+    "1"
+   ],
+   [
+    "doc:IssuanceOfCommonStock_30",
+    "1"
+   ],
+   [
+    "doc:IssuanceOfTreasuryStock_31",
+    "1"
+   ],
+   [
+    "doc:PurchaseOfTreasuryStock_32",
+    "1"
+   ],
+   [
+    "doc:RetirementOfPreferredStock_33",
+    "1"
+   ],
+   [
+    "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
+    "1"
+   ]
+  ],
+  "doc:Row45_45": [
+   [
+    "doc:OfNonInvestmentGradeCommercialMortgagesAndTheRemainderRelate_43",
+    "1"
+   ],
+   [
+    "doc:InMillionsGradeGradeOthErGradeGradeOthEr898_44",
+    "1"
+   ]
+  ],
+  "doc:Row53_53": [
+   [
+    "doc:ChangeDueToSfas156Adoption_50",
+    "1"
+   ],
+   [
+    "doc:TheFollowingTableShowsTheMainAssumptionsUsedToDetermineThe_52",
+    "1"
+   ]
+  ],
+  "ifrs-full:CashFlowsFromUsedInInvestingActivities": [
+   [
+    "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+    "1"
+   ],
+   [
+    "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
+    "1"
+   ],
+   [
+    "doc:ProceedsFromSaleOfBusiness_22",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
+   [
+    "us-gaap:NetIncomeLoss",
+    "1"
+   ],
+   [
+    "us-gaap:DepreciationDepletionAndAmortization",
+    "1"
+   ],
+   [
+    "ifrs-full:OtherAdjustmentsForNoncashItems",
+    "1"
+   ],
+   [
+    "doc:CumulativeEffectOfAccountingChange_3",
+    "1"
+   ],
+   [
+    "doc:DeferredTaxProvisionBenefit_4",
+    "1"
+   ],
+   [
+    "doc:TaxBenefitFromTheIssuanceOfStockBasedAwards_5",
+    "1"
+   ],
+   [
+    "doc:OtherAdjustments_6",
+    "1"
+   ],
+   [
+    "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
+    "1"
+   ],
+   [
+    "ifrs-full:OtherCurrentFinancialAssets",
+    "1"
+   ],
+   [
+    "doc:ResaleAgreementsNetOfRepurchaseAgreements_9",
+    "1"
+   ],
+   [
+    "doc:SecuritiesBorrowedNetOfSecuritiesLoaned_10",
+    "1"
+   ],
+   [
+    "us-gaap:OtherLiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "ifrs-full:TradeAndOtherCurrentReceivables",
+    "1"
+   ],
+   [
+    "doc:ReceivablesFromCustomers_13",
+    "1"
+   ],
+   [
+    "ifrs-full:OtherCurrentFinancialAssets",
+    "1"
+   ],
+   [
+    "ifrs-full:TradeAndOtherCurrentPayables",
+    "1"
+   ],
+   [
+    "doc:PayablesToCustomers_16",
+    "1"
+   ],
+   [
+    "doc:AccruedLiabilitiesAndOtherPayables_17",
+    "1"
+   ],
+   [
+    "us-gaap:IncreaseDecreaseInOtherOperatingAssets",
+    "1"
+   ]
+  ]
+ },
  "notes": [
-  "columns assume 31 Dec fiscal years: [2024, 2023, 2022]"
+  "columns assume 31 Dec fiscal years: [2007, 2006, 2005]"
  ]
 }

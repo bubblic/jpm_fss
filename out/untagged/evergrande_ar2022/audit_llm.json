@@ -1,4 +1,200 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 40,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Investments in subsidiaries",
+   "chosen": "ck0001639920:LongTermInvestments1"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other receivables",
+   "chosen": "ifrs-full:TradeAndOtherCurrentReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Share capital and premium",
+   "chosen": "ifrs-full:IssuedCapital"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accumulated losses",
+   "chosen": "us-gaap:RetainedEarningsAccumulatedDeficit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deficiency in equity",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Borrowings",
+   "chosen": "ifrs-full:LongtermBorrowings"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Borrowings",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Dividend payables",
+   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Segment assets",
+   "chosen": "ifrs-full:Assets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Unallocated assets",
+   "chosen": "ifrs-full:OtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest in associates",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Segment liabilities",
+   "chosen": "us-gaap:Liabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Unallocated liabilities",
+   "chosen": "ifrs-full:Liabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Capital expenditure",
+   "chosen": null
+  },
+  {
+   "kind": "select_pages",
+   "query": "cash flow",
+   "pages": [
+    52,
+    53,
+    146,
+    147
+   ]
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash generated from operations 35",
+   "chosen": "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in operating activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Acquisition of subsidiaries, net of cash acquired",
+   "chosen": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of property, plant and equipment and investment pr",
+   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of property, plant and equipment, lan",
+   "chosen": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of investment properties",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of land use rights",
+   "chosen": "ifrs-full:RightofuseAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of intangible assets",
+   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Investments in associates and joint ventures",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of joint ventures and associates",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash received from disposal of subsidiaries",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of financial assets at fair value through profit or",
+   "chosen": "ifrs-full:OtherNoncurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of financial assets at fair value thr",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repayment of borrowings",
+   "chosen": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repurchase of shares",
+   "chosen": "us-gaap:PaymentsForRepurchaseOfCommonStock"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Issue of ordinary shares under a share option scheme",
+   "chosen": "ck0001639920:IssuanceOfSharesUponNetSettlementOfWarrants"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Acquisition of a non-controlling interest in a subsidiary",
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Capital injection from non-controlling interest",
+   "chosen": "ifrs-full:NoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash advances from associates",
+   "chosen": "ifrs-full:CashFlowsFromUsedInFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash advances from joint ventures",
+   "chosen": "ifrs-full:CashFlowsFromUsedInFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash advances from non-controlling interests",
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repayment of non-controlling interest amounts",
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Principal of the lease payment",
+   "chosen": "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities"
+  }
+ ]
 }

@@ -114,7 +114,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:LeaseAssets_3",
+   "concept": "ifrs-full:RightofuseAssets",
    "dims": [],
    "label": "Lease assets",
    "depth": 1,
@@ -126,7 +126,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:FinancialServicesReceivables_4",
+   "concept": "ifrs-full:OtherCurrentFinancialAssets",
    "dims": [],
    "label": "Financial services receivables",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -168,13 +168,13 @@
    "cells": [
     {
      "period": "I2024-12-31",
-     "value": null,
+     "value": "101087000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2023-12-31",
-     "value": null,
+     "value": "94474000000",
      "decimals": -6,
      "unit": null
     }
@@ -318,7 +318,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:OtherReceivablesAndFinancialAssets_9",
+   "concept": "ifrs-full:OtherCurrentFinancialAssets",
    "dims": [],
    "label": "Other receivables and financial assets",
    "depth": 1,
@@ -330,7 +330,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investments, equity-accounted investments"
@@ -488,7 +488,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:Equity_14",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Equity",
    "depth": 1,
@@ -500,7 +500,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"
@@ -522,7 +522,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:EquityAttributableToVolkswagenAgShareholders_15",
+   "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
    "dims": [],
    "label": "Equity attributable to Volkswagen AG shareholders",
    "depth": 1,
@@ -534,7 +534,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:EquityAttributableToVolkswagenAgHybridCapitalInvestors_16",
+   "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
    "dims": [],
    "label": "Equity attributable to Volkswagen AG hybrid capital investors",
    "depth": 1,
@@ -568,7 +568,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"
@@ -590,7 +590,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:EquityAttributableToVolkswagenAgShareholdersAndHybridCapital_17",
+   "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
    "dims": [],
    "label": "Equity attributable to Volkswagen AG shareholders and hybrid capital investors",
    "depth": 1,
@@ -602,7 +602,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"
@@ -760,7 +760,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:OtherLiabilities_22",
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
    "dims": [],
    "label": "Other liabilities",
    "depth": 1,
@@ -772,7 +772,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:TradePayables_25",
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
    "dims": [],
    "label": "Trade payables",
    "depth": 1,
@@ -874,7 +874,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"
@@ -896,7 +896,7 @@
   },
   {
    "order": 26,
-   "concept": "doc:OtherLiabilities_26",
+   "concept": "us-gaap:OtherLiabilitiesNoncurrent",
    "dims": [],
    "label": "Other liabilities",
    "depth": 1,
@@ -908,7 +908,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity and liabilities"

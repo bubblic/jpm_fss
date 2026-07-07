@@ -46,7 +46,7 @@
   },
   {
    "order": 1,
-   "concept": "doc:MarketableDebtSecuritiesNote4_1",
+   "concept": "us-gaap:MarketableSecuritiesCurrent",
    "dims": [],
    "label": "Marketable debt securities (Note 4)",
    "depth": 1,
@@ -58,7 +58,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current Assets"
@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:AccountsAndNotesReceivableNetOfAllowanceOf298And260_2",
+   "concept": "us-gaap:AccountsReceivableNetCurrent",
    "dims": [],
    "label": "Accounts and notes receivable, net of allowance of $298 and $260",
    "depth": 1,
@@ -92,7 +92,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current Assets"
@@ -114,7 +114,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:GmFinancialReceivablesNetOfAllowanceOf906And869Note5Note11At_3",
+   "concept": "us-gaap:AccountsReceivableNetCurrent",
    "dims": [],
    "label": "GM Financial receivables, net of allowance of $906 and $869 (Note 5; Note 11 at VIEs)",
    "depth": 1,
@@ -126,7 +126,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current Assets"
@@ -318,7 +318,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:PropertyNetNote9_9",
+   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
    "dims": [],
    "label": "Property, net (Note 9)",
    "depth": 1,
@@ -330,7 +330,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current Assets"
@@ -386,7 +386,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:EquipmentOnOperatingLeasesNetNote7Note11AtVies_11",
+   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
    "dims": [],
    "label": "Equipment on operating leases, net (Note 7; Note 11 at VIEs)",
    "depth": 1,
@@ -398,7 +398,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current Assets"
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:AccountsPayablePrincipallyTrade_16",
+   "concept": "us-gaap:AccountsPayableCurrent",
    "dims": [],
    "label": "Accounts payable (principally trade)",
    "depth": 1,
@@ -568,7 +568,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current Liabilities"
@@ -624,7 +624,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:GmFinancialNote11AtVies_18",
+   "concept": "ifrs-full:CurrentFinancialLiabilities",
    "dims": [],
    "label": "GM Financial (Note 11 at VIEs)",
    "depth": 1,
@@ -634,9 +634,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Short-term debt and current portion of long-term debt (Note 13)"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:OtherLiabilitiesNote12_25",
+   "concept": "us-gaap:OtherLiabilitiesNoncurrent",
    "dims": [],
    "label": "Other liabilities (Note 12)",
    "depth": 1,
@@ -874,7 +874,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Long-term debt (Note 13)"
@@ -964,7 +964,7 @@
   },
   {
    "order": 28,
-   "concept": "doc:NoncontrollingInterestCruiseStockIncentiveAwardsNote20_28",
+   "concept": "ifrs-full:NoncontrollingInterests",
    "dims": [],
    "label": "Noncontrolling interest - Cruise stock incentive awards (Note 20)",
    "depth": 1,
@@ -974,9 +974,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Commitments and contingencies (Note 16)"
@@ -998,7 +998,7 @@
   },
   {
    "order": 29,
-   "concept": "doc:CommonStock001ParValue_29",
+   "concept": "us-gaap:CommonStockSharesIssued",
    "dims": [],
    "label": "Common stock, $0.01 par value",
    "depth": 1,
@@ -1008,9 +1008,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity (Note 20)"
@@ -1032,7 +1032,7 @@
   },
   {
    "order": 30,
-   "concept": "doc:AdditionalPaidInCapital_30",
+   "concept": "ifrs-full:AdditionalPaidinCapital",
    "dims": [],
    "label": "Additional paid-in capital",
    "depth": 1,
@@ -1044,7 +1044,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity (Note 20)"
@@ -1236,7 +1236,7 @@
   },
   {
    "order": 36,
-   "concept": "doc:TotalLiabilitiesAndEquity_36",
+   "concept": "ifrs-full:EquityAndLiabilities",
    "dims": [],
    "label": "Total Liabilities and Equity",
    "depth": 1,
@@ -1248,7 +1248,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Equity (Note 20)"
@@ -1270,20 +1270,6 @@
   }
  ],
  "calc_children": {
-  "doc:TotalLiabilitiesAndEquity_36": [
-   [
-    "us-gaap:Liabilities",
-    "1"
-   ],
-   [
-    "doc:NoncontrollingInterestCruiseStockIncentiveAwardsNote20_28",
-    "1"
-   ],
-   [
-    "ifrs-full:Equity",
-    "1"
-   ]
-  ],
   "ifrs-full:Equity": [
    [
     "us-gaap:StockholdersEquity",
@@ -1291,6 +1277,20 @@
    ],
    [
     "ifrs-full:NoncontrollingInterests",
+    "1"
+   ]
+  ],
+  "ifrs-full:EquityAndLiabilities": [
+   [
+    "us-gaap:Liabilities",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncontrollingInterests",
+    "1"
+   ],
+   [
+    "ifrs-full:Equity",
     "1"
    ]
   ],
@@ -1310,15 +1310,15 @@
     "1"
    ],
    [
-    "doc:MarketableDebtSecuritiesNote4_1",
+    "us-gaap:MarketableSecuritiesCurrent",
     "1"
    ],
    [
-    "doc:AccountsAndNotesReceivableNetOfAllowanceOf298And260_2",
+    "us-gaap:AccountsReceivableNetCurrent",
     "1"
    ],
    [
-    "doc:GmFinancialReceivablesNetOfAllowanceOf906And869Note5Note11At_3",
+    "us-gaap:AccountsReceivableNetCurrent",
     "1"
    ],
    [
@@ -1340,7 +1340,7 @@
     "1"
    ],
    [
-    "doc:PropertyNetNote9_9",
+    "us-gaap:PropertyPlantAndEquipmentNet",
     "1"
    ],
    [
@@ -1348,7 +1348,7 @@
     "1"
    ],
    [
-    "doc:EquipmentOnOperatingLeasesNetNote7Note11AtVies_11",
+    "us-gaap:PropertyPlantAndEquipmentNet",
     "1"
    ],
    [
@@ -1372,7 +1372,7 @@
   ],
   "us-gaap:LiabilitiesCurrent": [
    [
-    "doc:AccountsPayablePrincipallyTrade_16",
+    "us-gaap:AccountsPayableCurrent",
     "1"
    ],
    [
@@ -1380,7 +1380,7 @@
     "1"
    ],
    [
-    "doc:GmFinancialNote11AtVies_18",
+    "ifrs-full:CurrentFinancialLiabilities",
     "1"
    ],
    [
@@ -1406,17 +1406,17 @@
     "1"
    ],
    [
-    "doc:OtherLiabilitiesNote12_25",
+    "us-gaap:OtherLiabilitiesNoncurrent",
     "1"
    ]
   ],
   "us-gaap:StockholdersEquity": [
    [
-    "doc:CommonStock001ParValue_29",
+    "us-gaap:CommonStockSharesIssued",
     "1"
    ],
    [
-    "doc:AdditionalPaidInCapital_30",
+    "ifrs-full:AdditionalPaidinCapital",
     "1"
    ],
    [

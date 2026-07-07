@@ -13,7 +13,7 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:NetIncomeBeforeNoncontrollingInterests_0",
+   "concept": "us-gaap:NetIncomeLoss",
    "dims": [],
    "label": "Net income before noncontrolling interests",
    "depth": 1,
@@ -23,9 +23,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -93,7 +93,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:ChangesInFairValuesOfEquityWarrantAssetsNetOfProceedsFromExe_2",
+   "concept": "ifrs-full:ProceedsFromExerciseOfOptions",
    "dims": [],
    "label": "Changes in fair values of equity warrant assets, net of proceeds from exercises",
    "depth": 1,
@@ -105,7 +105,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -173,7 +173,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:GainsLossesOnInvestmentSecuritiesNet_4",
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
    "label": "(Gains) losses on investment securities, net",
    "depth": 1,
@@ -183,9 +183,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -293,7 +293,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:AmortizationOfPremiumsAndDiscountsOnInvestmentSecuritiesNet_7",
+   "concept": "us-gaap:DepreciationDepletionAndAmortization",
    "dims": [],
    "label": "Amortization of premiums and discounts on investment securities, net",
    "depth": 1,
@@ -305,7 +305,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -333,7 +333,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:AmortizationOfShareBasedCompensation_8",
+   "concept": "ifrs-full:AdjustmentsForSharebasedPayments",
    "dims": [],
    "label": "Amortization of share-based compensation",
    "depth": 1,
@@ -345,7 +345,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -373,7 +373,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:AmortizationOfDeferredLoanFees_9",
+   "concept": "ifrs-full:AdjustmentsForAmortisationExpense",
    "dims": [],
    "label": "Amortization of deferred loan fees",
    "depth": 1,
@@ -385,7 +385,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -453,7 +453,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:ExcessTaxBenefitFromExerciseOfStockOptionsAndVestingOfRestri_11",
+   "concept": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
    "dims": [],
    "label": "Excess tax benefit from exercise of stock options and vesting of restricted shares",
    "depth": 1,
@@ -463,9 +463,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -493,7 +493,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:LossesFromTheWriteOffOfPremisesAndEquipmentAndRightOfUseAsse_12",
+   "concept": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
    "dims": [],
    "label": "Losses from the write-off of premises and equipment and right-of-use assets",
    "depth": 1,
@@ -505,7 +505,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments to reconcile net income to net cash provided by operating activities"
@@ -613,7 +613,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:IncomeTaxReceivableAndPayableNet_15",
+   "concept": "ifrs-full:CurrentTaxAssetsCurrent",
    "dims": [],
    "label": "Income tax receivable and payable, net",
    "depth": 1,
@@ -625,7 +625,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Changes in other assets and liabilities"
@@ -773,7 +773,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:NetCashProvidedByOperatingActivities_19",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
    "dims": [],
    "label": "Net cash provided by operating activities",
    "depth": 1,
@@ -783,9 +783,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Changes in other assets and liabilities"
@@ -813,7 +813,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:PurchasesOfAfsSecurities_20",
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
    "dims": [],
    "label": "Purchases of AFS securities",
    "depth": 1,
@@ -823,9 +823,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -853,7 +853,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:ProceedsFromSalesOfAfsSecurities_21",
+   "concept": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt",
    "dims": [],
    "label": "Proceeds from sales of AFS securities",
    "depth": 1,
@@ -865,7 +865,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -893,7 +893,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:ProceedsFromMaturitiesAndPaydownsOfAfsSecurities_22",
+   "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
    "dims": [],
    "label": "Proceeds from maturities and paydowns of AFS securities",
    "depth": 1,
@@ -905,7 +905,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -933,7 +933,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:PurchasesOfHtmSecurities_23",
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
    "dims": [],
    "label": "Purchases of HTM securities",
    "depth": 1,
@@ -943,9 +943,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -973,7 +973,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:ProceedsFromMaturitiesAndPaydownsOfHtmSecurities_24",
+   "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
    "dims": [],
    "label": "Proceeds from maturities and paydowns of HTM securities",
    "depth": 1,
@@ -985,7 +985,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -1013,7 +1013,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:PurchasesOfNonMarketableAndOtherEquitySecurities_25",
+   "concept": "us-gaap:LongTermInvestments",
    "dims": [],
    "label": "Purchases of non-marketable and other equity securities",
    "depth": 1,
@@ -1025,7 +1025,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -1053,7 +1053,7 @@
   },
   {
    "order": 26,
-   "concept": "doc:ProceedsFromSalesAndDistributionsOfCapitalOfNonMarketableAnd_26",
+   "concept": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities",
    "dims": [],
    "label": "Proceeds from sales and distributions of capital of non-marketable and other equity securities",
    "depth": 1,
@@ -1065,7 +1065,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -1933,111 +1933,33 @@
   }
  ],
  "calc_children": {
-  "doc:NetCashProvidedByOperatingActivities_19": [
-   [
-    "doc:NetIncomeBeforeNoncontrollingInterests_0",
-    "1"
-   ],
-   [
-    "doc:ProvisionForCreditLosses_1",
-    "1"
-   ],
-   [
-    "doc:ChangesInFairValuesOfEquityWarrantAssetsNetOfProceedsFromExe_2",
-    "1"
-   ],
-   [
-    "doc:ChangesInFairValuesOfDerivativesNet_3",
-    "1"
-   ],
-   [
-    "doc:GainsLossesOnInvestmentSecuritiesNet_4",
-    "1"
-   ],
-   [
-    "doc:DistributionsOfEarningsFromNonMarketableAndOtherEquitySecuri_5",
-    "1"
-   ],
-   [
-    "us-gaap:DepreciationDepletionAndAmortization",
-    "1"
-   ],
-   [
-    "doc:AmortizationOfPremiumsAndDiscountsOnInvestmentSecuritiesNet_7",
-    "1"
-   ],
-   [
-    "doc:AmortizationOfShareBasedCompensation_8",
-    "1"
-   ],
-   [
-    "doc:AmortizationOfDeferredLoanFees_9",
-    "1"
-   ],
-   [
-    "doc:DeferredIncomeTaxBenefitExpense_10",
-    "1"
-   ],
-   [
-    "doc:ExcessTaxBenefitFromExerciseOfStockOptionsAndVestingOfRestri_11",
-    "1"
-   ],
-   [
-    "doc:LossesFromTheWriteOffOfPremisesAndEquipmentAndRightOfUseAsse_12",
-    "1"
-   ],
-   [
-    "doc:AccruedInterestReceivableAndPayableNet_13",
-    "1"
-   ],
-   [
-    "doc:AccountsReceivableAndPayableNet_14",
-    "1"
-   ],
-   [
-    "doc:IncomeTaxReceivableAndPayableNet_15",
-    "1"
-   ],
-   [
-    "us-gaap:EmployeeRelatedLiabilitiesCurrent",
-    "1"
-   ],
-   [
-    "doc:ProceedsFromTerminationOfInterestRateSwaps_17",
-    "1"
-   ],
-   [
-    "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
-    "1"
-   ]
-  ],
   "doc:NetCashUsedForInvestingActivities_30": [
    [
-    "doc:PurchasesOfAfsSecurities_20",
+    "us-gaap:PaymentsToAcquireInvestments",
     "1"
    ],
    [
-    "doc:ProceedsFromSalesOfAfsSecurities_21",
+    "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt",
     "1"
    ],
    [
-    "doc:ProceedsFromMaturitiesAndPaydownsOfAfsSecurities_22",
+    "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
     "1"
    ],
    [
-    "doc:PurchasesOfHtmSecurities_23",
+    "us-gaap:PaymentsToAcquireInvestments",
     "1"
    ],
    [
-    "doc:ProceedsFromMaturitiesAndPaydownsOfHtmSecurities_24",
+    "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
     "1"
    ],
    [
-    "doc:PurchasesOfNonMarketableAndOtherEquitySecurities_25",
+    "us-gaap:LongTermInvestments",
     "1"
    ],
    [
-    "doc:ProceedsFromSalesAndDistributionsOfCapitalOfNonMarketableAnd_26",
+    "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities",
     "1"
    ],
    [
@@ -2050,6 +1972,84 @@
    ],
    [
     "doc:BusinessAcquisitionsNet_29",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
+   [
+    "us-gaap:NetIncomeLoss",
+    "1"
+   ],
+   [
+    "doc:ProvisionForCreditLosses_1",
+    "1"
+   ],
+   [
+    "ifrs-full:ProceedsFromExerciseOfOptions",
+    "1"
+   ],
+   [
+    "doc:ChangesInFairValuesOfDerivativesNet_3",
+    "1"
+   ],
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+    "1"
+   ],
+   [
+    "doc:DistributionsOfEarningsFromNonMarketableAndOtherEquitySecuri_5",
+    "1"
+   ],
+   [
+    "us-gaap:DepreciationDepletionAndAmortization",
+    "1"
+   ],
+   [
+    "us-gaap:DepreciationDepletionAndAmortization",
+    "1"
+   ],
+   [
+    "ifrs-full:AdjustmentsForSharebasedPayments",
+    "1"
+   ],
+   [
+    "ifrs-full:AdjustmentsForAmortisationExpense",
+    "1"
+   ],
+   [
+    "doc:DeferredIncomeTaxBenefitExpense_10",
+    "1"
+   ],
+   [
+    "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
+    "1"
+   ],
+   [
+    "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
+    "1"
+   ],
+   [
+    "doc:AccruedInterestReceivableAndPayableNet_13",
+    "1"
+   ],
+   [
+    "doc:AccountsReceivableAndPayableNet_14",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentTaxAssetsCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:EmployeeRelatedLiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "doc:ProceedsFromTerminationOfInterestRateSwaps_17",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
     "1"
    ]
   ]

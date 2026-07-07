@@ -1,7 +1,7 @@
 {
  "document": "svb_ar2022",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\svb\\ar2022.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
@@ -22,8 +22,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 8,
-    "llm": 0,
-    "unmapped": 18
+    "llm": 8,
+    "unmapped": 10
    }
   },
   "income_statement": {
@@ -42,8 +42,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 3,
-    "llm": 0,
-    "unmapped": 38
+    "llm": 8,
+    "unmapped": 30
    }
   },
   "cash_flow": {
@@ -65,8 +65,8 @@
    },
    "mapping": {
     "lexical": 4,
-    "llm": 0,
-    "unmapped": 44
+    "llm": 17,
+    "unmapped": 27
    }
   }
  },
@@ -74,5 +74,5 @@
   "status": "skipped",
   "reason": "balance_sheet footing unverified; cash_flow footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 56
 }

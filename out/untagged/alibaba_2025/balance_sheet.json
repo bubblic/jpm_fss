@@ -1,20 +1,20 @@
 {
- "company": "bbby_ar2022",
+ "company": "alibaba_2025",
  "standard": "untagged",
  "statement": "balance_sheet",
- "linkrole": "document:bbby_ar2022:balance_sheet",
+ "linkrole": "document:alibaba_2025:balance_sheet",
  "role_definition": "balance_sheet (untagged extraction)",
  "currency": "",
  "columns": [
-  "I2023-12-31",
+  "I2021-12-31",
   "I2022-12-31"
  ],
  "rows": [
   {
    "order": 0,
-   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "concept": "doc:Row0_0",
    "dims": [],
-   "label": "Cash and cash equivalents",
+   "label": "\u6536\u5165",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -24,21 +24,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "65853000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "439496000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -46,9 +46,9 @@
   },
   {
    "order": 1,
-   "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+   "concept": "doc:Row1_1",
    "dims": [],
-   "label": "Restricted cash",
+   "label": "\u7d93\u71df\u5229\u6f64",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -58,15 +58,15 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "66242000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
@@ -80,43 +80,9 @@
   },
   {
    "order": 2,
-   "concept": "us-gaap:InventoryNet",
+   "concept": "doc:Row2_2",
    "dims": [],
-   "label": "Merchandise inventories",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "debit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current assets"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "817553000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "1725410000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 3,
-   "concept": "doc:PrepaidExpensesAndOtherCurrentAssets_3",
-   "dims": [],
-   "label": "Prepaid expenses and other current assets",
+   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -129,18 +95,52 @@
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "147261000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "198248000",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:Row3_3",
+   "dims": [],
+   "label": "\u6de8\u5229\u6f64",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -148,33 +148,33 @@
   },
   {
    "order": 4,
-   "concept": "us-gaap:AssetsCurrent",
+   "concept": "doc:Row4_4",
    "dims": [],
-   "label": "Total current assets",
+   "label": "\u6d41\u52d5\u8cc7\u7522",
    "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
+   "kind": "leaf",
+   "derivation": "",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "1096909000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "2363154000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -182,9 +182,9 @@
   },
   {
    "order": 5,
-   "concept": "us-gaap:OtherAssetsNoncurrent",
+   "concept": "doc:Row5_5",
    "dims": [],
-   "label": "Long-term restricted cash",
+   "label": "\u8cc7\u7522\u7e3d\u984d",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -194,21 +194,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "15262000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "31388000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -216,9 +216,9 @@
   },
   {
    "order": 6,
-   "concept": "us-gaap:LongTermInvestments",
+   "concept": "doc:Row6_6",
    "dims": [],
-   "label": "Long-term investment securities",
+   "label": "\u6d41\u52d5\u8ca0\u50b5",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -228,21 +228,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
+     "period": "I2021-12-31",
      "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "19212000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -250,9 +250,9 @@
   },
   {
    "order": 7,
-   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+   "concept": "doc:Row7_7",
    "dims": [],
-   "label": "Property and equipment, net",
+   "label": "\u8ca0\u50b5\u7e3d\u984d",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -262,21 +262,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "50143000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "1027387000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -284,9 +284,9 @@
   },
   {
    "order": 8,
-   "concept": "us-gaap:OperatingLeaseRightOfUseAsset",
+   "concept": "doc:Row8_8",
    "dims": [],
-   "label": "Operating lease assets",
+   "label": "\u80a1\u6771\u6b0a\u76ca",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -296,21 +296,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "965882000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "1562857000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -318,9 +318,9 @@
   },
   {
    "order": 9,
-   "concept": "us-gaap:OtherAssetsCurrent",
+   "concept": "doc:Row9_9",
    "dims": [],
-   "label": "Other assets",
+   "label": "\u6b0a\u76ca\u7e3d\u984d",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -330,21 +330,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "97021000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "126574000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -352,9 +352,9 @@
   },
   {
    "order": 10,
-   "concept": "us-gaap:Assets",
+   "concept": "doc:Row10_10",
    "dims": [],
-   "label": "Total assets",
+   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u6536\u76ca\uff08\u640d\u5931\uff09\uff1a \uff0d\u879e\u87fb\u96c6\u5718",
    "depth": 1,
    "kind": "derived",
    "derivation": "calc",
@@ -364,21 +364,21 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current assets"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "2225217000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "5130572000",
+     "value": null,
      "decimals": -6,
      "unit": null
     }
@@ -386,27 +386,27 @@
   },
   {
    "order": 11,
-   "concept": "us-gaap:LongTermDebtCurrent",
+   "concept": "doc:Row11_11",
    "dims": [],
-   "label": "Current portion of long-term debt",
+   "label": "\uff0d\u5176\u4ed6",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current liabilities"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "646005000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
@@ -420,163 +420,27 @@
   },
   {
    "order": 12,
-   "concept": "us-gaap:AccountsPayableCurrent",
+   "concept": "doc:Row12_12",
    "dims": [],
-   "label": "Accounts payable",
+   "label": "\u6e1b\u503c\u640d\u5931",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "457924000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "872445000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 13,
-   "concept": "doc:AccruedExpensesAndOtherCurrentLiabilities_13",
-   "dims": [],
-   "label": "Accrued expenses and other current liabilities",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
    "is_extension": true,
    "anchor": null,
    "section": [
-    "Current liabilities"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "244432000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "529371000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 14,
-   "concept": "ifrs-full:EquityAndLiabilities",
-   "dims": [],
-   "label": "Merchandise credit and gift card liabilities",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "272277000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "326465000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 15,
-   "concept": "us-gaap:LiabilitiesCurrent",
-   "dims": [],
-   "label": "Current operating lease liabilities",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "301194000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "346506000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 16,
-   "concept": "us-gaap:LiabilitiesCurrent",
-   "dims": [],
-   "label": "Preferred stock warrant liabilities",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "404441000",
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
@@ -589,10 +453,44 @@
    ]
   },
   {
-   "order": 17,
-   "concept": "ifrs-full:CurrentDerivativeFinancialLiabilities",
+   "order": 13,
+   "concept": "doc:1_13",
    "dims": [],
-   "label": "Derivative liabilities",
+   "label": "\u5176\u4ed6(1)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:Row14_14",
+   "dims": [],
+   "label": "\u7e3d\u8a08",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -600,17 +498,119 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Current liabilities"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "169611000",
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:Row15_15",
+   "dims": [],
+   "label": "\u4f86\u81ea\u7b2c\u4e09\u65b9\u7684\u6536\u5165",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "833583",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:Row16_16",
+   "dims": [],
+   "label": "\u4f86\u81ea\u96c6\u5718\u516c\u53f8\u7684\u6536\u5165",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "17515",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:Row17_17",
+   "dims": [],
+   "label": "\u6210\u672c\u53ca\u8cbb\u7528\u7e3d\u984d",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
      "decimals": -6,
      "unit": null
     },
@@ -624,383 +624,9 @@
   },
   {
    "order": 18,
-   "concept": "us-gaap:LiabilitiesCurrent",
+   "concept": "doc:Vie_18",
    "dims": [],
-   "label": "Total current liabilities",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "2495884000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "2074787000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 19,
-   "concept": "us-gaap:OtherLiabilitiesCurrent",
-   "dims": [],
-   "label": "Other liabilities",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "131500000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "102438000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 20,
-   "concept": "us-gaap:OperatingLeaseLiabilityNoncurrent",
-   "dims": [],
-   "label": "Operating lease liabilities",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "1278467000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "1508002000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 21,
-   "concept": "us-gaap:AccruedIncomeTaxesCurrent",
-   "dims": [],
-   "label": "Income taxes payable",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "93241000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "91424000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 22,
-   "concept": "us-gaap:LongTermDebtNoncurrent",
-   "dims": [],
-   "label": "Long-term debt",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "1026133000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "1179776000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 23,
-   "concept": "us-gaap:Liabilities",
-   "dims": [],
-   "label": "Total liabilities",
-   "depth": 1,
-   "kind": "derived",
-   "derivation": "calc",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Current liabilities"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "5025225000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "4956427000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 24,
-   "concept": "doc:ConvertiblePreferredStockSeriesA0001ParValueAuthorized100000_24",
-   "dims": [],
-   "label": "Convertible Preferred Stock, Series A, $0.001 par value, authorized - 1,000,000 shares authorized; issued 23,685 shares and outstanding 15,142 shares",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Mezzanine equity"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 25,
-   "concept": "doc:PreferredStock001ParValueAuthorized1000SharesNoSharesIssuedO_25",
-   "dims": [],
-   "label": "Preferred stock - $0.01 par value; authorized - 1,000 shares; no shares issued or outstanding",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": true,
-   "anchor": null,
-   "section": [
-    "Shareholders' (deficit) equity"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": null,
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 26,
-   "concept": "us-gaap:CommonStockSharesIssued",
-   "dims": [],
-   "label": "Common stock - $0.01 par value; authorized - 900,000 shares; issued 382,353 and 344,146, respectively; outstanding 259,033 and 81,979 shares, respectively",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Shareholders' (deficit) equity"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "3823000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "3441000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 27,
-   "concept": "ifrs-full:AdditionalPaidinCapital",
-   "dims": [],
-   "label": "Additional paid-in capital",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Shareholders' (deficit) equity"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "2428439000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "2235894000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 28,
-   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
-   "dims": [],
-   "label": "Retained earnings",
-   "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
-   "preferred_label": null,
-   "negated": false,
-   "displayed_sign": 1,
-   "period_type": "instant",
-   "balance": "credit",
-   "is_monetary": true,
-   "is_extension": false,
-   "anchor": null,
-   "section": [
-    "Shareholders' (deficit) equity"
-   ],
-   "cells": [
-    {
-     "period": "I2023-12-31",
-     "value": "225058000",
-     "decimals": -6,
-     "unit": null
-    },
-    {
-     "period": "I2022-12-31",
-     "value": "9666091000",
-     "decimals": -6,
-     "unit": null
-    }
-   ]
-  },
-  {
-   "order": 29,
-   "concept": "ifrs-full:TreasuryShares",
-   "dims": [],
-   "label": "Treasury stock, at cost; 123,320 and 262,167 shares, respectively",
+   "label": "\u4f86\u81ea\u5b50\u516c\u53f8\u4ee5\u53caVIE\u5be6\u9ad4\u7684\u5229\u6f64",
    "depth": 1,
    "kind": "leaf",
    "derivation": "",
@@ -1010,21 +636,293 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": false,
+   "is_extension": true,
    "anchor": null,
    "section": [
-    "Shareholders' (deficit) equity"
+    "\uff08\u767e\u842c\u5143\uff09"
    ],
    "cells": [
     {
-     "period": "I2023-12-31",
-     "value": "-5457379000",
+     "period": "I2021-12-31",
+     "value": "142604",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2022-12-31",
-     "value": "-11685267000",
+     "value": "148152",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:Row19_19",
+   "dims": [],
+   "label": "\u7d93\u71df\u5229\u6f64\uff08\u8667\u640d\uff09",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": "136632",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "109086",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:Row20_20",
+   "dims": [],
+   "label": "\u5176\u4ed6\u6536\u5165\u53ca\u8cbb\u7528",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": "-7162",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "46239",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "doc:Row21_21",
+   "dims": [],
+   "label": "\u6240\u5f97\u7a05\uff08\u8cbb\u7528\uff09\u62b5\u514d",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "-12582",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "doc:Row22_22",
+   "dims": [],
+   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "-3602",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "doc:Row23_23",
+   "dims": [],
+   "label": "\u6de8\u5229\u6f64",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": "129470",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "139141",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:Row24_24",
+   "dims": [],
+   "label": "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684\u6de8\u640d\u5931",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "4102",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "doc:Row25_25",
+   "dims": [],
+   "label": "\u593e\u5c64\u6b0a\u76ca\u7684\u589e\u503c",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "-639",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "doc:Row26_26",
+   "dims": [],
+   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "I2021-12-31",
+     "value": "129470",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "142604",
      "decimals": -6,
      "unit": null
     }
@@ -1032,104 +930,80 @@
   }
  ],
  "calc_children": {
-  "us-gaap:Assets": [
+  "doc:1_13": [
    [
-    "us-gaap:AssetsCurrent",
+    "doc:Row11_11",
     "1"
    ],
    [
-    "us-gaap:OtherAssetsNoncurrent",
-    "1"
-   ],
-   [
-    "us-gaap:LongTermInvestments",
-    "1"
-   ],
-   [
-    "us-gaap:PropertyPlantAndEquipmentNet",
-    "1"
-   ],
-   [
-    "us-gaap:OperatingLeaseRightOfUseAsset",
-    "1"
-   ],
-   [
-    "us-gaap:OtherAssetsCurrent",
+    "doc:Row12_12",
     "1"
    ]
   ],
-  "us-gaap:AssetsCurrent": [
+  "doc:Row10_10": [
    [
-    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "doc:Row8_8",
     "1"
    ],
    [
-    "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-    "1"
-   ],
-   [
-    "us-gaap:InventoryNet",
-    "1"
-   ],
-   [
-    "doc:PrepaidExpensesAndOtherCurrentAssets_3",
+    "doc:Row9_9",
     "1"
    ]
   ],
-  "us-gaap:Liabilities": [
+  "doc:Row11_11": [
    [
-    "us-gaap:LiabilitiesCurrent",
+    "doc:Row9_9",
     "1"
    ],
    [
-    "us-gaap:OtherLiabilitiesCurrent",
-    "1"
-   ],
-   [
-    "us-gaap:OperatingLeaseLiabilityNoncurrent",
-    "1"
-   ],
-   [
-    "us-gaap:AccruedIncomeTaxesCurrent",
-    "1"
-   ],
-   [
-    "us-gaap:LongTermDebtNoncurrent",
+    "doc:Row10_10",
     "1"
    ]
   ],
-  "us-gaap:LiabilitiesCurrent": [
+  "doc:Row12_12": [
    [
-    "us-gaap:LongTermDebtCurrent",
+    "doc:Row10_10",
     "1"
    ],
    [
-    "us-gaap:AccountsPayableCurrent",
+    "doc:Row11_11",
+    "1"
+   ]
+  ],
+  "doc:Row23_23": [
+   [
+    "doc:Row19_19",
     "1"
    ],
    [
-    "doc:AccruedExpensesAndOtherCurrentLiabilities_13",
+    "doc:Row20_20",
     "1"
    ],
    [
-    "ifrs-full:EquityAndLiabilities",
+    "doc:Row21_21",
     "1"
    ],
    [
-    "us-gaap:LiabilitiesCurrent",
+    "doc:Row22_22",
+    "1"
+   ]
+  ],
+  "doc:Row26_26": [
+   [
+    "doc:Row23_23",
     "1"
    ],
    [
-    "us-gaap:LiabilitiesCurrent",
+    "doc:Row24_24",
     "1"
    ],
    [
-    "ifrs-full:CurrentDerivativeFinancialLiabilities",
+    "doc:Row25_25",
     "1"
    ]
   ]
  },
  "notes": [
-  "columns assume 31 Dec fiscal years: [2023, 2022]"
+  "columns assume 31 Dec fiscal years: [2021, 2022]"
  ]
 }

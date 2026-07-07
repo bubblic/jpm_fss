@@ -1,4 +1,215 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 42,
+ "decisions": [
+  {
+   "kind": "read_cell",
+   "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+   "column": 1,
+   "samples": [
+    "12460",
+    "12460",
+    "12460"
+   ],
+   "voted": "12460",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+   "column": 2,
+   "samples": [
+    "84800",
+    "84800",
+    "12211"
+   ],
+   "voted": "84800",
+   "agreement": 2
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+   "column": 1,
+   "value": "84800"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total cash, cash equivalents, and marketable securities",
+   "chosen": "us-gaap:CashCashEquivalentsAndShortTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-marketable securities",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Property and equipment, net",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Operating lease assets",
+   "chosen": "us-gaap:OperatingLeaseRightOfUseAsset"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued compensation and benefits",
+   "chosen": "us-gaap:EmployeeRelatedLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued expenses and other current liabilities",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued revenue share",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income taxes payable, non-current",
+   "chosen": "ifrs-full:NoncurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Preferred stock, $0.001 par value per share, 100 shares auth",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+   "chosen": "us-gaap:CommonStockSharesOutstanding"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cost of revenues",
+   "chosen": "ifrs-full:CostOfSales"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total costs and expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income from operations",
+   "chosen": "ifrs-full:ProfitLossFromOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Basic net income per share (Note 12)",
+   "chosen": "us-gaap:EarningsPerShareBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Diluted net income per share (Note 12)",
+   "chosen": "us-gaap:EarningsPerShareDiluted"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Depreciation of property and equipment",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss (gain) on debt and equity securities, net",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income taxes, net",
+   "chosen": "us-gaap:IncomeTaxesPaidNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets",
+   "chosen": "ifrs-full:OtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued revenue share",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash provided by operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Maturities and sales of marketable securities",
+   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of non-marketable securities",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Maturities and sales of non-marketable securities",
+   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Acquisitions, net of cash acquired, and purchases of intangi",
+   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other investing activities",
+   "chosen": "ifrs-full:OtherInflowsOutflowsOfCashClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in investing activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net payments related to stock-based award activities",
+   "chosen": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repurchases of stock",
+   "chosen": "us-gaap:PaymentsForRepurchaseOfCommonStock"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Dividend payments",
+   "chosen": "us-gaap:PaymentsOfDividends"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of debt, net of costs",
+   "chosen": "us-gaap:ProceedsFromIssuanceOfLongTermDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sale of interest in consolidated entities, net",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in financing activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Effect of exchange rate changes on cash and cash equivalents",
+   "chosen": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash and cash equivalents at beginning of period",
+   "chosen": "ifrs-full:CashAndCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash and cash equivalents at end of period",
+   "chosen": "ifrs-full:CashAndCashEquivalents"
+  }
+ ]
 }

@@ -1,13 +1,14 @@
 {
  "document": "jpmorgan_2024",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\jpmorgan_2024.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
    "pages": [
     208
    ],
+   "llm_adjudicated": 0,
    "rows": 40,
    "columns": 2,
    "accepted_cells": 78,
@@ -22,8 +23,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 5,
-    "llm": 0,
-    "unmapped": 35
+    "llm": 11,
+    "unmapped": 24
    }
   },
   "income_statement": {
@@ -31,19 +32,20 @@
    "pages": [
     84
    ],
+   "llm_adjudicated": 9,
    "rows": 28,
    "columns": 3,
-   "accepted_cells": 75,
-   "flags": 9,
+   "accepted_cells": 84,
+   "flags": 0,
    "scale": "1",
-   "footing_groups": 3,
+   "footing_groups": 4,
    "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
     "lexical": 4,
-    "llm": 0,
-    "unmapped": 24
+    "llm": 10,
+    "unmapped": 14
    }
   },
   "cash_flow": {
@@ -65,8 +67,8 @@
    },
    "mapping": {
     "lexical": 4,
-    "llm": 0,
-    "unmapped": 42
+    "llm": 16,
+    "unmapped": 26
    }
   }
  },
@@ -74,5 +76,5 @@
   "status": "skipped",
   "reason": "1 flagged balance-sheet cells; A = L + E failed; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 93
 }

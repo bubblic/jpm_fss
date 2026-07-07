@@ -93,7 +93,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:TotalNetSalesAndRevenueNote3_2",
+   "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Total net sales and revenue (Note 3)",
    "depth": 1,
@@ -105,7 +105,7 @@
    "period_type": "duration",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Net sales and revenue"
@@ -133,7 +133,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:AutomotiveAndOtherCostOfSales_3",
+   "concept": "ifrs-full:CostOfSales",
    "dims": [],
    "label": "Automotive and other cost of sales",
    "depth": 1,
@@ -143,9 +143,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -173,19 +173,19 @@
   },
   {
    "order": 4,
-   "concept": "doc:GmFinancialInterestOperatingAndOtherExpenses_4",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
    "label": "GM Financial interest, operating and other expenses",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -213,7 +213,7 @@
   },
   {
    "order": 5,
-   "concept": "doc:AutomotiveAndOtherSellingGeneralAndAdministrativeExpense_5",
+   "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Automotive and other selling, general and administrative expense",
    "depth": 1,
@@ -225,7 +225,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -253,7 +253,7 @@
   },
   {
    "order": 6,
-   "concept": "doc:TotalCostsAndExpenses_6",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
    "label": "Total costs and expenses",
    "depth": 1,
@@ -265,7 +265,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -297,8 +297,8 @@
    "dims": [],
    "label": "Operating income (loss)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -333,7 +333,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:AutomotiveInterestExpense_8",
+   "concept": "ifrs-full:OperatingExpense",
    "dims": [],
    "label": "Automotive interest expense",
    "depth": 1,
@@ -345,7 +345,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -493,7 +493,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:IncomeTaxExpenseBenefitNote17_12",
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
    "dims": [],
    "label": "Income tax expense (benefit) (Note 17)",
    "depth": 1,
@@ -505,7 +505,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -693,7 +693,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:BasicEarningsPerCommonShare_17",
+   "concept": "us-gaap:EarningsPerShareBasic",
    "dims": [],
    "label": "Basic earnings per common share",
    "depth": 1,
@@ -703,9 +703,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Earnings per share (Note 21)"
@@ -773,7 +773,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:DilutedEarningsPerCommonShare_19",
+   "concept": "us-gaap:EarningsPerShareDiluted",
    "dims": [],
    "label": "Diluted earnings per common share",
    "depth": 1,
@@ -783,9 +783,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Earnings per share (Note 21)"
@@ -853,27 +853,37 @@
   }
  ],
  "calc_children": {
-  "doc:TotalCostsAndExpenses_6": [
+  "ifrs-full:ProfitLossFromOperatingActivities": [
    [
-    "doc:AutomotiveAndOtherCostOfSales_3",
+    "ifrs-full:Revenue",
     "1"
    ],
    [
-    "doc:GmFinancialInterestOperatingAndOtherExpenses_4",
-    "1"
-   ],
-   [
-    "doc:AutomotiveAndOtherSellingGeneralAndAdministrativeExpense_5",
-    "1"
+    "us-gaap:OperatingExpenses",
+    "-1"
    ]
   ],
-  "doc:TotalNetSalesAndRevenueNote3_2": [
+  "ifrs-full:Revenue": [
    [
     "doc:Automotive_0",
     "1"
    ],
    [
     "doc:GmFinancial_1",
+    "1"
+   ]
+  ],
+  "us-gaap:OperatingExpenses": [
+   [
+    "ifrs-full:CostOfSales",
+    "1"
+   ],
+   [
+    "us-gaap:OperatingExpenses",
+    "1"
+   ],
+   [
+    "us-gaap:SellingGeneralAndAdministrativeExpense",
     "1"
    ]
   ]

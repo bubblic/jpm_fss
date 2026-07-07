@@ -114,7 +114,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:NonMarketableAndOtherEquitySecurities_3",
+   "concept": "us-gaap:LongTermInvestments",
    "dims": [],
    "label": "Non-marketable and other equity securities",
    "depth": 1,
@@ -126,7 +126,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:TotalInvestmentSecurities_4",
+   "concept": "us-gaap:Assets",
    "dims": [],
    "label": "Total investment securities",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:PremisesAndEquipmentNetOfAccumulatedDepreciationAndAmortizat_8",
+   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
    "dims": [],
    "label": "Premises and equipment, net of accumulated depreciation and amortization",
    "depth": 1,
@@ -296,7 +296,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:OtherIntangibleAssetsNet_10",
+   "concept": "us-gaap:FiniteLivedIntangibleAssetsNet",
    "dims": [],
    "label": "Other intangible assets, net",
    "depth": 1,
@@ -364,7 +364,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Assets"
@@ -458,8 +458,8 @@
    "dims": [],
    "label": "Total assets",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:TotalDeposits_16",
+   "concept": "us-gaap:LiabilitiesCurrent",
    "dims": [],
    "label": "Total deposits",
    "depth": 1,
@@ -568,7 +568,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -590,7 +590,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:ShortTermBorrowings_17",
+   "concept": "us-gaap:CommercialPaper",
    "dims": [],
    "label": "Short-term borrowings",
    "depth": 1,
@@ -602,7 +602,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Liabilities"
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:CommonStock0001ParValue150000000SharesAuthorized59171883And5_23",
+   "concept": "us-gaap:CommonStockSharesIssued",
    "dims": [],
    "label": "Common stock, $0.001 par value, 150,000,000 shares authorized; 59,171,883 and 58,748,469 shares issued and outstanding, respectively",
    "depth": 1,
@@ -804,9 +804,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "credit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "SVBFG stockholders\u2019 equity"
@@ -828,7 +828,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:AdditionalPaidInCapital_24",
+   "concept": "ifrs-full:AdditionalPaidinCapital",
    "dims": [],
    "label": "Additional paid-in capital",
    "depth": 1,
@@ -840,7 +840,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "SVBFG stockholders\u2019 equity"
@@ -896,17 +896,7 @@
   }
  ],
  "calc_children": {
-  "doc:TotalDeposits_16": [
-   [
-    "doc:NoninterestBearingDemandDeposits_14",
-    "1"
-   ],
-   [
-    "doc:InterestBearingDeposits_15",
-    "1"
-   ]
-  ],
-  "doc:TotalInvestmentSecurities_4": [
+  "us-gaap:Assets": [
    [
     "doc:AvailableForSaleSecuritiesAtFairValueCostOf28602And27370Resp_1",
     "1"
@@ -916,17 +906,17 @@
     "1"
    ],
    [
-    "doc:NonMarketableAndOtherEquitySecurities_3",
+    "us-gaap:LongTermInvestments",
     "1"
    ]
   ],
   "us-gaap:Liabilities": [
    [
-    "doc:TotalDeposits_16",
+    "us-gaap:LiabilitiesCurrent",
     "1"
    ],
    [
-    "doc:ShortTermBorrowings_17",
+    "us-gaap:CommercialPaper",
     "1"
    ],
    [
@@ -939,6 +929,16 @@
    ],
    [
     "us-gaap:LongTermDebtNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:LiabilitiesCurrent": [
+   [
+    "doc:NoninterestBearingDemandDeposits_14",
+    "1"
+   ],
+   [
+    "doc:InterestBearingDeposits_15",
     "1"
    ]
   ]

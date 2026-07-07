@@ -318,7 +318,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:Borrowings36_9",
+   "concept": "ifrs-full:LongtermBorrowings",
    "dims": [],
    "label": "Borrowings 36",
    "depth": 1,
@@ -330,7 +330,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current liabilities"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:NotesPayable37_10",
+   "concept": "ifrs-full:LongtermBorrowings",
    "dims": [],
    "label": "Notes payable 37",
    "depth": 1,
@@ -364,7 +364,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current liabilities"
@@ -386,7 +386,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:LongTermPayables38_11",
+   "concept": "us-gaap:LongTermDebtNoncurrent",
    "dims": [],
    "label": "Long-term payables 38",
    "depth": 1,
@@ -398,7 +398,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current liabilities"
@@ -522,7 +522,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:DeferredRevenue6CI_15",
+   "concept": "ifrs-full:CurrentContractLiabilities",
    "dims": [],
    "label": "Deferred revenue 6(c)(i)",
    "depth": 1,
@@ -534,7 +534,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current liabilities"
@@ -624,7 +624,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:OtherPayablesAndAccruals41_18",
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
    "dims": [],
    "label": "Other payables and accruals 41",
    "depth": 1,
@@ -636,7 +636,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -692,7 +692,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:NotesPayable37_20",
+   "concept": "us-gaap:AccountsPayableCurrent",
    "dims": [],
    "label": "Notes payable 37",
    "depth": 1,
@@ -704,7 +704,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:CurrentIncomeTaxLiabilities_21",
+   "concept": "ifrs-full:CurrentTaxLiabilitiesCurrent",
    "dims": [],
    "label": "Current income tax liabilities",
    "depth": 1,
@@ -738,7 +738,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -760,7 +760,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:OtherTaxLiabilities_22",
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
    "dims": [],
    "label": "Other tax liabilities",
    "depth": 1,
@@ -772,7 +772,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:OtherFinancialLiabilities39_23",
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
    "dims": [],
    "label": "Other financial liabilities 39",
    "depth": 1,
@@ -806,7 +806,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:DeferredRevenue6CI_25",
+   "concept": "ifrs-full:CurrentContractLiabilities",
    "dims": [],
    "label": "Deferred revenue 6(c)(i)",
    "depth": 1,
@@ -874,7 +874,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -1000,15 +1000,15 @@
  "calc_children": {
   "doc:Row16_16": [
    [
-    "doc:Borrowings36_9",
+    "ifrs-full:LongtermBorrowings",
     "1"
    ],
    [
-    "doc:NotesPayable37_10",
+    "ifrs-full:LongtermBorrowings",
     "1"
    ],
    [
-    "doc:LongTermPayables38_11",
+    "us-gaap:LongTermDebtNoncurrent",
     "1"
    ],
    [
@@ -1024,7 +1024,7 @@
     "1"
    ],
    [
-    "doc:DeferredRevenue6CI_15",
+    "ifrs-full:CurrentContractLiabilities",
     "1"
    ]
   ],
@@ -1034,7 +1034,7 @@
     "1"
    ],
    [
-    "doc:OtherPayablesAndAccruals41_18",
+    "ifrs-full:TradeAndOtherCurrentPayables",
     "1"
    ],
    [
@@ -1042,19 +1042,19 @@
     "1"
    ],
    [
-    "doc:NotesPayable37_20",
+    "us-gaap:AccountsPayableCurrent",
     "1"
    ],
    [
-    "doc:CurrentIncomeTaxLiabilities_21",
+    "ifrs-full:CurrentTaxLiabilitiesCurrent",
     "1"
    ],
    [
-    "doc:OtherTaxLiabilities_22",
+    "us-gaap:OtherLiabilitiesCurrent",
     "1"
    ],
    [
-    "doc:OtherFinancialLiabilities39_23",
+    "us-gaap:OtherLiabilitiesCurrent",
     "1"
    ],
    [
@@ -1062,7 +1062,7 @@
     "1"
    ],
    [
-    "doc:DeferredRevenue6CI_25",
+    "ifrs-full:CurrentContractLiabilities",
     "1"
    ]
   ],

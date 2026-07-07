@@ -347,7 +347,7 @@ class Projector:
                 cf_new[key] = base
             elif role == R.CF_CAPEX:
                 cf_new[key] = _q(base * growth)
-                capex_base += base
+                capex_base += abs(base)
             elif role == R.CF_DIVIDENDS:
                 cf_new[key] = _q(base * (ONE + draw.dividend_growth))
             elif role == R.CF_BUYBACK:
@@ -379,9 +379,12 @@ class Projector:
             if role == R.CF_DEBT_ISSUE:
                 debt_delta += cf_new[key]
             elif role == R.CF_DEBT_REPAY:
-                debt_delta -= cf_new[key]
+                # repayments are consumed as magnitudes: tagged filings state
+                # them as positive facts, untagged documents print them
+                # negative (see roles.CF_OUTFLOW_MAGNITUDE)
+                debt_delta -= abs(cf_new[key])
             elif role == R.CF_CP_NET:
-                debt_delta += cf_new[key]  # fact sign: positive = net proceeds
+                debt_delta += cf_new[key]  # genuinely signed: positive = net proceeds
         debt_rows = self._rows(self.bs, {R.DEBT, R.COMMERCIAL_PAPER})
         debt_total = sum(bs_begin[_row_key(row)] for row in debt_rows)
         for row in debt_rows:
@@ -396,7 +399,7 @@ class Projector:
         # capital stocks: PP&E moves with capex and D&A (D&A sits inside the
         # expense lines of the income statement already)
         capex_new = sum(
-            cf_new[_row_key(row)]
+            abs(cf_new[_row_key(row)])
             for row in self.cf.rows
             if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_CAPEX
         )
@@ -408,7 +411,7 @@ class Projector:
         # lease additions equal lease principal payments (the liability is
         # held flat), and they land in the capital pool alongside capex
         lease_payments_new = sum(
-            cf_new[_row_key(row)]
+            abs(cf_new[_row_key(row)])
             for row in self.cf.rows
             if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_LEASE_PAYMENT
         )
@@ -426,26 +429,26 @@ class Projector:
 
         # equity flows
         div_new = sum(
-            cf_new[_row_key(row)]
+            abs(cf_new[_row_key(row)])
             for row in self.cf.rows
             if row.kind == "leaf"
             and cf_role_map[_row_key(row)].role == R.CF_DIVIDENDS
             and "non-controlling" not in row.label.lower()
         )
         nci_div_new = sum(
-            cf_new[_row_key(row)]
+            abs(cf_new[_row_key(row)])
             for row in self.cf.rows
             if row.kind == "leaf"
             and cf_role_map[_row_key(row)].role == R.CF_DIVIDENDS
             and "non-controlling" in row.label.lower()
         )
         buyback_new = sum(
-            cf_new[_row_key(row)]
+            abs(cf_new[_row_key(row)])
             for row in self.cf.rows
             if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_BUYBACK
         )
         withhold_new = sum(
-            cf_new[_row_key(row)]
+            abs(cf_new[_row_key(row)])
             for row in self.cf.rows
             if row.kind == "leaf" and cf_role_map[_row_key(row)].role == R.CF_SBC_TAX_WITHHOLD
         )
@@ -516,7 +519,9 @@ class Projector:
             key = _row_key(row)
             role = cf_role_map[key].role
             if role == R.CF_INVEST_PURCHASE:
-                securities_net += cf_new.get(key, ZERO)
+                # purchases are consumed as magnitudes; printed-polarity
+                # documents show them negative (roles.CF_OUTFLOW_MAGNITUDE)
+                securities_net += abs(cf_new.get(key, ZERO))
             elif role in (R.CF_INVEST_MATURITY, R.CF_INVEST_SALE):
                 securities_net -= cf_new.get(key, ZERO)
         securities_rows = self._rows(self.bs, {R.SECURITIES})
@@ -809,8 +814,16 @@ class Projector:
                     "no securities lines on the cash flow statement; excess cash retained"
                 )
             return ZERO
+        # a purchase line in printed polarity (untagged) states outflows
+        # negative; growing the purchase must push the row the way the
+        # document itself signs outflows or the recomputed net change breaks
+        purchase_direction = ONE
+        if purchase_keys and cf_new.get(purchase_keys[0], ZERO) < 0:
+            purchase_direction = -ONE
         if sweep >= 0 and purchase_keys:
-            cf_new[purchase_keys[0]] = cf_new.get(purchase_keys[0], ZERO) + sweep
+            cf_new[purchase_keys[0]] = (
+                cf_new.get(purchase_keys[0], ZERO) + purchase_direction * sweep
+            )
             return sweep
         if sweep < 0:
             need = -sweep
@@ -822,7 +835,9 @@ class Projector:
             if maturity_keys:
                 cf_new[maturity_keys[0]] = cf_new.get(maturity_keys[0], ZERO) + drawable
             elif purchase_keys:
-                cf_new[purchase_keys[0]] = cf_new.get(purchase_keys[0], ZERO) - drawable
+                cf_new[purchase_keys[0]] = (
+                    cf_new.get(purchase_keys[0], ZERO) - purchase_direction * drawable
+                )
             if drawable < need:
                 violations.append("liquidity: securities insufficient to reach cash target")
             return -drawable

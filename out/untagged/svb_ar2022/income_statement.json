@@ -133,7 +133,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:FederalFundsSoldSecuritiesPurchasedUnderAgreementsToResellAn_3",
+   "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
    "dims": [],
    "label": "Federal funds sold, securities purchased under agreements to resell and other short-term investment securities",
    "depth": 1,
@@ -142,10 +142,10 @@
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
-   "period_type": "duration",
+   "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investment securities"
@@ -173,7 +173,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:TotalInterestIncome_4",
+   "concept": "ifrs-full:FinanceIncome",
    "dims": [],
    "label": "Total interest income",
    "depth": 1,
@@ -183,9 +183,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investment securities"
@@ -293,7 +293,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:TotalInterestExpense_7",
+   "concept": "ifrs-full:OperatingExpense",
    "dims": [],
    "label": "Total interest expense",
    "depth": 1,
@@ -305,7 +305,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Interest expense"
@@ -453,7 +453,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:GainsLossesOnInvestmentSecuritiesNet_11",
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
    "label": "Gains (losses) on investment securities, net",
    "depth": 1,
@@ -463,9 +463,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Noninterest income"
@@ -813,19 +813,19 @@
   },
   {
    "order": 20,
-   "concept": "doc:InvestmentBankingRevenue_20",
+   "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Investment banking revenue",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Noninterest income"
@@ -933,7 +933,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:TotalNoninterestIncome_23",
+   "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Total noninterest income",
    "depth": 1,
@@ -943,9 +943,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Noninterest income"
@@ -973,7 +973,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:CompensationAndBenefits_24",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Compensation and benefits",
    "depth": 1,
@@ -985,7 +985,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Noninterest expense"
@@ -1013,7 +1013,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:ProfessionalServices_25",
+   "concept": "ifrs-full:ServicesExpense",
    "dims": [],
    "label": "Professional services",
    "depth": 1,
@@ -1025,7 +1025,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Noninterest expense"
@@ -1653,41 +1653,13 @@
   }
  ],
  "calc_children": {
-  "doc:TotalInterestExpense_7": [
-   [
-    "doc:Deposits_5",
-    "1"
-   ],
-   [
-    "doc:Borrowings_6",
-    "1"
-   ]
-  ],
-  "doc:TotalInterestIncome_4": [
-   [
-    "doc:Loans_0",
-    "1"
-   ],
-   [
-    "doc:Taxable_1",
-    "1"
-   ],
-   [
-    "doc:NonTaxable_2",
-    "1"
-   ],
-   [
-    "doc:FederalFundsSoldSecuritiesPurchasedUnderAgreementsToResellAn_3",
-    "1"
-   ]
-  ],
   "doc:TotalNoninterestExpense_32": [
    [
-    "doc:CompensationAndBenefits_24",
+    "us-gaap:GeneralAndAdministrativeExpense",
     "1"
    ],
    [
-    "doc:ProfessionalServices_25",
+    "ifrs-full:ServicesExpense",
     "1"
    ],
    [
@@ -1715,9 +1687,37 @@
     "1"
    ]
   ],
-  "doc:TotalNoninterestIncome_23": [
+  "ifrs-full:FinanceIncome": [
    [
-    "doc:GainsLossesOnInvestmentSecuritiesNet_11",
+    "doc:Loans_0",
+    "1"
+   ],
+   [
+    "doc:Taxable_1",
+    "1"
+   ],
+   [
+    "doc:NonTaxable_2",
+    "1"
+   ],
+   [
+    "us-gaap:CashCashEquivalentsAndShortTermInvestments",
+    "1"
+   ]
+  ],
+  "ifrs-full:OperatingExpense": [
+   [
+    "doc:Deposits_5",
+    "1"
+   ],
+   [
+    "doc:Borrowings_6",
+    "1"
+   ]
+  ],
+  "ifrs-full:Revenue": [
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
     "1"
    ],
    [
@@ -1753,7 +1753,7 @@
     "1"
    ],
    [
-    "doc:InvestmentBankingRevenue_20",
+    "ifrs-full:Revenue",
     "1"
    ],
    [

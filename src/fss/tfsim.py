@@ -101,11 +101,17 @@ def _cf_sum(projector: Projector, roles: set[str], predicate=None) -> Decimal:
     role_map = projector.roles["cash_flow"]
     total = Decimal(0)
     for row in projector.cf.rows:
-        if row.kind != "leaf" or role_map[_row_key(row)].role not in roles:
+        role = role_map[_row_key(row)].role
+        if row.kind != "leaf" or role not in roles:
             continue
         if predicate and not predicate(row):
             continue
-        total += projector._value(projector.cf, row)
+        value = projector._value(projector.cf, row)
+        if role in R.CF_OUTFLOW_MAGNITUDE:
+            # printed-polarity documents show outflows negative; the engine
+            # works with outflow magnitudes (see roles.py)
+            value = abs(value)
+        total += value
     return total
 
 

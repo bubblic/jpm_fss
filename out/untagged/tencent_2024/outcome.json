@@ -1,7 +1,7 @@
 {
  "document": "tencent_2024",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\tencent_2024.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
@@ -10,6 +10,7 @@
     127,
     128
    ],
+   "llm_adjudicated": 0,
    "rows": 29,
    "columns": 2,
    "accepted_cells": 56,
@@ -24,8 +25,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 12,
-    "llm": 0,
-    "unmapped": 17
+    "llm": 10,
+    "unmapped": 7
    }
   },
   "income_statement": {
@@ -33,6 +34,7 @@
    "pages": [
     124
    ],
+   "llm_adjudicated": 0,
    "rows": 22,
    "columns": 2,
    "accepted_cells": 44,
@@ -44,8 +46,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 4,
-    "llm": 0,
-    "unmapped": 18
+    "llm": 12,
+    "unmapped": 6
    }
   },
   "cash_flow": {
@@ -68,8 +70,8 @@
    },
    "mapping": {
     "lexical": 2,
-    "llm": 0,
-    "unmapped": 32
+    "llm": 25,
+    "unmapped": 7
    }
   }
  },
@@ -77,5 +79,5 @@
   "status": "skipped",
   "reason": "15 flagged balance-sheet cells (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 55
 }

@@ -1,17 +1,18 @@
 {
  "document": "microsoft_2025",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\microsoft_2025.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
    "pages": [
     38
    ],
+   "llm_adjudicated": 2,
    "rows": 34,
    "columns": 2,
-   "accepted_cells": 66,
-   "flags": 2,
+   "accepted_cells": 68,
+   "flags": 0,
    "scale": "1000000",
    "footing_groups": 7,
    "footing_pass": true,
@@ -71,8 +72,34 @@
   }
  },
  "simulation": {
-  "status": "skipped",
-  "reason": "2 flagged balance-sheet cells (adjudication required before simulation)"
+  "status": "ok",
+  "symbolic_balanced": true,
+  "scenarios": {
+   "baseline": {
+    "mean_net_income_m": "112,871",
+    "violations": 0
+   },
+   "expansion": {
+    "mean_net_income_m": "118,220",
+    "violations": 0
+   },
+   "recession": {
+    "mean_net_income_m": "104,794",
+    "violations": 0
+   },
+   "competition": {
+    "mean_net_income_m": "108,618",
+    "violations": 0
+   },
+   "rate_hike": {
+    "mean_net_income_m": "113,495",
+    "violations": 0
+   },
+   "inflation": {
+    "mean_net_income_m": "111,643",
+    "violations": 0
+   }
+  }
  },
- "llm_calls": 0
+ "llm_calls": 8
 }

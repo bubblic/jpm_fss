@@ -1,4 +1,367 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 75,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Brands and other intangible assets 3",
+   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Right-of-use assets 7",
+   "chosen": "ifrs-full:RightofuseAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Investments in joint ventures and associates 8",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-current available for sale financial assets 9",
+   "chosen": "ifrs-full:NoncurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred tax",
+   "chosen": "ifrs-full:NetDeferredTaxLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Inventories and work in progress 11",
+   "chosen": "us-gaap:IncreaseDecreaseInInventories"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trade accounts receivable 12",
+   "chosen": "us-gaap:AccountsReceivableNetCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity, Group share 16",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Minority interests 18",
+   "chosen": "ifrs-full:NoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term borrowings 19",
+   "chosen": "us-gaap:LongTermDebtNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-current lease liabilities 7",
+   "chosen": "ifrs-full:NoncurrentLeaseLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-current provisions and other liabilities 20",
+   "chosen": "us-gaap:OtherLiabilitiesNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred tax",
+   "chosen": "ifrs-full:NetDeferredTaxLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase commitments for minority interests\u2019 shares 21",
+   "chosen": "us-gaap:CommitmentsAndContingencies"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Short-term borrowings 19",
+   "chosen": "us-gaap:CommercialPaper"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Current lease liabilities 7",
+   "chosen": "ifrs-full:CurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trade accounts payable 22",
+   "chosen": "us-gaap:AccountsPayableCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Current provisions and other liabilities 22",
+   "chosen": "ifrs-full:CurrentProvisions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total liabilities and equity",
+   "chosen": "ifrs-full:EquityAndLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Marketing and selling expenses",
+   "chosen": "us-gaap:SellingAndMarketingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "General and administrative expenses",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income/(Loss) from joint ventures and associates 8",
+   "chosen": "ifrs-full:ProfitLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Profit from recurring operations 24",
+   "chosen": "ifrs-full:ProfitLossFromContinuingOperations"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other operating income and expenses 25",
+   "chosen": "ifrs-full:OtherOperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cost of net financial debt",
+   "chosen": "ifrs-full:FinanceIncomeCost"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest on lease liabilities",
+   "chosen": "ifrs-full:Liabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other financial income and expenses",
+   "chosen": "sap:OtherNonOperatingIncomeExpensesNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net financial income/(expense) 26",
+   "chosen": "us-gaap:NonoperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net profit before minority interests",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Minority interests 18",
+   "chosen": "ifrs-full:NoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net profit, Group share",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Basic Group share of net earnings per share (EUR) 28",
+   "chosen": "ifrs-full:BasicEarningsLossPerShare"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Number of shares on which the calculation is based",
+   "chosen": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Diluted Group share of net earnings per share (EUR) 28",
+   "chosen": "us-gaap:EarningsPerShareDiluted"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Number of shares on which the calculation is based",
+   "chosen": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
+  },
+  {
+   "kind": "select_pages",
+   "query": "cash flow",
+   "pages": [
+    5,
+    21,
+    28,
+    50
+   ]
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR) 15,952",
+   "column": 2,
+   "samples": [
+    "15174",
+    "15174",
+    "15174"
+   ],
+   "voted": "15174",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "(EUR millions) (EUR millions) (EUR) 15,952",
+   "column": 1,
+   "value": "15174"
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR) 15,952",
+   "column": 4,
+   "samples": [
+    "14751",
+    "14751",
+    "14751"
+   ],
+   "voted": "14751",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR) 15,952",
+   "column": 5,
+   "samples": [
+    "14084",
+    "14084",
+    "None"
+   ],
+   "voted": "14084",
+   "agreement": 2
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR) 15,952",
+   "column": 6,
+   "samples": [
+    "28.05",
+    "28.05",
+    "28.05"
+   ],
+   "voted": "28.05",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 1,
+   "samples": [
+    "17833",
+    "18924",
+    "18924"
+   ],
+   "voted": "18924",
+   "agreement": 2
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 2,
+   "samples": [
+    "18400",
+    "18400",
+    "18400"
+   ],
+   "voted": "18400",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 1,
+   "value": "18400"
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 3,
+   "samples": [
+    "524",
+    "524",
+    "524"
+   ],
+   "voted": "524",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 4,
+   "samples": [
+    "524",
+    "18924",
+    "18924"
+   ],
+   "voted": "18924",
+   "agreement": 2
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 5,
+   "samples": [
+    "10113",
+    "14084",
+    "10113"
+   ],
+   "voted": "10113",
+   "agreement": 2
+  },
+  {
+   "kind": "adjudicated",
+   "label": "(EUR millions) (EUR millions) (EUR millions) 18,924",
+   "column": 4,
+   "value": "10113"
+  },
+  {
+   "kind": "read_cell",
+   "label": "(a) See the consolidated cash flow",
+   "column": 5,
+   "samples": [
+    "10113",
+    "10113",
+    "10113"
+   ],
+   "voted": "10113",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR) (EUR millions) (EUR millions and percentage) 13.00 13.",
+   "column": 2,
+   "samples": [
+    "13.0",
+    "13.0",
+    "13.0"
+   ],
+   "voted": "13.0",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "(EUR) (EUR millions) (EUR millions and percentage) 13.00 13.",
+   "column": 5,
+   "samples": [
+    "69287",
+    "69287",
+    "69287"
+   ],
+   "voted": "69287",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudication_capped",
+   "max_cells": 12,
+   "note": "remaining flags left for review"
+  },
+  {
+   "kind": "map_concept",
+   "label": "excluding the impact of tax regulations \u201cPurchase commitment",
+   "chosen": null
+  }
+ ]
 }

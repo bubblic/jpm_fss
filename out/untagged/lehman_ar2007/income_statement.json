@@ -213,7 +213,7 @@
   },
   {
    "order": 5,
-   "concept": "doc:TotalRevenues_5",
+   "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Total revenues",
    "depth": 1,
@@ -225,7 +225,7 @@
    "period_type": "duration",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Revenues"
@@ -333,7 +333,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:CompensationAndBenefits_8",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Compensation and benefits",
    "depth": 1,
@@ -345,7 +345,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-Interest Expenses"
@@ -373,7 +373,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:TechnologyAndCommunications_9",
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
    "dims": [],
    "label": "Technology and communications",
    "depth": 1,
@@ -385,7 +385,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-Interest Expenses"
@@ -613,7 +613,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:TotalNonPersonnelExpenses_15",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
    "label": "Total non-personnel expenses",
    "depth": 1,
@@ -625,7 +625,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-Interest Expenses"
@@ -653,7 +653,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:TotalNonInterestExpenses_16",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
    "label": "Total non-interest expenses",
    "depth": 1,
@@ -665,7 +665,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-Interest Expenses"
@@ -1013,7 +1013,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:EarningsPerBasicCommonShare_25",
+   "concept": "us-gaap:EarningsPerShareBasic",
    "dims": [],
    "label": "Earnings per basic common share",
    "depth": 1,
@@ -1023,9 +1023,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Earnings per basic common share"
@@ -1213,16 +1213,6 @@
   }
  ],
  "calc_children": {
-  "doc:EarningsPerBasicCommonShare_25": [
-   [
-    "doc:BeforeCumulativeEffectOfAccountingChange_23",
-    "1"
-   ],
-   [
-    "doc:CumulativeEffectOfAccountingChange_24",
-    "1"
-   ]
-  ],
   "doc:EarningsPerDilutedCommonShare_28": [
    [
     "doc:BeforeCumulativeEffectOfAccountingChange_26",
@@ -1233,43 +1223,7 @@
     "1"
    ]
   ],
-  "doc:TotalNonInterestExpenses_16": [
-   [
-    "doc:CompensationAndBenefits_8",
-    "1"
-   ],
-   [
-    "doc:TotalNonPersonnelExpenses_15",
-    "1"
-   ]
-  ],
-  "doc:TotalNonPersonnelExpenses_15": [
-   [
-    "doc:TechnologyAndCommunications_9",
-    "1"
-   ],
-   [
-    "doc:BrokerageClearanceAndDistributionFees_10",
-    "1"
-   ],
-   [
-    "doc:Occupancy_11",
-    "1"
-   ],
-   [
-    "doc:ProfessionalFees_12",
-    "1"
-   ],
-   [
-    "doc:BusinessDevelopment_13",
-    "1"
-   ],
-   [
-    "us-gaap:OtherNoncashIncomeExpense",
-    "1"
-   ]
-  ],
-  "doc:TotalRevenues_5": [
+  "ifrs-full:Revenue": [
    [
     "doc:PrincipalTransactions_0",
     "1"
@@ -1291,6 +1245,16 @@
     "1"
    ]
   ],
+  "us-gaap:EarningsPerShareBasic": [
+   [
+    "doc:BeforeCumulativeEffectOfAccountingChange_23",
+    "1"
+   ],
+   [
+    "doc:CumulativeEffectOfAccountingChange_24",
+    "1"
+   ]
+  ],
   "us-gaap:NetIncomeLoss": [
    [
     "doc:IncomeBeforeCumulativeEffectOfAccountingChange_19",
@@ -1298,6 +1262,16 @@
    ],
    [
     "doc:CumulativeEffectOfAccountingChange_20",
+    "1"
+   ]
+  ],
+  "us-gaap:OperatingExpenses": [
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:OperatingExpenses",
     "1"
    ]
   ]

@@ -110,6 +110,25 @@ CF_DIVIDENDS_RECEIVED = "cf_dividends_received"
 CF_DISCONTINUED = "cf_discontinued"
 CF_ASSET_DISPOSAL = "cf_asset_disposal"
 
+# Cash-outflow rows whose base-year value the engine consumes as a
+# MAGNITUDE. Tagged filings store these at concept polarity (payments are
+# positive facts under negated labels); untagged documents store the
+# printed sign (outflows print negative). abs() yields the outflow
+# magnitude under both conventions, and a legitimately negative magnitude
+# does not exist for these roles. Genuinely signed net rows (CF_CP_NET)
+# stay out.
+CF_OUTFLOW_MAGNITUDE = frozenset(
+    {
+        CF_CAPEX,
+        CF_DIVIDENDS,
+        CF_BUYBACK,
+        CF_SBC_TAX_WITHHOLD,
+        CF_DEBT_REPAY,
+        CF_LEASE_PAYMENT,
+        CF_INVEST_PURCHASE,
+    }
+)
+
 # Concept local-name tables (us-gaap and ifrs-full), the backbone.
 CONCEPT_ROLES: dict[str, str] = {
     # income statement

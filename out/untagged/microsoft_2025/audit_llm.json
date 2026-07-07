@@ -1,4 +1,51 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 8,
+ "decisions": [
+  {
+   "kind": "read_cell",
+   "label": "Common stock and paid-in capital \u2013 shares authorized 24,000;",
+   "column": 1,
+   "samples": [
+    "109095",
+    "109095",
+    "109095"
+   ],
+   "voted": "109095",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Common stock and paid-in capital \u2013 shares authorized 24,000;",
+   "column": 0,
+   "value": "109095"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Common stock and paid-in capital \u2013 shares authorized 24,000;",
+   "column": 2,
+   "samples": [
+    "100923",
+    "100923",
+    "100923"
+   ],
+   "voted": "100923",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Common stock and paid-in capital \u2013 shares authorized 24,000;",
+   "column": 1,
+   "value": "100923"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Service and other",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Service and other",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  }
+ ]
 }

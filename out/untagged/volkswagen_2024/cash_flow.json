@@ -1,0 +1,290 @@
+{
+ "company": "volkswagen_2024",
+ "standard": "untagged",
+ "statement": "cash_flow",
+ "linkrole": "document:volkswagen_2024:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Non-controlling interests in %1",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "24.58",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "24.58",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Non-controlling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "12707000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "12384000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "ifrs-full:NoncurrentAssets",
+   "dims": [],
+   "label": "Non-current assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "66058000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "63261000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "ifrs-full:CurrentAssets",
+   "dims": [],
+   "label": "Current assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "20288000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "20040000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "ifrs-full:NoncurrentLiabilities",
+   "dims": [],
+   "label": "Non-current liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "20354000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "19420000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "ifrs-full:CurrentLiabilities",
+   "dims": [],
+   "label": "Current liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "14343000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "13567000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "ifrs-full:Revenue",
+   "dims": [],
+   "label": "Sales revenue",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "40083000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "40530000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "ifrs-full:ProfitLoss",
+   "dims": [],
+   "label": "Earnings after tax",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "and fair value adjustments, which were determined at the acquisition date"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "3542000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "5128000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {},
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2024, 2023]"
+ ]
+}

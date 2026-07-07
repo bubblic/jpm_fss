@@ -1,21 +1,82 @@
 {
  "document": "wirecard_ar2018",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\wirecard\\ar2018.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    76
+   ],
+   "llm_adjudicated": 0,
+   "rows": 6,
+   "columns": 2,
+   "accepted_cells": 10,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 1,
+    "llm": 3,
+    "unmapped": 2
+   }
   },
   "income_statement": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    72
+   ],
+   "llm_adjudicated": 1,
+   "rows": 13,
+   "columns": 2,
+   "accepted_cells": 20,
+   "flags": 3,
+   "scale": "1000000",
+   "footing_groups": 1,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 1,
+    "llm": 6,
+    "unmapped": 6
+   }
   },
   "cash_flow": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    76
+   ],
+   "llm_adjudicated": 0,
+   "rows": 6,
+   "columns": 2,
+   "accepted_cells": 10,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 1,
+    "llm": 3,
+    "unmapped": 2
+   }
   }
  },
+ "diagnosis": "104 text-bearing pages (e.g. pages 32-222) extract with ZERO digits: their fonts lack unicode mappings for numerals, so no text engine can read numbers there. If the statements live in that region, any rows extracted elsewhere are condensed summaries, not the statement face; an OCR/vision reader is required.",
  "simulation": {
   "status": "skipped",
-  "reason": "not all three statements extracted"
+  "reason": "1 flagged balance-sheet cells (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 39
 }

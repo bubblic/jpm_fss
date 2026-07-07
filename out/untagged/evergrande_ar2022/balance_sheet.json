@@ -12,7 +12,7 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:InvestmentsInSubsidiaries_0",
+   "concept": "ck0001639920:LongTermInvestments1",
    "dims": [],
    "label": "Investments in subsidiaries",
    "depth": 1,
@@ -24,7 +24,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current assets (a)"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:OtherReceivables_4",
+   "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
    "dims": [],
    "label": "Other receivables",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current assets"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:ShareCapitalAndPremium_8",
+   "concept": "ifrs-full:IssuedCapital",
    "dims": [],
    "label": "Share capital and premium",
    "depth": 1,
@@ -296,7 +296,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Company"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:AccumulatedLosses_10",
+   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
    "dims": [],
    "label": "Accumulated losses",
    "depth": 1,
@@ -362,9 +362,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Company"
@@ -386,7 +386,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:DeficiencyInEquity_11",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Deficiency in equity",
    "depth": 1,
@@ -398,7 +398,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Company"
@@ -420,7 +420,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:Borrowings_12",
+   "concept": "ifrs-full:LongtermBorrowings",
    "dims": [],
    "label": "Borrowings",
    "depth": 1,
@@ -432,7 +432,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Non-current liability"
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:DividendPayables_16",
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
    "dims": [],
    "label": "Dividend payables",
    "depth": 1,
@@ -568,7 +568,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -694,7 +694,7 @@
  "calc_children": {
   "doc:Row13_13": [
    [
-    "doc:Borrowings_12",
+    "ifrs-full:LongtermBorrowings",
     "1"
    ]
   ],
@@ -708,13 +708,13 @@
     "1"
    ],
    [
-    "doc:DividendPayables_16",
+    "ifrs-full:TradeAndOtherCurrentPayables",
     "1"
    ]
   ],
   "doc:Row2_2": [
    [
-    "doc:InvestmentsInSubsidiaries_0",
+    "ck0001639920:LongTermInvestments1",
     "1"
    ],
    [
@@ -728,7 +728,7 @@
     "1"
    ],
    [
-    "doc:OtherReceivables_4",
+    "ifrs-full:TradeAndOtherCurrentReceivables",
     "1"
    ],
    [
@@ -738,7 +738,7 @@
   ],
   "ifrs-full:EquityAndLiabilities": [
    [
-    "doc:DeficiencyInEquity_11",
+    "ifrs-full:Equity",
     "1"
    ],
    [

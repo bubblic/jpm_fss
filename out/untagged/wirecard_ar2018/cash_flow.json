@@ -1,0 +1,222 @@
+{
+ "company": "wirecard_ar2018",
+ "standard": "untagged",
+ "statement": "cash_flow",
+ "linkrole": "document:wirecard_ar2018:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2018-01-01:2018-12-31",
+  "D2017-01-01:2017-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "doc:StrategicTransactionsMA_0",
+   "dims": [],
+   "label": "Strategic transactions/M&A",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "42500000.0",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "265000000.0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:MediumTermFinancingAgreements_1",
+   "dims": [],
+   "label": "Medium-term financing agreements",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "115000000.0",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "0.0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+   "dims": [],
+   "label": "Internally-generated intangible assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "45.1",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "45.3",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+   "dims": [],
+   "label": "Other intangible assets (software)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "7.6",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "32.8",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
+   "dims": [],
+   "label": "Property, plant and equipment",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "ness in the Asia-Pacific region as well as the range of This mainly affects"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": "23500000.0",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": "15000000.0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:ShortTermInvestments",
+   "dims": [],
+   "label": "curities). The remaining funds were held as deposits with sometimes provides the financing based on detailed indi- the central bank and demand and short-term fixed-term vidual assessments and suitable security",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "ers and short-term and medium-term interest-bearing se- agement, technology and banking services here but also"
+   ],
+   "cells": [
+    {
+     "period": "D2018-01-01:2018-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2017-01-01:2017-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {},
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2018, 2017]"
+ ]
+}

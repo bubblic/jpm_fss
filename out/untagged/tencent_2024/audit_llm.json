@@ -1,4 +1,280 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 55,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Shares held for share award schemes 33",
+   "chosen": "ifrs-full:AdjustmentsForSharebasedPayments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Borrowings 36",
+   "chosen": "ifrs-full:LongtermBorrowings"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Notes payable 37",
+   "chosen": "ifrs-full:LongtermBorrowings"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term payables 38",
+   "chosen": "us-gaap:LongTermDebtNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other financial liabilities 39",
+   "chosen": "ifrs-full:NoncurrentFinancialLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred income tax liabilities 29",
+   "chosen": "ifrs-full:DeferredTaxLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred revenue 6(c)(i)",
+   "chosen": "ifrs-full:CurrentContractLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other payables and accruals 41",
+   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Borrowings 36",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Notes payable 37",
+   "chosen": "us-gaap:AccountsPayableCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Current income tax liabilities",
+   "chosen": "ifrs-full:CurrentTaxLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other tax liabilities",
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other financial liabilities 39",
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred revenue 6(c)(i)",
+   "chosen": "ifrs-full:CurrentContractLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Value-added Services",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Marketing Services*",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "FinTech and Business Services",
+   "chosen": "ifrs-full:RevenueFromRenderingOfInformationTechnologyMaintenanceAndSupportServices"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cost of revenues 7",
+   "chosen": "ifrs-full:CostOfSales"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Selling and marketing expenses 7",
+   "chosen": "us-gaap:SellingAndMarketingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "General and administrative expenses 7",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other gains/(losses), net 8",
+   "chosen": "us-gaap:NonoperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net gains/(losses) from investments and others 9",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest income 10",
+   "chosen": "ifrs-full:FinanceIncome"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Share of profit/(loss) of associates and joint ventures, net",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Profit before income tax",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income tax expense 12(a)",
+   "chosen": "ifrs-full:IncomeTaxExpenseContinuingOperations"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Profit for the year",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity holders of the Company",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "of the Company (in RMB per share) \u2013 basic 13(a)",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "\u2013 diluted 13(b)",
+   "chosen": "us-gaap:EarningsPerShareDiluted"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash generated from operations 43(a)",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash flows generated from operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for business combinations, net of cash acquired",
+   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net inflow of cash from disposals of investments in subsidia",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of/prepayments for property, plant and equipment, c",
+   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of property, plant and equipment",
+   "chosen": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of/prepayments for intangible assets",
+   "chosen": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of/prepayments for land use rights",
+   "chosen": "ck0001639920:LeaseRightOfUseAssetsObtainedInExchangeForLeaseLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for acquisition of investments in associates",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of investments in associates",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for acquisition of investments in joint ventures",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from disposal of investments in joint ventures",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from short-term borrowings",
+   "chosen": "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repayments of short-term borrowings",
+   "chosen": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from long-term borrowings",
+   "chosen": "us-gaap:ProceedsFromIssuanceOfLongTermDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repayments of long-term borrowings",
+   "chosen": "us-gaap:RepaymentsOfLongTermDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Repayments of notes payable",
+   "chosen": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Principal elements of lease payments",
+   "chosen": "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for repurchase of shares",
+   "chosen": "us-gaap:PaymentsForRepurchaseOfCommonStock"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of ordinary shares as a result of exe",
+   "chosen": "ifrs-full:ProceedsFromExerciseOfOptions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for withholding individual income tax for share opt",
+   "chosen": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for shares purchased/withheld for share award schem",
+   "chosen": "ifrs-full:AdjustmentsForSharebasedPayments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of additional equity interests of non",
+   "chosen": "us-gaap:ProceedsFromIssuanceOfCommonStock"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payments for acquisition of non-controlling interests in non",
+   "chosen": "ifrs-full:NoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Capital reductions of non-controlling interests in non wholl",
+   "chosen": "sap:TransactionsWithNoncontrollingInterests"
+  }
+ ]
 }

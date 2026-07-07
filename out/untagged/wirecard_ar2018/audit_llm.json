@@ -1,4 +1,194 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 39,
+ "decisions": [
+  {
+   "kind": "select_pages",
+   "query": "balance sheet",
+   "pages": [
+    76
+   ]
+  },
+  {
+   "kind": "read_cell",
+   "label": "curities). The remaining funds were held as deposits with so",
+   "column": 2,
+   "samples": [
+    "None",
+    "None",
+    "0.0"
+   ],
+   "voted": "None",
+   "agreement": 1
+  },
+  {
+   "kind": "map_concept",
+   "label": "Medium-term financing agreements",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Internally-generated intangible assets",
+   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other intangible assets (software)",
+   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+  },
+  {
+   "kind": "map_concept",
+   "label": "curities). The remaining funds were held as deposits with so",
+   "chosen": "us-gaap:ShortTermInvestments"
+  },
+  {
+   "kind": "select_pages",
+   "query": "income statement",
+   "pages": [
+    72
+   ]
+  },
+  {
+   "kind": "read_cell",
+   "label": "relating to the areas of acquiring, issuing and payment stri",
+   "column": 1,
+   "samples": [
+    "11.6",
+    "11.6",
+    "11.6"
+   ],
+   "voted": "11.6",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "relating to the areas of acquiring, issuing and payment stri",
+   "column": 0,
+   "value": "11.6"
+  },
+  {
+   "kind": "read_cell",
+   "label": "The increase in expenses for almost all subitems goes As par",
+   "column": 1,
+   "samples": [
+    "None",
+    "157.1",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 1
+  },
+  {
+   "kind": "read_cell",
+   "label": "The increase in expenses for almost all subitems goes As par",
+   "column": 2,
+   "samples": [
+    "160.4",
+    "160.4",
+    "None"
+   ],
+   "voted": "160.4",
+   "agreement": 2
+  },
+  {
+   "kind": "read_cell",
+   "label": "gion. determined using the previously applicable model of in",
+   "column": 1,
+   "samples": [
+    "157.1",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 1
+  },
+  {
+   "kind": "map_concept",
+   "label": "Legal and financial statement costs",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Consulting expenses and consulting-related expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Office expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equipment and leasing",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Travel, sales and marketing",
+   "chosen": "ifrs-full:SalesAndMarketingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Personnel-related expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Insurance payments, contributions and levies",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "The increase in expenses for almost all subitems goes As par",
+   "chosen": "ck0001639920:AdjustmentsForIncreaseDecreaseInProvisions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "gion. determined using the previously applicable model of in",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "select_pages",
+   "query": "cash flow",
+   "pages": [
+    76
+   ]
+  },
+  {
+   "kind": "read_cell",
+   "label": "curities). The remaining funds were held as deposits with so",
+   "column": 2,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "map_concept",
+   "label": "Medium-term financing agreements",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Internally-generated intangible assets",
+   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other intangible assets (software)",
+   "chosen": "ifrs-full:IntangibleAssetsOtherThanGoodwill"
+  },
+  {
+   "kind": "map_concept",
+   "label": "curities). The remaining funds were held as deposits with so",
+   "chosen": "us-gaap:ShortTermInvestments"
+  }
+ ]
 }

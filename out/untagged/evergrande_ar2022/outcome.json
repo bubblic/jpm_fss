@@ -1,7 +1,7 @@
 {
  "document": "evergrande_ar2022",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\evergrande\\ar2022.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
@@ -22,8 +22,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 6,
-    "llm": 0,
-    "unmapped": 14
+    "llm": 7,
+    "unmapped": 7
    }
   },
   "income_statement": {
@@ -44,17 +44,40 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 2,
-    "llm": 0,
-    "unmapped": 7
+    "llm": 1,
+    "unmapped": 6
    }
   },
   "cash_flow": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    52,
+    53,
+    146
+   ],
+   "llm_adjudicated": 0,
+   "rows": 59,
+   "columns": 2,
+   "accepted_cells": 112,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 5435 + change -1103 (net-change row, fx added) vs end 4334"
+   },
+   "mapping": {
+    "lexical": 6,
+    "llm": 21,
+    "unmapped": 32
+   }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "not all three statements extracted"
+  "reason": "cash_flow footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 40
 }

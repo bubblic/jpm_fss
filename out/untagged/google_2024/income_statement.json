@@ -51,7 +51,7 @@
   },
   {
    "order": 1,
-   "concept": "doc:CostOfRevenues_1",
+   "concept": "ifrs-full:CostOfSales",
    "dims": [],
    "label": "Cost of revenues",
    "depth": 1,
@@ -61,9 +61,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "credit",
+   "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -211,7 +211,7 @@
   },
   {
    "order": 5,
-   "concept": "doc:TotalCostsAndExpenses_5",
+   "concept": "us-gaap:OperatingExpenses",
    "dims": [],
    "label": "Total costs and expenses",
    "depth": 1,
@@ -223,7 +223,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Costs and expenses"
@@ -531,9 +531,19 @@
   }
  ],
  "calc_children": {
-  "doc:TotalCostsAndExpenses_5": [
+  "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest": [
    [
-    "doc:CostOfRevenues_1",
+    "doc:IncomeFromOperations_6",
+    "1"
+   ],
+   [
+    "us-gaap:NonoperatingIncomeExpense",
+    "1"
+   ]
+  ],
+  "us-gaap:OperatingExpenses": [
+   [
+    "ifrs-full:CostOfSales",
     "1"
    ],
    [
@@ -546,16 +556,6 @@
    ],
    [
     "us-gaap:GeneralAndAdministrativeExpense",
-    "1"
-   ]
-  ],
-  "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest": [
-   [
-    "doc:IncomeFromOperations_6",
-    "1"
-   ],
-   [
-    "us-gaap:NonoperatingIncomeExpense",
     "1"
    ]
   ]

@@ -1,7 +1,7 @@
 {
  "document": "bbby_ar2022",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\bbby\\ar2022.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
    "located_by": "deterministic",
@@ -23,8 +23,8 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 11,
-    "llm": 0,
-    "unmapped": 19
+    "llm": 15,
+    "unmapped": 4
    }
   },
   "income_statement": {
@@ -37,23 +37,43 @@
    "accepted_cells": 52,
    "flags": 0,
    "scale": "1000",
-   "footing_groups": 1,
-   "footing_pass": true,
+   "footing_groups": 3,
+   "footing_pass": false,
    "identity": null,
    "cash_tie": null,
    "mapping": {
     "lexical": 3,
-    "llm": 0,
-    "unmapped": 16
+    "llm": 9,
+    "unmapped": 7
    }
   },
   "cash_flow": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    74
+   ],
+   "rows": 46,
+   "columns": 3,
+   "accepted_cells": 102,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 1,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 6,
+    "llm": 14,
+    "unmapped": 26
+   }
   }
  },
  "simulation": {
   "status": "skipped",
-  "reason": "not all three statements extracted"
+  "reason": "income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 59
 }

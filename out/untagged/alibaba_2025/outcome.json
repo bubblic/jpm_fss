@@ -1,25 +1,90 @@
 {
  "document": "alibaba_2025",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\alibaba_2025.pdf",
- "llm": false,
+ "llm": true,
  "statements": {
   "balance_sheet": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    56,
+    82,
+    83
+   ],
+   "llm_adjudicated": 0,
+   "rows": 27,
+   "columns": 7,
+   "accepted_cells": 120,
+   "flags": 9,
+   "scale": "1",
+   "footing_groups": 25,
+   "footing_pass": false,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 0,
+    "llm": 0,
+    "unmapped": 27
+   }
   },
   "income_statement": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    56,
+    65,
+    69
+   ],
+   "llm_adjudicated": 0,
+   "rows": 50,
+   "columns": 5,
+   "accepted_cells": 54,
+   "flags": 156,
+   "scale": "1",
+   "footing_groups": 49,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 0,
+    "llm": 0,
+    "unmapped": 50
+   }
   },
   "cash_flow": {
-   "error": "not located (no LLM fallback configured)"
+   "located_by": "llm",
+   "pages": [
+    75,
+    83,
+    84
+   ],
+   "llm_adjudicated": 0,
+   "rows": 57,
+   "columns": 7,
+   "accepted_cells": 166,
+   "flags": 77,
+   "scale": "1",
+   "footing_groups": 53,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 0,
+    "llm": 0,
+    "unmapped": 57
+   }
   }
  },
  "text_options": {
   "x_tolerance": 1.2
  },
- "diagnosis": "no financial-statement vocabulary in the extractable text: the statement pages are likely images; an OCR/vision reader is required for this document",
  "simulation": {
   "status": "skipped",
-  "reason": "not all three statements extracted"
+  "reason": "9 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
  },
- "llm_calls": 0
+ "llm_calls": 108
 }

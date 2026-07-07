@@ -1,4 +1,285 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 56,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Available-for-sale securities, at fair value (cost of $28,60",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Held-to-maturity securities, at amortized cost and net of al",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-marketable and other equity securities",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total investment securities",
+   "chosen": "us-gaap:Assets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loans, amortized cost",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Allowance for credit losses: loans",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net loans",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Premises and equipment, net of accumulated depreciation and ",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other intangible assets, net",
+   "chosen": "us-gaap:FiniteLivedIntangibleAssetsNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued interest receivable and other assets",
+   "chosen": "ifrs-full:OtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total deposits",
+   "chosen": "us-gaap:LiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Short-term borrowings",
+   "chosen": "us-gaap:CommercialPaper"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other liabilities",
+   "chosen": "ifrs-full:Liabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Preferred stock, $0.001 par value, 20,000,000 shares authori",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Common stock, $0.001 par value, 150,000,000 shares authorize",
+   "chosen": "us-gaap:CommonStockSharesIssued"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additional paid-in capital",
+   "chosen": "ifrs-full:AdditionalPaidinCapital"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-taxable",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Federal funds sold, securities purchased under agreements to",
+   "chosen": "us-gaap:CashCashEquivalentsAndShortTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total interest income",
+   "chosen": "ifrs-full:FinanceIncome"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Borrowings",
+   "chosen": "ifrs-full:LongtermBorrowings"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total interest expense",
+   "chosen": "ifrs-full:OperatingExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net interest income",
+   "chosen": "ifrs-full:FinanceIncomeCost"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provision for credit losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net interest income after provision for credit losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Gains (losses) on investment securities, net",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Gains on equity warrant assets, net",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Letters of credit and standby letters of credit fees",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Investment banking revenue",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total noninterest income",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Compensation and benefits",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Professional services",
+   "chosen": "ifrs-full:ServicesExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income before noncontrolling interests",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provision for credit losses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Changes in fair values of equity warrant assets, net of proc",
+   "chosen": "ifrs-full:ProceedsFromExerciseOfOptions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Changes in fair values of derivatives, net",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "(Gains) losses on investment securities, net",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Distributions of earnings from non-marketable and other equi",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Amortization of premiums and discounts on investment securit",
+   "chosen": "us-gaap:DepreciationDepletionAndAmortization"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Amortization of share-based compensation",
+   "chosen": "ifrs-full:AdjustmentsForSharebasedPayments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Amortization of deferred loan fees",
+   "chosen": "ifrs-full:AdjustmentsForAmortisationExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred income tax (benefit) expense",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Excess tax benefit from exercise of stock options and vestin",
+   "chosen": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Losses from the write-off of premises and equipment and righ",
+   "chosen": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued interest receivable and payable, net",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accounts receivable and payable, net",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income tax receivable and payable, net",
+   "chosen": "ifrs-full:CurrentTaxAssetsCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from termination of interest rate swaps",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash provided by operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of AFS securities",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sales of AFS securities",
+   "chosen": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from maturities and paydowns of AFS securities",
+   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of HTM securities",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from maturities and paydowns of HTM securities",
+   "chosen": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of non-marketable and other equity securities",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sales and distributions of capital of non-mark",
+   "chosen": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net increase in loans",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentAssets"
+  }
+ ]
 }

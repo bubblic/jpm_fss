@@ -12,19 +12,19 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:CashGeneratedFromOperations43A_0",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
    "dims": [],
    "label": "Cash generated from operations 43(a)",
    "depth": 1,
-   "kind": "leaf",
-   "derivation": "",
+   "kind": "derived",
+   "derivation": "calc",
    "preferred_label": null,
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:NetCashFlowsGeneratedFromOperatingActivities_2",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
    "dims": [],
    "label": "Net cash flows generated from operating activities",
    "depth": 1,
@@ -90,9 +90,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from operating activities"
@@ -114,7 +114,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:PaymentsForBusinessCombinationsNetOfCashAcquired_3",
+   "concept": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
    "dims": [],
    "label": "Payments for business combinations, net of cash acquired",
    "depth": 1,
@@ -124,9 +124,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:NetInflowOfCashFromDisposalsOfInvestmentsInSubsidiaries_4",
+   "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
    "dims": [],
    "label": "Net inflow of cash from disposals of investments in subsidiaries",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -182,7 +182,7 @@
   },
   {
    "order": 5,
-   "concept": "doc:PurchaseOfPrepaymentsForPropertyPlantAndEquipmentConstructio_5",
+   "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
    "dims": [],
    "label": "Purchase of/prepayments for property, plant and equipment, construction in progress and investment properties",
    "depth": 1,
@@ -192,9 +192,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -216,7 +216,7 @@
   },
   {
    "order": 6,
-   "concept": "doc:ProceedsFromDisposalOfPropertyPlantAndEquipment_6",
+   "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
    "dims": [],
    "label": "Proceeds from disposal of property, plant and equipment",
    "depth": 1,
@@ -228,7 +228,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -250,7 +250,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:PurchaseOfPrepaymentsForIntangibleAssets_7",
+   "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
    "dims": [],
    "label": "Purchase of/prepayments for intangible assets",
    "depth": 1,
@@ -260,9 +260,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:PurchaseOfPrepaymentsForLandUseRights_8",
+   "concept": "ck0001639920:LeaseRightOfUseAssetsObtainedInExchangeForLeaseLiabilities",
    "dims": [],
    "label": "Purchase of/prepayments for land use rights",
    "depth": 1,
@@ -296,7 +296,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -318,7 +318,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:PaymentsForAcquisitionOfInvestmentsInAssociates_9",
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
    "dims": [],
    "label": "Payments for acquisition of investments in associates",
    "depth": 1,
@@ -328,9 +328,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:ProceedsFromDisposalOfInvestmentsInAssociates_10",
+   "concept": "msft:ProceedsFromInvestments",
    "dims": [],
    "label": "Proceeds from disposal of investments in associates",
    "depth": 1,
@@ -364,7 +364,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -386,7 +386,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:PaymentsForAcquisitionOfInvestmentsInJointVentures_11",
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
    "dims": [],
    "label": "Payments for acquisition of investments in joint ventures",
    "depth": 1,
@@ -396,9 +396,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -420,7 +420,7 @@
   },
   {
    "order": 12,
-   "concept": "doc:ProceedsFromDisposalOfInvestmentsInJointVentures_12",
+   "concept": "msft:ProceedsFromInvestments",
    "dims": [],
    "label": "Proceeds from disposal of investments in joint ventures",
    "depth": 1,
@@ -432,7 +432,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from investing activities"
@@ -454,7 +454,7 @@
   },
   {
    "order": 13,
-   "concept": "doc:ProceedsFromShortTermBorrowings_13",
+   "concept": "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities",
    "dims": [],
    "label": "Proceeds from short-term borrowings",
    "depth": 1,
@@ -466,7 +466,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -488,7 +488,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:RepaymentsOfShortTermBorrowings_14",
+   "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
    "dims": [],
    "label": "Repayments of short-term borrowings",
    "depth": 1,
@@ -498,9 +498,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -522,7 +522,7 @@
   },
   {
    "order": 15,
-   "concept": "doc:ProceedsFromLongTermBorrowings_15",
+   "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
    "dims": [],
    "label": "Proceeds from long-term borrowings",
    "depth": 1,
@@ -534,7 +534,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:RepaymentsOfLongTermBorrowings_16",
+   "concept": "us-gaap:RepaymentsOfLongTermDebt",
    "dims": [],
    "label": "Repayments of long-term borrowings",
    "depth": 1,
@@ -566,9 +566,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -590,7 +590,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:RepaymentsOfNotesPayable_17",
+   "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
    "dims": [],
    "label": "Repayments of notes payable",
    "depth": 1,
@@ -600,9 +600,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -624,7 +624,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:PrincipalElementsOfLeasePayments_18",
+   "concept": "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities",
    "dims": [],
    "label": "Principal elements of lease payments",
    "depth": 1,
@@ -634,9 +634,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -692,7 +692,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:PaymentsForRepurchaseOfShares_20",
+   "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
    "dims": [],
    "label": "Payments for repurchase of shares",
    "depth": 1,
@@ -702,9 +702,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:ProceedsFromIssuanceOfOrdinarySharesAsAResultOfExerciseOfSha_21",
+   "concept": "ifrs-full:ProceedsFromExerciseOfOptions",
    "dims": [],
    "label": "Proceeds from issuance of ordinary shares as a result of exercise of share options",
    "depth": 1,
@@ -738,7 +738,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -760,7 +760,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:PaymentsForWithholdingIndividualIncomeTaxForShareOptionSchem_22",
+   "concept": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
    "dims": [],
    "label": "Payments for withholding individual income tax for share option schemes",
    "depth": 1,
@@ -770,9 +770,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:PaymentsForSharesPurchasedWithheldForShareAwardSchemes_23",
+   "concept": "ifrs-full:AdjustmentsForSharebasedPayments",
    "dims": [],
    "label": "Payments for shares purchased/withheld for share award schemes",
    "depth": 1,
@@ -806,7 +806,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -828,7 +828,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:ProceedsFromIssuanceOfAdditionalEquityInterestsOfNonWhollyOw_24",
+   "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock",
    "dims": [],
    "label": "Proceeds from issuance of additional equity interests of non wholly-owned subsidiaries",
    "depth": 1,
@@ -840,7 +840,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:PaymentsForAcquisitionOfNonControllingInterestsInNonWhollyOw_25",
+   "concept": "ifrs-full:NoncontrollingInterests",
    "dims": [],
    "label": "Payments for acquisition of non-controlling interests in non wholly-owned subsidiaries",
    "depth": 1,
@@ -872,9 +872,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -896,7 +896,7 @@
   },
   {
    "order": 26,
-   "concept": "doc:CapitalReductionsOfNonControllingInterestsInNonWhollyOwnedSu_26",
+   "concept": "sap:TransactionsWithNoncontrollingInterests",
    "dims": [],
    "label": "Capital reductions of non-controlling interests in non wholly-owned subsidiaries",
    "depth": 1,
@@ -908,7 +908,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Cash flows from financing activities"
@@ -1168,39 +1168,29 @@
   }
  ],
  "calc_children": {
-  "doc:NetCashFlowsGeneratedFromOperatingActivities_2": [
-   [
-    "doc:CashGeneratedFromOperations43A_0",
-    "1"
-   ],
-   [
-    "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities",
-    "1"
-   ]
-  ],
   "doc:NetCashFlowsUsedInFinancingActivities_29": [
    [
-    "doc:ProceedsFromShortTermBorrowings_13",
+    "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities",
     "1"
    ],
    [
-    "doc:RepaymentsOfShortTermBorrowings_14",
+    "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
     "1"
    ],
    [
-    "doc:ProceedsFromLongTermBorrowings_15",
+    "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
     "1"
    ],
    [
-    "doc:RepaymentsOfLongTermBorrowings_16",
+    "us-gaap:RepaymentsOfLongTermDebt",
     "1"
    ],
    [
-    "doc:RepaymentsOfNotesPayable_17",
+    "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
     "1"
    ],
    [
-    "doc:PrincipalElementsOfLeasePayments_18",
+    "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities",
     "1"
    ],
    [
@@ -1208,31 +1198,31 @@
     "1"
    ],
    [
-    "doc:PaymentsForRepurchaseOfShares_20",
+    "us-gaap:PaymentsForRepurchaseOfCommonStock",
     "1"
    ],
    [
-    "doc:ProceedsFromIssuanceOfOrdinarySharesAsAResultOfExerciseOfSha_21",
+    "ifrs-full:ProceedsFromExerciseOfOptions",
     "1"
    ],
    [
-    "doc:PaymentsForWithholdingIndividualIncomeTaxForShareOptionSchem_22",
+    "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
     "1"
    ],
    [
-    "doc:PaymentsForSharesPurchasedWithheldForShareAwardSchemes_23",
+    "ifrs-full:AdjustmentsForSharebasedPayments",
     "1"
    ],
    [
-    "doc:ProceedsFromIssuanceOfAdditionalEquityInterestsOfNonWhollyOw_24",
+    "us-gaap:ProceedsFromIssuanceOfCommonStock",
     "1"
    ],
    [
-    "doc:PaymentsForAcquisitionOfNonControllingInterestsInNonWhollyOw_25",
+    "ifrs-full:NoncontrollingInterests",
     "1"
    ],
    [
-    "doc:CapitalReductionsOfNonControllingInterestsInNonWhollyOwnedSu_26",
+    "sap:TransactionsWithNoncontrollingInterests",
     "1"
    ],
    [
@@ -1241,6 +1231,16 @@
    ],
    [
     "doc:DividendsPaidToNonControllingInterests_28",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
+   [
+    "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities",
     "1"
    ]
   ]

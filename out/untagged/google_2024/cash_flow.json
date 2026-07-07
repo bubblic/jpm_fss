@@ -53,7 +53,7 @@
   },
   {
    "order": 1,
-   "concept": "doc:DepreciationOfPropertyAndEquipment_1",
+   "concept": "us-gaap:DepreciationDepletionAndAmortization",
    "dims": [],
    "label": "Depreciation of property and equipment",
    "depth": 1,
@@ -65,7 +65,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments"
@@ -173,7 +173,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:LossGainOnDebtAndEquitySecuritiesNet_4",
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
    "dims": [],
    "label": "Loss (gain) on debt and equity securities, net",
    "depth": 1,
@@ -183,9 +183,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Adjustments"
@@ -293,7 +293,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:IncomeTaxesNet_7",
+   "concept": "us-gaap:IncomeTaxesPaidNet",
    "dims": [],
    "label": "Income taxes, net",
    "depth": 1,
@@ -303,9 +303,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Changes in assets and liabilities, net of effects of acquisitions"
@@ -453,7 +453,7 @@
   },
   {
    "order": 11,
-   "concept": "doc:AccruedRevenueShare_11",
+   "concept": "ifrs-full:Revenue",
    "dims": [],
    "label": "Accrued revenue share",
    "depth": 1,
@@ -463,9 +463,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Changes in assets and liabilities, net of effects of acquisitions"
@@ -533,7 +533,7 @@
   },
   {
    "order": 13,
-   "concept": "doc:NetCashProvidedByOperatingActivities_13",
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
    "dims": [],
    "label": "Net cash provided by operating activities",
    "depth": 1,
@@ -543,9 +543,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Changes in assets and liabilities, net of effects of acquisitions"
@@ -653,7 +653,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:MaturitiesAndSalesOfMarketableSecurities_16",
+   "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
    "dims": [],
    "label": "Maturities and sales of marketable securities",
    "depth": 1,
@@ -665,7 +665,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investing activities"
@@ -693,7 +693,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:PurchasesOfNonMarketableSecurities_17",
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
    "dims": [],
    "label": "Purchases of non-marketable securities",
    "depth": 1,
@@ -703,9 +703,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investing activities"
@@ -733,7 +733,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:MaturitiesAndSalesOfNonMarketableSecurities_18",
+   "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
    "dims": [],
    "label": "Maturities and sales of non-marketable securities",
    "depth": 1,
@@ -745,7 +745,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investing activities"
@@ -773,7 +773,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAssets_19",
+   "concept": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
    "dims": [],
    "label": "Acquisitions, net of cash acquired, and purchases of intangible assets",
    "depth": 1,
@@ -783,9 +783,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investing activities"
@@ -853,7 +853,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:NetCashUsedInInvestingActivities_21",
+   "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
    "dims": [],
    "label": "Net cash used in investing activities",
    "depth": 1,
@@ -865,7 +865,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Investing activities"
@@ -893,7 +893,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:NetPaymentsRelatedToStockBasedAwardActivities_22",
+   "concept": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
    "dims": [],
    "label": "Net payments related to stock-based award activities",
    "depth": 1,
@@ -903,9 +903,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -933,7 +933,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:RepurchasesOfStock_23",
+   "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
    "dims": [],
    "label": "Repurchases of stock",
    "depth": 1,
@@ -943,9 +943,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -973,7 +973,7 @@
   },
   {
    "order": 24,
-   "concept": "doc:DividendPayments_24",
+   "concept": "us-gaap:PaymentsOfDividends",
    "dims": [],
    "label": "Dividend payments",
    "depth": 1,
@@ -983,9 +983,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "duration",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1013,7 +1013,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:ProceedsFromIssuanceOfDebtNetOfCosts_25",
+   "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
    "dims": [],
    "label": "Proceeds from issuance of debt, net of costs",
    "depth": 1,
@@ -1025,7 +1025,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1093,7 +1093,7 @@
   },
   {
    "order": 27,
-   "concept": "doc:ProceedsFromSaleOfInterestInConsolidatedEntitiesNet_27",
+   "concept": "msft:ProceedsFromInvestments",
    "dims": [],
    "label": "Proceeds from sale of interest in consolidated entities, net",
    "depth": 1,
@@ -1105,7 +1105,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1133,7 +1133,7 @@
   },
   {
    "order": 28,
-   "concept": "doc:NetCashUsedInFinancingActivities_28",
+   "concept": "ifrs-full:CashFlowsFromUsedInFinancingActivities",
    "dims": [],
    "label": "Net cash used in financing activities",
    "depth": 1,
@@ -1145,7 +1145,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1173,7 +1173,7 @@
   },
   {
    "order": 29,
-   "concept": "doc:EffectOfExchangeRateChangesOnCashAndCashEquivalents_29",
+   "concept": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
    "dims": [],
    "label": "Effect of exchange rate changes on cash and cash equivalents",
    "depth": 1,
@@ -1185,7 +1185,7 @@
    "period_type": "duration",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1253,7 +1253,7 @@
   },
   {
    "order": 31,
-   "concept": "doc:CashAndCashEquivalentsAtBeginningOfPeriod_31",
+   "concept": "ifrs-full:CashAndCashEquivalents",
    "dims": [],
    "label": "Cash and cash equivalents at beginning of period",
    "depth": 1,
@@ -1265,7 +1265,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1293,7 +1293,7 @@
   },
   {
    "order": 32,
-   "concept": "doc:CashAndCashEquivalentsAtEndOfPeriod_32",
+   "concept": "ifrs-full:CashAndCashEquivalents",
    "dims": [],
    "label": "Cash and cash equivalents at end of period",
    "depth": 1,
@@ -1305,7 +1305,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Financing activities"
@@ -1373,13 +1373,93 @@
   }
  ],
  "calc_children": {
-  "doc:NetCashProvidedByOperatingActivities_13": [
+  "doc:Row33_33": [
+   [
+    "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents",
+    "1"
+   ]
+  ],
+  "ifrs-full:CashFlowsFromUsedInFinancingActivities": [
+   [
+    "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsForRepurchaseOfCommonStock",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsOfDividends",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+    "1"
+   ],
+   [
+    "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
+    "1"
+   ],
+   [
+    "msft:ProceedsFromInvestments",
+    "1"
+   ]
+  ],
+  "ifrs-full:CashFlowsFromUsedInInvestingActivities": [
+   [
+    "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsToAcquireInvestments",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+    "1"
+   ],
+   [
+    "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
+    "1"
+   ],
+   [
+    "doc:OtherInvestingActivities_20",
+    "1"
+   ]
+  ],
+  "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents": [
+   [
+    "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:CashFlowsFromUsedInInvestingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:CashFlowsFromUsedInFinancingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
    [
     "us-gaap:NetIncomeLoss",
     "1"
    ],
    [
-    "doc:DepreciationOfPropertyAndEquipment_1",
+    "us-gaap:DepreciationDepletionAndAmortization",
     "1"
    ],
    [
@@ -1391,7 +1471,7 @@
     "1"
    ],
    [
-    "doc:LossGainOnDebtAndEquitySecuritiesNet_4",
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
     "1"
    ],
    [
@@ -1403,7 +1483,7 @@
     "1"
    ],
    [
-    "doc:IncomeTaxesNet_7",
+    "us-gaap:IncomeTaxesPaidNet",
     "1"
    ],
    [
@@ -1419,91 +1499,11 @@
     "1"
    ],
    [
-    "doc:AccruedRevenueShare_11",
+    "ifrs-full:Revenue",
     "1"
    ],
    [
     "us-gaap:ContractWithCustomerLiabilityCurrent",
-    "1"
-   ]
-  ],
-  "doc:NetCashUsedInFinancingActivities_28": [
-   [
-    "doc:NetPaymentsRelatedToStockBasedAwardActivities_22",
-    "1"
-   ],
-   [
-    "doc:RepurchasesOfStock_23",
-    "1"
-   ],
-   [
-    "doc:DividendPayments_24",
-    "1"
-   ],
-   [
-    "doc:ProceedsFromIssuanceOfDebtNetOfCosts_25",
-    "1"
-   ],
-   [
-    "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
-    "1"
-   ],
-   [
-    "doc:ProceedsFromSaleOfInterestInConsolidatedEntitiesNet_27",
-    "1"
-   ]
-  ],
-  "doc:NetCashUsedInInvestingActivities_21": [
-   [
-    "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
-    "1"
-   ],
-   [
-    "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
-    "1"
-   ],
-   [
-    "doc:MaturitiesAndSalesOfMarketableSecurities_16",
-    "1"
-   ],
-   [
-    "doc:PurchasesOfNonMarketableSecurities_17",
-    "1"
-   ],
-   [
-    "doc:MaturitiesAndSalesOfNonMarketableSecurities_18",
-    "1"
-   ],
-   [
-    "doc:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAssets_19",
-    "1"
-   ],
-   [
-    "doc:OtherInvestingActivities_20",
-    "1"
-   ]
-  ],
-  "doc:Row33_33": [
-   [
-    "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents",
-    "1"
-   ]
-  ],
-  "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents": [
-   [
-    "doc:NetCashProvidedByOperatingActivities_13",
-    "1"
-   ],
-   [
-    "doc:NetCashUsedInInvestingActivities_21",
-    "1"
-   ],
-   [
-    "doc:NetCashUsedInFinancingActivities_28",
-    "1"
-   ],
-   [
-    "doc:EffectOfExchangeRateChangesOnCashAndCashEquivalents_29",
     "1"
    ]
   ]

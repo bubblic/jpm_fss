@@ -1,4 +1,278 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 58,
+ "decisions": [
+  {
+   "kind": "read_cell",
+   "label": "Financial services receivables",
+   "column": 1,
+   "samples": [
+    "101087",
+    "101087",
+    "101087"
+   ],
+   "voted": "101087",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Financial services receivables",
+   "column": 0,
+   "value": "101087"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Financial services receivables",
+   "column": 2,
+   "samples": [
+    "94774",
+    "94474",
+    "94474"
+   ],
+   "voted": "94474",
+   "agreement": 2
+  },
+  {
+   "kind": "adjudicated",
+   "label": "Financial services receivables",
+   "column": 1,
+   "value": "94474"
+  },
+  {
+   "kind": "read_cell",
+   "label": "Financial services receivables",
+   "column": 1,
+   "samples": [
+    "101087",
+    "101087",
+    "101087"
+   ],
+   "voted": "101087",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Financial services receivables",
+   "column": 2,
+   "samples": [
+    "94474",
+    "94474",
+    "94474"
+   ],
+   "voted": "94474",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Financial liabilities",
+   "column": 1,
+   "samples": [
+    "137061",
+    "137061",
+    "137061"
+   ],
+   "voted": "137061",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Financial liabilities",
+   "column": 2,
+   "samples": [
+    "122323",
+    "122323",
+    "122323"
+   ],
+   "voted": "122323",
+   "agreement": 3
+  },
+  {
+   "kind": "map_concept",
+   "label": "Lease assets",
+   "chosen": "ifrs-full:RightofuseAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial services receivables",
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "and other equity investments, other receivables and financia",
+   "chosen": "ifrs-full:OtherNoncurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial services receivables",
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other receivables and financial assets",
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Marketable securities and time deposits",
+   "chosen": "us-gaap:MarketableSecuritiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Assets held for sale",
+   "chosen": "ifrs-full:Assets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity",
+   "chosen": "ifrs-full:Equity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity attributable to Volkswagen AG shareholders",
+   "chosen": "ifrs-full:EquityAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity attributable to Volkswagen AG hybrid capital investor",
+   "chosen": "ifrs-full:EquityAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Equity attributable to Volkswagen AG shareholders and hybrid",
+   "chosen": "ifrs-full:EquityAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provisions for pensions",
+   "chosen": "ifrs-full:NoncurrentProvisions"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other liabilities",
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Trade payables",
+   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other liabilities",
+   "chosen": "us-gaap:OtherLiabilitiesNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Liabilities associated with assets held for sale",
+   "chosen": null
+  },
+  {
+   "kind": "read_cell",
+   "label": "Income Statement of the Volkswagen Group for the period Janu",
+   "column": 1,
+   "samples": [
+    "324656",
+    "324656",
+    "324656"
+   ],
+   "voted": "324656",
+   "agreement": 3
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income Statement of the Volkswagen Group for the period Janu",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Sales revenue 1",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Gross result",
+   "chosen": "ifrs-full:GrossProfit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other operating income 5",
+   "chosen": "ifrs-full:OtherOperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Operating result",
+   "chosen": "us-gaap:OperatingIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Share of the result of equity-accounted investments 7",
+   "chosen": "ifrs-full:EquityAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest income 8",
+   "chosen": "ifrs-full:FinanceIncome"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial result \u20132,255",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Earnings before tax",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Earnings after tax",
+   "chosen": "ifrs-full:ProfitLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Volkswagen AG shareholders",
+   "chosen": "us-gaap:StockholdersEquity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Basic/diluted earnings per ordinary share in 11",
+   "chosen": "ifrs-full:BasicEarningsLossPerShare"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Basic/diluted earnings per preferred share in 11",
+   "chosen": "us-gaap:EarningsPerShareDiluted"
+  },
+  {
+   "kind": "select_pages",
+   "query": "cash flow",
+   "pages": [
+    128,
+    478,
+    539,
+    540,
+    672,
+    673
+   ]
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-controlling interests in %1",
+   "chosen": "ifrs-full:NoncontrollingInterests"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Sales revenue",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Earnings after tax",
+   "chosen": "ifrs-full:ProfitLoss"
+  }
+ ]
 }

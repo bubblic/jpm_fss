@@ -1,4 +1,424 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 90,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Cash and securities segregated and on deposit for regulatory",
+   "chosen": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial instruments and other inventory positions owned (i",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Securities borrowed",
+   "chosen": "us-gaap:MarketableSecuritiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Property, equipment and leasehold improvements (net of accum",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets",
+   "chosen": "ifrs-full:OtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Identifiable intangible assets and goodwill (net of accumula",
+   "chosen": "us-gaap:FiniteLivedIntangibleAssetsNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Short-term borrowings and current portion of long-term borro",
+   "chosen": "us-gaap:LongTermDebtCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial instruments and other inventory positions sold but",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Securities loaned",
+   "chosen": "us-gaap:MarketableSecuritiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other secured borrowings (including $9,149 in 2007 and $0 in",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued liabilities and other payables",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deposit liabilities at banks (including $15,986 in 2007 and ",
+   "chosen": "us-gaap:LiabilitiesAndStockholdersEquity"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term borrowings (including $27,204 in 2007 and $11,025 ",
+   "chosen": "us-gaap:LongTermDebtNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest and dividends",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Asset management and other",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total revenues",
+   "chosen": "ifrs-full:Revenue"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest expense",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net revenues",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Compensation and benefits",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Technology and communications",
+   "chosen": "us-gaap:GeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Business development",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total non-personnel expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Total non-interest expenses",
+   "chosen": "us-gaap:OperatingExpenses"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income before taxes and cumulative effect of accounting chan",
+   "chosen": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income before cumulative effect of accounting change",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net income applicable to common stock",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Before cumulative effect of accounting change",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Earnings per basic common share",
+   "chosen": "us-gaap:EarningsPerShareBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Before cumulative effect of accounting change",
+   "chosen": null
+  },
+  {
+   "kind": "select_pages",
+   "query": "cash flow",
+   "pages": [
+    62,
+    89,
+    112,
+    113,
+    143,
+    151,
+    152,
+    153,
+    154
+   ]
+  },
+  {
+   "kind": "read_cell",
+   "label": "Weighted-average credit loss assumption 0.5% 2.4%",
+   "column": 4,
+   "samples": [
+    "None",
+    "2.4",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 1
+  },
+  {
+   "kind": "read_cell",
+   "label": "Effect of 10% adverse change 107",
+   "column": 1,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Effect of 20% adverse change 197",
+   "column": 1,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Effect of 10% adverse change 245",
+   "column": 1,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Effect of 20% adverse change 489",
+   "column": 1,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "The amount of investment-grade interests in securitizations ",
+   "column": 3,
+   "samples": [
+    "2500",
+    "130",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 1
+  },
+  {
+   "kind": "read_cell",
+   "label": "The amount of investment-grade interests in securitizations ",
+   "column": 4,
+   "samples": [
+    "2.5",
+    "2.5",
+    "664"
+   ],
+   "voted": "2.5",
+   "agreement": 2
+  },
+  {
+   "kind": "read_cell",
+   "label": "At November 30,2007, other interests in securitizations incl",
+   "column": 1,
+   "samples": [
+    "2400",
+    "2.4",
+    "2400000000"
+   ],
+   "voted": "None",
+   "agreement": 1
+  },
+  {
+   "kind": "read_cell",
+   "label": "At November 30,2007, other interests in securitizations incl",
+   "column": 4,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "of non-investment grade commercial mortgages and the remaind",
+   "column": 2,
+   "samples": [
+    "26",
+    "26",
+    "26"
+   ],
+   "voted": "26",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "In millions Grade Grade Oth er Grade Grade Oth er 898",
+   "column": 1,
+   "samples": [
+    "898",
+    "898",
+    "898"
+   ],
+   "voted": "898",
+   "agreement": 3
+  },
+  {
+   "kind": "read_cell",
+   "label": "Balance, beginning of period",
+   "column": 3,
+   "samples": [
+    "None",
+    "None",
+    "None"
+   ],
+   "voted": "None",
+   "agreement": 3
+  },
+  {
+   "kind": "adjudication_capped",
+   "max_cells": 12,
+   "note": "remaining flags left for review"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Non-cash compensation",
+   "chosen": "ifrs-full:OtherAdjustmentsForNoncashItems"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deferred tax provision/(benefit)",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Tax benefit from the issuance of stock-based awards",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other adjustments",
+   "chosen": "ifrs-full:OtherAdjustmentsToReconcileProfitLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Cash and securities segregated and on deposit for regulatory",
+   "chosen": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial instruments and other inventory positions owned",
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Resale agreements, net of repurchase agreements",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Securities borrowed, net of securities loaned",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other secured borrowings",
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Receivables from brokers, dealers and clearing organizations",
+   "chosen": "ifrs-full:TradeAndOtherCurrentReceivables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Receivables from customers",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Financial instruments and other inventory positions sold but",
+   "chosen": "ifrs-full:OtherCurrentFinancialAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Payables to brokers, dealers and clearing organizations",
+   "chosen": "ifrs-full:TradeAndOtherCurrentPayables"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued liabilities and other payables",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other receivables and assets and minority interests",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherOperatingAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchase of property, equipment and leasehold improvements, ",
+   "chosen": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Business acquisitions, net of cash acquired",
+   "chosen": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sale of business",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash used in investing activities",
+   "chosen": "ifrs-full:CashFlowsFromUsedInInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Tax benefit from the issuance of stock-based awards",
+   "chosen": "us-gaap:DeferredIncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Issuance of short-term borrowings, net",
+   "chosen": "us-gaap:CommercialPaper"
+  }
+ ]
 }

@@ -1,4 +1,302 @@
 {
- "calls": 0,
- "decisions": []
+ "calls": 59,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Restricted cash",
+   "chosen": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Merchandise inventories",
+   "chosen": "us-gaap:InventoryNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Prepaid expenses and other current assets",
+   "chosen": "ifrs-full:OtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term restricted cash",
+   "chosen": "us-gaap:OtherAssetsNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Long-term investment securities",
+   "chosen": "us-gaap:LongTermInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Property and equipment, net",
+   "chosen": "us-gaap:PropertyPlantAndEquipmentNet"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Operating lease assets",
+   "chosen": "us-gaap:OperatingLeaseRightOfUseAsset"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets",
+   "chosen": "us-gaap:OtherAssetsCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued expenses and other current liabilities",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Merchandise credit and gift card liabilities",
+   "chosen": "ifrs-full:EquityAndLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Current operating lease liabilities",
+   "chosen": "us-gaap:LiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Preferred stock warrant liabilities",
+   "chosen": "us-gaap:LiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other liabilities",
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income taxes payable",
+   "chosen": "us-gaap:AccruedIncomeTaxesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Convertible Preferred Stock, Series A, $0.001 par value, aut",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Preferred stock - $0.01 par value; authorized - 1,000 shares",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Common stock - $0.01 par value; authorized - 900,000 shares;",
+   "chosen": "us-gaap:CommonStockSharesIssued"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Additional paid-in capital",
+   "chosen": "ifrs-full:AdditionalPaidinCapital"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Treasury stock, at cost; 123,320 and 262,167 shares, respect",
+   "chosen": "ifrs-full:TreasuryShares"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Selling, general and administrative expenses",
+   "chosen": "us-gaap:SellingGeneralAndAdministrativeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Restructuring and transformation initiative expenses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss on sale of businesses",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Operating loss",
+   "chosen": "us-gaap:OperatingIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Interest expense, net",
+   "chosen": "us-gaap:NonoperatingIncomeExpense"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss on preferred stock warrants and derivative liabilities",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss on deconsolidation of subsidiaries",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss (gain) on extinguishment of debt",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss before provision (benefit) from income taxes",
+   "chosen": "ifrs-full:ProfitLossBeforeTax"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Provision (benefit) from income taxes",
+   "chosen": "us-gaap:IncomeTaxExpenseBenefit"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net loss",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net loss per share - Basic",
+   "chosen": "ifrs-full:BasicEarningsLossPerShare"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net loss per share - Diluted",
+   "chosen": "ifrs-full:DilutedEarningsLossPerShare"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Weighted average shares outstanding - Basic",
+   "chosen": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Weighted average shares outstanding - Diluted",
+   "chosen": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding"
+  },
+  {
+   "kind": "select_pages",
+   "query": "cash flow",
+   "pages": [
+    74
+   ]
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net loss",
+   "chosen": "us-gaap:NetIncomeLoss"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss on preferred stock warrants and derivative liabilities",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Stock-based compensation",
+   "chosen": "us-gaap:ShareBasedCompensation"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Realized loss on available-for-sale investment securities",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss on sale of businesses",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Loss on deconsolidation of subsidiaries",
+   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "(Gain) loss on debt extinguishment",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Merchandise inventories",
+   "chosen": "us-gaap:IncreaseDecreaseInInventories"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other assets",
+   "chosen": "ifrs-full:OtherCurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Accrued expenses and other current liabilities",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Merchandise credit and gift card liabilities",
+   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Income taxes payable",
+   "chosen": "us-gaap:AccruedIncomeTaxesCurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Operating lease assets and liabilities, net",
+   "chosen": "us-gaap:OperatingLeaseLiabilityNoncurrent"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Other liabilities",
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash (used in) provided by operating activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInOperatingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Purchases of held-to-maturity investment securities",
+   "chosen": "us-gaap:PaymentsToAcquireInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Redemption of held-to-maturity investment securities",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from sale of available-for-sale investment securiti",
+   "chosen": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Deconsolidation of subsidiaries cash, cash equivalents and r",
+   "chosen": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds received from note receivable",
+   "chosen": "msft:ProceedsFromInvestments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net proceeds from sales of businesses",
+   "chosen": "ifrs-full:CashFlowsFromLosingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net proceeds from sales of property",
+   "chosen": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Capital expenditures",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net cash (used in) provided by investing activities",
+   "chosen": "us-gaap:NetCashProvidedByUsedInInvestingActivities"
+  }
+ ]
 }

@@ -1018,13 +1018,13 @@
    "cells": [
     {
      "period": "I2025-12-31",
-     "value": null,
+     "value": "109095000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2024-12-31",
-     "value": null,
+     "value": "100923000000",
      "decimals": -6,
      "unit": null
     }
@@ -1120,13 +1120,13 @@
    "cells": [
     {
      "period": "I2025-12-31",
-     "value": null,
+     "value": "343479000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2024-12-31",
-     "value": null,
+     "value": "268477000000",
      "decimals": -6,
      "unit": null
     }
@@ -1154,13 +1154,13 @@
    "cells": [
     {
      "period": "I2025-12-31",
-     "value": null,
+     "value": "619003000000",
      "decimals": -6,
      "unit": null
     },
     {
      "period": "I2024-12-31",
-     "value": null,
+     "value": "512163000000",
      "decimals": -6,
      "unit": null
     }
@@ -1258,15 +1258,7 @@
   ],
   "us-gaap:LiabilitiesAndStockholdersEquity": [
    [
-    "us-gaap:CommonStocksIncludingAdditionalPaidInCapital",
-    "1"
-   ],
-   [
-    "us-gaap:RetainedEarningsAccumulatedDeficit",
-    "1"
-   ],
-   [
-    "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+    "us-gaap:Liabilities",
     "1"
    ],
    [

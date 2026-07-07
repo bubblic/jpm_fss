@@ -12,7 +12,7 @@
  "rows": [
   {
    "order": 0,
-   "concept": "doc:BrandsAndOtherIntangibleAssets3_0",
+   "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
    "dims": [],
    "label": "Brands and other intangible assets 3",
    "depth": 1,
@@ -24,7 +24,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -114,7 +114,7 @@
   },
   {
    "order": 3,
-   "concept": "doc:RightOfUseAssets7_3",
+   "concept": "ifrs-full:RightofuseAssets",
    "dims": [],
    "label": "Right-of-use assets 7",
    "depth": 1,
@@ -126,7 +126,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -148,7 +148,7 @@
   },
   {
    "order": 4,
-   "concept": "doc:InvestmentsInJointVenturesAndAssociates8_4",
+   "concept": "us-gaap:LongTermInvestments",
    "dims": [],
    "label": "Investments in joint ventures and associates 8",
    "depth": 1,
@@ -160,7 +160,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -182,7 +182,7 @@
   },
   {
    "order": 5,
-   "concept": "doc:NonCurrentAvailableForSaleFinancialAssets9_5",
+   "concept": "ifrs-full:NoncurrentAssets",
    "dims": [],
    "label": "Non-current available for sale financial assets 9",
    "depth": 1,
@@ -194,7 +194,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -250,7 +250,7 @@
   },
   {
    "order": 7,
-   "concept": "doc:DeferredTax_7",
+   "concept": "ifrs-full:NetDeferredTaxLiabilities",
    "dims": [],
    "label": "Deferred tax",
    "depth": 1,
@@ -260,9 +260,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -352,7 +352,7 @@
   },
   {
    "order": 10,
-   "concept": "doc:TradeAccountsReceivable12_10",
+   "concept": "us-gaap:AccountsReceivableNetCurrent",
    "dims": [],
    "label": "Trade accounts receivable 12",
    "depth": 1,
@@ -364,7 +364,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -556,7 +556,7 @@
   },
   {
    "order": 16,
-   "concept": "doc:EquityGroupShare16_16",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Equity, Group share 16",
    "depth": 1,
@@ -568,7 +568,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -590,7 +590,7 @@
   },
   {
    "order": 17,
-   "concept": "doc:MinorityInterests18_17",
+   "concept": "ifrs-full:NoncontrollingInterests",
    "dims": [],
    "label": "Minority interests 18",
    "depth": 1,
@@ -600,9 +600,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -624,7 +624,7 @@
   },
   {
    "order": 18,
-   "concept": "doc:Equity_18",
+   "concept": "ifrs-full:Equity",
    "dims": [],
    "label": "Equity",
    "depth": 1,
@@ -636,7 +636,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -658,7 +658,7 @@
   },
   {
    "order": 19,
-   "concept": "doc:LongTermBorrowings19_19",
+   "concept": "us-gaap:LongTermDebtNoncurrent",
    "dims": [],
    "label": "Long-term borrowings 19",
    "depth": 1,
@@ -668,9 +668,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -692,7 +692,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:NonCurrentLeaseLiabilities7_20",
+   "concept": "ifrs-full:NoncurrentLeaseLiabilities",
    "dims": [],
    "label": "Non-current lease liabilities 7",
    "depth": 1,
@@ -704,7 +704,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -726,7 +726,7 @@
   },
   {
    "order": 21,
-   "concept": "doc:NonCurrentProvisionsAndOtherLiabilities20_21",
+   "concept": "us-gaap:OtherLiabilitiesNoncurrent",
    "dims": [],
    "label": "Non-current provisions and other liabilities 20",
    "depth": 1,
@@ -738,7 +738,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -760,7 +760,7 @@
   },
   {
    "order": 22,
-   "concept": "doc:DeferredTax_22",
+   "concept": "ifrs-full:NetDeferredTaxLiabilities",
    "dims": [],
    "label": "Deferred tax",
    "depth": 1,
@@ -770,9 +770,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -794,7 +794,7 @@
   },
   {
    "order": 23,
-   "concept": "doc:PurchaseCommitmentsForMinorityInterestsShares21_23",
+   "concept": "us-gaap:CommitmentsAndContingencies",
    "dims": [],
    "label": "Purchase commitments for minority interests\u2019 shares 21",
    "depth": 1,
@@ -804,9 +804,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:ShortTermBorrowings19_25",
+   "concept": "us-gaap:CommercialPaper",
    "dims": [],
    "label": "Short-term borrowings 19",
    "depth": 1,
@@ -872,9 +872,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -896,7 +896,7 @@
   },
   {
    "order": 26,
-   "concept": "doc:CurrentLeaseLiabilities7_26",
+   "concept": "ifrs-full:CurrentLiabilities",
    "dims": [],
    "label": "Current lease liabilities 7",
    "depth": 1,
@@ -908,7 +908,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -930,7 +930,7 @@
   },
   {
    "order": 27,
-   "concept": "doc:TradeAccountsPayable22_27",
+   "concept": "us-gaap:AccountsPayableCurrent",
    "dims": [],
    "label": "Trade accounts payable 22",
    "depth": 1,
@@ -942,7 +942,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -998,7 +998,7 @@
   },
   {
    "order": 29,
-   "concept": "doc:CurrentProvisionsAndOtherLiabilities22_29",
+   "concept": "ifrs-full:CurrentProvisions",
    "dims": [],
    "label": "Current provisions and other liabilities 22",
    "depth": 1,
@@ -1010,7 +1010,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"
@@ -1066,7 +1066,7 @@
   },
   {
    "order": 31,
-   "concept": "doc:TotalLiabilitiesAndEquity_31",
+   "concept": "ifrs-full:EquityAndLiabilities",
    "dims": [],
    "label": "Total liabilities and equity",
    "depth": 1,
@@ -1078,7 +1078,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "(EUR millions)"

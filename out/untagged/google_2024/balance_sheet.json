@@ -80,7 +80,7 @@
   },
   {
    "order": 2,
-   "concept": "doc:TotalCashCashEquivalentsAndMarketableSecurities_2",
+   "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
    "dims": [],
    "label": "Total cash, cash equivalents, and marketable securities",
    "depth": 1,
@@ -92,7 +92,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current assets"
@@ -284,7 +284,7 @@
   },
   {
    "order": 8,
-   "concept": "doc:PropertyAndEquipmentNet_8",
+   "concept": "us-gaap:PropertyPlantAndEquipmentNet",
    "dims": [],
    "label": "Property and equipment, net",
    "depth": 1,
@@ -296,7 +296,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current assets"
@@ -318,7 +318,7 @@
   },
   {
    "order": 9,
-   "concept": "doc:OperatingLeaseAssets_9",
+   "concept": "us-gaap:OperatingLeaseRightOfUseAsset",
    "dims": [],
    "label": "Operating lease assets",
    "depth": 1,
@@ -330,7 +330,7 @@
    "period_type": "instant",
    "balance": "debit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current assets"
@@ -488,7 +488,7 @@
   },
   {
    "order": 14,
-   "concept": "doc:AccruedCompensationAndBenefits_14",
+   "concept": "us-gaap:EmployeeRelatedLiabilitiesCurrent",
    "dims": [],
    "label": "Accrued compensation and benefits",
    "depth": 1,
@@ -500,7 +500,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -692,7 +692,7 @@
   },
   {
    "order": 20,
-   "concept": "doc:IncomeTaxesPayableNonCurrent_20",
+   "concept": "ifrs-full:NoncurrentLiabilities",
    "dims": [],
    "label": "Income taxes payable, non-current",
    "depth": 1,
@@ -704,7 +704,7 @@
    "period_type": "instant",
    "balance": "credit",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "Current liabilities"
@@ -862,7 +862,7 @@
   },
   {
    "order": 25,
-   "concept": "doc:ClassC6000012460ClassA5899ClassB870ClassC5691And12211ClassA5_25",
+   "concept": "us-gaap:CommonStockSharesOutstanding",
    "dims": [],
    "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C 5,691) and 12,211 (Class A 5,835, Class B 861, Class C 5,515) shares issued and outstanding",
    "depth": 1,
@@ -872,9 +872,9 @@
    "negated": false,
    "displayed_sign": 1,
    "period_type": "instant",
-   "balance": "debit",
+   "balance": "",
    "is_monetary": true,
-   "is_extension": true,
+   "is_extension": false,
    "anchor": null,
    "section": [
     "value per share: 300,000 shares authorized (Class A 180,000, Class B 60,000,"
@@ -888,7 +888,7 @@
     },
     {
      "period": "I2024-12-31",
-     "value": null,
+     "value": "84800000000",
      "decimals": -6,
      "unit": null
     }
@@ -896,16 +896,6 @@
   }
  ],
  "calc_children": {
-  "doc:TotalCashCashEquivalentsAndMarketableSecurities_2": [
-   [
-    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
-    "1"
-   ],
-   [
-    "us-gaap:MarketableSecuritiesCurrent",
-    "1"
-   ]
-  ],
   "us-gaap:Assets": [
    [
     "us-gaap:AssetsCurrent",
@@ -920,11 +910,11 @@
     "1"
    ],
    [
-    "doc:PropertyAndEquipmentNet_8",
+    "us-gaap:PropertyPlantAndEquipmentNet",
     "1"
    ],
    [
-    "doc:OperatingLeaseAssets_9",
+    "us-gaap:OperatingLeaseRightOfUseAsset",
     "1"
    ],
    [
@@ -938,7 +928,7 @@
   ],
   "us-gaap:AssetsCurrent": [
    [
-    "doc:TotalCashCashEquivalentsAndMarketableSecurities_2",
+    "us-gaap:CashCashEquivalentsAndShortTermInvestments",
     "1"
    ],
    [
@@ -947,6 +937,16 @@
    ],
    [
     "us-gaap:OtherAssetsCurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:CashCashEquivalentsAndShortTermInvestments": [
+   [
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "1"
+   ],
+   [
+    "us-gaap:MarketableSecuritiesCurrent",
     "1"
    ]
   ],
@@ -960,7 +960,7 @@
     "1"
    ],
    [
-    "doc:IncomeTaxesPayableNonCurrent_20",
+    "ifrs-full:NoncurrentLiabilities",
     "1"
    ],
    [
@@ -978,7 +978,7 @@
     "1"
    ],
    [
-    "doc:AccruedCompensationAndBenefits_14",
+    "us-gaap:EmployeeRelatedLiabilitiesCurrent",
     "1"
    ],
    [

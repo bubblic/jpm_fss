@@ -1,0 +1,59 @@
+{
+ "document": "bbby_ar2022",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\bbby\\ar2022.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    66,
+    67
+   ],
+   "rows": 30,
+   "columns": 2,
+   "accepted_cells": 51,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 11,
+    "llm": 0,
+    "unmapped": 19
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    69
+   ],
+   "rows": 19,
+   "columns": 3,
+   "accepted_cells": 52,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 1,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 3,
+    "llm": 0,
+    "unmapped": 16
+   }
+  },
+  "cash_flow": {
+   "error": "not located (no LLM fallback configured)"
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "not all three statements extracted"
+ },
+ "llm_calls": 0
+}

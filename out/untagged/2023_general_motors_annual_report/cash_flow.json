@@ -1,0 +1,1464 @@
+{
+ "company": "2023_general_motors_annual_report",
+ "standard": "untagged",
+ "statement": "cash_flow",
+ "linkrole": "document:2023_general_motors_annual_report:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2023-01-01:2023-12-31",
+  "D2022-01-01:2022-12-31",
+  "D2021-01-01:2021-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "ifrs-full:ProfitLoss",
+   "dims": [],
+   "label": "Net income (loss)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "9840000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "9708000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "9945000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:DepreciationAndImpairmentOfEquipmentOnOperatingLeasesNet_1",
+   "dims": [],
+   "label": "Depreciation and impairment of Equipment on operating leases, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "4904000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4839000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "6076000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:DepreciationAmortizationAndImpairmentChargesOnPropertyNet_2",
+   "dims": [],
+   "label": "Depreciation, amortization and impairment charges on Property, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "6984000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "6451000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "5975000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:ForeignCurrencyRemeasurementAndTransactionGainsLosses_3",
+   "dims": [],
+   "label": "Foreign currency remeasurement and transaction (gains) losses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "349000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "172000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-17000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:UndistributedEarningsOfNonconsolidatedAffiliatesNet_4",
+   "dims": [],
+   "label": "Undistributed earnings of nonconsolidated affiliates, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "245000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "193000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-517000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "doc:PensionContributionsAndOpebPayments_5",
+   "dims": [],
+   "label": "Pension contributions and OPEB payments",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1100000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-790000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-838000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:PensionAndOpebIncomeNet_6",
+   "dims": [],
+   "label": "Pension and OPEB income, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "90000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-1189000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-1605000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:ProvisionBenefitForDeferredTaxes_7",
+   "dims": [],
+   "label": "Provision (benefit) for deferred taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1041000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "425000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2214000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:ChangeInOtherOperatingAssetsAndLiabilitiesNote24_8",
+   "dims": [],
+   "label": "Change in other operating assets and liabilities (Note 24)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1822000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-2977000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-3366000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:OtherOperatingActivities_9",
+   "dims": [],
+   "label": "Other operating activities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1163000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-790000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-2679000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:NetCashProvidedByUsedInOperatingActivities_10",
+   "dims": [],
+   "label": "Net cash provided by (used in) operating activities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "20930000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "16043000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "15188000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:ExpendituresForProperty_11",
+   "dims": [],
+   "label": "Expenditures for property",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-10970000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-9238000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-7509000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:AvailableForSaleMarketableSecuritiesAcquisitions_12",
+   "dims": [],
+   "label": "Available-for-sale marketable securities, acquisitions",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-4429000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-11837000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-8962000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:AvailableForSaleMarketableSecuritiesLiquidations_13",
+   "dims": [],
+   "label": "Available-for-sale marketable securities, liquidations",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "9345000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "8057000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "9347000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:PurchasesOfFinanceReceivables_14",
+   "dims": [],
+   "label": "Purchases of finance receivables",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-35379000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-33974000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-33009000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:PrincipalCollectionsAndRecoveriesOnFinanceReceivables_15",
+   "dims": [],
+   "label": "Principal collections and recoveries on finance receivables",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "28346000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "26887000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "24622000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:PurchasesOfLeasedVehicles_16",
+   "dims": [],
+   "label": "Purchases of leased vehicles",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-13640000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-11949000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-14602000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:ProceedsFromTerminationOfLeasedVehicles_17",
+   "dims": [],
+   "label": "Proceeds from termination of leased vehicles",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "13033000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "14234000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "14393000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "doc:OtherInvestingActivities_18",
+   "dims": [],
+   "label": "Other investing activities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-969000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-62000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-635000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:NetCashProvidedByUsedInInvestingActivities_19",
+   "dims": [],
+   "label": "Net cash provided by (used in) investing activities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-14663000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-17882000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-16355000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:NetIncreaseDecreaseInShortTermDebt_20",
+   "dims": [],
+   "label": "Net increase (decrease) in short-term debt",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-156000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "373000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2912000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "doc:ProceedsFromIssuanceOfDebtOriginalMaturitiesGreaterThanThree_21",
+   "dims": [],
+   "label": "Proceeds from issuance of debt (original maturities greater than three months)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "50963000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "45813000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "45300000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "doc:PaymentsOnDebtOriginalMaturitiesGreaterThanThreeMonths_22",
+   "dims": [],
+   "label": "Payments on debt (original maturities greater than three months)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-44675000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-39606000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-47806000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "doc:PaymentsToPurchaseCommonStockNote20_23",
+   "dims": [],
+   "label": "Payments to purchase common stock (Note 20)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-11115000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-2500000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:IssuanceRedemptionOfSubsidiaryStockNote20_24",
+   "dims": [],
+   "label": "Issuance (redemption) of subsidiary stock (Note 20)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-2121000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "1736000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
+   "dims": [],
+   "label": "Dividends paid",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-597000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-397000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-186000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "doc:OtherFinancingActivities_26",
+   "dims": [],
+   "label": "Other financing activities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-774000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-1178000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-212000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "doc:NetCashProvidedByUsedInFinancingActivities_27",
+   "dims": [],
+   "label": "Net cash provided by (used in) financing activities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-6353000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "383000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "1744000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:EffectOfExchangeRateChangesOnCashCashEquivalentsAndRestricte_28",
+   "dims": [],
+   "label": "Effect of exchange rate changes on cash, cash equivalents and restricted cash",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "54000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-138000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-152000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:NetIncreaseDecreaseInCashCashEquivalentsAndRestrictedCash_29",
+   "dims": [],
+   "label": "Net increase (decrease) in cash, cash equivalents and restricted cash",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-31000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-1594000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "425000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "doc:CashCashEquivalentsAndRestrictedCashAtBeginningOfPeriod_30",
+   "dims": [],
+   "label": "Cash, cash equivalents and restricted cash at beginning of period",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": "http://www.xbrl.org/2003/role/periodStartLabel",
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "21948000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "23542000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "23117000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "doc:CashCashEquivalentsAndRestrictedCashAtEndOfPeriod_31",
+   "dims": [],
+   "label": "Cash, cash equivalents and restricted cash at end of period",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": "http://www.xbrl.org/2003/role/periodEndLabel",
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "21917000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "21948000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "23542000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "doc:NonCashPropertyAdditions_32",
+   "dims": [],
+   "label": "Non-cash property additions",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Significant Non-cash Investing and Financing Activity"
+   ],
+   "cells": [
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "6013000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "5376000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "4305000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:NetCashProvidedByUsedInFinancingActivities_27": [
+   [
+    "doc:NetIncreaseDecreaseInShortTermDebt_20",
+    "1"
+   ],
+   [
+    "doc:ProceedsFromIssuanceOfDebtOriginalMaturitiesGreaterThanThree_21",
+    "1"
+   ],
+   [
+    "doc:PaymentsOnDebtOriginalMaturitiesGreaterThanThreeMonths_22",
+    "1"
+   ],
+   [
+    "doc:PaymentsToPurchaseCommonStockNote20_23",
+    "1"
+   ],
+   [
+    "doc:IssuanceRedemptionOfSubsidiaryStockNote20_24",
+    "1"
+   ],
+   [
+    "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
+    "1"
+   ],
+   [
+    "doc:OtherFinancingActivities_26",
+    "1"
+   ]
+  ],
+  "doc:NetCashProvidedByUsedInInvestingActivities_19": [
+   [
+    "doc:ExpendituresForProperty_11",
+    "1"
+   ],
+   [
+    "doc:AvailableForSaleMarketableSecuritiesAcquisitions_12",
+    "1"
+   ],
+   [
+    "doc:AvailableForSaleMarketableSecuritiesLiquidations_13",
+    "1"
+   ],
+   [
+    "doc:PurchasesOfFinanceReceivables_14",
+    "1"
+   ],
+   [
+    "doc:PrincipalCollectionsAndRecoveriesOnFinanceReceivables_15",
+    "1"
+   ],
+   [
+    "doc:PurchasesOfLeasedVehicles_16",
+    "1"
+   ],
+   [
+    "doc:ProceedsFromTerminationOfLeasedVehicles_17",
+    "1"
+   ],
+   [
+    "doc:OtherInvestingActivities_18",
+    "1"
+   ]
+  ],
+  "doc:NetCashProvidedByUsedInOperatingActivities_10": [
+   [
+    "ifrs-full:ProfitLoss",
+    "1"
+   ],
+   [
+    "doc:DepreciationAndImpairmentOfEquipmentOnOperatingLeasesNet_1",
+    "1"
+   ],
+   [
+    "doc:DepreciationAmortizationAndImpairmentChargesOnPropertyNet_2",
+    "1"
+   ],
+   [
+    "doc:ForeignCurrencyRemeasurementAndTransactionGainsLosses_3",
+    "1"
+   ],
+   [
+    "doc:UndistributedEarningsOfNonconsolidatedAffiliatesNet_4",
+    "1"
+   ],
+   [
+    "doc:PensionContributionsAndOpebPayments_5",
+    "1"
+   ],
+   [
+    "doc:PensionAndOpebIncomeNet_6",
+    "1"
+   ],
+   [
+    "doc:ProvisionBenefitForDeferredTaxes_7",
+    "1"
+   ],
+   [
+    "doc:ChangeInOtherOperatingAssetsAndLiabilitiesNote24_8",
+    "1"
+   ],
+   [
+    "doc:OtherOperatingActivities_9",
+    "1"
+   ]
+  ],
+  "doc:NetIncreaseDecreaseInCashCashEquivalentsAndRestrictedCash_29": [
+   [
+    "doc:NetCashProvidedByUsedInOperatingActivities_10",
+    "1"
+   ],
+   [
+    "doc:NetCashProvidedByUsedInInvestingActivities_19",
+    "1"
+   ],
+   [
+    "doc:NetCashProvidedByUsedInFinancingActivities_27",
+    "1"
+   ],
+   [
+    "doc:EffectOfExchangeRateChangesOnCashCashEquivalentsAndRestricte_28",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2023, 2022, 2021]"
+ ]
+}

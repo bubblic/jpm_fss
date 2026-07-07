@@ -1,0 +1,83 @@
+{
+ "document": "exxon_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\exxon_2024.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    87,
+    88,
+    89
+   ],
+   "rows": 103,
+   "columns": 9,
+   "accepted_cells": 224,
+   "flags": 211,
+   "scale": "1",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 12,
+    "llm": 0,
+    "unmapped": 91
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    85,
+    86,
+    87
+   ],
+   "rows": 58,
+   "columns": 3,
+   "accepted_cells": 143,
+   "flags": 18,
+   "scale": "1",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 9,
+    "llm": 0,
+    "unmapped": 49
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    88,
+    89
+   ],
+   "rows": 74,
+   "columns": 9,
+   "accepted_cells": 166,
+   "flags": 201,
+   "scale": "1",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 3,
+    "llm": 0,
+    "unmapped": 71
+   }
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "211 flagged balance-sheet cells (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

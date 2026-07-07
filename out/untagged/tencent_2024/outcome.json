@@ -1,0 +1,81 @@
+{
+ "document": "tencent_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\tencent_2024.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    126,
+    127,
+    128
+   ],
+   "rows": 29,
+   "columns": 2,
+   "accepted_cells": 56,
+   "flags": 15,
+   "scale": "1",
+   "footing_groups": 6,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 12,
+    "llm": 0,
+    "unmapped": 17
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    124
+   ],
+   "rows": 22,
+   "columns": 2,
+   "accepted_cells": 44,
+   "flags": 7,
+   "scale": "1",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 4,
+    "llm": 0,
+    "unmapped": 18
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    133,
+    134
+   ],
+   "rows": 34,
+   "columns": 2,
+   "accepted_cells": 67,
+   "flags": 0,
+   "scale": "1",
+   "footing_groups": 2,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": false,
+    "detail": "begin 172320 + change -40160 (net-change row, fx added) vs end 132519"
+   },
+   "mapping": {
+    "lexical": 2,
+    "llm": 0,
+    "unmapped": 32
+   }
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "15 flagged balance-sheet cells (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

@@ -1,0 +1,25 @@
+{
+ "document": "alibaba_2025",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\alibaba_2025.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "error": "not located (no LLM fallback configured)"
+  },
+  "income_statement": {
+   "error": "not located (no LLM fallback configured)"
+  },
+  "cash_flow": {
+   "error": "not located (no LLM fallback configured)"
+  }
+ },
+ "text_options": {
+  "x_tolerance": 1.2
+ },
+ "diagnosis": "no financial-statement vocabulary in the extractable text: the statement pages are likely images; an OCR/vision reader is required for this document",
+ "simulation": {
+  "status": "skipped",
+  "reason": "not all three statements extracted"
+ },
+ "llm_calls": 0
+}

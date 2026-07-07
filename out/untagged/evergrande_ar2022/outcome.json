@@ -1,0 +1,60 @@
+{
+ "document": "evergrande_ar2022",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\evergrande\\ar2022.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    156
+   ],
+   "rows": 20,
+   "columns": 2,
+   "accepted_cells": 38,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 7,
+   "footing_pass": true,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 6,
+    "llm": 0,
+    "unmapped": 14
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    92,
+    93,
+    94
+   ],
+   "rows": 9,
+   "columns": 5,
+   "accepted_cells": 25,
+   "flags": 0,
+   "scale": "1",
+   "footing_groups": 2,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 2,
+    "llm": 0,
+    "unmapped": 7
+   }
+  },
+  "cash_flow": {
+   "error": "not located (no LLM fallback configured)"
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "not all three statements extracted"
+ },
+ "llm_calls": 0
+}

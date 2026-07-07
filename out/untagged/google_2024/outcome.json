@@ -1,0 +1,78 @@
+{
+ "document": "google_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\google_2024.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    57
+   ],
+   "rows": 26,
+   "columns": 2,
+   "accepted_cells": 50,
+   "flags": 2,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 15,
+    "llm": 0,
+    "unmapped": 11
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    58
+   ],
+   "rows": 13,
+   "columns": 3,
+   "accepted_cells": 39,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 7,
+    "llm": 0,
+    "unmapped": 6
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    61
+   ],
+   "rows": 34,
+   "columns": 3,
+   "accepted_cells": 99,
+   "flags": 2,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 20945 + change 934 (net-change row, fx inside change) vs end 21879"
+   },
+   "mapping": {
+    "lexical": 12,
+    "llm": 0,
+    "unmapped": 22
+   }
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "2 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

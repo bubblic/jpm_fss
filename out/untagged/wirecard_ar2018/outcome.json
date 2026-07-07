@@ -1,0 +1,21 @@
+{
+ "document": "wirecard_ar2018",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\wirecard\\ar2018.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "error": "not located (no LLM fallback configured)"
+  },
+  "income_statement": {
+   "error": "not located (no LLM fallback configured)"
+  },
+  "cash_flow": {
+   "error": "not located (no LLM fallback configured)"
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "not all three statements extracted"
+ },
+ "llm_calls": 0
+}

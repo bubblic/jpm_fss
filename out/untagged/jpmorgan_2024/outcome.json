@@ -1,0 +1,78 @@
+{
+ "document": "jpmorgan_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\jpmorgan_2024.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    208
+   ],
+   "rows": 40,
+   "columns": 2,
+   "accepted_cells": 78,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 6,
+   "footing_pass": false,
+   "identity": {
+    "pass": false,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 5,
+    "llm": 0,
+    "unmapped": 35
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    84
+   ],
+   "rows": 28,
+   "columns": 3,
+   "accepted_cells": 75,
+   "flags": 9,
+   "scale": "1",
+   "footing_groups": 3,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 4,
+    "llm": 0,
+    "unmapped": 24
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    210
+   ],
+   "rows": 46,
+   "columns": 3,
+   "accepted_cells": 131,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 624151 + change -154834 (net-change row, fx inside change) vs end 469317"
+   },
+   "mapping": {
+    "lexical": 4,
+    "llm": 0,
+    "unmapped": 42
+   }
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "1 flagged balance-sheet cells; A = L + E failed; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

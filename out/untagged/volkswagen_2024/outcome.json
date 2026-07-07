@@ -1,0 +1,58 @@
+{
+ "document": "volkswagen_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\volkswagen_2024.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    132
+   ],
+   "rows": 29,
+   "columns": 6,
+   "accepted_cells": 162,
+   "flags": 6,
+   "scale": "1000000",
+   "footing_groups": 2,
+   "footing_pass": false,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 11,
+    "llm": 0,
+    "unmapped": 18
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    472
+   ],
+   "rows": 16,
+   "columns": 2,
+   "accepted_cells": 30,
+   "flags": 7,
+   "scale": "1000000",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 1,
+    "llm": 0,
+    "unmapped": 15
+   }
+  },
+  "cash_flow": {
+   "error": "not located (no LLM fallback configured)"
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "not all three statements extracted"
+ },
+ "llm_calls": 0
+}

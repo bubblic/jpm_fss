@@ -1,0 +1,889 @@
+{
+ "company": "lehman_ar2007",
+ "standard": "untagged",
+ "statement": "balance_sheet",
+ "linkrole": "document:lehman_ar2007:balance_sheet",
+ "role_definition": "balance_sheet (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "I2007-12-31",
+  "I2006-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "dims": [],
+   "label": "Cash and cash equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "7286000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "5987000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:CashAndSecuritiesSegregatedAndOnDepositForRegulatoryAndOther_1",
+   "dims": [],
+   "label": "Cash and securities segregated and on deposit for regulatory and other purposes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "12743000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "6091000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:FinancialInstrumentsAndOtherInventoryPositionsOwnedIncludes6_2",
+   "dims": [],
+   "label": "Financial instruments and other inventory positions owned (includes $63,499 in 2007 and $42,600 in 2006 pledged as collateral)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "313129000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "226596000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:SecuritiesPurchasedUnderAgreementsToResell_3",
+   "dims": [],
+   "label": "Securities purchased under agreements to resell",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Collateralized agreements"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "162635000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "117490000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:SecuritiesBorrowed_4",
+   "dims": [],
+   "label": "Securities borrowed",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Collateralized agreements"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "138599000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "107666000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "doc:BrokersDealersAndClearingOrganizations_5",
+   "dims": [],
+   "label": "Brokers, dealers and clearing organizations",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "11005000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "7449000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:Customers_6",
+   "dims": [],
+   "label": "Customers",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "29622000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "18470000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:Others_7",
+   "dims": [],
+   "label": "Others",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "2650000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "2052000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:PropertyEquipmentAndLeaseholdImprovementsNetOfAccumulatedDep_8",
+   "dims": [],
+   "label": "Property, equipment and leasehold improvements (net of accumulated depreciation and amortization of $2,438 in 2007 and $1,925 in 2006)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "3861000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "3269000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:OtherAssets_9",
+   "dims": [],
+   "label": "Other assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "5406000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "5113000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:IdentifiableIntangibleAssetsAndGoodwillNetOfAccumulatedAmort_10",
+   "dims": [],
+   "label": "Identifiable intangible assets and goodwill (net of accumulated amortization of $340 in 2007 and $293 in 2006)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "4127000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "3362000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:Assets",
+   "dims": [],
+   "label": "Total assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Receivables"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "691063000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "503545000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowingsIncl_12",
+   "dims": [],
+   "label": "Short-term borrowings and current portion of long-term borrowings (including $9,035 in 2007 and $6,064 in 2006 at fair value)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and Stockholders\u2019 Equity"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "28066000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "20638000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:FinancialInstrumentsAndOtherInventoryPositionsSoldButNotYetP_13",
+   "dims": [],
+   "label": "Financial instruments and other inventory positions sold but not yet purchased",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and Stockholders\u2019 Equity"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "149617000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "125960000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:SecuritiesSoldUnderAgreementsToRepurchase_14",
+   "dims": [],
+   "label": "Securities sold under agreements to repurchase",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Collateralized financings"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "181732000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "133547000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:SecuritiesLoaned_15",
+   "dims": [],
+   "label": "Securities loaned",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Collateralized financings"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "53307000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "23982000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:OtherSecuredBorrowingsIncluding9149In2007And0In2006AtFairVal_16",
+   "dims": [],
+   "label": "Other secured borrowings (including $9,149 in 2007 and $0 in 2006 at fair value)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Collateralized financings"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "22992000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "19028000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:BrokersDealersAndClearingOrganizations_17",
+   "dims": [],
+   "label": "Brokers, dealers and clearing organizations",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "4/6/26, 7:56 AM"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "3101000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "2217000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "doc:Customers_18",
+   "dims": [],
+   "label": "Customers",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "4/6/26, 7:56 AM"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "61206000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "41695000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:AccruedLiabilitiesAndOtherPayables_19",
+   "dims": [],
+   "label": "Accrued liabilities and other payables",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "4/6/26, 7:56 AM"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "16039000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "14697000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:DepositLiabilitiesAtBanksIncluding15986In2007And14708In2006A_20",
+   "dims": [],
+   "label": "Deposit liabilities at banks (including $15,986 in 2007 and $14,708 in 2006 at fair value)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "4/6/26, 7:56 AM"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "29363000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "21412000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "doc:LongTermBorrowingsIncluding27204In2007And11025In2006AtFairVa_21",
+   "dims": [],
+   "label": "Long-term borrowings (including $27,204 in 2007 and $11,025 in 2006 at fair value)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "4/6/26, 7:56 AM"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "123150000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "81178000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:Liabilities",
+   "dims": [],
+   "label": "Total liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "4/6/26, 7:56 AM"
+   ],
+   "cells": [
+    {
+     "period": "I2007-12-31",
+     "value": "668573000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2006-12-31",
+     "value": "484354000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "us-gaap:Assets": [
+   [
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "1"
+   ],
+   [
+    "doc:CashAndSecuritiesSegregatedAndOnDepositForRegulatoryAndOther_1",
+    "1"
+   ],
+   [
+    "doc:FinancialInstrumentsAndOtherInventoryPositionsOwnedIncludes6_2",
+    "1"
+   ],
+   [
+    "doc:SecuritiesPurchasedUnderAgreementsToResell_3",
+    "1"
+   ],
+   [
+    "doc:SecuritiesBorrowed_4",
+    "1"
+   ],
+   [
+    "doc:BrokersDealersAndClearingOrganizations_5",
+    "1"
+   ],
+   [
+    "doc:Customers_6",
+    "1"
+   ],
+   [
+    "doc:Others_7",
+    "1"
+   ],
+   [
+    "doc:PropertyEquipmentAndLeaseholdImprovementsNetOfAccumulatedDep_8",
+    "1"
+   ],
+   [
+    "doc:OtherAssets_9",
+    "1"
+   ],
+   [
+    "doc:IdentifiableIntangibleAssetsAndGoodwillNetOfAccumulatedAmort_10",
+    "1"
+   ]
+  ],
+  "us-gaap:Liabilities": [
+   [
+    "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowingsIncl_12",
+    "1"
+   ],
+   [
+    "doc:FinancialInstrumentsAndOtherInventoryPositionsSoldButNotYetP_13",
+    "1"
+   ],
+   [
+    "doc:SecuritiesSoldUnderAgreementsToRepurchase_14",
+    "1"
+   ],
+   [
+    "doc:SecuritiesLoaned_15",
+    "1"
+   ],
+   [
+    "doc:OtherSecuredBorrowingsIncluding9149In2007And0In2006AtFairVal_16",
+    "1"
+   ],
+   [
+    "doc:BrokersDealersAndClearingOrganizations_17",
+    "1"
+   ],
+   [
+    "doc:Customers_18",
+    "1"
+   ],
+   [
+    "doc:AccruedLiabilitiesAndOtherPayables_19",
+    "1"
+   ],
+   [
+    "doc:DepositLiabilitiesAtBanksIncluding15986In2007And14708In2006A_20",
+    "1"
+   ],
+   [
+    "doc:LongTermBorrowingsIncluding27204In2007And11025In2006AtFairVa_21",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2007, 2006]"
+ ]
+}

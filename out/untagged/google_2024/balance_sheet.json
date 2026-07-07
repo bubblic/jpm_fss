@@ -1,0 +1,1001 @@
+{
+ "company": "google_2024",
+ "standard": "untagged",
+ "statement": "balance_sheet",
+ "linkrole": "document:google_2024:balance_sheet",
+ "role_definition": "balance_sheet (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "I2023-12-31",
+  "I2024-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "dims": [],
+   "label": "Cash and cash equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "24048000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "23466000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "us-gaap:MarketableSecuritiesCurrent",
+   "dims": [],
+   "label": "Marketable securities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "86868000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "72191000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:TotalCashCashEquivalentsAndMarketableSecurities_2",
+   "dims": [],
+   "label": "Total cash, cash equivalents, and marketable securities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "110916000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "95657000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "us-gaap:AccountsReceivableNetCurrent",
+   "dims": [],
+   "label": "Accounts receivable, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "47964000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "52340000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "us-gaap:OtherAssetsCurrent",
+   "dims": [],
+   "label": "Other current assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "12650000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "15714000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:AssetsCurrent",
+   "dims": [],
+   "label": "Total current assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "171530000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "163711000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:NonMarketableSecurities_6",
+   "dims": [],
+   "label": "Non-marketable securities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "31008000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "37982000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:DeferredIncomeTaxes_7",
+   "dims": [],
+   "label": "Deferred income taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "12169000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "17180000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:PropertyAndEquipmentNet_8",
+   "dims": [],
+   "label": "Property and equipment, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "134345000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "171036000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:OperatingLeaseAssets_9",
+   "dims": [],
+   "label": "Operating lease assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "14091000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "13588000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "us-gaap:Goodwill",
+   "dims": [],
+   "label": "Goodwill",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "29198000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "31885000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:OtherAssetsNoncurrent",
+   "dims": [],
+   "label": "Other non-current assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "10051000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "14874000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "us-gaap:Assets",
+   "dims": [],
+   "label": "Total assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "402392000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "450256000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "us-gaap:AccountsPayableCurrent",
+   "dims": [],
+   "label": "Accounts payable",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "7493000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "7987000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:AccruedCompensationAndBenefits_14",
+   "dims": [],
+   "label": "Accrued compensation and benefits",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "15140000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "15069000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:AccruedExpensesAndOtherCurrentLiabilities_15",
+   "dims": [],
+   "label": "Accrued expenses and other current liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "46168000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "51228000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:AccruedRevenueShare_16",
+   "dims": [],
+   "label": "Accrued revenue share",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "8876000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "9802000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "us-gaap:ContractWithCustomerLiabilityCurrent",
+   "dims": [],
+   "label": "Deferred revenue",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "4137000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "5036000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "us-gaap:LiabilitiesCurrent",
+   "dims": [],
+   "label": "Total current liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "81814000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "89122000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "us-gaap:LongTermDebtNoncurrent",
+   "dims": [],
+   "label": "Long-term debt",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "11870000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "10883000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:IncomeTaxesPayableNonCurrent_20",
+   "dims": [],
+   "label": "Income taxes payable, non-current",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "8474000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "8782000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "us-gaap:OperatingLeaseLiabilityNoncurrent",
+   "dims": [],
+   "label": "Operating lease liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "12460000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "11691000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:OtherLiabilitiesNoncurrent",
+   "dims": [],
+   "label": "Other long-term liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "4395000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "4694000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "us-gaap:Liabilities",
+   "dims": [],
+   "label": "Total liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "119013000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "125172000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:PreferredStock0001ParValuePerShare100SharesAuthorizedNoShare_24",
+   "dims": [],
+   "label": "Preferred stock, $0.001 par value per share, 100 shares authorized; no shares",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "0",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": "0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "doc:ClassC6000012460ClassA5899ClassB870ClassC5691And12211ClassA5_25",
+   "dims": [],
+   "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C 5,691) and 12,211 (Class A 5,835, Class B 861, Class C 5,515) shares issued and outstanding",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "value per share: 300,000 shares authorized (Class A 180,000, Class B 60,000,"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:TotalCashCashEquivalentsAndMarketableSecurities_2": [
+   [
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "1"
+   ],
+   [
+    "us-gaap:MarketableSecuritiesCurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:Assets": [
+   [
+    "us-gaap:AssetsCurrent",
+    "1"
+   ],
+   [
+    "doc:NonMarketableSecurities_6",
+    "1"
+   ],
+   [
+    "doc:DeferredIncomeTaxes_7",
+    "1"
+   ],
+   [
+    "doc:PropertyAndEquipmentNet_8",
+    "1"
+   ],
+   [
+    "doc:OperatingLeaseAssets_9",
+    "1"
+   ],
+   [
+    "us-gaap:Goodwill",
+    "1"
+   ],
+   [
+    "us-gaap:OtherAssetsNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:AssetsCurrent": [
+   [
+    "doc:TotalCashCashEquivalentsAndMarketableSecurities_2",
+    "1"
+   ],
+   [
+    "us-gaap:AccountsReceivableNetCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:OtherAssetsCurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:Liabilities": [
+   [
+    "us-gaap:LiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:LongTermDebtNoncurrent",
+    "1"
+   ],
+   [
+    "doc:IncomeTaxesPayableNonCurrent_20",
+    "1"
+   ],
+   [
+    "us-gaap:OperatingLeaseLiabilityNoncurrent",
+    "1"
+   ],
+   [
+    "us-gaap:OtherLiabilitiesNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:LiabilitiesCurrent": [
+   [
+    "us-gaap:AccountsPayableCurrent",
+    "1"
+   ],
+   [
+    "doc:AccruedCompensationAndBenefits_14",
+    "1"
+   ],
+   [
+    "doc:AccruedExpensesAndOtherCurrentLiabilities_15",
+    "1"
+   ],
+   [
+    "doc:AccruedRevenueShare_16",
+    "1"
+   ],
+   [
+    "us-gaap:ContractWithCustomerLiabilityCurrent",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2023, 2024]"
+ ]
+}

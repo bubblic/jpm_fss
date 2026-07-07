@@ -1,0 +1,78 @@
+{
+ "document": "svb_ar2022",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\svb\\ar2022.pdf",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    111
+   ],
+   "rows": 26,
+   "columns": 2,
+   "accepted_cells": 50,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": false,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 8,
+    "llm": 0,
+    "unmapped": 18
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    112
+   ],
+   "rows": 41,
+   "columns": 3,
+   "accepted_cells": 121,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 3,
+    "llm": 0,
+    "unmapped": 38
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    117
+   ],
+   "rows": 48,
+   "columns": 3,
+   "accepted_cells": 135,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 6,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 14586 + change -783 (net-change row, fx added) vs end 13803"
+   },
+   "mapping": {
+    "lexical": 4,
+    "llm": 0,
+    "unmapped": 44
+   }
+  }
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "balance_sheet footing unverified; cash_flow footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

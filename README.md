@@ -30,6 +30,25 @@ Monte Carlo identity integrity, the directional battery, and plausibility.
 Per-company simulated statements and flow journals land in
 `out/acceptance/<company>/`.
 
+The engine's flow system is verified symbolically (SymPy) before any run,
+and the stochastic fan executes vectorized in TensorFlow with per-path
+identity checks; the Decimal engine replays selected paths bit-exactly for
+the audit artifacts.
+
+## Untagged annual-report PDFs (no XBRL)
+
+```powershell
+python -m fss untagged <pdf-or-folder> ...   # per-document reports
+python -m fss untagged --merge               # out/untagged/summary.md
+```
+
+Optional LLM assist (page-identification fallback, flagged-cell
+adjudication by median vote, concept mapping over lexical shortlists)
+activates when `AZURE_DEEPSEEK_ENDPOINT` is set (`.env` supported), using
+the calling logic adopted from `previous_llm_extractor`. Without it, every
+stage is deterministic and unresolved cells stay flagged; documents with
+flagged balance-sheet cells are refused simulation by design.
+
 ---
 
 # KG Encoding Spike (original)

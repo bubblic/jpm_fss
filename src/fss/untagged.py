@@ -627,7 +627,10 @@ def _default_balance(statement: str, section: str, label: str) -> str:
 
 
 def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706) -> dict[str, Any]:
-    document = re.sub(r"[^a-z0-9]+", "_", pdf_path.stem.lower()).strip("_")
+    stem = pdf_path.stem.lower()
+    if re.fullmatch(r"(ar|annual[_ ]?report)?[_ ]?\d{4}", stem):
+        stem = f"{pdf_path.parent.name.lower()}_{stem}"  # generic names collide
+    document = re.sub(r"[^a-z0-9]+", "_", stem).strip("_")
     out_dir = UNTAGGED_DIR / document
     out_dir.mkdir(parents=True, exist_ok=True)
     llm_client = llm_module.default_client()
@@ -641,7 +644,10 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
     }
     statements: dict[str, StructuredStatement] = {}
     with pdfplumber.open(str(pdf_path)) as pdf:
-        pages = locate.scan_pages(pdf)
+        text_options = locate.probe_text_options(pdf)
+        if text_options:
+            outcome["text_options"] = text_options
+        pages = locate.scan_pages(pdf, text_options)
         candidates = {
             info.index + 1: info.text[:2400]
             for info in pages
@@ -667,7 +673,7 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
                         continue
                 record["pages"] = [p + 1 for p in page_indices]
                 extraction = read_statement_pages(
-                    pdf, pdf_path, statement_kind, page_indices, pages
+                    pdf, pdf_path, statement_kind, page_indices, pages, text_options
                 )
                 reconciled = reconcile(extraction)
                 if llm_client is not None and reconciled.flags:
@@ -715,6 +721,14 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
             except Exception as exc:  # keep the sweep alive; report the failure
                 record["error"] = f"{type(exc).__name__}: {exc}"
 
+    if all("error" in record for record in outcome["statements"].values()):
+        corpus = "".join(info.text.lower().replace(" ", "") for info in pages)
+        if "totalassets" not in corpus and "balancesheet" not in corpus:
+            outcome["diagnosis"] = (
+                "no financial-statement vocabulary in the extractable text: "
+                "the statement pages are likely images; an OCR/vision reader "
+                "is required for this document"
+            )
     outcome["simulation"] = _try_simulation(
         document, statements, simulate_paths, seed, outcome["statements"]
     )
@@ -797,6 +811,9 @@ def _write_report(out_dir: Path, outcome: dict[str, Any]) -> None:
     lines.append(
         "LLM assist: " + ("configured" if outcome["llm"] else "not configured (deterministic only)")
     )
+    if outcome.get("diagnosis"):
+        lines.append("")
+        lines.append(f"**Diagnosis:** {outcome['diagnosis']}")
     lines.append("")
     for statement, record in outcome["statements"].items():
         lines.append(f"## {statement}")

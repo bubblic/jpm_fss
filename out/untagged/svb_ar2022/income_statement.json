@@ -1,0 +1,1772 @@
+{
+ "company": "svb_ar2022",
+ "standard": "untagged",
+ "statement": "income_statement",
+ "linkrole": "document:svb_ar2022:income_statement",
+ "role_definition": "income_statement (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2022-01-01:2022-12-31",
+  "D2021-01-01:2021-12-31",
+  "D2020-01-01:2020-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "doc:Loans_0",
+   "dims": [],
+   "label": "Loans",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "3208000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "1966000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1520000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:Taxable_1",
+   "dims": [],
+   "label": "Taxable",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Investment securities"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "2113000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "1199000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "635000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:NonTaxable_2",
+   "dims": [],
+   "label": "Non-taxable",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Investment securities"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "140000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "106000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "61000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:FederalFundsSoldSecuritiesPurchasedUnderAgreementsToResellAn_3",
+   "dims": [],
+   "label": "Federal funds sold, securities purchased under agreements to resell and other short-term investment securities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Investment securities"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "212000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "18000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "26000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:TotalInterestIncome_4",
+   "dims": [],
+   "label": "Total interest income",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Investment securities"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "5673000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "3289000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "2242000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "doc:Deposits_5",
+   "dims": [],
+   "label": "Deposits",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "862000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "62000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "60000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:Borrowings_6",
+   "dims": [],
+   "label": "Borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "326000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "48000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "25000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:TotalInterestExpense_7",
+   "dims": [],
+   "label": "Total interest expense",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1188000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "110000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "85000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:NetInterestIncome_8",
+   "dims": [],
+   "label": "Net interest income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4485000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "3179000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "2157000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:ProvisionForCreditLosses_9",
+   "dims": [],
+   "label": "Provision for credit losses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "420000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "123000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "220000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:NetInterestIncomeAfterProvisionForCreditLosses_10",
+   "dims": [],
+   "label": "Net interest income after provision for credit losses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Interest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4065000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "3056000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1937000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:GainsLossesOnInvestmentSecuritiesNet_11",
+   "dims": [],
+   "label": "Gains (losses) on investment securities, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-285000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "761000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "421000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:GainsOnEquityWarrantAssetsNet_12",
+   "dims": [],
+   "label": "Gains on equity warrant assets, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "148000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "560000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "237000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:ClientInvestmentFees_13",
+   "dims": [],
+   "label": "Client investment fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "386000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "75000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "132000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:WealthManagementAndTrustFees_14",
+   "dims": [],
+   "label": "Wealth management and trust fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "83000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "44000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:ForeignExchangeFees_15",
+   "dims": [],
+   "label": "Foreign exchange fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "285000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "262000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "179000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:CreditCardFees_16",
+   "dims": [],
+   "label": "Credit card fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "150000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "131000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "98000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:DepositServiceCharges_17",
+   "dims": [],
+   "label": "Deposit service charges",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "126000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "112000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "90000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "doc:LendingRelatedFees_18",
+   "dims": [],
+   "label": "Lending related fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "94000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "76000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "57000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:LettersOfCreditAndStandbyLettersOfCreditFees_19",
+   "dims": [],
+   "label": "Letters of credit and standby letters of credit fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "57000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "51000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "47000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:InvestmentBankingRevenue_20",
+   "dims": [],
+   "label": "Investment banking revenue",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "420000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "459000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "414000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "doc:Commissions_21",
+   "dims": [],
+   "label": "Commissions",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "98000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "79000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "67000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:OtherNoncashIncomeExpense",
+   "dims": [],
+   "label": "Other",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "166000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "128000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "98000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "doc:TotalNoninterestIncome_23",
+   "dims": [],
+   "label": "Total noninterest income",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest income"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1728000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2738000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1840000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:CompensationAndBenefits_24",
+   "dims": [],
+   "label": "Compensation and benefits",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "2293000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2015000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1318000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "doc:ProfessionalServices_25",
+   "dims": [],
+   "label": "Professional services",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "480000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "392000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "247000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "doc:PremisesAndEquipment_26",
+   "dims": [],
+   "label": "Premises and equipment",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "269000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "178000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "127000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "doc:NetOccupancy_27",
+   "dims": [],
+   "label": "Net occupancy",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "101000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "83000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "101000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:BusinessDevelopmentAndTravel_28",
+   "dims": [],
+   "label": "Business development and travel",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "85000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "24000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "24000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:FdicAndStateAssessments_29",
+   "dims": [],
+   "label": "FDIC and state assessments",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "75000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "48000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "28000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "doc:MergerRelatedCharges_30",
+   "dims": [],
+   "label": "Merger-related charges",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "50000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "129000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "us-gaap:OtherNoncashIncomeExpense",
+   "dims": [],
+   "label": "Other",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "268000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "201000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "190000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "doc:TotalNoninterestExpense_32",
+   "dims": [],
+   "label": "Total noninterest expense",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "3621000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "3070000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "2035000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "concept": "doc:IncomeBeforeIncomeTaxExpense_33",
+   "dims": [],
+   "label": "Income before income tax expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "2172000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2724000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1742000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 34,
+   "concept": "ifrs-full:AdjustmentsForIncomeTaxExpense",
+   "dims": [],
+   "label": "Income tax expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "563000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "651000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "448000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 35,
+   "concept": "doc:NetIncomeBeforeNoncontrollingInterestsAndDividends_35",
+   "dims": [],
+   "label": "Net income before noncontrolling interests and dividends",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1609000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "2073000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1294000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 36,
+   "concept": "doc:NetLossIncomeAttributableToNoncontrollingInterests_36",
+   "dims": [],
+   "label": "Net loss (income) attributable to noncontrolling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "63000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-240000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-86000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 37,
+   "concept": "doc:PreferredStockDividends_37",
+   "dims": [],
+   "label": "Preferred stock dividends",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-163000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-63000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-17000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 38,
+   "concept": "doc:NetIncomeAvailableToCommonStockholders_38",
+   "dims": [],
+   "label": "Net income available to common stockholders",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1509000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "1770000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "1191000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 39,
+   "concept": "doc:EarningsPerCommonShareBasic_39",
+   "dims": [],
+   "label": "Earnings per common share\u2014basic",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "25.58",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "31.74",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "23.05",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 40,
+   "concept": "doc:EarningsPerCommonShareDiluted_40",
+   "dims": [],
+   "label": "Earnings per common share\u2014diluted",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Noninterest expense"
+   ],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "25.35",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "31.25",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "22.87",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:TotalInterestExpense_7": [
+   [
+    "doc:Deposits_5",
+    "1"
+   ],
+   [
+    "doc:Borrowings_6",
+    "1"
+   ]
+  ],
+  "doc:TotalInterestIncome_4": [
+   [
+    "doc:Loans_0",
+    "1"
+   ],
+   [
+    "doc:Taxable_1",
+    "1"
+   ],
+   [
+    "doc:NonTaxable_2",
+    "1"
+   ],
+   [
+    "doc:FederalFundsSoldSecuritiesPurchasedUnderAgreementsToResellAn_3",
+    "1"
+   ]
+  ],
+  "doc:TotalNoninterestExpense_32": [
+   [
+    "doc:CompensationAndBenefits_24",
+    "1"
+   ],
+   [
+    "doc:ProfessionalServices_25",
+    "1"
+   ],
+   [
+    "doc:PremisesAndEquipment_26",
+    "1"
+   ],
+   [
+    "doc:NetOccupancy_27",
+    "1"
+   ],
+   [
+    "doc:BusinessDevelopmentAndTravel_28",
+    "1"
+   ],
+   [
+    "doc:FdicAndStateAssessments_29",
+    "1"
+   ],
+   [
+    "doc:MergerRelatedCharges_30",
+    "1"
+   ],
+   [
+    "us-gaap:OtherNoncashIncomeExpense",
+    "1"
+   ]
+  ],
+  "doc:TotalNoninterestIncome_23": [
+   [
+    "doc:GainsLossesOnInvestmentSecuritiesNet_11",
+    "1"
+   ],
+   [
+    "doc:GainsOnEquityWarrantAssetsNet_12",
+    "1"
+   ],
+   [
+    "doc:ClientInvestmentFees_13",
+    "1"
+   ],
+   [
+    "doc:WealthManagementAndTrustFees_14",
+    "1"
+   ],
+   [
+    "doc:ForeignExchangeFees_15",
+    "1"
+   ],
+   [
+    "doc:CreditCardFees_16",
+    "1"
+   ],
+   [
+    "doc:DepositServiceCharges_17",
+    "1"
+   ],
+   [
+    "doc:LendingRelatedFees_18",
+    "1"
+   ],
+   [
+    "doc:LettersOfCreditAndStandbyLettersOfCreditFees_19",
+    "1"
+   ],
+   [
+    "doc:InvestmentBankingRevenue_20",
+    "1"
+   ],
+   [
+    "doc:Commissions_21",
+    "1"
+   ],
+   [
+    "us-gaap:OtherNoncashIncomeExpense",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2022, 2021, 2020]"
+ ]
+}

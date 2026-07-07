@@ -29,6 +29,7 @@ def read_statement_pages(
     statement: str,
     page_indices: list[int],
     pages_info: list[locate.PageInfo] | None = None,
+    text_options: dict[str, float] | None = None,
 ) -> PdfExtraction:
     """Run the three readers over already-located pages.
 
@@ -42,8 +43,9 @@ def read_statement_pages(
             for index in page_indices
             if index < len(pages_info)
         }
-    geometry = reader_geom.read_pages(pdf, page_indices, windows=windows)
-    lines = reader_lines.read_pages(pdf, page_indices, windows=windows)
+    options = text_options or {}
+    geometry = reader_geom.read_pages(pdf, page_indices, windows=windows, text_options=options)
+    lines = reader_lines.read_pages(pdf, page_indices, windows=windows, text_options=options)
     pypdf_reader = reader_pypdf.read_pages(pdf_path, page_indices, windows=windows)
     header_text = " ".join(geometry.header_lines + lines.header_lines)
     scale = detect_scale(header_text)

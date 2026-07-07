@@ -1,0 +1,1435 @@
+{
+ "company": "2023_general_motors_annual_report",
+ "standard": "untagged",
+ "statement": "balance_sheet",
+ "linkrole": "document:2023_general_motors_annual_report:balance_sheet",
+ "role_definition": "balance_sheet (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "I2023-12-31",
+  "I2022-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "dims": [],
+   "label": "Cash and cash equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "18853000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "19153000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:MarketableDebtSecuritiesNote4_1",
+   "dims": [],
+   "label": "Marketable debt securities (Note 4)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "7613000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "12150000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:AccountsAndNotesReceivableNetOfAllowanceOf298And260_2",
+   "dims": [],
+   "label": "Accounts and notes receivable, net of allowance of $298 and $260",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "12378000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "13333000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:GmFinancialReceivablesNetOfAllowanceOf906And869Note5Note11At_3",
+   "dims": [],
+   "label": "GM Financial receivables, net of allowance of $906 and $869 (Note 5; Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "39076000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "33623000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "us-gaap:InventoryNet",
+   "dims": [],
+   "label": "Inventories (Note 6)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "16461000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "15366000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:OtherAssetsCurrent",
+   "dims": [],
+   "label": "Other current assets (Note 4; Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "7238000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "6825000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "us-gaap:AssetsCurrent",
+   "dims": [],
+   "label": "Total current assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "101618000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "100451000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:GmFinancialReceivablesNetOfAllowanceOf1438And1227Note5Note11_7",
+   "dims": [],
+   "label": "GM Financial receivables, net of allowance of $1,438 and $1,227 (Note 5; Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "45043000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "40591000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:EquityInNetAssetsOfNonconsolidatedAffiliatesNote8_8",
+   "dims": [],
+   "label": "Equity in net assets of nonconsolidated affiliates (Note 8)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "10613000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "10176000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:PropertyNetNote9_9",
+   "dims": [],
+   "label": "Property, net (Note 9)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "50321000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "45248000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:GoodwillAndIntangibleAssetsNetNote10_10",
+   "dims": [],
+   "label": "Goodwill and intangible assets, net (Note 10)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "4862000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "4945000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:EquipmentOnOperatingLeasesNetNote7Note11AtVies_11",
+   "dims": [],
+   "label": "Equipment on operating leases, net (Note 7; Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "30582000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "32701000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:DeferredIncomeTaxesNote17_12",
+   "dims": [],
+   "label": "Deferred income taxes (Note 17)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "22339000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "20539000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:OtherAssetsNote4Note11AtVies_13",
+   "dims": [],
+   "label": "Other assets (Note 4; Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "7686000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "9386000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "us-gaap:AssetsNoncurrent",
+   "dims": [],
+   "label": "Total non-current assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "171446000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "163586000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "us-gaap:Assets",
+   "dims": [],
+   "label": "Total Assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current Assets"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "273064000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "264037000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:AccountsPayablePrincipallyTrade_16",
+   "dims": [],
+   "label": "Accounts payable (principally trade)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current Liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "28114000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "27486000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:Automotive_17",
+   "dims": [],
+   "label": "Automotive",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Short-term debt and current portion of long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "428000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "1959000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "doc:GmFinancialNote11AtVies_18",
+   "dims": [],
+   "label": "GM Financial (Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Short-term debt and current portion of long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "38540000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "36819000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:AccruedLiabilitiesNote12_19",
+   "dims": [],
+   "label": "Accrued liabilities (Note 12)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Short-term debt and current portion of long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "27364000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "24910000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "us-gaap:LiabilitiesCurrent",
+   "dims": [],
+   "label": "Total current liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Short-term debt and current portion of long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "94445000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "91173000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "doc:Automotive_21",
+   "dims": [],
+   "label": "Automotive",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "15985000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "15885000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "doc:GmFinancialNote11AtVies_22",
+   "dims": [],
+   "label": "GM Financial (Note 11 at VIEs)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "66788000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "60036000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "doc:PostretirementBenefitsOtherThanPensionsNote15_23",
+   "dims": [],
+   "label": "Postretirement benefits other than pensions (Note 15)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "4345000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "4193000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:PensionsNote15_24",
+   "dims": [],
+   "label": "Pensions (Note 15)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "6680000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "5698000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "doc:OtherLiabilitiesNote12_25",
+   "dims": [],
+   "label": "Other liabilities (Note 12)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "16515000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "14767000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "us-gaap:LiabilitiesNoncurrent",
+   "dims": [],
+   "label": "Total non-current liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "110312000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "100579000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "us-gaap:Liabilities",
+   "dims": [],
+   "label": "Total Liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Long-term debt (Note 13)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "204757000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "191752000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:NoncontrollingInterestCruiseStockIncentiveAwardsNote20_28",
+   "dims": [],
+   "label": "Noncontrolling interest - Cruise stock incentive awards (Note 20)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Commitments and contingencies (Note 16)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "118000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "357000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:CommonStock001ParValue_29",
+   "dims": [],
+   "label": "Common stock, $0.01 par value",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "12000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "14000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "doc:AdditionalPaidInCapital_30",
+   "dims": [],
+   "label": "Additional paid-in capital",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "19130000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "26428000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+   "dims": [],
+   "label": "Retained earnings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "55391000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "49251000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+   "dims": [],
+   "label": "Accumulated other comprehensive loss",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "-10247000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "-7901000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "concept": "us-gaap:StockholdersEquity",
+   "dims": [],
+   "label": "Total stockholders\u2019 equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "64286000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "67792000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 34,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Noncontrolling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "3903000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "4135000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 35,
+   "concept": "ifrs-full:Equity",
+   "dims": [],
+   "label": "Total Equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "68189000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "71927000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 36,
+   "concept": "doc:TotalLiabilitiesAndEquity_36",
+   "dims": [],
+   "label": "Total Liabilities and Equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Equity (Note 20)"
+   ],
+   "cells": [
+    {
+     "period": "I2023-12-31",
+     "value": "273064000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2022-12-31",
+     "value": "264037000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:TotalLiabilitiesAndEquity_36": [
+   [
+    "us-gaap:Liabilities",
+    "1"
+   ],
+   [
+    "doc:NoncontrollingInterestCruiseStockIncentiveAwardsNote20_28",
+    "1"
+   ],
+   [
+    "ifrs-full:Equity",
+    "1"
+   ]
+  ],
+  "ifrs-full:Equity": [
+   [
+    "us-gaap:StockholdersEquity",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncontrollingInterests",
+    "1"
+   ]
+  ],
+  "us-gaap:Assets": [
+   [
+    "us-gaap:AssetsCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:AssetsNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:AssetsCurrent": [
+   [
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "1"
+   ],
+   [
+    "doc:MarketableDebtSecuritiesNote4_1",
+    "1"
+   ],
+   [
+    "doc:AccountsAndNotesReceivableNetOfAllowanceOf298And260_2",
+    "1"
+   ],
+   [
+    "doc:GmFinancialReceivablesNetOfAllowanceOf906And869Note5Note11At_3",
+    "1"
+   ],
+   [
+    "us-gaap:InventoryNet",
+    "1"
+   ],
+   [
+    "us-gaap:OtherAssetsCurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:AssetsNoncurrent": [
+   [
+    "doc:GmFinancialReceivablesNetOfAllowanceOf1438And1227Note5Note11_7",
+    "1"
+   ],
+   [
+    "doc:EquityInNetAssetsOfNonconsolidatedAffiliatesNote8_8",
+    "1"
+   ],
+   [
+    "doc:PropertyNetNote9_9",
+    "1"
+   ],
+   [
+    "doc:GoodwillAndIntangibleAssetsNetNote10_10",
+    "1"
+   ],
+   [
+    "doc:EquipmentOnOperatingLeasesNetNote7Note11AtVies_11",
+    "1"
+   ],
+   [
+    "doc:DeferredIncomeTaxesNote17_12",
+    "1"
+   ],
+   [
+    "doc:OtherAssetsNote4Note11AtVies_13",
+    "1"
+   ]
+  ],
+  "us-gaap:Liabilities": [
+   [
+    "us-gaap:LiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:LiabilitiesNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:LiabilitiesCurrent": [
+   [
+    "doc:AccountsPayablePrincipallyTrade_16",
+    "1"
+   ],
+   [
+    "doc:Automotive_17",
+    "1"
+   ],
+   [
+    "doc:GmFinancialNote11AtVies_18",
+    "1"
+   ],
+   [
+    "doc:AccruedLiabilitiesNote12_19",
+    "1"
+   ]
+  ],
+  "us-gaap:LiabilitiesNoncurrent": [
+   [
+    "doc:Automotive_21",
+    "1"
+   ],
+   [
+    "doc:GmFinancialNote11AtVies_22",
+    "1"
+   ],
+   [
+    "doc:PostretirementBenefitsOtherThanPensionsNote15_23",
+    "1"
+   ],
+   [
+    "doc:PensionsNote15_24",
+    "1"
+   ],
+   [
+    "doc:OtherLiabilitiesNote12_25",
+    "1"
+   ]
+  ],
+  "us-gaap:StockholdersEquity": [
+   [
+    "doc:CommonStock001ParValue_29",
+    "1"
+   ],
+   [
+    "doc:AdditionalPaidInCapital_30",
+    "1"
+   ],
+   [
+    "us-gaap:RetainedEarningsAccumulatedDeficit",
+    "1"
+   ],
+   [
+    "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2023, 2022]"
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "document": "bbby_ar2022",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\bbby\\ar2022.pdf",
+ "mode": "runtime",
+ "source_sha256": "1c0493f0331effa2009b98f64cae9988b11b5b6ae635a258c0d15d52bf481d25",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    66,
+    67
+   ],
+   "rows": 30,
+   "columns": 2,
+   "accepted_cells": 51,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 11,
+    "artifact": 14,
+    "llm": 0,
+    "unmapped": 5
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    69
+   ],
+   "rows": 19,
+   "columns": 3,
+   "accepted_cells": 52,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 3,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 3,
+    "artifact": 7,
+    "llm": 0,
+    "unmapped": 9
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    74
+   ],
+   "rows": 46,
+   "columns": 3,
+   "accepted_cells": 102,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 1,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 6,
+    "artifact": 13,
+    "llm": 0,
+    "unmapped": 27
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\bbby_ar2022.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "ok",
+  "symbolic_balanced": true,
+  "scenarios": {
+   "baseline": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "expansion": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "recession": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "competition": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "rate_hike": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "inflation": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   }
+  }
+ },
+ "llm_calls": 0
+}

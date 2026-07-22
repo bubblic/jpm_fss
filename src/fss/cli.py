@@ -16,6 +16,27 @@ def main() -> int:
         "untagged", help="untagged-PDF sweep (annual report PDFs, no XBRL)"
     )
     untagged.add_argument("paths", nargs="*", help="PDF files or folders")
+    untagged.add_argument(
+        "--merge", action="store_true", help="regenerate the sweep summary only"
+    )
+    onboard = sub.add_parser(
+        "onboard",
+        help="BUILD time: ingest with LLM assist and emit a reviewable mapping artifact",
+    )
+    onboard.add_argument("paths", nargs="*", help="PDF files or folders")
+    onboard.add_argument(
+        "--rebuild",
+        action="store_true",
+        help="assemble artifacts from committed build products (no LLM calls)",
+    )
+    runtime = sub.add_parser(
+        "runtime",
+        help="RUN time: deterministic replay from the signed mapping artifact; no model access",
+    )
+    runtime.add_argument("paths", nargs="*", help="PDF files or folders")
+    runtime.add_argument(
+        "--merge", action="store_true", help="regenerate the sweep summary only"
+    )
     sub.add_parser("llm-check", help="verify the Azure LLM endpoint round-trips")
     accept = sub.add_parser("accept", help="full acceptance battery")
     accept.add_argument("--paths", type=int, default=None, help="Monte Carlo paths")
@@ -43,13 +64,19 @@ def main() -> int:
 
         measure.main()
         return 0
-    if args.command == "untagged":
+    if args.command in ("untagged", "onboard", "runtime"):
         import sys
 
         from fss import untagged as untagged_module
 
-        sys.argv = ["untagged", *args.paths]
-        untagged_module.main()
+        flags = []
+        if getattr(args, "merge", False):
+            flags.append("--merge")
+        if getattr(args, "rebuild", False):
+            flags.append("--rebuild")
+        sys.argv = [args.command, *flags, *args.paths]
+        mode = {"untagged": "explore", "onboard": "onboard", "runtime": "runtime"}
+        untagged_module.main(mode=mode[args.command])
         return 0
     if args.command == "llm-check":
         from fss import llm

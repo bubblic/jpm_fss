@@ -1,0 +1,92 @@
+{
+ "document": "wirecard_ar2018",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\wirecard\\ar2018.pdf",
+ "mode": "runtime",
+ "source_sha256": "b3f1151fd4ff3aa004a5fe1e08f5f7808b816d0683c7a056412f5928db3f0fd1",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    76
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 6,
+   "columns": 2,
+   "accepted_cells": 10,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 0,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 1,
+    "artifact": 3,
+    "llm": 0,
+    "unmapped": 2
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    72
+   ],
+   "artifact_adjudicated": 1,
+   "rows": 13,
+   "columns": 2,
+   "accepted_cells": 20,
+   "flags": 3,
+   "scale": "1000000",
+   "footing_groups": 1,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 1,
+    "artifact": 5,
+    "llm": 0,
+    "unmapped": 7
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    72
+   ],
+   "artifact_adjudicated": 1,
+   "rows": 13,
+   "columns": 2,
+   "accepted_cells": 20,
+   "flags": 3,
+   "scale": "1000000",
+   "footing_groups": 1,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 1,
+    "artifact": 5,
+    "llm": 0,
+    "unmapped": 7
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\wirecard_ar2018.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "diagnosis": "104 text-bearing pages (e.g. pages 32-222) extract with ZERO digits: their fonts lack unicode mappings for numerals, so no text engine can read numbers there. If the statements live in that region, any rows extracted elsewhere are condensed summaries, not the statement face; an OCR/vision reader is required.",
+ "simulation": {
+  "status": "skipped",
+  "reason": "1 flagged balance-sheet cells (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

@@ -1,0 +1,98 @@
+{
+ "document": "alibaba_2025",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\alibaba_2025.pdf",
+ "mode": "runtime",
+ "source_sha256": "8ab1234844b56a2be8b90d92301d0a46123c8770610e87f9462bb27b0e2b7182",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    310
+   ],
+   "rows": 28,
+   "columns": 3,
+   "accepted_cells": 62,
+   "flags": 0,
+   "scale": "1",
+   "footing_groups": 25,
+   "footing_pass": false,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 8,
+    "artifact": 0,
+    "llm": 0,
+    "unmapped": 20
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    319,
+    320
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 35,
+   "columns": 9,
+   "accepted_cells": 168,
+   "flags": 18,
+   "scale": "1",
+   "footing_groups": 34,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 14,
+    "artifact": 0,
+    "llm": 0,
+    "unmapped": 21
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    311,
+    312,
+    313,
+    314,
+    315
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 71,
+   "columns": 7,
+   "accepted_cells": 166,
+   "flags": 47,
+   "scale": "1",
+   "footing_groups": 61,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 4,
+    "artifact": 0,
+    "llm": 0,
+    "unmapped": 67
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\alibaba_2025.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "text_options": {
+  "x_tolerance": 1.2
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

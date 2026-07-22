@@ -1,0 +1,1251 @@
+{
+ "company": "tencent_2024",
+ "standard": "untagged",
+ "statement": "cash_flow",
+ "linkrole": "document:tencent_2024:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "dims": [],
+   "label": "Cash generated from operations 43(a)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "304705",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "256691",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities",
+   "dims": [],
+   "label": "Income tax paid",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-46184",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-34729",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+   "dims": [],
+   "label": "Net cash flows generated from operating activities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "258521",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "221962",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
+   "dims": [],
+   "label": "Payments for business combinations, net of cash acquired",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-7847",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-7633",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "msft:ProceedsFromInvestments",
+   "dims": [],
+   "label": "Net inflow of cash from disposals of investments in subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "1",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "14",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+   "dims": [],
+   "label": "Purchase of/prepayments for property, plant and equipment, construction in progress and investment properties",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-62927",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-21008",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+   "dims": [],
+   "label": "Proceeds from disposal of property, plant and equipment",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "203",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "257",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+   "dims": [],
+   "label": "Purchase of/prepayments for intangible assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-26394",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-26042",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "ck0001639920:LeaseRightOfUseAssetsObtainedInExchangeForLeaseLiabilities",
+   "dims": [],
+   "label": "Purchase of/prepayments for land use rights",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-6727",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-357",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
+   "dims": [],
+   "label": "Payments for acquisition of investments in associates",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-1967",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-5625",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "msft:ProceedsFromInvestments",
+   "dims": [],
+   "label": "Proceeds from disposal of investments in associates",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4627",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "3938",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
+   "dims": [],
+   "label": "Payments for acquisition of investments in joint ventures",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-22",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-25",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "msft:ProceedsFromInvestments",
+   "dims": [],
+   "label": "Proceeds from disposal of investments in joint ventures",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from investing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "267",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "431",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities",
+   "dims": [],
+   "label": "Proceeds from short-term borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "62563",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "29809",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+   "dims": [],
+   "label": "Repayments of short-term borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-40049",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-9889",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+   "dims": [],
+   "label": "Proceeds from long-term borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "52021",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "33641",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "us-gaap:RepaymentsOfLongTermDebt",
+   "dims": [],
+   "label": "Repayments of long-term borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-74642",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-34116",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+   "dims": [],
+   "label": "Repayments of notes payable",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-14213",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-10141",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities",
+   "dims": [],
+   "label": "Principal elements of lease payments",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-6369",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-6652",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "ifrs-full:InterestPaidClassifiedAsFinancingActivities",
+   "dims": [],
+   "label": "Interest paid",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-12417",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-11478",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+   "dims": [],
+   "label": "Payments for repurchase of shares",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-102331",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-43767",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "ifrs-full:ProceedsFromExerciseOfOptions",
+   "dims": [],
+   "label": "Proceeds from issuance of ordinary shares as a result of exercise of share options",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "1932",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1070",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+   "dims": [],
+   "label": "Payments for withholding individual income tax for share option schemes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-105",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-242",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
+   "dims": [],
+   "label": "Payments for shares purchased/withheld for share award schemes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-3420",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-4378",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock",
+   "dims": [],
+   "label": "Proceeds from issuance of additional equity interests of non wholly-owned subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "161",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "196",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "sap:TransactionsWithNoncontrollingInterests",
+   "dims": [],
+   "label": "Payments for acquisition of non-controlling interests in non wholly-owned subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-8381",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-4818",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "sap:TransactionsWithNoncontrollingInterests",
+   "dims": [],
+   "label": "Capital reductions of non-controlling interests in non wholly-owned subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-20",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "doc:DividendsPaidToTheCompanySShareholders_27",
+   "dims": [],
+   "label": "Dividends paid to the Company\u2019s shareholders",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-28859",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-20983",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:DividendsPaidToNonControllingInterests_28",
+   "dims": [],
+   "label": "Dividends paid to non-controlling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-2385",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-805",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:NetCashFlowsUsedInFinancingActivities_29",
+   "dims": [],
+   "label": "Net cash flows used in financing activities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-176494",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-82573",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "doc:NetDecreaseIncreaseInCashAndCashEquivalents_30",
+   "dims": [],
+   "label": "Net (decrease)/increase in cash and cash equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-40160",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "14228",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "doc:CashAndCashEquivalentsAtBeginningOfTheYear_31",
+   "dims": [],
+   "label": "Cash and cash equivalents at beginning of the year",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": "http://www.xbrl.org/2003/role/periodStartLabel",
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "172320",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "156739",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "doc:ExchangeGainsOnCashAndCashEquivalents_32",
+   "dims": [],
+   "label": "Exchange gains on cash and cash equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "359",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1353",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "concept": "doc:CashAndCashEquivalentsAtEndOfTheYear_33",
+   "dims": [],
+   "label": "Cash and cash equivalents at end of the year",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": "http://www.xbrl.org/2003/role/periodEndLabel",
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Cash flows from financing activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "132519",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "172320",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:NetCashFlowsUsedInFinancingActivities_29": [
+   [
+    "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+    "1"
+   ],
+   [
+    "us-gaap:RepaymentsOfLongTermDebt",
+    "1"
+   ],
+   [
+    "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:InterestPaidClassifiedAsFinancingActivities",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsForRepurchaseOfCommonStock",
+    "1"
+   ],
+   [
+    "ifrs-full:ProceedsFromExerciseOfOptions",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+    "1"
+   ],
+   [
+    "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromIssuanceOfCommonStock",
+    "1"
+   ],
+   [
+    "sap:TransactionsWithNoncontrollingInterests",
+    "1"
+   ],
+   [
+    "sap:TransactionsWithNoncontrollingInterests",
+    "1"
+   ],
+   [
+    "doc:DividendsPaidToTheCompanySShareholders_27",
+    "1"
+   ],
+   [
+    "doc:DividendsPaidToNonControllingInterests_28",
+    "1"
+   ]
+  ],
+  "ifrs-full:CashFlowsFromUsedInOperatingActivities": [
+   [
+    "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "1"
+   ],
+   [
+    "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2024, 2023]"
+ ]
+}

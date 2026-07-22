@@ -1,0 +1,92 @@
+{
+ "document": "exxon_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\exxon_2024.pdf",
+ "mode": "runtime",
+ "source_sha256": "00ae54024a75b1b270d876f0a17120be3e1da35334373ad112c8898d2fca7c5e",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    87,
+    88
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 57,
+   "columns": 3,
+   "accepted_cells": 146,
+   "flags": 12,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 7,
+    "artifact": 14,
+    "llm": 0,
+    "unmapped": 36
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    85
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 20,
+   "columns": 3,
+   "accepted_cells": 60,
+   "flags": 8,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 0,
+    "artifact": 10,
+    "llm": 0,
+    "unmapped": 10
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    88
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 35,
+   "columns": 3,
+   "accepted_cells": 101,
+   "flags": 4,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": false,
+    "detail": "begin 31568 + change -7705 (activity totals, fx added) vs end 23187"
+   },
+   "mapping": {
+    "lexical": 0,
+    "artifact": 15,
+    "llm": 0,
+    "unmapped": 20
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\exxon_2024.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "12 flagged balance-sheet cells; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

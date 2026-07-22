@@ -1,0 +1,90 @@
+{
+ "document": "google_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\google_2024.pdf",
+ "mode": "runtime",
+ "source_sha256": "745700dad59d69a137d705194b7944c91dc1fb1d5de6b3866df0da7db9cee2d6",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    57
+   ],
+   "artifact_adjudicated": 1,
+   "rows": 26,
+   "columns": 2,
+   "accepted_cells": 51,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 15,
+    "artifact": 6,
+    "llm": 0,
+    "unmapped": 5
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    58
+   ],
+   "rows": 13,
+   "columns": 3,
+   "accepted_cells": 39,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 7,
+    "artifact": 2,
+    "llm": 0,
+    "unmapped": 4
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    61
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 34,
+   "columns": 3,
+   "accepted_cells": 99,
+   "flags": 2,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 20945 + change 934 (net-change row, fx inside change) vs end 21879"
+   },
+   "mapping": {
+    "lexical": 12,
+    "artifact": 17,
+    "llm": 0,
+    "unmapped": 5
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\google_2024.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "1 flagged balance-sheet cells (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

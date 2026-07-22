@@ -1,0 +1,849 @@
+{
+ "company": "tencent_2024",
+ "standard": "untagged",
+ "statement": "income_statement",
+ "linkrole": "document:tencent_2024:income_statement",
+ "role_definition": "income_statement (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "doc:ValueAddedServices_0",
+   "dims": [],
+   "label": "Value-added Services",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "319168",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "298375",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:MarketingServices_1",
+   "dims": [],
+   "label": "Marketing Services*",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "121374",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "101482",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:FintechAndBusinessServices_2",
+   "dims": [],
+   "label": "FinTech and Business Services",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "211956",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "203763",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:Others_3",
+   "dims": [],
+   "label": "Others",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "7759",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "5395",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "ifrs-full:CostOfSales",
+   "dims": [],
+   "label": "Cost of revenues 7",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-311011",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-315906",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "ifrs-full:GrossProfit",
+   "dims": [],
+   "label": "Gross profit",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "349246",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "293109",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "us-gaap:SellingAndMarketingExpense",
+   "dims": [],
+   "label": "Selling and marketing expenses 7",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-36388",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-34211",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "General and administrative expenses 7",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-112761",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-103525",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "sap:OtherNonOperatingIncomeExpensesNet",
+   "dims": [],
+   "label": "Other gains/(losses), net 8",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "8002",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "4701",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+   "dims": [],
+   "label": "Operating profit",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "208099",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "160074",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+   "dims": [],
+   "label": "Net gains/(losses) from investments and others 9",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4187",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-6090",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "ifrs-full:FinanceIncome",
+   "dims": [],
+   "label": "Interest income 10",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "16004",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "13808",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "ifrs-full:FinanceCosts",
+   "dims": [],
+   "label": "Finance costs 11",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-11981",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-12268",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "ifrs-full:ProfitLoss",
+   "dims": [],
+   "label": "Share of profit/(loss) of associates and joint ventures, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "25176",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "5800",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "ifrs-full:ProfitLossBeforeTax",
+   "dims": [],
+   "label": "Profit before income tax",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "241485",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "161324",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:IncomeTaxExpense12A_15",
+   "dims": [],
+   "label": "Income tax expense 12(a)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-45018",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-43276",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+   "dims": [],
+   "label": "Profit for the year",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "196467",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "118048",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+   "dims": [],
+   "label": "Equity holders of the Company",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "194073",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "115216",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Non-controlling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "2394",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "2832",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:Row19_19",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Attributable to"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "196467",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "118048",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:OfTheCompanyInRmbPerShareBasic13A_20",
+   "dims": [],
+   "label": "of the Company (in RMB per share) \u2013 basic 13(a)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per share for profit attributable to equity holders"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "20.938",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "12.186",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "ifrs-full:DilutedEarningsLossPerShare",
+   "dims": [],
+   "label": "\u2013 diluted 13(b)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Earnings per share for profit attributable to equity holders"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "20.486",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "11.887",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:Row19_19": [
+   [
+    "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncontrollingInterests",
+    "1"
+   ]
+  ],
+  "ifrs-full:GrossProfit": [
+   [
+    "doc:ValueAddedServices_0",
+    "1"
+   ],
+   [
+    "doc:MarketingServices_1",
+    "1"
+   ],
+   [
+    "doc:FintechAndBusinessServices_2",
+    "1"
+   ],
+   [
+    "doc:Others_3",
+    "1"
+   ],
+   [
+    "ifrs-full:CostOfSales",
+    "1"
+   ]
+  ],
+  "ifrs-full:ProfitLossAttributableToOwnersOfParent": [
+   [
+    "ifrs-full:ProfitLossBeforeTax",
+    "1"
+   ],
+   [
+    "doc:IncomeTaxExpense12A_15",
+    "1"
+   ]
+  ],
+  "ifrs-full:ProfitLossBeforeTax": [
+   [
+    "ifrs-full:ProfitLossFromOperatingActivities",
+    "1"
+   ],
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+    "1"
+   ],
+   [
+    "ifrs-full:FinanceIncome",
+    "1"
+   ],
+   [
+    "ifrs-full:FinanceCosts",
+    "1"
+   ],
+   [
+    "ifrs-full:ProfitLoss",
+    "1"
+   ]
+  ],
+  "ifrs-full:ProfitLossFromOperatingActivities": [
+   [
+    "ifrs-full:GrossProfit",
+    "1"
+   ],
+   [
+    "us-gaap:SellingAndMarketingExpense",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "sap:OtherNonOperatingIncomeExpensesNet",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2024, 2023]"
+ ]
+}

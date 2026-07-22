@@ -1,0 +1,182 @@
+{
+ "document": "wirecard_ar2018",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\wirecard\\ar2018.pdf",
+ "source_sha256": "b3f1151fd4ff3aa004a5fe1e08f5f7808b816d0683c7a056412f5928db3f0fd1",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    76
+   ],
+   "located_by": "llm",
+   "mapping": [
+    {
+     "label": "Internally-generated intangible assets",
+     "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other intangible assets (software)",
+     "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Property, plant and equipment",
+     "concept": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "curities). The remaining funds were held as deposits with sometimes provides the financing based on detailed indi- the central bank and demand and short-term fixed-term vidual assessments and suitable security",
+     "concept": "us-gaap:ShortTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "relating to the areas of acquiring, issuing and payment stri",
+     "column": 0,
+     "value": "11.6"
+    },
+    {
+     "label": "relating to the areas of acquiring, issuing and payment stri",
+     "column": 0,
+     "value": "11.6"
+    }
+   ]
+  },
+  "income_statement": {
+   "pages": [
+    72
+   ],
+   "located_by": "llm",
+   "mapping": [
+    {
+     "label": "Consulting expenses and consulting-related expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Office expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Equipment and leasing",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Personnel-related expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "relating to the areas of acquiring, issuing and payment stri",
+     "column": 0,
+     "value": "11.6"
+    },
+    {
+     "label": "relating to the areas of acquiring, issuing and payment stri",
+     "column": 0,
+     "value": "11.6"
+    }
+   ]
+  },
+  "cash_flow": {
+   "pages": [
+    72
+   ],
+   "located_by": "llm",
+   "mapping": [
+    {
+     "label": "Consulting expenses and consulting-related expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Office expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Equipment and leasing",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Personnel-related expenses",
+     "concept": "ifrs-full:OperatingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "relating to the areas of acquiring, issuing and payment stri",
+     "column": 0,
+     "value": "11.6"
+    },
+    {
+     "label": "relating to the areas of acquiring, issuing and payment stri",
+     "column": 0,
+     "value": "11.6"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,18 @@
+# Runtime sweep summary (deterministic inference path)
+
+| Document | BS | IS | CF | footing | A=L+E | cash tie | mapped | simulation |
+| --- | --- | --- | --- | --- | --- | --- | ---: | --- |
+| 2023_general_motors_annual_report | 37r | 21r | 33r | FAIL | PASS | PASS | 59/91 | skipped |
+| alibaba_2025 | 28r | 35r | 71r | FAIL | - | - | 26/134 | skipped |
+| bbby_ar2022 | 30r | 19r | 46r | PASS | - | - | 54/95 | ok |
+| evergrande_ar2022 | 13r | 34r | 34r | FAIL | - | PASS | 61/81 | skipped |
+| exxon_2024 | 57r | 20r | 35r | FAIL | - | FAIL | 46/112 | skipped |
+| google_2024 | 26r | 13r | 34r | PASS | - | PASS | 59/73 | skipped |
+| jpmorgan_2024 | 40r | 30r | 46r | FAIL | FAIL | PASS | 51/116 | skipped |
+| lehman_ar2007 | 33r | 30r | 21r | FAIL | PASS | - | 37/84 | skipped |
+| lvmh_dec_2024 | 32r | 42r | 34r | FAIL | PASS | - | 79/108 | skipped |
+| microsoft_2025 | 34r | 19r | 34r | PASS | PASS | PASS | 83/87 | ok |
+| svb_ar2022 | 25r | 42r | 49r | FAIL | - | PASS | 48/116 | skipped |
+| tencent_2024 | 29r | 22r | 34r | FAIL | - | FAIL | 66/85 | skipped |
+| volkswagen_2024 | 50r | 16r | 29r | FAIL | PASS | FAIL | 60/95 | skipped |
+| wirecard_ar2018 | 6r | 13r | 13r | PASS | - | - | 16/32 | skipped |

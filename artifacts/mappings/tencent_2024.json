@@ -1,0 +1,488 @@
+{
+ "document": "tencent_2024",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\tencent_2024.pdf",
+ "source_sha256": "95b0652da8294527d150a56a9de293627b53e73b4a4c21202c153ea6eb4e9134",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    126,
+    127,
+    128
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Share capital 33",
+     "concept": "ifrs-full:IssuedCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Share premium 33",
+     "concept": "ifrs-full:SharePremium",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Treasury shares 33",
+     "concept": "ifrs-full:TreasuryShares",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other reserves 34",
+     "concept": "ifrs-full:OtherReserves",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Retained earnings",
+     "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-controlling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total equity",
+     "concept": "ifrs-full:Equity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Borrowings 36",
+     "concept": "ifrs-full:LongtermBorrowings",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Notes payable 37",
+     "concept": "ifrs-full:LongtermBorrowings",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term payables 38",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Lease liabilities",
+     "concept": "ifrs-full:NoncurrentLeaseLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred revenue 6(c)(i)",
+     "concept": "ifrs-full:CurrentContractLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts payable 40",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other payables and accruals 41",
+     "concept": "ifrs-full:TradeAndOtherCurrentPayables",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Notes payable 37",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Current income tax liabilities",
+     "concept": "ifrs-full:CurrentTaxLiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other tax liabilities",
+     "concept": "us-gaap:OtherLiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other financial liabilities 39",
+     "concept": "ifrs-full:CurrentFinancialLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Lease liabilities",
+     "concept": "ifrs-full:NoncurrentLeaseLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred revenue 6(c)(i)",
+     "concept": "ifrs-full:CurrentContractLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total equity and liabilities",
+     "concept": "ifrs-full:EquityAndLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "income_statement": {
+   "pages": [
+    124
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cost of revenues 7",
+     "concept": "ifrs-full:CostOfSales",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Gross profit",
+     "concept": "ifrs-full:GrossProfit",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Selling and marketing expenses 7",
+     "concept": "us-gaap:SellingAndMarketingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "General and administrative expenses 7",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other gains/(losses), net 8",
+     "concept": "sap:OtherNonOperatingIncomeExpensesNet",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Operating profit",
+     "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net gains/(losses) from investments and others 9",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Interest income 10",
+     "concept": "ifrs-full:FinanceIncome",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Finance costs 11",
+     "concept": "ifrs-full:FinanceCosts",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Share of profit/(loss) of associates and joint ventures, net",
+     "concept": "ifrs-full:ProfitLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Profit before income tax",
+     "concept": "ifrs-full:ProfitLossBeforeTax",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Profit for the year",
+     "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Equity holders of the Company",
+     "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-controlling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "\u2013 diluted 13(b)",
+     "concept": "ifrs-full:DilutedEarningsLossPerShare",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "cash_flow": {
+   "pages": [
+    133,
+    134
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash generated from operations 43(a)",
+     "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income tax paid",
+     "concept": "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash flows generated from operating activities",
+     "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for business combinations, net of cash acquired",
+     "concept": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net inflow of cash from disposals of investments in subsidiaries",
+     "concept": "msft:ProceedsFromInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchase of/prepayments for property, plant and equipment, construction in progress and investment properties",
+     "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of property, plant and equipment",
+     "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchase of/prepayments for intangible assets",
+     "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchase of/prepayments for land use rights",
+     "concept": "ck0001639920:LeaseRightOfUseAssetsObtainedInExchangeForLeaseLiabilities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for acquisition of investments in associates",
+     "concept": "us-gaap:PaymentsToAcquireInvestments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of investments in associates",
+     "concept": "msft:ProceedsFromInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for acquisition of investments in joint ventures",
+     "concept": "us-gaap:PaymentsToAcquireInvestments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of investments in joint ventures",
+     "concept": "msft:ProceedsFromInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from short-term borrowings",
+     "concept": "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repayments of short-term borrowings",
+     "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from long-term borrowings",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repayments of long-term borrowings",
+     "concept": "us-gaap:RepaymentsOfLongTermDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repayments of notes payable",
+     "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Principal elements of lease payments",
+     "concept": "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Interest paid",
+     "concept": "ifrs-full:InterestPaidClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for repurchase of shares",
+     "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from issuance of ordinary shares as a result of exercise of share options",
+     "concept": "ifrs-full:ProceedsFromExerciseOfOptions",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for withholding individual income tax for share option schemes",
+     "concept": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for shares purchased/withheld for share award schemes",
+     "concept": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from issuance of additional equity interests of non wholly-owned subsidiaries",
+     "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments for acquisition of non-controlling interests in non wholly-owned subsidiaries",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Capital reductions of non-controlling interests in non wholly-owned subsidiaries",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  }
+ }
+}

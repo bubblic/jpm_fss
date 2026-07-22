@@ -1,0 +1,88 @@
+{
+ "document": "2023_general_motors_annual_report",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\2023 General Motors Annual Report .pdf",
+ "mode": "runtime",
+ "source_sha256": "42bf7609408f7f8cc2a3be19d32f7a719be52ea668121db27cd969ed01d9c5ed",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    62
+   ],
+   "rows": 37,
+   "columns": 2,
+   "accepted_cells": 74,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 9,
+   "footing_pass": true,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 14,
+    "artifact": 14,
+    "llm": 0,
+    "unmapped": 9
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    61
+   ],
+   "rows": 21,
+   "columns": 3,
+   "accepted_cells": 63,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 2,
+    "artifact": 8,
+    "llm": 0,
+    "unmapped": 11
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    63
+   ],
+   "rows": 33,
+   "columns": 3,
+   "accepted_cells": 97,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 21948 + change -31 (net-change row, fx inside change) vs end 21917"
+   },
+   "mapping": {
+    "lexical": 2,
+    "artifact": 19,
+    "llm": 0,
+    "unmapped": 12
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\2023_general_motors_annual_report.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "cash_flow footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

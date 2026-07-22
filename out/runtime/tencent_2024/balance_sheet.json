@@ -1,0 +1,1125 @@
+{
+ "company": "tencent_2024",
+ "standard": "untagged",
+ "statement": "balance_sheet",
+ "linkrole": "document:tencent_2024:balance_sheet",
+ "role_definition": "balance_sheet (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "I2024-12-31",
+  "I2023-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "ifrs-full:IssuedCapital",
+   "dims": [],
+   "label": "Share capital 33",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "ifrs-full:SharePremium",
+   "dims": [],
+   "label": "Share premium 33",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "43079",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "37989",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "ifrs-full:TreasuryShares",
+   "dims": [],
+   "label": "Treasury shares 33",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "-3597",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "-4740",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:SharesHeldForShareAwardSchemes33_3",
+   "dims": [],
+   "label": "Shares held for share award schemes 33",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "-5093",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "-5350",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "ifrs-full:OtherReserves",
+   "dims": [],
+   "label": "Other reserves 34",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "47129",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "-33219",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+   "dims": [],
+   "label": "Retained earnings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "892030",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "813911",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:Row6_6",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "973548",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "808591",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "ifrs-full:NoncontrollingInterests",
+   "dims": [],
+   "label": "Non-controlling interests",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "80348",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "65090",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "ifrs-full:Equity",
+   "dims": [],
+   "label": "Total equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Equity attributable to equity holders of the Company"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "1053896",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "873681",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "ifrs-full:LongtermBorrowings",
+   "dims": [],
+   "label": "Borrowings 36",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "146521",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "155819",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "ifrs-full:LongtermBorrowings",
+   "dims": [],
+   "label": "Notes payable 37",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "130586",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "137101",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:LongTermDebtNoncurrent",
+   "dims": [],
+   "label": "Long-term payables 38",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "10201",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "12169",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "ifrs-full:CurrentFinancialLiabilities",
+   "dims": [],
+   "label": "Other financial liabilities 39",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "4203",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "8781",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:DeferredIncomeTaxLiabilities29_13",
+   "dims": [],
+   "label": "Deferred income tax liabilities 29",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "18546",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "17635",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "ifrs-full:NoncurrentLeaseLiabilities",
+   "dims": [],
+   "label": "Lease liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "13897",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "16468",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "ifrs-full:CurrentContractLiabilities",
+   "dims": [],
+   "label": "Deferred revenue 6(c)(i)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "6236",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "3435",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:Row16_16",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "330190",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "351408",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "us-gaap:AccountsPayableCurrent",
+   "dims": [],
+   "label": "Accounts payable 40",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "118712",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "100948",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
+   "dims": [],
+   "label": "Other payables and accruals 41",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "84032",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "76595",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "ifrs-full:LongtermBorrowings",
+   "dims": [],
+   "label": "Borrowings 36",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "52885",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "41537",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "ifrs-full:LongtermBorrowings",
+   "dims": [],
+   "label": "Notes payable 37",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "8623",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "14161",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "ifrs-full:CurrentTaxLiabilitiesCurrent",
+   "dims": [],
+   "label": "Current income tax liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "16586",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "17664",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
+   "dims": [],
+   "label": "Other tax liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "4038",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "4372",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "ifrs-full:CurrentFinancialLiabilities",
+   "dims": [],
+   "label": "Other financial liabilities 39",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "6336",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "4558",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "ifrs-full:NoncurrentLeaseLiabilities",
+   "dims": [],
+   "label": "Lease liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "5600",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "6154",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "ifrs-full:CurrentContractLiabilities",
+   "dims": [],
+   "label": "Deferred revenue 6(c)(i)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "100097",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "86168",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "doc:Row26_26",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "396909",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "352157",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "us-gaap:Liabilities",
+   "dims": [],
+   "label": "Total liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "727099",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "703565",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "ifrs-full:EquityAndLiabilities",
+   "dims": [],
+   "label": "Total equity and liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2024-12-31",
+     "value": "1780995",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2023-12-31",
+     "value": "1577246",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:Row16_16": [
+   [
+    "ifrs-full:LongtermBorrowings",
+    "1"
+   ],
+   [
+    "ifrs-full:LongtermBorrowings",
+    "1"
+   ],
+   [
+    "us-gaap:LongTermDebtNoncurrent",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentFinancialLiabilities",
+    "1"
+   ],
+   [
+    "doc:DeferredIncomeTaxLiabilities29_13",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncurrentLeaseLiabilities",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentContractLiabilities",
+    "1"
+   ]
+  ],
+  "doc:Row26_26": [
+   [
+    "us-gaap:AccountsPayableCurrent",
+    "1"
+   ],
+   [
+    "ifrs-full:TradeAndOtherCurrentPayables",
+    "1"
+   ],
+   [
+    "ifrs-full:LongtermBorrowings",
+    "1"
+   ],
+   [
+    "ifrs-full:LongtermBorrowings",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentTaxLiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:OtherLiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentFinancialLiabilities",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncurrentLeaseLiabilities",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentContractLiabilities",
+    "1"
+   ]
+  ],
+  "doc:Row6_6": [
+   [
+    "ifrs-full:SharePremium",
+    "1"
+   ],
+   [
+    "ifrs-full:TreasuryShares",
+    "1"
+   ],
+   [
+    "doc:SharesHeldForShareAwardSchemes33_3",
+    "1"
+   ],
+   [
+    "ifrs-full:OtherReserves",
+    "1"
+   ],
+   [
+    "us-gaap:RetainedEarningsAccumulatedDeficit",
+    "1"
+   ]
+  ],
+  "ifrs-full:Equity": [
+   [
+    "doc:Row6_6",
+    "1"
+   ],
+   [
+    "ifrs-full:NoncontrollingInterests",
+    "1"
+   ]
+  ],
+  "ifrs-full:EquityAndLiabilities": [
+   [
+    "ifrs-full:Equity",
+    "1"
+   ],
+   [
+    "us-gaap:Liabilities",
+    "1"
+   ]
+  ],
+  "us-gaap:Liabilities": [
+   [
+    "doc:Row16_16",
+    "1"
+   ],
+   [
+    "doc:Row26_26",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2024, 2023]"
+ ]
+}

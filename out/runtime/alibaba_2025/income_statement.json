@@ -1,0 +1,1564 @@
+{
+ "company": "alibaba_2025",
+ "standard": "untagged",
+ "statement": "income_statement",
+ "linkrole": "document:alibaba_2025:income_statement",
+ "role_definition": "income_statement (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31",
+  "D2022-01-01:2022-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "doc:941168_0",
+   "dims": [],
+   "label": "\u6536\u5165 941,168",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "941168",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "us-gaap:CostOfRevenue",
+   "dims": [],
+   "label": "\u71df\u696d\u6210\u672c (586,323)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-586323",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "us-gaap:ResearchAndDevelopmentExpense",
+   "dims": [],
+   "label": "\u7522\u54c1\u958b\u767c\u8cbb\u7528 (52,256)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-52256",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:115141_3",
+   "dims": [],
+   "label": "\u92b7\u552e\u548c\u5e02\u5834\u8cbb\u7528 (115,141)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-115141",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "\u4e00\u822c\u53ca\u884c\u653f\u8cbb\u7528 (41,985)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-41985",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:AmortizationOfIntangibleAssets",
+   "dims": [],
+   "label": "\u7121\u5f62\u8cc7\u7522\u6524\u92b7\u53ca\u6e1b\u503c (21,592)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-21592",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "360",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "us-gaap:GoodwillImpairmentLoss",
+   "dims": [],
+   "label": "\u5546\u8b7d\u6e1b\u503c (10,521)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-10521",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "650",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:113350_7",
+   "dims": [],
+   "label": "\u7d93\u71df\u5229\u6f64 113,350",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "113350",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1010",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:9964_8",
+   "dims": [],
+   "label": "\u5229\u606f\u6536\u5165\u548c\u6295\u8cc7\u6de8\u6536\u76ca (9,964)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-9964",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-365",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:InterestExpense",
+   "dims": [],
+   "label": "\u5229\u606f\u8cbb\u7528 (7,947)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-7947",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:6157_10",
+   "dims": [],
+   "label": "\u5176\u4ed6\u6de8\u6536\u652f 6,157",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "6157",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
+   "dims": [],
+   "label": "\u6240\u5f97\u7a05\u8cbb\u7528 (22,529)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-22529",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-78",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-37",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:7735_12",
+   "dims": [],
+   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca (7,735)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-7735",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:71332_13",
+   "dims": [],
+   "label": "\u6de8\u5229\u6f64 71,332",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "71332",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "932",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-402",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "doc:8677_14",
+   "dims": [],
+   "label": "\u6de8\u640d\u5931 8,677",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "8677",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-748",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-295",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:268_15",
+   "dims": [],
+   "label": "\u593e\u5c64\u6b0a\u76ca\u7684\u589e\u503c (268)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-268",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:79741_16",
+   "dims": [],
+   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64 79,741",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "79741",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "184",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-697",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:996347_17",
+   "dims": [],
+   "label": "\u6536\u5165 996,347",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "us-gaap:CostOfRevenue",
+   "dims": [],
+   "label": "\u71df\u696d\u6210\u672c (598,285)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "us-gaap:ResearchAndDevelopmentExpense",
+   "dims": [],
+   "label": "\u7522\u54c1\u958b\u767c\u8cbb\u7528 (57,151)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:144021_20",
+   "dims": [],
+   "label": "\u92b7\u552e\u548c\u5e02\u5834\u8cbb\u7528 (144,021)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "\u4e00\u822c\u53ca\u884c\u653f\u8cbb\u7528 (44,239)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:AmortizationOfIntangibleAssets",
+   "dims": [],
+   "label": "\u7121\u5f62\u8cc7\u7522\u6524\u92b7\u53ca\u6e1b\u503c (6,336)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "320",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "us-gaap:GoodwillImpairmentLoss",
+   "dims": [],
+   "label": "\u5546\u8b7d\u6e1b\u503c (6,171)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4296",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:761_24",
+   "dims": [],
+   "label": "\u5176\u4ed6\u6de8\u6536\u76ca 761",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "doc:140905_25",
+   "dims": [],
+   "label": "\u7d93\u71df\u5229\u6f64 140,905",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4616",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "doc:20759_26",
+   "dims": [],
+   "label": "\u5229\u606f\u6536\u5165\u548c\u6295\u8cc7\u6de8\u6536\u76ca 20,759",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "986",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "2237",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-2867",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "us-gaap:InterestExpense",
+   "dims": [],
+   "label": "\u5229\u606f\u8cbb\u7528 (9,596)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-283",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:3387_28",
+   "dims": [],
+   "label": "\u5176\u4ed6\u6de8\u6536\u652f 3,387",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-5",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
+   "dims": [],
+   "label": "\u6240\u5f97\u7a05\u8cbb\u7528 (35,445)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-70",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "121",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "160",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "doc:5966_30",
+   "dims": [],
+   "label": "\u6b0a\u76ca\u6cd5\u6838\u7b97\u7684\u6295\u8cc7\u640d\u76ca 5,966",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "1491",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "doc:125976_31",
+   "dims": [],
+   "label": "\u6de8\u5229\u6f64 125,976",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "5244",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "2358",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-1216",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "doc:4133_32",
+   "dims": [],
+   "label": "\u6b78\u5c6c\u65bc\u975e\u63a7\u5236\u6027\u6b0a\u76ca\u7684\u6de8\u640d\u5931 4,133",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-2041",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "concept": "doc:639_33",
+   "dims": [],
+   "label": "\u593e\u5c64\u6b0a\u76ca\u7684\u589e\u503c (639)",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 34,
+   "concept": "doc:129470_34",
+   "dims": [],
+   "label": "\u6b78\u5c6c\u65bc\u666e\u901a\u80a1\u80a1\u6771\u7684\u6de8\u5229\u6f64 129,470",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "\uff08\u4eba\u6c11\u5e63\u767e\u842c\u5143\uff09"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "3203",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "2358",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-1216",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:113350_7": [
+   [
+    "doc:941168_0",
+    "1"
+   ],
+   [
+    "us-gaap:CostOfRevenue",
+    "1"
+   ],
+   [
+    "us-gaap:ResearchAndDevelopmentExpense",
+    "1"
+   ],
+   [
+    "doc:115141_3",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:AmortizationOfIntangibleAssets",
+    "1"
+   ],
+   [
+    "us-gaap:GoodwillImpairmentLoss",
+    "1"
+   ]
+  ],
+  "doc:125976_31": [
+   [
+    "doc:140905_25",
+    "1"
+   ],
+   [
+    "doc:20759_26",
+    "1"
+   ],
+   [
+    "us-gaap:InterestExpense",
+    "1"
+   ],
+   [
+    "doc:3387_28",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "1"
+   ],
+   [
+    "doc:5966_30",
+    "1"
+   ]
+  ],
+  "doc:129470_34": [
+   [
+    "doc:125976_31",
+    "1"
+   ],
+   [
+    "doc:4133_32",
+    "1"
+   ],
+   [
+    "doc:639_33",
+    "1"
+   ]
+  ],
+  "doc:140905_25": [
+   [
+    "doc:996347_17",
+    "1"
+   ],
+   [
+    "us-gaap:CostOfRevenue",
+    "1"
+   ],
+   [
+    "us-gaap:ResearchAndDevelopmentExpense",
+    "1"
+   ],
+   [
+    "doc:144021_20",
+    "1"
+   ],
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:AmortizationOfIntangibleAssets",
+    "1"
+   ],
+   [
+    "us-gaap:GoodwillImpairmentLoss",
+    "1"
+   ],
+   [
+    "doc:761_24",
+    "1"
+   ]
+  ],
+  "doc:71332_13": [
+   [
+    "doc:113350_7",
+    "1"
+   ],
+   [
+    "doc:9964_8",
+    "1"
+   ],
+   [
+    "us-gaap:InterestExpense",
+    "1"
+   ],
+   [
+    "doc:6157_10",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "1"
+   ],
+   [
+    "doc:7735_12",
+    "1"
+   ]
+  ],
+  "doc:79741_16": [
+   [
+    "doc:71332_13",
+    "1"
+   ],
+   [
+    "doc:8677_14",
+    "1"
+   ],
+   [
+    "doc:268_15",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "column years not detected; synthetic ordering"
+ ]
+}

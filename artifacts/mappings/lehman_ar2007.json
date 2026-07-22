@@ -1,0 +1,299 @@
+{
+ "document": "lehman_ar2007",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\lehman\\ar2007.pdf",
+ "source_sha256": "3fa8386c5db7964d069bb8bdb8899d4134142b7c1e3a89e6377844d38bbe47c5",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    86,
+    87
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and securities segregated and on deposit for regulatory and other purposes",
+     "concept": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Securities borrowed",
+     "concept": "us-gaap:MarketableSecuritiesCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Property, equipment and leasehold improvements (net of accumulated depreciation and amortization of $2,438 in 2007 and $1,925 in 2006)",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Identifiable intangible assets and goodwill (net of accumulated amortization of $340 in 2007 and $293 in 2006)",
+     "concept": "us-gaap:FiniteLivedIntangibleAssetsNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Securities loaned",
+     "concept": "us-gaap:MarketableSecuritiesCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Deposit liabilities at banks (including $15,986 in 2007 and $14,708 in 2006 at fair value)",
+     "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term borrowings (including $27,204 in 2007 and $11,025 in 2006 at fair value)",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Shares outstanding: 531,887,419 in 2007 and 533,368,195 in 2006",
+     "concept": "us-gaap:CommonStockSharesOutstanding",
+     "balance": "",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Additional paid-in capital",
+     "concept": "ifrs-full:AdditionalPaidinCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accumulated other comprehensive loss, net of tax",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Retained earnings",
+     "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other stockholders\u2019 equity, net",
+     "concept": "us-gaap:StockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total stockholders\u2019 equity",
+     "concept": "us-gaap:StockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities and stockholders\u2019 equity",
+     "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "income_statement": {
+   "pages": [
+    85
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Total revenues",
+     "concept": "ifrs-full:Revenue",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Compensation and benefits",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Technology and communications",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total non-personnel expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total non-interest expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Provision for income taxes",
+     "concept": "us-gaap:IncomeTaxExpenseBenefit",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net income",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Earnings per basic common share",
+     "concept": "us-gaap:EarningsPerShareBasic",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "cash_flow": {
+   "pages": [
+    151,
+    152,
+    153
+   ],
+   "located_by": "llm",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and securities segregated and on deposit for regulatory and other purposes",
+     "concept": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Financial instruments and other inventory positions owned",
+     "concept": "ifrs-full:OtherCurrentFinancialAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Receivables and other assets",
+     "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Deposit liabilities at banks",
+     "concept": "us-gaap:LiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term borrowings",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total stockholders\u2019 equity",
+     "concept": "us-gaap:StockholdersEquity",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities and stockholders\u2019 equity",
+     "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net income",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  }
+ }
+}

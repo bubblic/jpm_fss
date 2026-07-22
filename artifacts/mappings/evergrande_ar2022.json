@@ -1,0 +1,538 @@
+{
+ "document": "evergrande_ar2022",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\evergrande\\ar2022.pdf",
+ "source_sha256": "0432019428b560b52598743075094af865854d5034492ffd1883d8a220535191",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    46,
+    47
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Borrowings 22",
+     "concept": "ifrs-full:LongtermBorrowings",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Borrowings 22",
+     "concept": "ifrs-full:LongtermBorrowings",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Trade and other payables 25",
+     "concept": "ifrs-full:TradeAndOtherCurrentPayables",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Contract liabilities 25",
+     "concept": "ifrs-full:CurrentContractLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Current income tax liabilities 26",
+     "concept": "ifrs-full:CurrentTaxLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Net current liabilities",
+     "concept": "ifrs-full:CurrentLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total equity and liabilities",
+     "concept": "ifrs-full:EquityAndLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Share of other comprehensive income of investments accounted",
+     "column": 1,
+     "value": "31"
+    },
+    {
+     "label": "Exchange difference arising on translation of financial stat",
+     "column": 0,
+     "value": "63"
+    },
+    {
+     "label": "Exchange difference arising on translation of financial stat",
+     "column": 1,
+     "value": "536"
+    },
+    {
+     "label": "Change in fair value of financial assets at fair value throu",
+     "column": 0,
+     "value": "380"
+    },
+    {
+     "label": "Other comprehensive income/(loss) for the year, net of tax",
+     "column": 0,
+     "value": "443"
+    }
+   ]
+  },
+  "income_statement": {
+   "pages": [
+    48,
+    49
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Revenue 5",
+     "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cost of sales 29",
+     "concept": "us-gaap:CostOfGoodsAndServicesSold",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Gross profit/(loss)",
+     "concept": "ifrs-full:GrossProfit",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Fair value gains/(losses) on investment properties, net 8",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Impairment losses on financial assets",
+     "concept": "ifrs-full:OtherCurrentFinancialAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other losses, net 27",
+     "concept": "sap:OtherNonOperatingIncomeExpensesNet",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other income 28",
+     "concept": "us-gaap:NonoperatingIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Selling and marketing costs 29",
+     "concept": "us-gaap:SellingAndMarketingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Administrative expenses 29",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Impairment loss of investments accounted for using equity method",
+     "concept": "ifrs-full:AdjustmentsForImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLossTradeAndOtherReceivables",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other operating expenses 29",
+     "concept": "ifrs-full:OperatingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Operating loss",
+     "concept": "us-gaap:OperatingIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Fair value losses on financial assets at fair value through profit or loss 16",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Fair value losses on contingent consideration payables",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Fair value gains/(losses) on financial guarantee contracts",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Finance costs, net 31",
+     "concept": "ifrs-full:FinanceCosts",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Losses before income tax",
+     "concept": "ifrs-full:ProfitLossBeforeTax",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Losses for the year",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Share of other comprehensive income of investments accounted for using the equity method",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Change in fair value of financial assets at fair value through other comprehensive income, net of tax",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other comprehensive income/(loss) for the year, net of tax",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total comprehensive loss for the year",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Shareholders of the Company",
+     "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-controlling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-controlling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Share of other comprehensive income of investments accounted",
+     "column": 1,
+     "value": "31"
+    },
+    {
+     "label": "Exchange difference arising on translation of financial stat",
+     "column": 0,
+     "value": "63"
+    },
+    {
+     "label": "Exchange difference arising on translation of financial stat",
+     "column": 1,
+     "value": "536"
+    },
+    {
+     "label": "Change in fair value of financial assets at fair value throu",
+     "column": 0,
+     "value": "380"
+    },
+    {
+     "label": "Other comprehensive income/(loss) for the year, net of tax",
+     "column": 0,
+     "value": "443"
+    }
+   ]
+  },
+  "cash_flow": {
+   "pages": [
+    52,
+    53
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net cash generated from operations 35",
+     "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income tax paid",
+     "concept": "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Interest paid",
+     "concept": "ifrs-full:InterestPaidClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash used in operating activities",
+     "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Acquisition of subsidiaries, net of cash acquired",
+     "concept": "ifrs-full:CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of property, plant and equipment and investment properties",
+     "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of property, plant and equipment, land use rights and intangible assets",
+     "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of investment properties",
+     "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchase of land use rights",
+     "concept": "ifrs-full:RightofuseAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchase of intangible assets",
+     "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Investments in associates and joint ventures",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of joint ventures and associates",
+     "concept": "msft:ProceedsFromInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash received from disposal of subsidiaries",
+     "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchase of financial assets at fair value through profit or loss",
+     "concept": "ifrs-full:OtherCurrentFinancialAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of financial assets at fair value through profit or loss",
+     "concept": "msft:ProceedsFromInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from borrowings",
+     "concept": "ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repayment of borrowings",
+     "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repurchase of shares",
+     "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Issue of ordinary shares under a share option scheme",
+     "concept": "ck0001639920:IssuanceOfSharesUponNetSettlementOfWarrants",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Dividends paid",
+     "concept": "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Acquisition of a non-controlling interest in a subsidiary",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Capital injection from non-controlling interest",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash advances from associates",
+     "concept": "ifrs-full:CashFlowsFromUsedInFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash advances from joint ventures",
+     "concept": "ifrs-full:CashFlowsFromUsedInFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash advances from non-controlling interests",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repayment of non-controlling interest amounts",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Principal of the lease payment",
+     "concept": "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Share of other comprehensive income of investments accounted",
+     "column": 1,
+     "value": "31"
+    },
+    {
+     "label": "Exchange difference arising on translation of financial stat",
+     "column": 0,
+     "value": "63"
+    },
+    {
+     "label": "Exchange difference arising on translation of financial stat",
+     "column": 1,
+     "value": "536"
+    },
+    {
+     "label": "Change in fair value of financial assets at fair value throu",
+     "column": 0,
+     "value": "380"
+    },
+    {
+     "label": "Other comprehensive income/(loss) for the year, net of tax",
+     "column": 0,
+     "value": "443"
+    }
+   ]
+  }
+ }
+}

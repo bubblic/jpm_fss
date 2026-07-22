@@ -1,6 +1,8 @@
 {
  "document": "bbby_ar2022",
  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\bbby\\ar2022.pdf",
+ "mode": "onboard",
+ "source_sha256": "1c0493f0331effa2009b98f64cae9988b11b5b6ae635a258c0d15d52bf481d25",
  "llm": true,
  "statements": {
   "balance_sheet": {
@@ -23,8 +25,9 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 11,
-    "llm": 13,
-    "unmapped": 6
+    "artifact": 0,
+    "llm": 14,
+    "unmapped": 5
    }
   },
   "income_statement": {
@@ -43,8 +46,9 @@
    "cash_tie": null,
    "mapping": {
     "lexical": 3,
-    "llm": 9,
-    "unmapped": 7
+    "artifact": 0,
+    "llm": 7,
+    "unmapped": 9
    }
   },
   "cash_flow": {
@@ -66,8 +70,9 @@
    },
    "mapping": {
     "lexical": 6,
-    "llm": 15,
-    "unmapped": 25
+    "artifact": 0,
+    "llm": 13,
+    "unmapped": 27
    }
   }
  },
@@ -101,5 +106,9 @@
    }
   }
  },
- "llm_calls": 59
+ "llm_calls": 59,
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\bbby_ar2022.json",
+  "approved_by": "PENDING SIGN-OFF"
+ }
 }

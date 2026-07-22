@@ -1,0 +1,94 @@
+{
+ "document": "evergrande_ar2022",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\evergrande\\ar2022.pdf",
+ "mode": "runtime",
+ "source_sha256": "0432019428b560b52598743075094af865854d5034492ffd1883d8a220535191",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    46,
+    47
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 13,
+   "columns": 2,
+   "accepted_cells": 26,
+   "flags": 8,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": false,
+   "identity": {
+    "pass": null,
+    "detail": "no 'Total assets' row"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 4,
+    "artifact": 4,
+    "llm": 0,
+    "unmapped": 5
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    48,
+    49
+   ],
+   "artifact_adjudicated": 5,
+   "rows": 34,
+   "columns": 2,
+   "accepted_cells": 60,
+   "flags": 21,
+   "scale": "1",
+   "footing_groups": 9,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 4,
+    "artifact": 22,
+    "llm": 0,
+    "unmapped": 8
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    52,
+    53
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 34,
+   "columns": 2,
+   "accepted_cells": 63,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 5435 + change -1103 (net-change row, fx added) vs end 4334"
+   },
+   "mapping": {
+    "lexical": 4,
+    "artifact": 23,
+    "llm": 0,
+    "unmapped": 7
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\evergrande_ar2022.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "8 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

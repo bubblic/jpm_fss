@@ -1,0 +1,90 @@
+{
+ "document": "svb_ar2022",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\svb\\ar2022.pdf",
+ "mode": "runtime",
+ "source_sha256": "fb21467d6ddca7dd78f942fd662b106a0a925acf286757f7ae53d57564f55f8c",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    111
+   ],
+   "rows": 25,
+   "columns": 2,
+   "accepted_cells": 48,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": {
+    "pass": null,
+    "detail": "no combined or component totals"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 7,
+    "artifact": 8,
+    "llm": 0,
+    "unmapped": 10
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    112
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 42,
+   "columns": 3,
+   "accepted_cells": 121,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 3,
+    "artifact": 7,
+    "llm": 0,
+    "unmapped": 32
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    117
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 49,
+   "columns": 3,
+   "accepted_cells": 135,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 6,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 14586 + change -783 (net-change row, fx added) vs end 13803"
+   },
+   "mapping": {
+    "lexical": 4,
+    "artifact": 19,
+    "llm": 0,
+    "unmapped": 26
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\svb_ar2022.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "cash_flow footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

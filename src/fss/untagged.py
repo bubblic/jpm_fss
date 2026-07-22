@@ -21,19 +21,21 @@ out/untagged/, plus a sweep summary.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
+import subprocess
 import sys
 import unicodedata
 from dataclasses import dataclass, field
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
 import pdfplumber
 
 from fss import llm as llm_module
-from fss.paths import DATA_DIR, OUT_DIR
+from fss.paths import DATA_DIR, OUT_DIR, ROOT
 from fss.pdfread import locate, zh
 from fss.pdfread.assemble import read_statement_pages
 from fss.pdfread.llm_assist import LLMAudit, adjudicate_flags, map_concept, select_pages
@@ -41,6 +43,8 @@ from fss.reconcile import ReconciledStatement, canon_label, reconcile
 from fss.statements import Cell, StatementRow, StructuredStatement
 
 UNTAGGED_DIR = OUT_DIR / "untagged"
+RUNTIME_DIR = OUT_DIR / "runtime"
+ARTIFACTS_DIR = ROOT / "artifacts" / "mappings"
 STATEMENTS = ("balance_sheet", "income_statement", "cash_flow")
 TOTAL_PREFIX = re.compile(r"^(total|net total)\b", re.IGNORECASE)
 CF_ACTIVITY_TOTAL = re.compile(
@@ -568,10 +572,13 @@ def map_rows(
     tokens: dict[str, set[str]],
     llm_client: llm_module.LLMClient | None,
     audit: LLMAudit,
-) -> tuple[dict[int, ConceptInfo], dict[str, int]]:
-    """Row -> taxonomy concept, lexical first, LLM-over-shortlist second."""
-    stats = {"lexical": 0, "llm": 0, "unmapped": 0}
+    overlay: dict[str, ConceptInfo] | None = None,
+) -> tuple[dict[int, ConceptInfo], dict[str, int], dict[int, str]]:
+    """Row -> taxonomy concept: lexical, then the signed-off artifact
+    overlay (runtime), then LLM-over-shortlist (build time only)."""
+    stats = {"lexical": 0, "artifact": 0, "llm": 0, "unmapped": 0}
     concepts: dict[int, ConceptInfo] = {}
+    sources: dict[int, str] = {}
     llm_budget = 25  # mapping calls per statement (cost bound)
     for index, row in enumerate(reconciled.rows):
         canon = canon_label(row.label)
@@ -590,6 +597,15 @@ def map_rows(
             if found is not None:
                 local, balance, period_type = found
                 info = ConceptInfo(f"us-gaap:{local}", balance, period_type, True)
+        if info is None and overlay is not None:
+            info = (
+                overlay.get(canon)
+                or overlay.get(_condensed(row.label))
+                or overlay.get(canon_label(bare))
+                or overlay.get(_condensed(bare))
+            )
+            if info is not None:
+                source = "artifact"
         if info is None and llm_client is not None and row.label.strip() and llm_budget > 0:
             llm_budget -= 1
             shortlist = _shortlist(bare, tokens)
@@ -617,9 +633,10 @@ def map_rows(
         if info is not None:
             concepts[index] = info
             stats[source] += 1
+            sources[index] = source
         else:
             stats["unmapped"] += 1
-    return concepts, stats
+    return concepts, stats, sources
 
 
 # ---------------------------------------------------------------------------
@@ -833,24 +850,249 @@ def _snap_llm_pages(
 
 
 # ---------------------------------------------------------------------------
+# mapping artifacts: LLMs at build time, determinism at run time
+# ---------------------------------------------------------------------------
+
+
+def _document_slug(pdf_path: Path) -> str:
+    stem = pdf_path.stem.lower()
+    if re.fullmatch(r"(ar|annual[_ ]?report)?[_ ]?\d{4}", stem):
+        stem = f"{pdf_path.parent.name.lower()}_{stem}"  # generic names collide
+    return re.sub(r"[^a-z0-9]+", "_", stem).strip("_")
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _git_version() -> str:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            capture_output=True,
+            text=True,
+            cwd=ROOT,
+            check=True,
+        )
+        return result.stdout.strip()
+    except Exception:
+        return "unknown"
+
+
+def artifact_path(document: str) -> Path:
+    return ARTIFACTS_DIR / f"{document}.json"
+
+
+def load_artifact(document: str) -> dict[str, Any] | None:
+    path = artifact_path(document)
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _artifact_overlay(entries: list[dict[str, Any]]) -> dict[str, "ConceptInfo"]:
+    """Reviewed label->concept choices from the artifact, keyed like the
+    lexical dictionary (canonical and condensed forms)."""
+    overlay: dict[str, ConceptInfo] = {}
+    for entry in entries:
+        info = ConceptInfo(
+            entry["concept"], entry["balance"], entry["period_type"], True
+        )
+        for key in (canon_label(entry["label"]), _condensed(entry["label"])):
+            if key:
+                overlay.setdefault(key, info)
+    return overlay
+
+
+def rebuild_artifact(pdf_path: Path) -> Path:
+    """Assemble the mapping artifact from committed build products.
+
+    Build runs record every LLM decision (audit log) and every accepted
+    mapping (statement JSONs). When the hosted endpoint later changes or
+    disappears -- the precise risk the build/runtime split exists for --
+    the artifact can be reconstructed from those versioned products
+    without consulting any model.
+    """
+    document = _document_slug(pdf_path)
+    out_dir = UNTAGGED_DIR / document
+    outcome = json.loads((out_dir / "outcome.json").read_text(encoding="utf-8"))
+    audit_file = out_dir / "audit_llm.json"
+    decisions = (
+        json.loads(audit_file.read_text(encoding="utf-8")).get("decisions", [])
+        if audit_file.exists()
+        else []
+    )
+    adjudications = [
+        {"label": d["label"], "column": d["column"], "value": d["value"]}
+        for d in decisions
+        if d.get("kind") == "adjudicated"
+    ]
+    build: dict[str, Any] = {
+        "document": document,
+        "source_file": str(pdf_path),
+        "source_sha256": _sha256(pdf_path),
+        "code_version": _git_version(),
+        "built_from": "committed build products (LLM decisions recorded at build time)",
+        "approved_by": "PENDING SIGN-OFF",
+        "statements": {},
+    }
+    for kind, record in outcome["statements"].items():
+        if "error" in record or not record.get("pages"):
+            continue
+        mapping: list[dict[str, Any]] = []
+        statement_file = out_dir / f"{kind}.json"
+        if statement_file.exists():
+            payload = json.loads(statement_file.read_text(encoding="utf-8"))
+            for row in payload["rows"]:
+                if row["kind"] == "abstract" or row["concept"].startswith("doc:"):
+                    continue
+                mapping.append(
+                    {
+                        "label": row["label"],
+                        "concept": row["concept"],
+                        "balance": row["balance"] or "",
+                        "period_type": row["period_type"],
+                        "source": "build_products",
+                    }
+                )
+        build["statements"][kind] = {
+            "pages": record["pages"],
+            "located_by": record["located_by"],
+            "mapping": mapping,
+            # adjudications are stored globally per document; replay is
+            # safe because acceptance re-verifies against the readers
+            "adjudications": adjudications,
+        }
+    ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
+    path = artifact_path(document)
+    path.write_text(json.dumps(build, indent=1, default=str), encoding="utf-8")
+    return path
+
+
+def _apply_artifact_adjudications(
+    reconciled: ReconciledStatement, entries: list[dict[str, Any]]
+) -> int:
+    """Replay signed-off adjudications without a model.
+
+    The acceptance rule is the same one the LLM was held to at build time:
+    the artifact's value must exactly match one of the deterministic
+    readers' readings for that cell TODAY. A cell whose readings drifted
+    since onboarding stays flagged, so the artifact cannot inject numbers
+    into a changed document.
+    """
+    resolved = 0
+    for entry in entries:
+        canon = canon_label(str(entry["label"]))
+        if not canon:
+            continue
+        column = int(entry["column"])
+        try:
+            value = Decimal(str(entry["value"]))
+        except InvalidOperation:
+            continue
+        for row in reconciled.rows:
+            row_canon = canon_label(row.label)
+            # audit records truncate long labels; a prefix match is safe
+            # because the reader-agreement gate below still binds
+            if row_canon != canon and not row_canon.startswith(canon):
+                continue
+            if column >= len(row.provenance):
+                break
+            prov = row.provenance[column]
+            if prov.rule != "flagged":
+                break
+            readings: set[Decimal] = set()
+            for reading in prov.readings.values():
+                if not reading:
+                    continue
+                try:
+                    readings.add(Decimal(reading.replace(",", "")))
+                except InvalidOperation:
+                    continue
+            if value in readings:
+                prov.accepted_printed = value
+                prov.rule = "artifact_adjudicated"
+                row.printed[column] = value
+                row.values[column] = value * row.scale
+                resolved += 1
+            break
+    return resolved
+
+
+# ---------------------------------------------------------------------------
 # per-document run
 # ---------------------------------------------------------------------------
 
 
-def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706) -> dict[str, Any]:
+def analyze_pdf(
+    pdf_path: Path,
+    simulate_paths: int = 200,
+    seed: int = 20260706,
+    mode: str = "explore",
+) -> dict[str, Any]:
     stem = pdf_path.stem.lower()
     if re.fullmatch(r"(ar|annual[_ ]?report)?[_ ]?\d{4}", stem):
         stem = f"{pdf_path.parent.name.lower()}_{stem}"  # generic names collide
     document = re.sub(r"[^a-z0-9]+", "_", stem).strip("_")
-    out_dir = UNTAGGED_DIR / document
+    out_dir = (RUNTIME_DIR if mode == "runtime" else UNTAGGED_DIR) / document
     out_dir.mkdir(parents=True, exist_ok=True)
-    llm_client = llm_module.default_client()
+    source_sha = _sha256(pdf_path)
+    # the run-time inference path never constructs a model client, no
+    # matter what the environment provides (proposal v2: LLMs at build
+    # time, determinism at run time)
+    llm_client = None if mode == "runtime" else llm_module.default_client()
     audit = LLMAudit()
     dictionary, tokens = _load_dictionary()
     outcome: dict[str, Any] = {
         "document": document,
         "file": str(pdf_path),
+        "mode": mode,
+        "source_sha256": source_sha,
         "llm": llm_client is not None,
+        "statements": {},
+    }
+    artifact: dict[str, Any] | None = None
+    overlays: dict[str, dict[str, ConceptInfo]] = {}
+    if mode == "runtime":
+        artifact = load_artifact(document)
+        if artifact is None:
+            reason = "no mapping artifact: run `fss onboard` and sign it off first"
+            outcome["statements"] = {kind: {"error": reason} for kind in STATEMENTS}
+            outcome["simulation"] = {"status": "skipped", "reason": reason}
+            (out_dir / "outcome.json").write_text(
+                json.dumps(outcome, indent=1, default=str), encoding="utf-8"
+            )
+            _write_report(out_dir, outcome)
+            return outcome
+        outcome["artifact"] = {
+            "path": str(artifact_path(document)),
+            "approved_by": artifact.get("approved_by", "PENDING SIGN-OFF"),
+            "code_version_at_build": artifact.get("code_version", "unknown"),
+        }
+        if artifact.get("source_sha256") != source_sha:
+            reason = (
+                "source hash mismatch: the document changed since onboarding; "
+                "re-onboarding and sign-off required"
+            )
+            outcome["statements"] = {kind: {"error": reason} for kind in STATEMENTS}
+            outcome["simulation"] = {"status": "skipped", "reason": reason}
+            (out_dir / "outcome.json").write_text(
+                json.dumps(outcome, indent=1, default=str), encoding="utf-8"
+            )
+            _write_report(out_dir, outcome)
+            return outcome
+        for kind, stmt_artifact in artifact.get("statements", {}).items():
+            overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
+    build: dict[str, Any] = {
+        "document": document,
+        "source_file": str(pdf_path),
+        "source_sha256": source_sha,
+        "code_version": _git_version(),
+        "approved_by": "PENDING SIGN-OFF",
         "statements": {},
     }
     statements: dict[str, StructuredStatement] = {}
@@ -872,45 +1114,70 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
             record: dict[str, Any] = {}
             outcome["statements"][statement_kind] = record
             try:
-                page_indices = assigned.get(statement_kind)
-                if page_indices:
-                    record["located_by"] = "deterministic"
+                if mode == "runtime":
+                    stmt_artifact = (artifact or {}).get("statements", {}).get(
+                        statement_kind
+                    )
+                    if not stmt_artifact or not stmt_artifact.get("pages"):
+                        record["error"] = (
+                            "not onboarded: the mapping artifact carries no "
+                            "location for this statement"
+                        )
+                        continue
+                    page_indices = [p - 1 for p in stmt_artifact["pages"]]
+                    record["located_by"] = "artifact"
                 else:
-                    if llm_client is None:
-                        record["error"] = "not located (no LLM fallback configured)"
-                        continue
-                    query = statement_kind.replace("_", " ")
-                    picked = select_pages(llm_client, audit, candidates, query)
-                    # the LLM proposes; the same density bar the deterministic
-                    # locator uses disposes (prose pages with a few figures
-                    # do not qualify as statement pages), and only ONE
-                    # contiguous cluster survives: a statement is never
-                    # scattered across the document
-                    page_indices = _snap_llm_pages(picked, pages, assigned, statement_kind)
-                    record["located_by"] = "llm"
-                    if not page_indices:
-                        record["error"] = "not located (LLM candidates failed the density bar)"
-                        continue
+                    page_indices = assigned.get(statement_kind)
+                    if page_indices:
+                        record["located_by"] = "deterministic"
+                    else:
+                        if llm_client is None:
+                            record["error"] = "not located (no LLM fallback configured)"
+                            continue
+                        query = statement_kind.replace("_", " ")
+                        picked = select_pages(llm_client, audit, candidates, query)
+                        # the LLM proposes; the same density bar the deterministic
+                        # locator uses disposes (prose pages with a few figures
+                        # do not qualify as statement pages), and only ONE
+                        # contiguous cluster survives: a statement is never
+                        # scattered across the document
+                        page_indices = _snap_llm_pages(picked, pages, assigned, statement_kind)
+                        record["located_by"] = "llm"
+                        if not page_indices:
+                            record["error"] = "not located (LLM candidates failed the density bar)"
+                            continue
                 record["pages"] = [p + 1 for p in page_indices]
                 extraction = read_statement_pages(
                     pdf, pdf_path, statement_kind, page_indices, pages, text_options
                 )
                 reconciled = reconcile(extraction)
-                if llm_client is not None and reconciled.flags:
+                if mode == "runtime" and reconciled.flags:
+                    record["artifact_adjudicated"] = _apply_artifact_adjudications(
+                        reconciled,
+                        (artifact or {})
+                        .get("statements", {})
+                        .get(statement_kind, {})
+                        .get("adjudications", []),
+                    )
+                elif llm_client is not None and reconciled.flags:
                     pages_text = "\n".join(
                         pages[i].text for i in page_indices if i < len(pages)
                     )
                     record["llm_adjudicated"] = adjudicate_flags(
                         llm_client, audit, reconciled, pages_text
                     )
-                    # adjudication rewrites provenance rules in place; drop
-                    # resolved entries so the flag count and the simulation
-                    # gate see the post-adjudication state
-                    reconciled.flags = [
-                        p for p in reconciled.flags if p.rule == "flagged"
-                    ]
-                concepts, mapping_stats = map_rows(
-                    statement_kind, reconciled, dictionary, tokens, llm_client, audit
+                # adjudication rewrites provenance rules in place; drop
+                # resolved entries so the flag count and the simulation
+                # gate see the post-adjudication state
+                reconciled.flags = [p for p in reconciled.flags if p.rule == "flagged"]
+                concepts, mapping_stats, sources = map_rows(
+                    statement_kind,
+                    reconciled,
+                    dictionary,
+                    tokens,
+                    llm_client,
+                    audit,
+                    overlay=overlays.get(statement_kind),
                 )
                 checks = run_checks(reconciled, statement_kind, concepts)
                 record.update(
@@ -941,6 +1208,32 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
                     document, statement_kind, reconciled, checks, years, concepts
                 )
                 record["mapping"] = mapping_stats
+                if mode == "onboard":
+                    adjudications = [
+                        {
+                            "label": row.label,
+                            "column": column,
+                            "value": str(prov.accepted_printed),
+                        }
+                        for row in reconciled.rows
+                        for column, prov in enumerate(row.provenance)
+                        if prov.rule == "llm_adjudicated"
+                    ]
+                    build["statements"][statement_kind] = {
+                        "pages": record["pages"],
+                        "located_by": record["located_by"],
+                        "mapping": [
+                            {
+                                "label": reconciled.rows[index].label,
+                                "concept": info.concept,
+                                "balance": info.balance,
+                                "period_type": info.period_type,
+                                "source": sources.get(index, "lexical"),
+                            }
+                            for index, info in sorted(concepts.items())
+                        ],
+                        "adjudications": adjudications,
+                    }
                 if statement is not None:
                     statements[statement_kind] = statement
                     statement.save(out_dir / f"{statement_kind}.json")
@@ -975,6 +1268,17 @@ def analyze_pdf(pdf_path: Path, simulate_paths: int = 200, seed: int = 20260706)
         document, statements, simulate_paths, seed, outcome["statements"]
     )
     outcome["llm_calls"] = audit.calls
+    if mode == "onboard":
+        ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
+        build["llm_calls"] = audit.calls
+        artifact_file = artifact_path(document)
+        artifact_file.write_text(
+            json.dumps(build, indent=1, default=str), encoding="utf-8"
+        )
+        outcome["artifact"] = {
+            "path": str(artifact_file),
+            "approved_by": build["approved_by"],
+        }
     (out_dir / "audit_llm.json").write_text(
         json.dumps({"calls": audit.calls, "decisions": audit.decisions}, indent=1),
         encoding="utf-8",
@@ -1048,11 +1352,36 @@ def _try_simulation(
 
 
 def _write_report(out_dir: Path, outcome: dict[str, Any]) -> None:
-    lines = [f"# Untagged extraction report: {outcome['document']}", ""]
+    mode = outcome.get("mode", "explore")
+    title = {
+        "onboard": "Onboarding report (build time)",
+        "runtime": "Runtime report (deterministic inference path)",
+    }.get(mode, "Untagged extraction report")
+    lines = [f"# {title}: {outcome['document']}", ""]
     lines.append(f"Source: `{outcome['file']}`  ")
-    lines.append(
-        "LLM assist: " + ("configured" if outcome["llm"] else "not configured (deterministic only)")
-    )
+    if outcome.get("source_sha256"):
+        lines.append(f"Source SHA256: `{outcome['source_sha256']}`  ")
+    if mode == "runtime":
+        artifact_meta = outcome.get("artifact", {})
+        lines.append(
+            "LLM assist: FORBIDDEN in this mode (no model in the inference path)  "
+        )
+        if artifact_meta:
+            lines.append(
+                f"Mapping artifact: `{artifact_meta.get('path', '')}` "
+                f"(approved by: {artifact_meta.get('approved_by', 'unknown')}; "
+                f"built at code {artifact_meta.get('code_version_at_build', 'unknown')})  "
+            )
+    else:
+        lines.append(
+            "LLM assist: "
+            + ("configured" if outcome["llm"] else "not configured (deterministic only)")
+        )
+        if mode == "onboard" and outcome.get("artifact"):
+            lines.append(
+                f"Mapping artifact written: `{outcome['artifact']['path']}` "
+                f"(status: {outcome['artifact']['approved_by']})  "
+            )
     if outcome.get("diagnosis"):
         lines.append("")
         lines.append(f"**Diagnosis:** {outcome['diagnosis']}")
@@ -1068,13 +1397,16 @@ def _write_report(out_dir: Path, outcome: dict[str, Any]) -> None:
             f"- pages {record['pages']} ({record['located_by']}), "
             f"{record['rows']} rows x {record['columns']} columns, scale {record['scale']}"
         )
+        adjudication_note = ""
+        if record.get("llm_adjudicated"):
+            adjudication_note = f", LLM-adjudicated {record['llm_adjudicated']}"
+        if record.get("artifact_adjudicated"):
+            adjudication_note += (
+                f", artifact-adjudicated {record['artifact_adjudicated']}"
+            )
         lines.append(
             f"- accepted cells {record['accepted_cells']}, flags {record['flags']}"
-            + (
-                f", LLM-adjudicated {record['llm_adjudicated']}"
-                if record.get("llm_adjudicated")
-                else ""
-            )
+            + adjudication_note
         )
         lines.append(
             f"- footing: {record['footing_groups']} verified groups, "
@@ -1089,9 +1421,13 @@ def _write_report(out_dir: Path, outcome: dict[str, Any]) -> None:
             verdict = {True: "PASS", False: "FAIL", None: "N/A"}[tie["pass"]]
             lines.append(f"- cash tie: {verdict} ({tie['detail']})")
         mapping = record.get("mapping", {})
+        artifact_part = (
+            f"{mapping.get('artifact', 0)} artifact, " if mapping.get("artifact") else ""
+        )
         lines.append(
             f"- concept mapping: {mapping.get('lexical', 0)} lexical, "
-            f"{mapping.get('llm', 0)} LLM, {mapping.get('unmapped', 0)} unmapped"
+            f"{artifact_part}{mapping.get('llm', 0)} LLM, "
+            f"{mapping.get('unmapped', 0)} unmapped"
         )
         lines.append("")
     simulation = outcome["simulation"]
@@ -1107,17 +1443,23 @@ def _write_report(out_dir: Path, outcome: dict[str, Any]) -> None:
     else:
         lines.append(f"- {simulation['status']}: {simulation.get('reason', '')}")
     lines.append("")
-    lines.append(f"LLM calls: {outcome.get('llm_calls', 0)}")
+    if mode == "runtime":
+        lines.append(
+            "LLM calls: 0 (runtime mode; replay is bit-exact given the same "
+            "source, artifact, and code versions)"
+        )
+    else:
+        lines.append(f"LLM calls: {outcome.get('llm_calls', 0)}")
     (out_dir / "report.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def summarize() -> None:
+def summarize(base_dir: Path = UNTAGGED_DIR) -> None:
     """Regenerate the sweep summary from every outcome.json on disk."""
     summary_rows: list[str] = [
         "| Document | BS | IS | CF | footing | A=L+E | cash tie | mapped | simulation |",
         "| --- | --- | --- | --- | --- | --- | --- | ---: | --- |",
     ]
-    for outcome_path in sorted(UNTAGGED_DIR.glob("*/outcome.json")):
+    for outcome_path in sorted(base_dir.glob("*/outcome.json")):
         outcome = json.loads(outcome_path.read_text(encoding="utf-8"))
         cells = {"balance_sheet": "-", "income_statement": "-", "cash_flow": "-"}
         footing = identity = tie = "-"
@@ -1133,7 +1475,11 @@ def summarize() -> None:
             if record.get("cash_tie") and record["cash_tie"]["pass"] is not None:
                 tie = "PASS" if record["cash_tie"]["pass"] else "FAIL"
             mapping = record.get("mapping", {})
-            mapped += mapping.get("lexical", 0) + mapping.get("llm", 0)
+            mapped += (
+                mapping.get("lexical", 0)
+                + mapping.get("artifact", 0)
+                + mapping.get("llm", 0)
+            )
             unmapped += mapping.get("unmapped", 0)
         simulation = outcome["simulation"]["status"]
         share = f"{mapped}/{mapped + unmapped}" if (mapped + unmapped) else "-"
@@ -1142,18 +1488,28 @@ def summarize() -> None:
             f"{cells['income_statement']} | {cells['cash_flow']} | {footing} | "
             f"{identity} | {tie} | {share} | {simulation} |"
         )
-    UNTAGGED_DIR.mkdir(parents=True, exist_ok=True)
-    (UNTAGGED_DIR / "summary.md").write_text(
-        "# Untagged sweep summary\n\n" + "\n".join(summary_rows) + "\n", encoding="utf-8"
+    base_dir.mkdir(parents=True, exist_ok=True)
+    heading = (
+        "# Runtime sweep summary (deterministic inference path)"
+        if base_dir == RUNTIME_DIR
+        else "# Untagged sweep summary"
     )
-    print(f"summary -> {UNTAGGED_DIR / 'summary.md'}")
+    (base_dir / "summary.md").write_text(
+        heading + "\n\n" + "\n".join(summary_rows) + "\n", encoding="utf-8"
+    )
+    print(f"summary -> {base_dir / 'summary.md'}")
 
 
-def main() -> None:
+def main(mode: str = "explore") -> None:
     arguments = sys.argv[1:]
+    base_dir = RUNTIME_DIR if mode == "runtime" else UNTAGGED_DIR
     if arguments and arguments[0] == "--merge":
-        summarize()
+        summarize(base_dir)
         return
+    rebuild = False
+    if mode == "onboard" and arguments and arguments[0] == "--rebuild":
+        rebuild = True
+        arguments = arguments[1:]
     targets: list[Path] = []
     for argument in arguments or [
         str(Path("previous_llm_extractor/annual_reports/for_financial_statements"))
@@ -1165,9 +1521,14 @@ def main() -> None:
             targets.append(path)
     for pdf_path in targets:
         print(f"=== {pdf_path.name}")
-        outcome = analyze_pdf(pdf_path)
+        if rebuild:
+            path = rebuild_artifact(pdf_path)
+            print(f"    -> artifact {path}")
+            continue
+        outcome = analyze_pdf(pdf_path, mode=mode)
         print(f"    -> {outcome['simulation']['status']}")
-    summarize()
+    if not rebuild:
+        summarize(base_dir)
 
 
 if __name__ == "__main__":

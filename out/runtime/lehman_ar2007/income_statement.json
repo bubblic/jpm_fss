@@ -1,0 +1,1292 @@
+{
+ "company": "lehman_ar2007",
+ "standard": "untagged",
+ "statement": "income_statement",
+ "linkrole": "document:lehman_ar2007:income_statement",
+ "role_definition": "income_statement (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2007-01-01:2007-12-31",
+  "D2006-01-01:2006-12-31",
+  "D2005-01-01:2005-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "doc:PrincipalTransactions_0",
+   "dims": [],
+   "label": "Principal transactions",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "9197000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "9802000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "7811000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:InvestmentBanking_1",
+   "dims": [],
+   "label": "Investment banking",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "3903000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3160000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "2894000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:Commissions_2",
+   "dims": [],
+   "label": "Commissions",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "2471000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "2050000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "1728000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:InterestAndDividends_3",
+   "dims": [],
+   "label": "Interest and dividends",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "41693000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "30284000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "19043000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:AssetManagementAndOther_4",
+   "dims": [],
+   "label": "Asset management and other",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "1739000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "1413000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "944000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "ifrs-full:Revenue",
+   "dims": [],
+   "label": "Total revenues",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "59003000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "46709000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "32420000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:InterestExpense_6",
+   "dims": [],
+   "label": "Interest expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "39746000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "29126000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "17790000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:NetRevenues_7",
+   "dims": [],
+   "label": "Net revenues",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Revenues"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "19257000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "17583000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "14630000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Compensation and benefits",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "9494000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "8669000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "7213000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:GeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Technology and communications",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "1145000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "974000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "834000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:BrokerageClearanceAndDistributionFees_10",
+   "dims": [],
+   "label": "Brokerage, clearance and distribution fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "859000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "629000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "548000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:Occupancy_11",
+   "dims": [],
+   "label": "Occupancy",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "641000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "539000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "490000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:ProfessionalFees_12",
+   "dims": [],
+   "label": "Professional fees",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "466000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "364000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "282000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:BusinessDevelopment_13",
+   "dims": [],
+   "label": "Business development",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "378000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "301000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "234000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "us-gaap:OtherNoncashIncomeExpense",
+   "dims": [],
+   "label": "Other",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "261000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "202000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "200000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "us-gaap:OperatingExpenses",
+   "dims": [],
+   "label": "Total non-personnel expenses",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "3750000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3009000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "2588000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "us-gaap:OperatingExpenses",
+   "dims": [],
+   "label": "Total non-interest expenses",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "13244000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "11678000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "9801000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:IncomeBeforeTaxesAndCumulativeEffectOfAccountingChange_17",
+   "dims": [],
+   "label": "Income before taxes and cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "6013000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "5905000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "4829000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
+   "dims": [],
+   "label": "Provision for income taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "1821000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "1945000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "1569000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "doc:IncomeBeforeCumulativeEffectOfAccountingChange_19",
+   "dims": [],
+   "label": "Income before cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "4192000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3960000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "3260000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:CumulativeEffectOfAccountingChange_20",
+   "dims": [],
+   "label": "Cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "47000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Net income",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "4192000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "4007000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "3260000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "doc:NetIncomeApplicableToCommonStock_22",
+   "dims": [],
+   "label": "Net income applicable to common stock",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-Interest Expenses"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "4125000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "3941000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "3191000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "doc:BeforeCumulativeEffectOfAccountingChange_23",
+   "dims": [],
+   "label": "Before cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per basic common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "7.63",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "7.17",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "5.74",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "doc:CumulativeEffectOfAccountingChange_24",
+   "dims": [],
+   "label": "Cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per basic common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "0.09",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "us-gaap:EarningsPerShareBasic",
+   "dims": [],
+   "label": "Earnings per basic common share",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Earnings per basic common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "7.63",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "7.26",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "5.74",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "doc:BeforeCumulativeEffectOfAccountingChange_26",
+   "dims": [],
+   "label": "Before cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per diluted common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "7.26",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "6.73",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "5.43",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "doc:CumulativeEffectOfAccountingChange_27",
+   "dims": [],
+   "label": "Cumulative effect of accounting change",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per diluted common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "0.08",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "doc:EarningsPerDilutedCommonShare_28",
+   "dims": [],
+   "label": "Earnings per diluted common share",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per diluted common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "7.26",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "6.81",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "5.43",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "doc:DividendsPaidPerCommonShare_29",
+   "dims": [],
+   "label": "Dividends paid per common share",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Earnings per diluted common share"
+   ],
+   "cells": [
+    {
+     "period": "D2007-01-01:2007-12-31",
+     "value": "0.60",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2006-01-01:2006-12-31",
+     "value": "0.48",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2005-01-01:2005-12-31",
+     "value": "0.40",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:EarningsPerDilutedCommonShare_28": [
+   [
+    "doc:BeforeCumulativeEffectOfAccountingChange_26",
+    "1"
+   ],
+   [
+    "doc:CumulativeEffectOfAccountingChange_27",
+    "1"
+   ]
+  ],
+  "doc:NetRevenues_7": [
+   [
+    "ifrs-full:Revenue",
+    "1"
+   ],
+   [
+    "doc:InterestExpense_6",
+    "-1"
+   ]
+  ],
+  "ifrs-full:Revenue": [
+   [
+    "doc:PrincipalTransactions_0",
+    "1"
+   ],
+   [
+    "doc:InvestmentBanking_1",
+    "1"
+   ],
+   [
+    "doc:Commissions_2",
+    "1"
+   ],
+   [
+    "doc:InterestAndDividends_3",
+    "1"
+   ],
+   [
+    "doc:AssetManagementAndOther_4",
+    "1"
+   ]
+  ],
+  "us-gaap:EarningsPerShareBasic": [
+   [
+    "doc:BeforeCumulativeEffectOfAccountingChange_23",
+    "1"
+   ],
+   [
+    "doc:CumulativeEffectOfAccountingChange_24",
+    "1"
+   ]
+  ],
+  "us-gaap:NetIncomeLoss": [
+   [
+    "doc:IncomeBeforeCumulativeEffectOfAccountingChange_19",
+    "1"
+   ],
+   [
+    "doc:CumulativeEffectOfAccountingChange_20",
+    "1"
+   ]
+  ],
+  "us-gaap:OperatingExpenses": [
+   [
+    "us-gaap:GeneralAndAdministrativeExpense",
+    "1"
+   ],
+   [
+    "us-gaap:OperatingExpenses",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2007, 2006, 2005]"
+ ]
+}

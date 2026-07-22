@@ -1,0 +1,373 @@
+{
+ "document": "svb_ar2022",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\svb\\ar2022.pdf",
+ "source_sha256": "fb21467d6ddca7dd78f942fd662b106a0a925acf286757f7ae53d57564f55f8c",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    111
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-marketable and other equity securities",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Premises and equipment, net of accumulated depreciation and amortization",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Goodwill",
+     "concept": "us-gaap:Goodwill",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other intangible assets, net",
+     "concept": "us-gaap:FiniteLivedIntangibleAssetsNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Lease right-of-use assets",
+     "concept": "ifrs-full:RightofuseAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total deposits",
+     "concept": "us-gaap:LiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Short-term borrowings",
+     "concept": "us-gaap:CommercialPaper",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Lease liabilities",
+     "concept": "ifrs-full:NoncurrentLeaseLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other liabilities",
+     "concept": "us-gaap:OtherLiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term debt",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Common stock, $0.001 par value, 150,000,000 shares authorized; 59,171,883 and 58,748,469 shares issued and outstanding, respectively",
+     "concept": "us-gaap:CommonStockSharesIssued",
+     "balance": "",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Additional paid-in capital",
+     "concept": "ifrs-full:AdditionalPaidinCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "income_statement": {
+   "pages": [
+    112
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Federal funds sold, securities purchased under agreements to resell and other short-term investment securities",
+     "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total interest income",
+     "concept": "ifrs-full:FinanceIncome",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total interest expense",
+     "concept": "ifrs-full:OperatingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Gains (losses) on investment securities, net",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Investment banking revenue",
+     "concept": "ifrs-full:Revenue",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total noninterest income",
+     "concept": "ifrs-full:Revenue",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Compensation and benefits",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income tax expense",
+     "concept": "ifrs-full:AdjustmentsForIncomeTaxExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "cash_flow": {
+   "pages": [
+    117
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net income before noncontrolling interests",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Changes in fair values of equity warrant assets, net of proceeds from exercises",
+     "concept": "ifrs-full:ProceedsFromExerciseOfOptions",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Changes in fair values of derivatives, net",
+     "concept": "ifrs-full:IncreaseDecreaseInCashAndCashEquivalentsBeforeEffectOfExchangeRateChanges",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "(Gains) losses on investment securities, net",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Distributions of earnings from non-marketable and other equity securities",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation and amortization",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Amortization of premiums and discounts on investment securities, net",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Amortization of share-based compensation",
+     "concept": "ifrs-full:AdjustmentsForSharebasedPayments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Amortization of deferred loan fees",
+     "concept": "ifrs-full:AdjustmentsForAmortisationExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Excess tax benefit from exercise of stock options and vesting of restricted shares",
+     "concept": "ck0001639920:PaymentsForTaxesWithheldFromRestrictedStockUnitReleases",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Losses from the write-off of premises and equipment and right-of-use assets",
+     "concept": "ck0001639920:AdjustmentForWriteOffOfContentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income tax receivable and payable, net",
+     "concept": "ifrs-full:CurrentTaxAssetsCurrent",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Accrued compensation",
+     "concept": "us-gaap:EmployeeRelatedLiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other, net",
+     "concept": "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash provided by operating activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of AFS securities",
+     "concept": "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from sales of AFS securities",
+     "concept": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from maturities and paydowns of AFS securities",
+     "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of HTM securities",
+     "concept": "us-gaap:PaymentsToAcquireInvestments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from maturities and paydowns of HTM securities",
+     "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of non-marketable and other equity securities",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from sales and distributions of capital of non-marketable and other equity securities",
+     "concept": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net increase (decrease) in cash and cash equivalents",
+     "concept": "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  }
+ }
+}

@@ -1,0 +1,360 @@
+{
+ "document": "exxon_2024",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\exxon_2024.pdf",
+ "source_sha256": "00ae54024a75b1b270d876f0a17120be3e1da35334373ad112c8898d2fca7c5e",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    87,
+    88
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and cash equivalents \u2013 restricted",
+     "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Notes and accounts receivable \u2013 net 6",
+     "concept": "us-gaap:AccountsReceivableNetCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other current assets",
+     "concept": "us-gaap:OtherAssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total current assets",
+     "concept": "us-gaap:AssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Investments, advances and long-term receivables 8",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Property, plant and equipment, at cost, less accumulated depreciation and depletion 9",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other assets, including intangibles \u2013 net",
+     "concept": "us-gaap:FiniteLivedIntangibleAssetsNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total Assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts payable and accrued liabilities 6",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Income taxes payable",
+     "concept": "us-gaap:AccruedIncomeTaxesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total current liabilities",
+     "concept": "us-gaap:LiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term debt 14",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term obligations to equity companies",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other long-term obligations",
+     "concept": "us-gaap:OtherLiabilitiesNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total Liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Common stock without par value (9,000 million shares authorized, 8,019 million shares issued)",
+     "concept": "us-gaap:CommonStockSharesIssued",
+     "balance": "",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Net income (loss) including noncontrolling interests",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation and depletion (includes impairments) 2,9",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Dividends received greater than/(less than) equity in current earnings of equity companies",
+     "concept": "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Notes and accounts receivable reduction/(increase)",
+     "concept": "us-gaap:IncreaseDecreaseInAccountsReceivable",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "income_statement": {
+   "pages": [
+    85
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Sales and other operating revenue 18",
+     "concept": "sap:RevenueFromCloudAndSoftware",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income from equity affiliates 7",
+     "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other income",
+     "concept": "us-gaap:NonoperatingIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total revenues and other income",
+     "concept": "ifrs-full:OtherOperatingIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Production and manufacturing expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Selling, general and administrative expenses",
+     "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation and depletion (includes impairments) 2,9",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Exploration expenses, including dry holes",
+     "concept": "ifrs-full:OperatingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-service pension and postretirement benefit expense 17",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income tax expense (benefit) 19",
+     "concept": "us-gaap:IncomeTaxExpenseBenefit",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "cash_flow": {
+   "pages": [
+    88
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net income (loss) including noncontrolling interests",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation and depletion (includes impairments) 2,9",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Notes and accounts receivable reduction/(increase)",
+     "concept": "us-gaap:IncreaseDecreaseInAccountsReceivable",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts and other payables increase/(reduction)",
+     "concept": "ifrs-full:AdjustmentsForIncreaseDecreaseInTradeAndOtherPayables",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net (gain)/loss on asset sales 5",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "All other items - net",
+     "concept": "sap:OtherNonOperatingIncomeExpensesNet",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Additions to property, plant and equipment",
+     "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from asset sales and returns of investments",
+     "concept": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Additional investments and advances",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash acquired from mergers and acquisitions",
+     "concept": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash used in investing activities",
+     "concept": "ifrs-full:CashFlowsFromUsedInInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Additions to long-term debt (1)",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Reductions in long-term debt",
+     "concept": "us-gaap:RepaymentsOfLongTermDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Additions to short-term debt",
+     "concept": "us-gaap:CommercialPaper",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Additions/(reductions) in debt with three months or less maturity",
+     "concept": "us-gaap:ProceedsFromRepaymentsOfShortTermDebtMaturingInThreeMonthsOrLess",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  }
+ }
+}

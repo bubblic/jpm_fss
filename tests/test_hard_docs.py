@@ -104,3 +104,60 @@ def test_scale_detection_condensed_and_cjk():
 def test_parse_number_fullwidth():
     token = parse_number("（１，２３４）")
     assert token is not None and token.value == Decimal(-1234)
+
+
+def _flagged_statement():
+    from fss.reconcile import FieldProvenance, ReconciledRow, ReconciledStatement
+
+    def row(label: str, readings: dict[str, str]):
+        return ReconciledRow(
+            label=label,
+            section="",
+            printed=[None],
+            values=[None],
+            dash=[False],
+            scale=Decimal(1),
+            provenance=[FieldProvenance(label, "", 0, readings, None, "flagged")],
+        )
+
+    rows = [
+        row("Common stock", {"R1": "944", "R2": "830"}),
+        row("Deferred revenue", {"R1": "50", "R2": "61"}),
+    ]
+    return ReconciledStatement("balance_sheet", [1], 1, rows, [], {})
+
+
+def test_artifact_adjudication_replays_only_reader_matching_values():
+    from fss.untagged import _apply_artifact_adjudications
+
+    statement = _flagged_statement()
+    entries = [
+        {"label": "Common stock", "column": 0, "value": "944"},  # matches R1
+        {"label": "Deferred revenue", "column": 0, "value": "99"},  # nobody read 99
+    ]
+    resolved = _apply_artifact_adjudications(statement, entries)
+    assert resolved == 1
+    assert statement.rows[0].provenance[0].rule == "artifact_adjudicated"
+    assert statement.rows[0].printed[0] == Decimal(944)
+    # the drifted cell stays flagged: the artifact cannot inject numbers
+    assert statement.rows[1].provenance[0].rule == "flagged"
+    assert statement.rows[1].printed[0] is None
+
+
+def test_artifact_overlay_maps_by_canonical_and_condensed_label():
+    from fss.untagged import _artifact_overlay
+
+    overlay = _artifact_overlay(
+        [
+            {
+                "label": "Notes and loans payable 6",
+                "concept": "us-gaap:NotesPayable",
+                "balance": "credit",
+                "period_type": "instant",
+            }
+        ]
+    )
+    from fss.untagged import _condensed
+
+    key = _condensed("Notes and loans payable 6")
+    assert overlay[key].concept == "us-gaap:NotesPayable"

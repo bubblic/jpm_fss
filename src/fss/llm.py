@@ -36,6 +36,9 @@ except ImportError:  # pragma: no cover
     pass
 
 ENDPOINT_ENV = "AZURE_DEEPSEEK_ENDPOINT"
+DEEPSEEK_KEY_ENV = "DEEPSEEK_API_KEY"
+DEEPSEEK_MODEL_ENV = "DEEPSEEK_TEXT_MODEL"
+DEEPSEEK_BASE_ENV = "DEEPSEEK_API_BASE_URL"
 
 
 @runtime_checkable
@@ -126,6 +129,103 @@ class AzureLLMClient:
         raise RuntimeError(f"Azure API request failed: {last_exc}") from last_exc
 
 
+class DeepSeekClient:
+    """Direct DeepSeek API client (OpenAI-compatible chat completions).
+
+    Mirrors the user's configuration: ``DEEPSEEK_API_KEY``,
+    ``DEEPSEEK_TEXT_MODEL`` (default ``deepseek-v4-flash``), and
+    ``DEEPSEEK_API_BASE_URL`` (default ``https://api.deepseek.com``) with
+    ``/chat/completions`` appended. Exposes the same ``ask_json``/
+    ``ask_text`` surface as the gateway client so every calling site is
+    unchanged; the retry/backoff and tolerant JSON unwrapping policies are
+    identical.
+    """
+
+    def __init__(
+        self,
+        timeout_seconds: int = 120,
+        max_attempts: int = 20,
+    ) -> None:
+        self.model_name = os.getenv(DEEPSEEK_MODEL_ENV, "deepseek-v4-flash")
+        self.api_key = os.getenv(DEEPSEEK_KEY_ENV, "").strip()
+        self.endpoint = (
+            os.getenv(DEEPSEEK_BASE_ENV, "https://api.deepseek.com").rstrip("/")
+            + "/chat/completions"
+        )
+        self.timeout_seconds = timeout_seconds
+        self.max_attempts = max_attempts
+        if not self.api_key:
+            raise ValueError(f"Missing DeepSeek config. Set {DEEPSEEK_KEY_ENV}.")
+
+    def ask_json(
+        self,
+        message: str,
+        prompt: str,
+        parameters: dict[str, Any],
+        reasoning: bool = True,
+    ) -> dict[str, Any]:
+        content = self.ask_text(message, prompt, parameters, reasoning)
+        try:
+            loaded = json.loads(content)
+            if isinstance(loaded, dict):
+                return loaded
+        except json.JSONDecodeError:
+            pass
+        embedded = extract_json_from_text(content)
+        if embedded is not None:
+            return embedded
+        return {"raw_response": content}
+
+    def ask_text(
+        self,
+        message: str,
+        prompt: str,
+        parameters: dict[str, Any],
+        reasoning: bool = True,
+    ) -> str:
+        payload: dict[str, Any] = {
+            "model": self.model_name,
+            "messages": [{"role": "user", "content": prompt}],
+            "stream": False,
+            **(parameters or {}),
+        }
+        raw = self._post_json(payload)
+        try:
+            envelope = json.loads(raw)
+            return str(envelope["choices"][0]["message"]["content"])
+        except (json.JSONDecodeError, KeyError, IndexError, TypeError) as exc:
+            raise ValueError(f"DeepSeek response shape unexpected: {exc}") from exc
+
+    def _post_json(self, payload: dict[str, Any]) -> str:
+        data = json.dumps(payload).encode("utf-8")
+        backoff_seconds = 1.0
+        last_exc: Exception | None = None
+        for attempt in range(1, self.max_attempts + 1):
+            request = urllib.request.Request(
+                self.endpoint,
+                data=data,
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.api_key}",
+                },
+                method="POST",
+            )
+            try:
+                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as resp:
+                    return resp.read().decode("utf-8")
+            except urllib.error.HTTPError as exc:
+                last_exc = exc
+                if exc.code not in (429, 500, 502, 503, 504):
+                    raise
+            except Exception as exc:  # timeouts, transport errors
+                last_exc = exc
+            if attempt == self.max_attempts:
+                break
+            time.sleep(backoff_seconds)
+            backoff_seconds = min(backoff_seconds * 2, 10.0)
+        raise RuntimeError(f"DeepSeek API request failed: {last_exc}") from last_exc
+
+
 def extract_json(response_text: str) -> dict[str, Any]:
     """Tolerant response unwrapping, as in the user's client."""
     try:
@@ -162,11 +262,17 @@ def extract_json_from_text(text: str) -> dict[str, Any] | None:
     return loaded if isinstance(loaded, dict) else None
 
 
-def default_client() -> AzureLLMClient | None:
-    """The configured client, or None when the endpoint is not set."""
-    if not os.getenv(ENDPOINT_ENV, "").strip():
-        return None
-    return AzureLLMClient()
+def default_client() -> "DeepSeekClient | AzureLLMClient | None":
+    """The configured client, or None when nothing is set.
+
+    The direct DeepSeek API key wins when present; the Azure gateway
+    endpoint remains as a fallback path.
+    """
+    if os.getenv(DEEPSEEK_KEY_ENV, "").strip():
+        return DeepSeekClient()
+    if os.getenv(ENDPOINT_ENV, "").strip():
+        return AzureLLMClient()
+    return None
 
 
 @dataclass(frozen=True)

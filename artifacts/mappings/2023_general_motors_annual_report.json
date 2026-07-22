@@ -1,0 +1,436 @@
+{
+ "document": "2023_general_motors_annual_report",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\2023 General Motors Annual Report .pdf",
+ "source_sha256": "42bf7609408f7f8cc2a3be19d32f7a719be52ea668121db27cd969ed01d9c5ed",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    62
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Marketable debt securities (Note 4)",
+     "concept": "us-gaap:MarketableSecuritiesCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts and notes receivable, net of allowance of $298 and $260",
+     "concept": "us-gaap:AccountsReceivableNetCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "GM Financial receivables, net of allowance of $906 and $869 (Note 5; Note 11 at VIEs)",
+     "concept": "us-gaap:AccountsReceivableNetCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Inventories (Note 6)",
+     "concept": "us-gaap:InventoryNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other current assets (Note 4; Note 11 at VIEs)",
+     "concept": "us-gaap:OtherAssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total current assets",
+     "concept": "us-gaap:AssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Property, net (Note 9)",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Equipment on operating leases, net (Note 7; Note 11 at VIEs)",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total non-current assets",
+     "concept": "us-gaap:AssetsNoncurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total Assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts payable (principally trade)",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "GM Financial (Note 11 at VIEs)",
+     "concept": "ifrs-full:CurrentFinancialLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total current liabilities",
+     "concept": "us-gaap:LiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other liabilities (Note 12)",
+     "concept": "us-gaap:OtherLiabilitiesNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total non-current liabilities",
+     "concept": "us-gaap:LiabilitiesNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total Liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Noncontrolling interest - Cruise stock incentive awards (Note 20)",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Common stock, $0.01 par value",
+     "concept": "us-gaap:CommonStockSharesIssued",
+     "balance": "",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Additional paid-in capital",
+     "concept": "ifrs-full:AdditionalPaidinCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Retained earnings",
+     "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accumulated other comprehensive loss",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total stockholders\u2019 equity",
+     "concept": "us-gaap:StockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Noncontrolling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total Equity",
+     "concept": "ifrs-full:Equity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total Liabilities and Equity",
+     "concept": "ifrs-full:EquityAndLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "income_statement": {
+   "pages": [
+    61
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Total net sales and revenue (Note 3)",
+     "concept": "ifrs-full:Revenue",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Automotive and other cost of sales",
+     "concept": "ifrs-full:CostOfSales",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "GM Financial interest, operating and other expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Automotive and other selling, general and administrative expense",
+     "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total costs and expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Operating income (loss)",
+     "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income tax expense (benefit) (Note 17)",
+     "concept": "us-gaap:IncomeTaxExpenseBenefit",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net income (loss)",
+     "concept": "ifrs-full:ProfitLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Basic earnings per common share",
+     "concept": "us-gaap:EarningsPerShareBasic",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Diluted earnings per common share",
+     "concept": "us-gaap:EarningsPerShareDiluted",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  },
+  "cash_flow": {
+   "pages": [
+    63
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net income (loss)",
+     "concept": "ifrs-full:ProfitLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation and impairment of Equipment on operating leases, net",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation, amortization and impairment charges on Property, net",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Foreign currency remeasurement and transaction (gains) losses",
+     "concept": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Pension and OPEB income, net",
+     "concept": "sap:OtherNonOperatingIncomeExpensesNet",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Change in other operating assets and liabilities (Note 24)",
+     "concept": "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other operating activities",
+     "concept": "ifrs-full:OtherOperatingIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash provided by (used in) operating activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Expenditures for property",
+     "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Available-for-sale marketable securities, acquisitions",
+     "concept": "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Available-for-sale marketable securities, liquidations",
+     "concept": "us-gaap:ProceedsFromSaleOfAvailableForSaleSecuritiesDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of finance receivables",
+     "concept": "us-gaap:PaymentsToAcquireInvestments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of leased vehicles",
+     "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash provided by (used in) investing activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net increase (decrease) in short-term debt",
+     "concept": "us-gaap:CommercialPaper",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from issuance of debt (original maturities greater than three months)",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments on debt (original maturities greater than three months)",
+     "concept": "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Payments to purchase common stock (Note 20)",
+     "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Issuance (redemption) of subsidiary stock (Note 20)",
+     "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Dividends paid",
+     "concept": "ifrs-full:DividendsPaidToEquityHoldersOfParentClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other financing activities",
+     "concept": "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": []
+  }
+ }
+}

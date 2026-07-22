@@ -37,16 +37,33 @@ the audit artifacts.
 
 ## Untagged annual-report PDFs (no XBRL)
 
+LLMs participate at BUILD time only; the runtime inference path is
+deterministic (proposal v2). See `DEMO.md` for the full walkthrough.
+
 ```powershell
-python -m fss untagged <pdf-or-folder> ...   # per-document reports
-python -m fss untagged --merge               # out/untagged/summary.md
+python -m fss onboard <pdf-or-folder>    # BUILD: LLM-assisted, audited;
+                                         #   emits artifacts/mappings/<doc>.json
+python -m fss onboard --rebuild <pdfs>   # BUILD: artifacts from committed
+                                         #   build products, no model calls
+python -m fss runtime <pdf-or-folder>    # RUN: replay from the signed
+                                         #   artifact; no model access; logs
+                                         #   source/code/artifact versions;
+                                         #   abstains on drift
+python -m fss untagged <pdf-or-folder>   # exploration mode (legacy sweep)
+python -m fss untagged --merge           # out/untagged/summary.md
+python -m fss runtime  --merge           # out/runtime/summary.md
 ```
 
-Optional LLM assist (page-identification fallback, flagged-cell
-adjudication by median vote, concept mapping over lexical shortlists)
-activates when `AZURE_DEEPSEEK_ENDPOINT` is set (`.env` supported), using
-the calling logic adopted from `previous_llm_extractor`. Without it, every
-stage is deterministic and unresolved cells stay flagged; documents with
+At build time the LLM (DeepSeek API via `DEEPSEEK_API_KEY`, or the Azure
+gateway via `AZURE_DEEPSEEK_ENDPOINT`; `.env` supported) may propose
+statement pages, median-voted readings for flagged cells, and concept
+choices over lexical shortlists; every proposal passes a mechanical
+validator (density bar, reader agreement, polarity veto, footing) and is
+recorded in the audit log and the mapping artifact for human sign-off. At
+run time no model client is ever constructed: adjudications replay only
+where a deterministic reader still reads the signed value, outputs are
+bit-exact across runs, and a changed document is refused with
+"re-onboarding required". Unresolved cells stay flagged; documents with
 flagged balance-sheet cells are refused simulation by design.
 
 ---

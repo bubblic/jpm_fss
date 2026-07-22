@@ -1,0 +1,468 @@
+{
+ "document": "google_2024",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\google_2024.pdf",
+ "source_sha256": "745700dad59d69a137d705194b7944c91dc1fb1d5de6b3866df0da7db9cee2d6",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    57
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Marketable securities",
+     "concept": "us-gaap:MarketableSecuritiesCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total cash, cash equivalents, and marketable securities",
+     "concept": "us-gaap:CashCashEquivalentsAndShortTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts receivable, net",
+     "concept": "us-gaap:AccountsReceivableNetCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other current assets",
+     "concept": "us-gaap:OtherAssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total current assets",
+     "concept": "us-gaap:AssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Property and equipment, net",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Operating lease assets",
+     "concept": "us-gaap:OperatingLeaseRightOfUseAsset",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Goodwill",
+     "concept": "us-gaap:Goodwill",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other non-current assets",
+     "concept": "us-gaap:OtherAssetsNoncurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts payable",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Accrued compensation and benefits",
+     "concept": "us-gaap:EmployeeRelatedLiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred revenue",
+     "concept": "us-gaap:ContractWithCustomerLiabilityCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total current liabilities",
+     "concept": "us-gaap:LiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Long-term debt",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Income taxes payable, non-current",
+     "concept": "ifrs-full:NoncurrentLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Operating lease liabilities",
+     "concept": "us-gaap:OperatingLeaseLiabilityNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other long-term liabilities",
+     "concept": "us-gaap:OtherLiabilitiesNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C 5,691) and 12,211 (Class A 5,835, Class B 861, Class C 5,515) shares issued and outstanding",
+     "concept": "us-gaap:CommonStockSharesOutstanding",
+     "balance": "",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+     "column": 1,
+     "value": "84800"
+    }
+   ]
+  },
+  "income_statement": {
+   "pages": [
+    58
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cost of revenues",
+     "concept": "ifrs-full:CostOfSales",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Research and development",
+     "concept": "us-gaap:ResearchAndDevelopmentExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Sales and marketing",
+     "concept": "us-gaap:SellingAndMarketingExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "General and administrative",
+     "concept": "us-gaap:GeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Total costs and expenses",
+     "concept": "us-gaap:OperatingExpenses",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other income (expense), net",
+     "concept": "us-gaap:NonoperatingIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income before income taxes",
+     "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Provision for income taxes",
+     "concept": "us-gaap:IncomeTaxExpenseBenefit",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net income",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+     "column": 1,
+     "value": "84800"
+    }
+   ]
+  },
+  "cash_flow": {
+   "pages": [
+    61
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net income",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation of property and equipment",
+     "concept": "ifrs-full:AdjustmentsForDepreciationExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Stock-based compensation expense",
+     "concept": "us-gaap:ShareBasedCompensation",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred income taxes",
+     "concept": "us-gaap:DeferredIncomeTaxLiabilitiesNet",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Loss (gain) on debt and equity securities, net",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts receivable, net",
+     "concept": "us-gaap:AccountsReceivableNetCurrent",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Income taxes, net",
+     "concept": "us-gaap:IncomeTaxesPaidNet",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Accounts payable",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Accrued expenses and other liabilities",
+     "concept": "ck0001639920:AccruedExpensesAndOtherNonCurrentLiabilities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred revenue",
+     "concept": "us-gaap:ContractWithCustomerLiabilityCurrent",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash provided by operating activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of property and equipment",
+     "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of marketable securities",
+     "concept": "us-gaap:PaymentsToAcquireAvailableForSaleSecuritiesDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Maturities and sales of marketable securities",
+     "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Purchases of non-marketable securities",
+     "concept": "us-gaap:PaymentsToAcquireInvestments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Acquisitions, net of cash acquired, and purchases of intangible assets",
+     "concept": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash used in investing activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net payments related to stock-based award activities",
+     "concept": "us-gaap:PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repurchases of stock",
+     "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Dividend payments",
+     "concept": "us-gaap:PaymentsOfDividends",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from issuance of debt, net of costs",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Repayments of debt",
+     "concept": "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from sale of interest in consolidated entities, net",
+     "concept": "msft:ProceedsFromInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net cash used in financing activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Effect of exchange rate changes on cash and cash equivalents",
+     "concept": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net increase (decrease) in cash and cash equivalents",
+     "concept": "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and cash equivalents at beginning of period",
+     "concept": "ifrs-full:CashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and cash equivalents at end of period",
+     "concept": "ifrs-full:CashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Class C 60,000); 12,460 (Class A 5,899, Class B 870, Class C",
+     "column": 1,
+     "value": "84800"
+    }
+   ]
+  }
+ }
+}

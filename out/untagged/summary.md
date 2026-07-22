@@ -4,7 +4,7 @@
 | --- | --- | --- | --- | --- | --- | --- | ---: | --- |
 | 2023_general_motors_annual_report | 37r | 21r | 33r | FAIL | PASS | PASS | 57/91 | skipped |
 | alibaba_2025 | 28r | 35r | 71r | FAIL | - | - | 26/134 | skipped |
-| bbby_ar2022 | 30r | 19r | 46r | PASS | - | - | 57/95 | ok |
+| bbby_ar2022 | 30r | 19r | 46r | PASS | - | - | 54/95 | ok |
 | evergrande_ar2022 | 13r | 34r | 34r | FAIL | - | PASS | 60/81 | skipped |
 | exxon_2024 | 57r | 20r | 35r | FAIL | - | FAIL | 46/112 | skipped |
 | google_2024 | 26r | 13r | 34r | PASS | - | PASS | 59/73 | skipped |

@@ -1,0 +1,930 @@
+{
+ "company": "lehman_ar2007",
+ "standard": "untagged",
+ "statement": "cash_flow",
+ "linkrole": "document:lehman_ar2007:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31",
+  "D2022-01-01:2022-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "doc:CondensedConsolidatingBalanceSheetAtNovember_0",
+   "dims": [],
+   "label": "Condensed Consolidating Balance Sheet at November",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "(Parent Company Only)"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+   "dims": [],
+   "label": "Cash and cash equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "3435",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "534",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "4369",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
+   "dims": [],
+   "label": "Cash and securities segregated and on deposit for regulatory and other purposes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "51",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "3256",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "2784",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "ifrs-full:OtherCurrentFinancialAssets",
+   "dims": [],
+   "label": "Financial instruments and other inventory positions owned",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "17866",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "73885",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "173839",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:CollateralizedAgreements_4",
+   "dims": [],
+   "label": "Collateralized agreements",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "149288",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "75868",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
+   "dims": [],
+   "label": "Receivables and other assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4945",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "12998",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "27911",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:DueFromSubsidiaries_6",
+   "dims": [],
+   "label": "Due from subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "95640",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "66074",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "434208",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "doc:EquityInNetAssetsOfSubsidiaries_7",
+   "dims": [],
+   "label": "Equity in net assets of subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "19333",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1267",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "43532",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "us-gaap:Assets",
+   "dims": [],
+   "label": "Total assets",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Assets"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "141270",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "307302",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "762511",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowings_9",
+   "dims": [],
+   "label": "Short-term borrowings and current portion of long- term borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "10721",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "538",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "9412",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:FinancialInstrumentsAndOtherInventoryPositionsSoldButNotYetP_10",
+   "dims": [],
+   "label": "Financial instruments and other inventory positions sold but not yet purchased",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "92",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "58393",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "104910",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "doc:CollateralizedFinancing_11",
+   "dims": [],
+   "label": "Collateralized financing",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "6136",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "89512",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "80909",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "doc:AccruedLiabilitiesAndOtherPayables_12",
+   "dims": [],
+   "label": "Accrued liabilities and other payables",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "2286",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "18893",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "44599",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "doc:DueToSubsidiaries_13",
+   "dims": [],
+   "label": "Due to subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "45389",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "130145",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "376137",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "us-gaap:LiabilitiesCurrent",
+   "dims": [],
+   "label": "Deposit liabilities at banks",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "23786",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "us-gaap:LongTermDebtNoncurrent",
+   "dims": [],
+   "label": "Long-term borrowings",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "57455",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "5821",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "62626",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "us-gaap:Liabilities",
+   "dims": [],
+   "label": "Total liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "122079",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "303302",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "702379",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "us-gaap:StockholdersEquity",
+   "dims": [],
+   "label": "Total stockholders\u2019 equity",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "19191",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "4000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "60132",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
+   "dims": [],
+   "label": "Total liabilities and stockholders\u2019 equity",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Liabilities and stockholders\u2019 equity"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "141270",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "307302",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "762511",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Net income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Cash Flows from Operating Activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4192",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1801",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "6015",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "doc:EquityInIncomeOfSubsidiaries_20",
+   "dims": [],
+   "label": "Equity in income of subsidiaries",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "provided by/(used in) operating activities"
+   ],
+   "cells": [
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-6090",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1726",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "us-gaap:Assets": [
+   [
+    "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+    "1"
+   ],
+   [
+    "ck0001639920:NonCurrentRestrictedCashAndOtherNonCurrentAssets",
+    "1"
+   ],
+   [
+    "ifrs-full:OtherCurrentFinancialAssets",
+    "1"
+   ],
+   [
+    "doc:CollateralizedAgreements_4",
+    "1"
+   ],
+   [
+    "ifrs-full:TradeAndOtherCurrentReceivables",
+    "1"
+   ],
+   [
+    "doc:DueFromSubsidiaries_6",
+    "1"
+   ],
+   [
+    "doc:EquityInNetAssetsOfSubsidiaries_7",
+    "1"
+   ]
+  ],
+  "us-gaap:Liabilities": [
+   [
+    "doc:ShortTermBorrowingsAndCurrentPortionOfLongTermBorrowings_9",
+    "1"
+   ],
+   [
+    "doc:FinancialInstrumentsAndOtherInventoryPositionsSoldButNotYetP_10",
+    "1"
+   ],
+   [
+    "doc:CollateralizedFinancing_11",
+    "1"
+   ],
+   [
+    "doc:AccruedLiabilitiesAndOtherPayables_12",
+    "1"
+   ],
+   [
+    "doc:DueToSubsidiaries_13",
+    "1"
+   ],
+   [
+    "us-gaap:LiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:LongTermDebtNoncurrent",
+    "1"
+   ]
+  ],
+  "us-gaap:StockholdersEquity": [
+   [
+    "us-gaap:Assets",
+    "1"
+   ],
+   [
+    "us-gaap:Liabilities",
+    "-1"
+   ]
+  ]
+ },
+ "notes": [
+  "column years not detected; synthetic ordering"
+ ]
+}

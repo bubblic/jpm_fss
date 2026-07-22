@@ -1,0 +1,92 @@
+{
+ "document": "volkswagen_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\volkswagen_2024.pdf",
+ "mode": "runtime",
+ "source_sha256": "48dfd913979245ae936471b3f5ddf7d6dcf62a8b099c2c9aae5c64dff450c017",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    475,
+    476
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 50,
+   "columns": 2,
+   "accepted_cells": 94,
+   "flags": 37,
+   "scale": "1",
+   "footing_groups": 7,
+   "footing_pass": true,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 14,
+    "artifact": 18,
+    "llm": 0,
+    "unmapped": 18
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    472
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 16,
+   "columns": 2,
+   "accepted_cells": 30,
+   "flags": 7,
+   "scale": "1000000",
+   "footing_groups": 2,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 1,
+    "artifact": 6,
+    "llm": 0,
+    "unmapped": 9
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    478
+   ],
+   "artifact_adjudicated": 2,
+   "rows": 29,
+   "columns": 2,
+   "accepted_cells": 50,
+   "flags": 2,
+   "scale": "1000000",
+   "footing_groups": 3,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": false,
+    "detail": "begin 43522 + change 28291 (activity totals, fx inside change) vs end 40296"
+   },
+   "mapping": {
+    "lexical": 1,
+    "artifact": 20,
+    "llm": 0,
+    "unmapped": 8
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\volkswagen_2024.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "37 flagged balance-sheet cells; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

@@ -1,0 +1,507 @@
+{
+ "company": "evergrande_ar2022",
+ "standard": "untagged",
+ "statement": "balance_sheet",
+ "linkrole": "document:evergrande_ar2022:balance_sheet",
+ "role_definition": "balance_sheet (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "I2022-12-31",
+  "I2021-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "ifrs-full:LongtermBorrowings",
+   "dims": [],
+   "label": "Borrowings 22",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "25268000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "4724000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "doc:ContingentConsiderationPayables23_1",
+   "dims": [],
+   "label": "Contingent consideration payables 23",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "51000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "58000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "doc:DeferredIncomeTaxLiabilities24_2",
+   "dims": [],
+   "label": "Deferred income tax liabilities 24",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "47869000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "43800000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "doc:OtherPayables25_3",
+   "dims": [],
+   "label": "Other payables 25",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "11301000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "10432000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "doc:Row4_4",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Non-current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "84489000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "59014000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "ifrs-full:LongtermBorrowings",
+   "dims": [],
+   "label": "Borrowings 22",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "587123000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "602653000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "ifrs-full:TradeAndOtherCurrentPayables",
+   "dims": [],
+   "label": "Trade and other payables 25",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "1002264000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "893341000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "ifrs-full:CurrentContractLiabilities",
+   "dims": [],
+   "label": "Contract liabilities 25",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "721021000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "974347000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "ifrs-full:CurrentTaxLiabilities",
+   "dims": [],
+   "label": "Current income tax liabilities 26",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "42515000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "50795000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:Row9_9",
+   "dims": [],
+   "label": "(total)",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "2352923000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "2521136000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "us-gaap:Liabilities",
+   "dims": [],
+   "label": "Total liabilities",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "2437412000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "2580150000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "ifrs-full:CurrentLiabilities",
+   "dims": [],
+   "label": "Net current liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "-687734000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "-627315000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "ifrs-full:EquityAndLiabilities",
+   "dims": [],
+   "label": "Total equity and liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Current liabilities"
+   ],
+   "cells": [
+    {
+     "period": "I2022-12-31",
+     "value": "1838338000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "I2021-12-31",
+     "value": "2107096000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "doc:Row4_4": [
+   [
+    "ifrs-full:LongtermBorrowings",
+    "1"
+   ],
+   [
+    "doc:ContingentConsiderationPayables23_1",
+    "1"
+   ],
+   [
+    "doc:DeferredIncomeTaxLiabilities24_2",
+    "1"
+   ],
+   [
+    "doc:OtherPayables25_3",
+    "1"
+   ]
+  ],
+  "doc:Row9_9": [
+   [
+    "ifrs-full:LongtermBorrowings",
+    "1"
+   ],
+   [
+    "ifrs-full:TradeAndOtherCurrentPayables",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentContractLiabilities",
+    "1"
+   ],
+   [
+    "ifrs-full:CurrentTaxLiabilities",
+    "1"
+   ]
+  ],
+  "us-gaap:Liabilities": [
+   [
+    "doc:Row4_4",
+    "1"
+   ],
+   [
+    "doc:Row9_9",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2022, 2021]"
+ ]
+}

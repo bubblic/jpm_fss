@@ -1,0 +1,1512 @@
+{
+ "company": "microsoft_2025",
+ "standard": "untagged",
+ "statement": "cash_flow",
+ "linkrole": "document:microsoft_2025:cash_flow",
+ "role_definition": "cash_flow (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2025-01-01:2025-12-31",
+  "D2024-01-01:2024-12-31",
+  "D2023-01-01:2023-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Net income",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Operations"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "101832000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "88136000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "72361000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "msft:DepreciationAmortizationAndOther",
+   "dims": [],
+   "label": "Depreciation, amortization, and other",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Adjustments to reconcile net income to net cash from operations"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "34153000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "22287000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "13861000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "us-gaap:ShareBasedCompensation",
+   "dims": [],
+   "label": "Stock-based compensation expense",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Adjustments to reconcile net income to net cash from operations"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "11974000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "10734000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "9611000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+   "dims": [],
+   "label": "Net recognized losses on investments and derivatives",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Adjustments to reconcile net income to net cash from operations"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "609000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "305000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "196000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "us-gaap:DeferredIncomeTaxLiabilitiesNet",
+   "dims": [],
+   "label": "Deferred income taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Adjustments to reconcile net income to net cash from operations"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-7056000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-4738000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-6059000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "us-gaap:IncreaseDecreaseInAccountsReceivable",
+   "dims": [],
+   "label": "Accounts receivable",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-10581000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-7191000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-4087000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "us-gaap:InventoryNet",
+   "dims": [],
+   "label": "Inventories",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "309000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "1284000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1242000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "us-gaap:OtherAssetsCurrent",
+   "dims": [],
+   "label": "Other current assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-3044000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-1648000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1991000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "us-gaap:OtherAssetsNoncurrent",
+   "dims": [],
+   "label": "Other long-term assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-2950000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-6817000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-2833000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "us-gaap:AccountsPayableCurrent",
+   "dims": [],
+   "label": "Accounts payable",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "569000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "3545000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-2721000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "us-gaap:IncreaseDecreaseInContractWithCustomerLiability",
+   "dims": [],
+   "label": "Unearned revenue",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "5438000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "5348000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "5535000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:IncreaseDecreaseInAccruedIncomeTaxesPayable",
+   "dims": [],
+   "label": "Income taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-38000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "1687000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-358000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "us-gaap:OtherLiabilitiesCurrent",
+   "dims": [],
+   "label": "Other current liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "5922000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "4867000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "2272000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "us-gaap:OtherLiabilitiesNoncurrent",
+   "dims": [],
+   "label": "Other long-term liabilities",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-975000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "749000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "553000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+   "dims": [],
+   "label": "Net cash from operations",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Changes in operating assets and liabilities"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "136162000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "118548000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "87582000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "us-gaap:ProceedsFromRepaymentsOfShortTermDebtMaturingInThreeMonthsOrLess",
+   "dims": [],
+   "label": "Proceeds from issuance (repayments) of debt, maturities of 90 days or less, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-5746000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "5250000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "us-gaap:ProceedsFromDebtMaturingInMoreThanThreeMonths",
+   "dims": [],
+   "label": "Proceeds from issuance of debt",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "0",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "24395000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "0",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
+   "dims": [],
+   "label": "Repayments of debt",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-3216000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-29070000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-2750000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 18,
+   "concept": "us-gaap:ProceedsFromIssuanceOfCommonStock",
+   "dims": [],
+   "label": "Common stock issued",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "2056000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "2002000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "1866000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 19,
+   "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+   "dims": [],
+   "label": "Common stock repurchased",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-18420000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-17254000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-22245000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 20,
+   "concept": "us-gaap:PaymentsOfDividendsCommonStock",
+   "dims": [],
+   "label": "Common stock cash dividends paid",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-24082000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-21771000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-19800000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 21,
+   "concept": "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
+   "dims": [],
+   "label": "Other, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-2291000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-1309000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1006000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 22,
+   "concept": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+   "dims": [],
+   "label": "Net cash used in financing",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Financing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-51699000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-37757000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-43935000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 23,
+   "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+   "dims": [],
+   "label": "Additions to property and equipment",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-64551000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-44477000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-28107000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 24,
+   "concept": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
+   "dims": [],
+   "label": "Acquisition of companies, net of cash acquired and divestitures, and purchases of intangible and other assets",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-5978000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-69132000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-1670000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 25,
+   "concept": "us-gaap:PaymentsToAcquireInvestments",
+   "dims": [],
+   "label": "Purchases of investments",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-29775000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-17732000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-37651000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 26,
+   "concept": "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+   "dims": [],
+   "label": "Maturities of investments",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "16079000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "24775000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "33510000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 27,
+   "concept": "msft:ProceedsFromInvestments",
+   "dims": [],
+   "label": "Sales of investments",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "9309000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "10894000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "14354000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 28,
+   "concept": "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
+   "dims": [],
+   "label": "Other, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "2317000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-1298000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-3116000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 29,
+   "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+   "dims": [],
+   "label": "Net cash used in investing",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "-72599000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-96970000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-22680000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 30,
+   "concept": "us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations",
+   "dims": [],
+   "label": "Effect of foreign exchange rates on cash and cas h equivalents",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "63000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-210000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "-194000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 31,
+   "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+   "dims": [],
+   "label": "Net change in cash and cash equivalents",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "11927000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "-16389000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "20773000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 32,
+   "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+   "dims": [],
+   "label": "Cash and cash equivalents, beginning of period",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": "http://www.xbrl.org/2003/role/periodStartLabel",
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "18315000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "34704000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "13931000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 33,
+   "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+   "dims": [],
+   "label": "Cash and cash equivalents, end of period",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": "http://www.xbrl.org/2003/role/periodEndLabel",
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "instant",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [
+    "Investing"
+   ],
+   "cells": [
+    {
+     "period": "D2025-01-01:2025-12-31",
+     "value": "30242000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2024-01-01:2024-12-31",
+     "value": "18315000000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2023-01-01:2023-12-31",
+     "value": "34704000000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect": [
+   [
+    "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+    "1"
+   ],
+   [
+    "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+    "1"
+   ],
+   [
+    "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+    "1"
+   ],
+   [
+    "us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInFinancingActivities": [
+   [
+    "us-gaap:ProceedsFromRepaymentsOfShortTermDebtMaturingInThreeMonthsOrLess",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromDebtMaturingInMoreThanThreeMonths",
+    "1"
+   ],
+   [
+    "us-gaap:RepaymentsOfDebtMaturingInMoreThanThreeMonths",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromIssuanceOfCommonStock",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsForRepurchaseOfCommonStock",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsOfDividendsCommonStock",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInInvestingActivities": [
+   [
+    "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+    "1"
+   ],
+   [
+    "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets",
+    "1"
+   ],
+   [
+    "us-gaap:PaymentsToAcquireInvestments",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+    "1"
+   ],
+   [
+    "msft:ProceedsFromInvestments",
+    "1"
+   ],
+   [
+    "us-gaap:ProceedsFromPaymentsForOtherFinancingActivities",
+    "1"
+   ]
+  ],
+  "us-gaap:NetCashProvidedByUsedInOperatingActivities": [
+   [
+    "us-gaap:NetIncomeLoss",
+    "1"
+   ],
+   [
+    "msft:DepreciationAmortizationAndOther",
+    "1"
+   ],
+   [
+    "us-gaap:ShareBasedCompensation",
+    "1"
+   ],
+   [
+    "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+    "1"
+   ],
+   [
+    "us-gaap:DeferredIncomeTaxLiabilitiesNet",
+    "1"
+   ],
+   [
+    "us-gaap:IncreaseDecreaseInAccountsReceivable",
+    "1"
+   ],
+   [
+    "us-gaap:InventoryNet",
+    "1"
+   ],
+   [
+    "us-gaap:OtherAssetsCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:OtherAssetsNoncurrent",
+    "1"
+   ],
+   [
+    "us-gaap:AccountsPayableCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:IncreaseDecreaseInContractWithCustomerLiability",
+    "1"
+   ],
+   [
+    "us-gaap:IncreaseDecreaseInAccruedIncomeTaxesPayable",
+    "1"
+   ],
+   [
+    "us-gaap:OtherLiabilitiesCurrent",
+    "1"
+   ],
+   [
+    "us-gaap:OtherLiabilitiesNoncurrent",
+    "1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2025, 2024, 2023]"
+ ]
+}

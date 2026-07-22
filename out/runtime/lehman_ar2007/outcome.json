@@ -1,0 +1,93 @@
+{
+ "document": "lehman_ar2007",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\lehman\\ar2007.pdf",
+ "mode": "runtime",
+ "source_sha256": "3fa8386c5db7964d069bb8bdb8899d4134142b7c1e3a89e6377844d38bbe47c5",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    86,
+    87
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 33,
+   "columns": 2,
+   "accepted_cells": 66,
+   "flags": 2,
+   "scale": "1000000",
+   "footing_groups": 5,
+   "footing_pass": true,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 6,
+    "artifact": 11,
+    "llm": 0,
+    "unmapped": 16
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    85
+   ],
+   "rows": 30,
+   "columns": 3,
+   "accepted_cells": 84,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 7,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 3,
+    "artifact": 6,
+    "llm": 0,
+    "unmapped": 21
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    151,
+    152,
+    153
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 21,
+   "columns": 5,
+   "accepted_cells": 90,
+   "flags": 1,
+   "scale": "1",
+   "footing_groups": 4,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no beginning/ending cash rows"
+   },
+   "mapping": {
+    "lexical": 6,
+    "artifact": 5,
+    "llm": 0,
+    "unmapped": 10
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\lehman_ar2007.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "2 flagged balance-sheet cells; cash_flow footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

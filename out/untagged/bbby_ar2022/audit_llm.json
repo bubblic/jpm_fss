@@ -14,12 +14,12 @@
   {
    "kind": "map_concept",
    "label": "Prepaid expenses and other current assets",
-   "chosen": "ifrs-full:OtherCurrentAssets"
+   "chosen": "us-gaap:OtherAssetsCurrent"
   },
   {
    "kind": "map_concept",
    "label": "Long-term restricted cash",
-   "chosen": "us-gaap:OtherAssetsNoncurrent"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -39,7 +39,7 @@
   {
    "kind": "map_concept",
    "label": "Other assets",
-   "chosen": "ifrs-full:OtherCurrentAssets"
+   "chosen": "us-gaap:OtherAssetsCurrent"
   },
   {
    "kind": "map_concept",
@@ -54,12 +54,12 @@
   {
    "kind": "map_concept",
    "label": "Current operating lease liabilities",
-   "chosen": "us-gaap:LiabilitiesCurrent"
+   "chosen": "ifrs-full:CurrentFinancialLiabilities"
   },
   {
    "kind": "map_concept",
    "label": "Preferred stock warrant liabilities",
-   "chosen": "us-gaap:LiabilitiesCurrent"
+   "chosen": "us-gaap:OtherLiabilitiesCurrent"
   },
   {
    "kind": "map_concept",
@@ -84,7 +84,7 @@
   {
    "kind": "map_concept",
    "label": "Common stock - $0.01 par value; authorized - 900,000 shares;",
-   "chosen": "us-gaap:CommonStockSharesIssued"
+   "chosen": "us-gaap:CommonStocksIncludingAdditionalPaidInCapital"
   },
   {
    "kind": "map_concept",
@@ -104,12 +104,12 @@
   {
    "kind": "map_concept",
    "label": "Restructuring and transformation initiative expenses",
-   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+   "chosen": null
   },
   {
    "kind": "map_concept",
    "label": "Loss on sale of businesses",
-   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -129,7 +129,7 @@
   {
    "kind": "map_concept",
    "label": "Loss on deconsolidation of subsidiaries",
-   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -139,7 +139,7 @@
   {
    "kind": "map_concept",
    "label": "Loss before provision (benefit) from income taxes",
-   "chosen": "ifrs-full:ProfitLossBeforeTax"
+   "chosen": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
   },
   {
    "kind": "map_concept",
@@ -201,12 +201,12 @@
   {
    "kind": "map_concept",
    "label": "Loss on sale of businesses",
-   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+   "chosen": null
   },
   {
    "kind": "map_concept",
    "label": "Loss on deconsolidation of subsidiaries",
-   "chosen": "ifrs-full:ProfitLossAttributableToOwnersOfParent"
+   "chosen": null
   },
   {
    "kind": "map_concept",
@@ -226,12 +226,12 @@
   {
    "kind": "map_concept",
    "label": "Accrued expenses and other current liabilities",
-   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+   "chosen": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities"
   },
   {
    "kind": "map_concept",
    "label": "Merchandise credit and gift card liabilities",
-   "chosen": "ifrs-full:CurrentAccruedExpensesAndOtherCurrentLiabilities"
+   "chosen": "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities"
   },
   {
    "kind": "map_concept",
@@ -241,7 +241,7 @@
   {
    "kind": "map_concept",
    "label": "Operating lease assets and liabilities, net",
-   "chosen": "us-gaap:OperatingLeaseLiabilityNoncurrent"
+   "chosen": null
   },
   {
    "kind": "map_concept",

@@ -1,0 +1,91 @@
+{
+ "document": "lvmh_dec_2024",
+ "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\lvmh_dec_2024.pdf",
+ "mode": "runtime",
+ "source_sha256": "57f976f7e1d1d16d39dd5b6a8df1e290e19ac3668dd758722412aaefd33e8103",
+ "llm": false,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "artifact",
+   "pages": [
+    26
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 32,
+   "columns": 3,
+   "accepted_cells": 96,
+   "flags": 22,
+   "scale": "1",
+   "footing_groups": 2,
+   "footing_pass": false,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 12,
+    "artifact": 19,
+    "llm": 0,
+    "unmapped": 1
+   }
+  },
+  "income_statement": {
+   "located_by": "artifact",
+   "pages": [
+    24,
+    25
+   ],
+   "artifact_adjudicated": 0,
+   "rows": 42,
+   "columns": 3,
+   "accepted_cells": 121,
+   "flags": 11,
+   "scale": "1000000",
+   "footing_groups": 9,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 5,
+    "artifact": 18,
+    "llm": 0,
+    "unmapped": 19
+   }
+  },
+  "cash_flow": {
+   "located_by": "artifact",
+   "pages": [
+    28
+   ],
+   "rows": 34,
+   "columns": 4,
+   "accepted_cells": 113,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 7,
+   "footing_pass": false,
+   "identity": null,
+   "cash_tie": {
+    "pass": null,
+    "detail": "no net-change row or activity totals"
+   },
+   "mapping": {
+    "lexical": 3,
+    "artifact": 22,
+    "llm": 0,
+    "unmapped": 9
+   }
+  }
+ },
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\lvmh_dec_2024.json",
+  "approved_by": "PENDING SIGN-OFF",
+  "code_version_at_build": "f798bfc"
+ },
+ "simulation": {
+  "status": "skipped",
+  "reason": "22 flagged balance-sheet cells; balance_sheet footing unverified; cash_flow footing unverified; income_statement footing unverified (adjudication required before simulation)"
+ },
+ "llm_calls": 0
+}

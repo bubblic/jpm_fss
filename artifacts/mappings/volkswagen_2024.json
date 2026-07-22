@@ -1,0 +1,463 @@
+{
+ "document": "volkswagen_2024",
+ "source_file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\volkswagen_2024.pdf",
+ "source_sha256": "48dfd913979245ae936471b3f5ddf7d6dcf62a8b099c2c9aae5c64dff450c017",
+ "code_version": "f798bfc",
+ "built_from": "committed build products (LLM decisions recorded at build time)",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    475,
+    476
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Intangible assets 12",
+     "concept": "ifrs-full:IntangibleAssetsOtherThanGoodwill",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Property, plant and equipment 13,33",
+     "concept": "ifrs-full:PropertyPlantAndEquipmentIncludingRightofuseAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Lease assets 14,33",
+     "concept": "ifrs-full:RightofuseAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Investment property 14",
+     "concept": "ifrs-full:PropertyPlantAndEquipment",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Equity-accounted investments 15",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other equity investments 15",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other financial assets 17",
+     "concept": "ifrs-full:OtherCurrentFinancialAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Tax receivables 19",
+     "concept": "ifrs-full:CurrentTaxAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred tax assets 19",
+     "concept": "ifrs-full:NetDeferredTaxAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Inventories 20",
+     "concept": "us-gaap:InventoryNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Trade receivables 21",
+     "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Financial services receivables 16",
+     "concept": "ifrs-full:OtherCurrentFinancialAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other financial assets 17",
+     "concept": "ifrs-full:OtherCurrentFinancialAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other receivables 18",
+     "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Tax receivables 19",
+     "concept": "ifrs-full:CurrentTaxAssets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Marketable securities and time deposits 22",
+     "concept": "us-gaap:MarketableSecuritiesCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and cash equivalents 23",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Subscribed capital",
+     "concept": "ifrs-full:IssuedCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Retained earnings",
+     "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Equity attributable to Volkswagen AG hybrid capital investors",
+     "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Equity attributable to Volkswagen AG shareholders and hybrid capital investors",
+     "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-controlling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Financial liabilities 25",
+     "concept": "ifrs-full:CurrentFinancialLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Other liabilities 27",
+     "concept": "us-gaap:OtherLiabilitiesNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Deferred tax liabilities 28",
+     "concept": "ifrs-full:NetDeferredTaxLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Financial liabilities 25",
+     "concept": "ifrs-full:CurrentFinancialLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Trade payables 31",
+     "concept": "ifrs-full:TradeAndOtherCurrentPayables",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Total equity and liabilities",
+     "concept": "ifrs-full:EquityAndLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Effect of exchange rate changes on cash and cash equivalents",
+     "column": 0,
+     "value": "55"
+    },
+    {
+     "label": "Change of loss allowance within cash and cash equivalents",
+     "column": 0,
+     "value": "1"
+    }
+   ]
+  },
+  "income_statement": {
+   "pages": [
+    472
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Sales revenue 1",
+     "concept": "ifrs-full:Revenue",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Earnings before tax",
+     "concept": "ifrs-full:ProfitLossBeforeTax",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Earnings after tax",
+     "concept": "ifrs-full:ProfitLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Non-controlling interests",
+     "concept": "ifrs-full:NoncontrollingInterests",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Volkswagen AG shareholders",
+     "concept": "us-gaap:StockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Basic/diluted earnings per ordinary share in 11",
+     "concept": "ifrs-full:BasicEarningsLossPerShare",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Basic/diluted earnings per preferred share in 11",
+     "concept": "ifrs-full:BasicEarningsLossPerShare",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Effect of exchange rate changes on cash and cash equivalents",
+     "column": 0,
+     "value": "55"
+    },
+    {
+     "label": "Change of loss allowance within cash and cash equivalents",
+     "column": 0,
+     "value": "1"
+    }
+   ]
+  },
+  "cash_flow": {
+   "pages": [
+    478
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents at beginning of period",
+     "concept": "ifrs-full:CashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    },
+    {
+     "label": "Earnings before tax",
+     "concept": "ifrs-full:ProfitLossBeforeTax",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation and amortization of, and impairment losses on, intangible assets, property, plant and equipment, and investment property\u00b9",
+     "concept": "ifrs-full:AdjustmentsForDepreciationExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Amortization of and impairment losses on capitalized development costs\u00b9",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Depreciation of and impairment losses on lease assets\u00b9",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Gain/loss on disposal of non-current assets and equity investments",
+     "concept": "msft:GainLossOnInvestmentsAndDerivativeInstruments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Other non-cash expense/income",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash flows from operating activities",
+     "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Disposal of other equity investments",
+     "concept": "ifrs-full:OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from disposal of intangible assets, property, plant and equipment, and investment property",
+     "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Change in investments in securities and time deposits \u2013203",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Capital contributions/capital redemptions \u20131,144",
+     "concept": "ifrs-full:IssuedCapital",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Capital transactions with non-controlling interest shareholders",
+     "concept": "sap:TransactionsWithNoncontrollingInterests",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from issuance of bonds",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Proceeds from issuance of unlisted notes",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash flows from financing activities",
+     "concept": "ifrs-full:CashFlowsFromUsedInFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Effect of exchange rate changes on cash and cash equivalents",
+     "concept": "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Change of loss allowance within cash and cash equivalents",
+     "concept": "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Net change in cash and cash equivalents \u20133,226",
+     "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "build_products"
+    },
+    {
+     "label": "Cash and cash equivalents at end of period",
+     "concept": "ifrs-full:CashAndCashEquivalents",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "build_products"
+    }
+   ],
+   "adjudications": [
+    {
+     "label": "Effect of exchange rate changes on cash and cash equivalents",
+     "column": 0,
+     "value": "55"
+    },
+    {
+     "label": "Change of loss allowance within cash and cash equivalents",
+     "column": 0,
+     "value": "1"
+    }
+   ]
+  }
+ }
+}

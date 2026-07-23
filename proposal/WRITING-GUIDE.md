@@ -122,9 +122,9 @@ If any answer is "no," explain it first.
 
 - **Single-file LaTeX per document** (unlike the source guide's modular paper):
   preamble and palette at the top, body in `% ===== N. Title =====` banner
-  blocks, bibliography inline as `thebibliography`. Trap: the banners number from
-  0 but LaTeX renders sections from 1 (the "9. Evidence" banner renders as
-  Section 10), so cross-reference only by `\ref` with labels (`sec:success`,
+  blocks, bibliography inline as `thebibliography`. The banner numbers match the
+  rendered section numbers (keep them matching when sections move), and
+  cross-references go only by `\ref` with labels (`sec:success`,
   `sec:engine`, `sec:drivers`, `sec:robustness`, `sec:evidence`,
   `sec:governance`, `sec:plan`, `sec:limits`), never by hand-typed number.
 - **Helpers**: `\lead{color}{Title.}` for argument paragraphs, `\headtext` in

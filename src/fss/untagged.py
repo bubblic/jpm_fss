@@ -1147,6 +1147,24 @@ def analyze_pdf(
                             record["error"] = "not located (LLM candidates failed the density bar)"
                             continue
                 record["pages"] = [p + 1 for p in page_indices]
+                # born-digital scope gate: statement pages must carry
+                # AUTHORED text; a scan or an OCR overlay abstains here in
+                # both build and runtime modes rather than degrading
+                # silently (see locate.authored_text_issues)
+                gate_issues = [
+                    f"page {index + 1}: {issue}"
+                    for index in page_indices
+                    if index < len(pdf.pages)
+                    for issue in locate.authored_text_issues(pdf.pages[index])
+                ]
+                if gate_issues:
+                    record["error"] = (
+                        "not born-digital: "
+                        + "; ".join(gate_issues)
+                        + " (scope: authored text required; OCR/vision "
+                        "ingestion is out of scope)"
+                    )
+                    continue
                 extraction = read_statement_pages(
                     pdf, pdf_path, statement_kind, page_indices, pages, text_options
                 )

@@ -176,6 +176,63 @@ class PageInfo:
         return [line for line in self.lines if line.strip()][:TOP_LINES]
 
 
+_INVISIBLE_TR = re.compile(rb"\b[37]\s+Tr\b")  # text rendering modes 3 and 7
+
+
+def _content_stream_bytes(page: Any) -> bytes:
+    """The page's decoded content stream(s); empty on any failure."""
+    from pdfminer.pdftypes import resolve1
+
+    contents = getattr(page.page_obj, "contents", None)
+    if contents is None:
+        return b""
+    if not isinstance(contents, list):
+        contents = [contents]
+    data = b""
+    for ref in contents:
+        try:
+            data += resolve1(ref).get_data()
+        except Exception:
+            continue
+    return data
+
+
+def authored_text_issues(page: Any) -> list[str]:
+    """Mechanical born-digital check for one statement page.
+
+    The scope gate is AUTHORED text, not merely present text: an OCR'd
+    scan carries a text layer (invisible glyphs, rendering mode 3, laid
+    over a full-page raster), so it would pass a naive has-text check
+    while feeding every text-consuming reader from the single OCR error
+    source. The decisive signature is the combination of a page-dominating
+    image XObject with absent or invisible text; font embeddedness alone
+    is deliberately NOT a hard signal, because authored documents set in
+    the standard-14 fonts (older filings) carry no embedded fonts and are
+    perfectly fine. Returns a list of issues; empty means authored.
+    """
+    issues: list[str] = []
+    area = float(page.width) * float(page.height)
+    coverage = 0.0
+    for image in page.images:
+        width = float(image["x1"]) - float(image["x0"])
+        height = float(image["bottom"]) - float(image["top"])
+        if area > 0:
+            coverage = max(coverage, (width * height) / area)
+    text = (page.extract_text() or "").strip()
+    if coverage >= 0.8:
+        if len(text) < 200:
+            issues.append(
+                "page-dominating raster image with little or no text (scanned page)"
+            )
+        elif _INVISIBLE_TR.search(_content_stream_bytes(page)):
+            issues.append(
+                "page-dominating raster image with an invisible text overlay (OCR layer)"
+            )
+    elif not text and not page.chars:
+        issues.append("no extractable text on the page")
+    return issues
+
+
 def _value_row_count(lines: list[str]) -> int:
     count = 0
     for line in lines:

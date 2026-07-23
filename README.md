@@ -40,6 +40,13 @@ the audit artifacts.
 LLMs participate at BUILD time only; the runtime inference path is
 deterministic (proposal v2). See `DEMO.md` for the full walkthrough.
 
+Document scope is born-digital PDFs: statement pages must carry AUTHORED
+text. Scanned or image-compiled documents -- including OCR'd scans, whose
+invisible text layer would pass a naive has-text check while feeding every
+reader from one OCR error source -- are detected mechanically per
+statement page (page-dominating raster + absent/invisible text) and
+abstain with "not born-digital" in both build and runtime modes.
+
 ```powershell
 python -m fss onboard <pdf-or-folder>    # BUILD: LLM-assisted, audited;
                                          #   emits artifacts/mappings/<doc>.json

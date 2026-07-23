@@ -144,6 +144,102 @@ def test_artifact_adjudication_replays_only_reader_matching_values():
     assert statement.rows[1].printed[0] is None
 
 
+def _build_pdf(objects: list[bytes]) -> bytes:
+    header = b"%PDF-1.4\n"
+    body = b""
+    offsets = []
+    for obj in objects:
+        offsets.append(len(header) + len(body))
+        body += obj
+    xref_pos = len(header) + len(body)
+    xref = b"xref\n0 %d\n0000000000 65535 f \n" % (len(objects) + 1)
+    for offset in offsets:
+        xref += b"%010d 00000 n \n" % offset
+    trailer = b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF" % (
+        len(objects) + 1,
+        xref_pos,
+    )
+    return header + body + xref + trailer
+
+
+_STATEMENT_LINES = [
+    b"CONSOLIDATED BALANCE SHEET",
+    b"(in millions) 2024 2023",
+    b"Cash and cash equivalents 100 90",
+    b"Accounts receivable 50 45",
+    b"Inventories 30 25",
+    b"Property and equipment 200 190",
+    b"Goodwill 80 80",
+    b"Other assets 40 35",
+    b"Total assets 500 465",
+    b"Accounts payable 60 55",
+    b"Long-term debt 140 150",
+    b"Total liabilities and stockholders equity 500 465",
+]
+
+
+def _page_pdf(kind: str) -> bytes:
+    """A one-page PDF: 'authored' text, bare 'scan', or 'ocr' overlay."""
+    image_draw = b"q 612 0 0 792 0 0 cm /Im1 Do Q\n"
+    render = b"3 Tr " if kind == "ocr" else b""
+    text = b""
+    for line_no, line in enumerate(_STATEMENT_LINES):
+        y = 720 - 20 * line_no
+        text += b"BT /F1 12 Tf %s72 %d Td (%s) Tj ET\n" % (render, y, line)
+    content = {"authored": text, "scan": image_draw, "ocr": image_draw + text}[kind]
+    return _build_pdf(
+        [
+            b"1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n",
+            b"2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj\n",
+            b"3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+            b"/Resources << /Font << /F1 4 0 R >> /XObject << /Im1 5 0 R >> >> "
+            b"/Contents 6 0 R >> endobj\n",
+            b"4 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj\n",
+            b"5 0 obj << /Type /XObject /Subtype /Image /Width 1 /Height 1 "
+            b"/ColorSpace /DeviceGray /BitsPerComponent 8 /Length 1 >> "
+            b"stream\n\xee\nendstream endobj\n",
+            b"6 0 obj << /Length %d >> stream\n%s\nendstream endobj\n"
+            % (len(content), content),
+        ]
+    )
+
+
+def test_authored_text_gate_classifies_page_provenance():
+    import io
+
+    import pdfplumber
+
+    from fss.pdfread.locate import authored_text_issues
+
+    with pdfplumber.open(io.BytesIO(_page_pdf("authored"))) as pdf:
+        assert authored_text_issues(pdf.pages[0]) == []
+    with pdfplumber.open(io.BytesIO(_page_pdf("scan"))) as pdf:
+        issues = authored_text_issues(pdf.pages[0])
+        assert issues and "scanned" in issues[0]
+    with pdfplumber.open(io.BytesIO(_page_pdf("ocr"))) as pdf:
+        # the trap: extract_text() sees a full statement, yet the page is
+        # a raster with an invisible OCR overlay
+        assert (pdf.pages[0].extract_text() or "").count("Total assets") == 1
+        issues = authored_text_issues(pdf.pages[0])
+        assert issues and "OCR" in issues[0]
+
+
+def test_seeded_ocr_statement_page_triggers_abstention(tmp_path, monkeypatch):
+    """The battery requirement: an OCR'd statement page inside the sweep
+    must abstain with the scope error, not extract silently."""
+    import fss.untagged as untagged_module
+
+    monkeypatch.setattr(untagged_module, "UNTAGGED_DIR", tmp_path / "out")
+    monkeypatch.setattr(untagged_module.llm_module, "default_client", lambda: None)
+    pdf_path = tmp_path / "seeded_ocr_filing.pdf"
+    pdf_path.write_bytes(_page_pdf("ocr"))
+    outcome = untagged_module.analyze_pdf(pdf_path)
+    record = outcome["statements"]["balance_sheet"]
+    assert "not born-digital" in record.get("error", "")
+    assert "OCR" in record["error"]
+    assert outcome["simulation"]["status"] == "skipped"
+
+
 def test_artifact_overlay_maps_by_canonical_and_condensed_label():
     from fss.untagged import _artifact_overlay
 

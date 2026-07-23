@@ -109,3 +109,11 @@ blocker is a valid spike outcome.
 
 Type hints, small functions, no cleverness. Standard library + the three
 declared deps only. Keep prose in the report free of em dashes.
+
+## Proposal writing
+
+Any edit under `proposal/`, or to the claim-restating parts of `README.md`
+and `DEMO.md`, follows `proposal/WRITING-GUIDE.md`: first principles before
+use, no em dashes in prose, numbers only from committed pipeline artifacts,
+and claim-level consistency across the summary surfaces listed there. Keep
+that guide and this file in sync.

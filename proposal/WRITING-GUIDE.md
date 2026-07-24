@@ -121,9 +121,9 @@ If any answer is "no," explain it first.
   - stored vs derived rows: demotion is disclosure, not failure;
   - tagged filings vs the PDF-only ablation vs the truly untagged sweep: three
     evidence regimes, each at its own bar;
-  - arithmetic before semantics: the identities bind on printed numbers with
-    structure discovered from the document's own arithmetic; concepts land
-    only afterward;
+  - arithmetic before semantics (words nominate, numbers confirm): a label
+    grammar only proposes structure, every reported column must close on it
+    before anything is accepted, and concepts land only afterward;
   - directional credibility vs point forecast.
 
 ## 3. Structure, mechanics, and numbers

@@ -2,7 +2,7 @@
  "document": "bbby_2021",
  "source_file": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\carry\\bbby_2021.pdf",
  "source_sha256": "d62cc2e0e70dbf1dc9e603e96ce69e82acea903c27ff935bb34f1e35c521de2b",
- "code_version": "7192cce",
+ "code_version": "536e55f",
  "approved_by": "PENDING SIGN-OFF",
  "statements": {
   "balance_sheet": {
@@ -399,7 +399,7 @@
      "concept": "us-gaap:RepaymentsOfLongTermDebt",
      "balance": "credit",
      "period_type": "duration",
-     "source": "llm"
+     "source": "taxonomy"
     },
     {
      "label": "Repayments of finance leases",
@@ -455,6 +455,13 @@
      "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
      "balance": "debit",
      "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Beginning of period",
+     "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+     "balance": "debit",
+     "period_type": "instant",
      "source": "llm"
     }
    ],

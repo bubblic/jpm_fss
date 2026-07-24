@@ -133,11 +133,6 @@
   },
   {
    "kind": "map_concept",
-   "label": "Repayments of long-term debt",
-   "chosen": "us-gaap:RepaymentsOfLongTermDebt"
-  },
-  {
-   "kind": "map_concept",
    "label": "Repayments of finance leases",
    "chosen": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities"
   },
@@ -185,6 +180,11 @@
    "kind": "map_concept",
    "label": "Net (decrease) increase in cash, cash equivalents and restri",
    "chosen": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Beginning of period",
+   "chosen": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
   }
  ]
 }

@@ -3,7 +3,7 @@
 Source: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\data\carry\microsoft_2024.pdf`  
 Source SHA256: `15fe53f0e0fbb4e604207646ab6db5ac1fa2e2bd0d346b5e88798d4f247dc3e6`  
 LLM assist: FORBIDDEN in this mode (no model in the inference path)  
-Mapping artifact: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\artifacts\mappings\microsoft_2024.json` (approved by: PENDING SIGN-OFF; built at code 7192cce)  
+Mapping artifact: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\artifacts\mappings\microsoft_2024.json` (approved by: PENDING SIGN-OFF; built at code 536e55f)  
 
 ## balance_sheet
 

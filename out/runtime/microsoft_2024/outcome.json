@@ -27,6 +27,7 @@
     "lexical": 34,
     "artifact": 0,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 0
    }
@@ -49,6 +50,7 @@
     "lexical": 15,
     "artifact": 0,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 4
    }
@@ -74,6 +76,7 @@
     "lexical": 31,
     "artifact": 3,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 0
    }
@@ -82,7 +85,7 @@
  "artifact": {
   "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\microsoft_2024.json",
   "approved_by": "PENDING SIGN-OFF",
-  "code_version_at_build": "7192cce"
+  "code_version_at_build": "536e55f"
  },
  "simulation": {
   "status": "skipped",

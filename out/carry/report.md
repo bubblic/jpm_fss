@@ -6,14 +6,14 @@ Each experiment onboards a firm's prior-year annual report with and without seed
 
 Microsoft Corporation 10-K, accession 000095017024087843, filed 2024-07-30, period 2024-06-30 (rendered from the EDGAR primary document). Carried from microsoft_2025 (artifact sha 4793f36c40be9d07..., sign-off: PENDING SIGN-OFF). This is the boundary case: a lexicon firm, so the lexicon should already cover it.
 
-| Statement | located_by | rows | flags | lexical | carried | llm | unmapped |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| balance_sheet (control) | deterministic | 34 | 1 | 34 | 0 | 0 | 0 |
-| balance_sheet (carried) | deterministic | 34 | 1 | 34 | 0 | 0 | 0 |
-| income_statement (control) | deterministic | 19 | 0 | 15 | 0 | 0 | 4 |
-| income_statement (carried) | deterministic | 19 | 0 | 15 | 0 | 0 | 4 |
-| cash_flow (control) | deterministic | 34 | 0 | 31 | 0 | 2 | 1 |
-| cash_flow (carried) | deterministic | 34 | 0 | 31 | 0 | 3 | 0 |
+| Statement | located_by | rows | flags | lexical | carried | taxonomy | llm | unmapped |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| balance_sheet (control) | deterministic | 34 | 1 | 34 | 0 | 0 | 0 | 0 |
+| balance_sheet (carried) | deterministic | 34 | 1 | 34 | 0 | 0 | 0 | 0 |
+| income_statement (control) | deterministic | 19 | 0 | 15 | 0 | 0 | 0 | 4 |
+| income_statement (carried) | deterministic | 19 | 0 | 15 | 0 | 0 | 0 | 4 |
+| cash_flow (control) | deterministic | 34 | 0 | 31 | 0 | 0 | 3 | 0 |
+| cash_flow (carried) | deterministic | 34 | 0 | 31 | 0 | 0 | 3 | 0 |
 
 LLM calls: control 5, carried 5. Simulation: control skipped, carried skipped, runtime replay skipped (runtime model constructed: False).
 
@@ -26,7 +26,7 @@ LLM calls: control 5, carried 5. Simulation: control skipped, carried skipped, r
 | balance_sheet | lexical | 34 | 0 | 0 |
 | income_statement | lexical | 13 | 0 | 2 |
 | cash_flow | lexical | 31 | 0 | 0 |
-| cash_flow | llm | 2 | 0 | 0 |
+| cash_flow | llm | 3 | 0 | 0 |
 
 #### Carried onboard
 
@@ -41,14 +41,14 @@ LLM calls: control 5, carried 5. Simulation: control skipped, carried skipped, r
 
 Bed Bath & Beyond Inc. 10-K, accession 000088615822000047, filed 2022-04-21, period 2022-02-26 (rendered from the EDGAR primary document). Carried from bbby_ar2022 (artifact sha 1c0493f0331effa2..., sign-off: PENDING SIGN-OFF). This is the payoff case: not a lexicon firm, so firm-specific labels resolve only from the prior artifact or the model.
 
-| Statement | located_by | rows | flags | lexical | carried | llm | unmapped |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| balance_sheet (control) | deterministic | 27 | 0 | 12 | 0 | 11 | 4 |
-| balance_sheet (carried) | deterministic | 27 | 0 | 12 | 12 | 0 | 3 |
-| income_statement (control) | deterministic | 18 | 0 | 3 | 0 | 7 | 8 |
-| income_statement (carried) | deterministic | 18 | 0 | 3 | 6 | 1 | 8 |
-| cash_flow (control) | deterministic | 41 | 0 | 6 | 0 | 16 | 19 |
-| cash_flow (carried) | deterministic | 41 | 0 | 6 | 8 | 13 | 14 |
+| Statement | located_by | rows | flags | lexical | carried | taxonomy | llm | unmapped |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| balance_sheet (control) | deterministic | 27 | 0 | 12 | 0 | 0 | 11 | 4 |
+| balance_sheet (carried) | deterministic | 27 | 0 | 12 | 12 | 0 | 0 | 3 |
+| income_statement (control) | deterministic | 18 | 0 | 3 | 0 | 0 | 7 | 8 |
+| income_statement (carried) | deterministic | 18 | 0 | 3 | 6 | 0 | 1 | 8 |
+| cash_flow (control) | deterministic | 41 | 0 | 6 | 0 | 1 | 17 | 17 |
+| cash_flow (carried) | deterministic | 41 | 0 | 6 | 8 | 1 | 13 | 13 |
 
 LLM calls: control 55, carried 37. Simulation: control ok, carried ok, runtime replay ok (runtime model constructed: False).
 
@@ -61,9 +61,10 @@ LLM calls: control 55, carried 37. Simulation: control ok, carried ok, runtime r
 | balance_sheet | lexical | 12 | 0 | 0 |
 | balance_sheet | llm | 3 | 8 | 0 |
 | income_statement | lexical | 2 | 1 | 0 |
-| income_statement | llm | 5 | 2 | 0 |
+| income_statement | llm | 4 | 3 | 0 |
 | cash_flow | lexical | 4 | 2 | 0 |
-| cash_flow | llm | 8 | 8 | 0 |
+| cash_flow | llm | 8 | 9 | 0 |
+| cash_flow | taxonomy | 1 | 0 | 0 |
 
 Mismatches:
 - [llm] 'Prepaid expenses and other current assets': chose us-gaap:OtherAssetsCurrent, filer tags us-gaap:PrepaidExpenseAndOtherAssetsCurrent
@@ -77,15 +78,17 @@ Mismatches:
 - [lexical] 'Gross profit': chose ifrs-full:GrossProfit, filer tags us-gaap:GrossProfit
 - [llm] 'Impairments, including on assets held for sale': chose ck0001639920:AdjustmentForImpairmentChargesOnRealEstateAssets, filer tags us-gaap:AssetImpairmentCharges
 - [llm] 'Net loss per share - Basic': chose ifrs-full:BasicEarningsLossPerShare, filer tags us-gaap:EarningsPerShareBasic
+- [llm] 'Net loss per share - Diluted': chose ifrs-full:DilutedEarningsLossPerShare, filer tags us-gaap:EarningsPerShareDiluted
 - [llm] 'Impairments, including on assets held for sale': chose ck0001639920:AdjustmentForImpairmentChargesOnRealEstateAssets, filer tags us-gaap:GoodwillAndIntangibleAssetImpairment
 - [lexical] 'Deferred income taxes': chose us-gaap:DeferredIncomeTaxExpenseBenefit, filer tags bbby:DeferredIncomeTaxNoncashExpenseBenefit
 - [llm] 'Other assets': chose us-gaap:IncreaseDecreaseInOtherCurrentAssets, filer tags us-gaap:IncreaseDecreaseInOtherNoncurrentAssets
 - [llm] 'Merchandise credit and gift card liabilities': chose us-gaap:IncreaseDecreaseInOtherOperatingLiabilities, filer tags bbby:IncreaseDecreaseInMerchandiseCreditAndGiftCardLiabilities
+- [llm] 'Operating lease assets and liabilities, net': chose us-gaap:IncreaseDecreaseInOtherOperatingLiabilities, filer tags bbby:IncreaseDecreaseinOperatingLeaseAssetsandLiabilities
 - [llm] 'Other liabilities': chose us-gaap:IncreaseDecreaseInOtherCurrentLiabilities, filer tags us-gaap:IncreaseDecreaseInOtherOperatingLiabilities
 - [llm] 'Purchases of held-to-maturity investment securities': chose us-gaap:PaymentsToAcquireInvestments, filer tags us-gaap:PaymentsToAcquireHeldToMaturitySecurities
 - [llm] 'Net proceeds from sales of businesses': chose ifrs-full:CashFlowsFromLosingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities, filer tags us-gaap:ProceedsFromDivestitureOfBusinesses
 - [llm] 'Net proceeds from sales of property': chose ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets, filer tags us-gaap:ProceedsFromSaleOfPropertyPlantAndEquipment
-- [llm] 'Repayments of finance leases': chose ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities, filer tags us-gaap:FinanceLeasePrincipalPayments
+- [llm] 'Repayments of finance leases': chose us-gaap:RepaymentsOfLongTermDebt, filer tags us-gaap:FinanceLeasePrincipalPayments
 - [lexical] 'Proceeds from exercise of stock options': chose ifrs-full:ProceedsFromExerciseOfOptions, filer tags us-gaap:ProceedsFromStockOptionsExercised
 
 #### Carried onboard
@@ -100,6 +103,7 @@ Mismatches:
 | cash_flow | carried | 4 | 4 | 0 |
 | cash_flow | lexical | 4 | 2 | 0 |
 | cash_flow | llm | 9 | 4 | 0 |
+| cash_flow | taxonomy | 1 | 0 | 0 |
 
 Mismatches:
 - [carried] 'Prepaid expenses and other current assets': chose us-gaap:OtherAssetsCurrent, filer tags us-gaap:PrepaidExpenseAndOtherAssetsCurrent

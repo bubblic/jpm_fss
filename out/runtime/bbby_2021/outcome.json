@@ -27,6 +27,7 @@
     "lexical": 12,
     "artifact": 12,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 3
    }
@@ -49,6 +50,7 @@
     "lexical": 3,
     "artifact": 7,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 8
    }
@@ -72,17 +74,18 @@
    },
    "mapping": {
     "lexical": 6,
-    "artifact": 21,
+    "artifact": 22,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
-    "unmapped": 14
+    "unmapped": 13
    }
   }
  },
  "artifact": {
   "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\bbby_2021.json",
   "approved_by": "PENDING SIGN-OFF",
-  "code_version_at_build": "7192cce"
+  "code_version_at_build": "536e55f"
  },
  "simulation": {
   "status": "ok",

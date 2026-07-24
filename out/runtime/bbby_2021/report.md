@@ -3,7 +3,7 @@
 Source: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\data\carry\bbby_2021.pdf`  
 Source SHA256: `d62cc2e0e70dbf1dc9e603e96ce69e82acea903c27ff935bb34f1e35c521de2b`  
 LLM assist: FORBIDDEN in this mode (no model in the inference path)  
-Mapping artifact: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\artifacts\mappings\bbby_2021.json` (approved by: PENDING SIGN-OFF; built at code 7192cce)  
+Mapping artifact: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\artifacts\mappings\bbby_2021.json` (approved by: PENDING SIGN-OFF; built at code 536e55f)  
 
 ## balance_sheet
 
@@ -26,7 +26,7 @@ Mapping artifact: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\artifacts\mappings\bbby_
 - accepted cells 101, flags 0
 - footing: 2 verified groups, PASS
 - cash tie: PASS (begin 1407224 + change -936340 (net-change row, fx inside change) vs end 470884)
-- concept mapping: 6 lexical, 21 artifact, 0 LLM, 14 unmapped
+- concept mapping: 6 lexical, 22 artifact, 0 LLM, 13 unmapped
 
 ## Simulation
 

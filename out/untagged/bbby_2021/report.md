@@ -26,7 +26,7 @@ Mapping artifact written: `C:\Users\jaebu\repo\jpmorgan\jpm_fss\artifacts\mappin
 - accepted cells 101, flags 0
 - footing: 2 verified groups, PASS
 - cash tie: PASS (begin 1407224 + change -936340 (net-change row, fx inside change) vs end 470884)
-- concept mapping: 6 lexical, 13 LLM, 14 unmapped
+- concept mapping: 6 lexical, 13 LLM, 13 unmapped
 
 ## Simulation
 

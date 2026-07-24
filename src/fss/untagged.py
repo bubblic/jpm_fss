@@ -35,6 +35,7 @@ from typing import Any
 import pdfplumber
 
 from fss import llm as llm_module
+from fss import taxlabels
 from fss.paths import DATA_DIR, OUT_DIR, ROOT
 from fss.pdfread import locate, zh
 from fss.pdfread.assemble import read_statement_pages
@@ -583,11 +584,20 @@ def map_rows(
     audit: LLMAudit,
     overlay: dict[str, ConceptInfo] | None = None,
     overlay_source: str = "artifact",
+    taxonomy: dict[str, ConceptInfo] | None = None,
 ) -> tuple[dict[int, ConceptInfo], dict[str, int], dict[int, str]]:
     """Row -> taxonomy concept: lexical, then the reviewed artifact
     overlay (runtime replay, or a prior year's artifact carried forward
-    at onboard time), then LLM-over-shortlist (build time only)."""
-    stats = {"lexical": 0, "artifact": 0, "carried": 0, "llm": 0, "unmapped": 0}
+    at onboard time), then the unique-hit taxonomy-label tier, then
+    LLM-over-shortlist (build time only)."""
+    stats = {
+        "lexical": 0,
+        "artifact": 0,
+        "carried": 0,
+        "taxonomy": 0,
+        "llm": 0,
+        "unmapped": 0,
+    }
     concepts: dict[int, ConceptInfo] = {}
     sources: dict[int, str] = {}
     llm_budget = 25  # mapping calls per statement (cost bound)
@@ -617,6 +627,19 @@ def map_rows(
             )
             if info is not None:
                 source = overlay_source
+        if info is None and taxonomy:
+            # the unique-hit tier: a label that names exactly one concept
+            # across both taxonomies resolves deterministically; reused
+            # labels never reach here (dropped at load), so the tier can
+            # only assert unambiguous identities
+            info = (
+                taxonomy.get(canon)
+                or taxonomy.get(_condensed(row.label))
+                or taxonomy.get(canon_label(bare))
+                or taxonomy.get(_condensed(bare))
+            )
+            if info is not None:
+                source = "taxonomy"
         if info is None and llm_client is not None and row.label.strip() and llm_budget > 0:
             llm_budget -= 1
             shortlist = _shortlist(bare, tokens)
@@ -632,9 +655,10 @@ def map_rows(
         veto_applies = statement_kind == "balance_sheet" or (
             # exact lexical label hits are trusted on the income statement
             # ("Provision for income taxes" is a debit despite the word
-            # "income"); the polarity veto there only screens LLM choices
+            # "income"); the polarity veto there screens the heuristic
+            # sources, LLM choices and taxonomy-tier hits
             statement_kind == "income_statement"
-            and source == "llm"
+            and source in ("llm", "taxonomy")
         )
         if info is not None and veto_applies:
             side_debit = _expected_debit(statement_kind, row.section, row.label)
@@ -1059,6 +1083,7 @@ def analyze_pdf(
     llm_client = None if mode == "runtime" else llm_module.default_client()
     audit = LLMAudit()
     dictionary, by_statement, tokens = _load_dictionary()
+    taxonomy_tier = taxlabels.load_unique()
     outcome: dict[str, Any] = {
         "document": document,
         "file": str(pdf_path),
@@ -1234,6 +1259,7 @@ def analyze_pdf(
                     audit,
                     overlay=overlays.get(statement_kind),
                     overlay_source=overlay_source,
+                    taxonomy=taxonomy_tier,
                 )
                 checks = run_checks(reconciled, statement_kind, concepts)
                 record.update(

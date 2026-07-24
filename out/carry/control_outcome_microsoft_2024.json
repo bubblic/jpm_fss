@@ -27,6 +27,7 @@
     "lexical": 34,
     "artifact": 0,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 0
    }
@@ -49,6 +50,7 @@
     "lexical": 15,
     "artifact": 0,
     "carried": 0,
+    "taxonomy": 0,
     "llm": 0,
     "unmapped": 4
    }
@@ -74,8 +76,9 @@
     "lexical": 31,
     "artifact": 0,
     "carried": 0,
-    "llm": 2,
-    "unmapped": 1
+    "taxonomy": 0,
+    "llm": 3,
+    "unmapped": 0
    }
   }
  },

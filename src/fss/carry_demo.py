@@ -151,13 +151,14 @@ def _score_mapping(
 def _mapping_line(outcome: dict[str, Any], kind: str, tag: str) -> str:
     record = outcome.get("statements", {}).get(kind, {})
     if "error" in record:
-        return f"| {kind} ({tag}) | error: {record['error'][:60]} | | | | | | |"
+        return f"| {kind} ({tag}) | error: {record['error'][:60]} | | | | | | | |"
     stats = record.get("mapping", {})
     return (
         f"| {kind} ({tag}) | {record.get('located_by', '?')} "
         f"| {record.get('rows', 0)} | {record.get('flags', 0)} "
         f"| {stats.get('lexical', 0)} | {stats.get('carried', 0)} "
-        f"| {stats.get('llm', 0)} | {stats.get('unmapped', 0)} |"
+        f"| {stats.get('taxonomy', 0)} | {stats.get('llm', 0)} "
+        f"| {stats.get('unmapped', 0)} |"
     )
 
 
@@ -258,8 +259,8 @@ def _experiment_section(result: dict[str, Any]) -> list[str]:
         f"(artifact sha {str(provenance.get('source_sha256', ''))[:16]}..., "
         f"sign-off: {provenance.get('approved_by', '?')}). This is the {role}.",
         "",
-        "| Statement | located_by | rows | flags | lexical | carried | llm | unmapped |",
-        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Statement | located_by | rows | flags | lexical | carried | taxonomy | llm | unmapped |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for kind in STATEMENTS:
         lines.append(_mapping_line(control, kind, "control"))

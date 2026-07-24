@@ -2,7 +2,7 @@
  "document": "bbby_2021",
  "source_file": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\carry\\bbby_2021.pdf",
  "source_sha256": "d62cc2e0e70dbf1dc9e603e96ce69e82acea903c27ff935bb34f1e35c521de2b",
- "code_version": "7192cce",
+ "code_version": "536e55f",
  "approved_by": "PENDING SIGN-OFF",
  "statements": {
   "balance_sheet": {
@@ -247,7 +247,7 @@
     },
     {
      "label": "Net loss per share - Diluted",
-     "concept": "us-gaap:EarningsPerShareDiluted",
+     "concept": "ifrs-full:DilutedEarningsLossPerShare",
      "balance": "",
      "period_type": "duration",
      "source": "llm"
@@ -346,6 +346,13 @@
      "source": "llm"
     },
     {
+     "label": "Operating lease assets and liabilities, net",
+     "concept": "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
      "label": "Other liabilities",
      "concept": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities",
      "balance": "debit",
@@ -399,11 +406,18 @@
      "concept": "us-gaap:RepaymentsOfLongTermDebt",
      "balance": "credit",
      "period_type": "duration",
-     "source": "llm"
+     "source": "taxonomy"
     },
     {
      "label": "Repayments of finance leases",
-     "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+     "concept": "us-gaap:RepaymentsOfLongTermDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Repurchase of common stock, including fees",
+     "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
      "balance": "credit",
      "period_type": "duration",
      "source": "llm"

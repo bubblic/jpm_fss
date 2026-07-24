@@ -33,8 +33,9 @@ def main() -> int:
         "--carry-from",
         default=None,
         metavar="DOCUMENT",
-        help="seed pages and label->concept mapping from a prior document's "
-        "artifact (e.g. microsoft_2025); the model is consulted only for deltas",
+        help="seed the label->concept mapping from a prior document's artifact "
+        "(e.g. microsoft_2025); semantics only, never pages; the model is "
+        "consulted only for deltas",
     )
     runtime = sub.add_parser(
         "runtime",

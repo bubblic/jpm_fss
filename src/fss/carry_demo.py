@@ -6,9 +6,9 @@ and score every mapping choice against the filer's own tags for that year:
   1. control onboard (no carry): the lexicon and, where configured, the
      model resolve the mapping from scratch;
   2. carried onboard (--carry-from <prior document>): the already-onboarded
-     year's artifact seeds pages and label->concept choices, so the model
-     is consulted only for rows neither the lexicon nor the prior artifact
-     resolves;
+     year's artifact seeds label->concept choices (semantics, never layout;
+     pages stay with the deterministic locator), so the model is consulted
+     only for rows neither the lexicon nor the prior artifact resolves;
   3. runtime replay from the carried artifact (no model constructed).
 
 Two experiments bracket the mechanism:

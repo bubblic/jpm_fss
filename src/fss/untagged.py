@@ -1109,7 +1109,9 @@ def analyze_pdf(
             )
         # a prior year's reviewed mapping seeds this year's onboarding:
         # labels that match resolve without a model, and every carried
-        # choice still faces the polarity veto, footing, and identities
+        # choice still faces the polarity veto, footing, and identities.
+        # carry seeds semantics, never layout: pages are per-document and
+        # stay with the deterministic locator (or its LLM fallback)
         for kind, stmt_artifact in carry_artifact.get("statements", {}).items():
             overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
         outcome["carried_from"] = carry_from
@@ -1163,21 +1165,6 @@ def analyze_pdf(
                     page_indices = assigned.get(statement_kind)
                     if page_indices:
                         record["located_by"] = "deterministic"
-                    if not page_indices and carry_artifact is not None:
-                        carried_pages = (
-                            carry_artifact.get("statements", {})
-                            .get(statement_kind, {})
-                            .get("pages")
-                        )
-                        if carried_pages:
-                            # prior-year pages are hints, not truth: they
-                            # face the same density bar and clustering the
-                            # LLM's picks face before they are believed
-                            page_indices = _snap_llm_pages(
-                                list(carried_pages), pages, assigned, statement_kind
-                            )
-                            if page_indices:
-                                record["located_by"] = "carried"
                     if not page_indices:
                         if llm_client is None:
                             record["error"] = "not located (no LLM fallback configured)"

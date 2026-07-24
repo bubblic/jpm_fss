@@ -94,9 +94,9 @@ def test_statement_scoped_lexicon_prefers_flow_concepts_on_cash_flow():
     )
 
 
-def test_snap_validates_carried_page_hints():
-    """Prior-year pages are hints: they pass the same density bar the LLM's
-    picks face, so a stale page number cannot smuggle in a sparse page."""
+def test_snap_validates_llm_page_picks():
+    """LLM page picks face a density bar: a proposed page number cannot
+    smuggle in a sparse page."""
     from fss.untagged import _snap_llm_pages
 
     pages = [

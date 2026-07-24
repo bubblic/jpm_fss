@@ -173,7 +173,7 @@ If any answer is "no," explain it first.
 
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex,
         ..\README.md, ..\DEMO.md -Pattern
-        'one more gated reader|All processing is local|has a text layer|text-based'
+        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages'
 
 - After a figure or table change, open the PDF and look at the page before
   committing.
@@ -265,10 +265,12 @@ and whenever asked whether the proposal is consistent:
   where a reader still reads the signed value, refuses drifted hashes
   ("re-onboarding required"), and reruns byte-identically. With no endpoint,
   every stage degrades to deterministic behavior plus flags. A prior year's
-  signed artifact can seed a new year's onboarding (`--carry-from`):
-  exact-label matches replay reviewed choices, deltas go to the model, and
-  carry replicates the prior artifact verbatim, errors included, so the
-  inherited sign-off, not the mechanism, is the accuracy gate.
+  signed artifact can seed a new year's onboarding (`--carry-from`): carry
+  seeds semantics, never layout (label-to-concept choices carry; pages are
+  per-document and stay with the deterministic locator); exact-label matches
+  replay reviewed choices, deltas go to the model, and carry replicates the
+  prior artifact verbatim, errors included, so the inherited sign-off, not
+  the mechanism, is the accuracy gate.
 - *Document scope*: born-digital means **authored** text on statement pages;
   OCR'd scans carry an invisible text layer over raster and must abstain; the
   gate is mechanical and per page; the cut removes an OCR dependency, not the
@@ -312,6 +314,11 @@ and whenever asked whether the proposal is consistent:
   governance section, propagating the build/runtime split (commit `b8bed`):
   the runtime path is local and model-free; build-time onboarding may call the
   hosted endpoint under the leash.
+
+- Carried page locations ("prior-year page locations are hints", "seed pages
+  and the label-to-concept map"). Corrected 2026-07-24: carry seeds semantics,
+  never layout; page location always belongs to the deterministic locator or
+  its LLM fallback, never to a prior document's artifact.
 
 Add to this list, and to the scan pattern in section 4, whenever a substantive
 claim is corrected.

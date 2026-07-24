@@ -53,10 +53,10 @@ python -m fss onboard <pdf-or-folder>    # BUILD: LLM-assisted, audited;
 python -m fss onboard --rebuild <pdfs>   # BUILD: artifacts from committed
                                          #   build products, no model calls
 python -m fss onboard <pdf> --carry-from <doc>
-                                         # BUILD: seed pages and the label->
-                                         #   concept map from a prior year's
-                                         #   artifact; model consulted only
-                                         #   for genuine deltas
+                                         # BUILD: seed the label->concept
+                                         #   map from a prior year's artifact
+                                         #   (semantics, never layout); model
+                                         #   consulted only for genuine deltas
 python -m fss.carry_demo                 # two-pair cross-year validation vs
                                          #   the filers' own tags -> out/carry/
 python -m fss runtime <pdf-or-folder>    # RUN: replay from the signed

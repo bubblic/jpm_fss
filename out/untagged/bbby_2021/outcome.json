@@ -1,0 +1,118 @@
+{
+ "document": "bbby_2021",
+ "file": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\carry\\bbby_2021.pdf",
+ "mode": "onboard",
+ "source_sha256": "d62cc2e0e70dbf1dc9e603e96ce69e82acea903c27ff935bb34f1e35c521de2b",
+ "llm": true,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    69,
+    70
+   ],
+   "rows": 27,
+   "columns": 2,
+   "accepted_cells": 52,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 6,
+   "footing_pass": true,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 12,
+    "artifact": 0,
+    "carried": 12,
+    "llm": 0,
+    "unmapped": 3
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    71
+   ],
+   "rows": 18,
+   "columns": 3,
+   "accepted_cells": 49,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 3,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 3,
+    "artifact": 0,
+    "carried": 6,
+    "llm": 1,
+    "unmapped": 8
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    74
+   ],
+   "rows": 41,
+   "columns": 3,
+   "accepted_cells": 101,
+   "flags": 0,
+   "scale": "1000",
+   "footing_groups": 2,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 1407224 + change -936340 (net-change row, fx inside change) vs end 470884"
+   },
+   "mapping": {
+    "lexical": 6,
+    "artifact": 0,
+    "carried": 8,
+    "llm": 13,
+    "unmapped": 14
+   }
+  }
+ },
+ "carried_from": "bbby_ar2022",
+ "simulation": {
+  "status": "ok",
+  "symbolic_balanced": true,
+  "scenarios": {
+   "baseline": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "expansion": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "recession": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "competition": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "rate_hike": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   },
+   "inflation": {
+    "mean_net_income_m": "0",
+    "violations": 201
+   }
+  }
+ },
+ "llm_calls": 37,
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\bbby_2021.json",
+  "approved_by": "PENDING SIGN-OFF"
+ }
+}

@@ -103,7 +103,9 @@ def _read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def latest_annual(company: Company) -> Filing:
+def _annual_filings(company: Company) -> list[tuple[str, str, str, str, str]]:
+    """(form, accession, primary document, filing date, report date) rows
+    for the company's annual form, newest filing first."""
     submissions_path = DATA_DIR / f"submissions_CIK{company.cik}.json"
     _note(
         _download(SUBMISSIONS_URL.format(cik=company.cik), submissions_path),
@@ -120,7 +122,32 @@ def latest_annual(company: Company) -> Filing:
     matches = [row for row in rows if row[0] == company.form]
     if not matches:
         sys.exit(f"no {company.form} found for {company.name} (CIK {company.cik})")
-    _, accession, primary, filed, period = max(matches, key=lambda row: row[3])
+    matches.sort(key=lambda row: row[3], reverse=True)
+    return matches
+
+
+def latest_annual(company: Company, offset: int = 0) -> Filing:
+    matches = _annual_filings(company)
+    if offset >= len(matches):
+        sys.exit(
+            f"{company.name} has {len(matches)} {company.form} filings in the "
+            f"submissions window; offset {offset} is out of range"
+        )
+    _, accession, primary, filed, period = matches[offset]
+    return Filing(company, accession.replace("-", ""), primary, filed, period)
+
+
+def annual_by_period(company: Company, period_prefix: str) -> Filing:
+    """The annual filing whose fiscal period end starts with the prefix
+    (e.g. "2022-02" for a fiscal year that ended in February 2022)."""
+    matches = [
+        row for row in _annual_filings(company) if row[4].startswith(period_prefix)
+    ]
+    if not matches:
+        sys.exit(
+            f"no {company.form} with report date {period_prefix}* for {company.name}"
+        )
+    _, accession, primary, filed, period = matches[0]
     return Filing(company, accession.replace("-", ""), primary, filed, period)
 
 

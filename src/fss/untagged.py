@@ -88,11 +88,22 @@ def _condensed(label: str) -> str:
     return re.sub(r"[^a-z0-9]", "", canon_label(label))
 
 
-def _load_dictionary() -> tuple[dict[str, ConceptInfo], dict[str, set[str]]]:
-    """label -> concept info (plain and condensed), plus a token index."""
+def _load_dictionary() -> tuple[
+    dict[str, ConceptInfo], dict[str, dict[str, ConceptInfo]], dict[str, set[str]]
+]:
+    """label -> concept info (plain and condensed), globally and scoped per
+    statement kind, plus a token index.
+
+    The statement scope exists because the same printed label legitimately
+    means different concepts on different faces: on a balance sheet
+    ``Inventories`` is the stock (InventoryNet), on a cash flow it is the
+    period's delta (IncreaseDecreaseInInventories). Lookups prefer the
+    statement's own scope and fall back to the global view."""
     by_label: dict[str, ConceptInfo] = {}
+    by_statement: dict[str, dict[str, ConceptInfo]] = {}
     tokens: dict[str, set[str]] = {}
     for path in sorted((DATA_DIR / "extracted").glob("*.json")):
+        scoped = by_statement.setdefault(path.stem.split("_", 1)[1], {})
         payload = json.loads(path.read_text(encoding="utf-8"))
         for row in payload["rows"]:
             if row["kind"] == "abstract" or row["dims"]:
@@ -100,17 +111,15 @@ def _load_dictionary() -> tuple[dict[str, ConceptInfo], dict[str, set[str]]]:
             info = ConceptInfo(
                 row["concept"], row["balance"], row["period_type"], row["is_monetary"]
             )
-            label = canon_label(row["label"])
-            if label and label not in by_label:
-                by_label[label] = info
-            condensed = _condensed(row["label"])
-            if condensed and condensed not in by_label:
-                by_label[condensed] = info
+            for key in (canon_label(row["label"]), _condensed(row["label"])):
+                if key:
+                    by_label.setdefault(key, info)
+                    scoped.setdefault(key, info)
             local = row["concept"].split(":", 1)[-1]
             words = {w.lower() for w in re.findall(r"[A-Z][a-z]+|[a-z]+", local)}
-            words.update(label.split())
+            words.update(canon_label(row["label"]).split())
             tokens.setdefault(row["concept"], set()).update(words)
-    return by_label, tokens
+    return by_label, by_statement, tokens
 
 
 def _shortlist(label: str, tokens: dict[str, set[str]], top: int = 8) -> list[str]:
@@ -573,10 +582,12 @@ def map_rows(
     llm_client: llm_module.LLMClient | None,
     audit: LLMAudit,
     overlay: dict[str, ConceptInfo] | None = None,
+    overlay_source: str = "artifact",
 ) -> tuple[dict[int, ConceptInfo], dict[str, int], dict[int, str]]:
-    """Row -> taxonomy concept: lexical, then the signed-off artifact
-    overlay (runtime), then LLM-over-shortlist (build time only)."""
-    stats = {"lexical": 0, "artifact": 0, "llm": 0, "unmapped": 0}
+    """Row -> taxonomy concept: lexical, then the reviewed artifact
+    overlay (runtime replay, or a prior year's artifact carried forward
+    at onboard time), then LLM-over-shortlist (build time only)."""
+    stats = {"lexical": 0, "artifact": 0, "carried": 0, "llm": 0, "unmapped": 0}
     concepts: dict[int, ConceptInfo] = {}
     sources: dict[int, str] = {}
     llm_budget = 25  # mapping calls per statement (cost bound)
@@ -605,7 +616,7 @@ def map_rows(
                 or overlay.get(_condensed(bare))
             )
             if info is not None:
-                source = "artifact"
+                source = overlay_source
         if info is None and llm_client is not None and row.label.strip() and llm_budget > 0:
             llm_budget -= 1
             shortlist = _shortlist(bare, tokens)
@@ -1033,6 +1044,7 @@ def analyze_pdf(
     simulate_paths: int = 200,
     seed: int = 20260706,
     mode: str = "explore",
+    carry_from: str | None = None,
 ) -> dict[str, Any]:
     stem = pdf_path.stem.lower()
     if re.fullmatch(r"(ar|annual[_ ]?report)?[_ ]?\d{4}", stem):
@@ -1046,7 +1058,7 @@ def analyze_pdf(
     # time, determinism at run time)
     llm_client = None if mode == "runtime" else llm_module.default_client()
     audit = LLMAudit()
-    dictionary, tokens = _load_dictionary()
+    dictionary, by_statement, tokens = _load_dictionary()
     outcome: dict[str, Any] = {
         "document": document,
         "file": str(pdf_path),
@@ -1087,6 +1099,21 @@ def analyze_pdf(
             return outcome
         for kind, stmt_artifact in artifact.get("statements", {}).items():
             overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
+    carry_artifact: dict[str, Any] | None = None
+    if mode == "onboard" and carry_from:
+        carry_artifact = load_artifact(carry_from)
+        if carry_artifact is None:
+            raise SystemExit(
+                f"carry-from artifact not found: {artifact_path(carry_from)}; "
+                "onboard that document first"
+            )
+        # a prior year's reviewed mapping seeds this year's onboarding:
+        # labels that match resolve without a model, and every carried
+        # choice still faces the polarity veto, footing, and identities
+        for kind, stmt_artifact in carry_artifact.get("statements", {}).items():
+            overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
+        outcome["carried_from"] = carry_from
+    overlay_source = "carried" if carry_artifact is not None else "artifact"
     build: dict[str, Any] = {
         "document": document,
         "source_file": str(pdf_path),
@@ -1095,6 +1122,12 @@ def analyze_pdf(
         "approved_by": "PENDING SIGN-OFF",
         "statements": {},
     }
+    if carry_artifact is not None:
+        build["carried_from"] = {
+            "document": carry_from,
+            "source_sha256": carry_artifact.get("source_sha256", ""),
+            "approved_by": carry_artifact.get("approved_by", "PENDING SIGN-OFF"),
+        }
     statements: dict[str, StructuredStatement] = {}
     with pdfplumber.open(str(pdf_path)) as pdf:
         text_options = locate.probe_text_options(pdf)
@@ -1130,7 +1163,22 @@ def analyze_pdf(
                     page_indices = assigned.get(statement_kind)
                     if page_indices:
                         record["located_by"] = "deterministic"
-                    else:
+                    if not page_indices and carry_artifact is not None:
+                        carried_pages = (
+                            carry_artifact.get("statements", {})
+                            .get(statement_kind, {})
+                            .get("pages")
+                        )
+                        if carried_pages:
+                            # prior-year pages are hints, not truth: they
+                            # face the same density bar and clustering the
+                            # LLM's picks face before they are believed
+                            page_indices = _snap_llm_pages(
+                                list(carried_pages), pages, assigned, statement_kind
+                            )
+                            if page_indices:
+                                record["located_by"] = "carried"
+                    if not page_indices:
                         if llm_client is None:
                             record["error"] = "not located (no LLM fallback configured)"
                             continue
@@ -1188,14 +1236,17 @@ def analyze_pdf(
                 # resolved entries so the flag count and the simulation
                 # gate see the post-adjudication state
                 reconciled.flags = [p for p in reconciled.flags if p.rule == "flagged"]
+                lexicon = dict(dictionary)
+                lexicon.update(by_statement.get(statement_kind, {}))
                 concepts, mapping_stats, sources = map_rows(
                     statement_kind,
                     reconciled,
-                    dictionary,
+                    lexicon,
                     tokens,
                     llm_client,
                     audit,
                     overlay=overlays.get(statement_kind),
+                    overlay_source=overlay_source,
                 )
                 checks = run_checks(reconciled, statement_kind, concepts)
                 record.update(
@@ -1525,9 +1576,17 @@ def main(mode: str = "explore") -> None:
         summarize(base_dir)
         return
     rebuild = False
-    if mode == "onboard" and arguments and arguments[0] == "--rebuild":
-        rebuild = True
-        arguments = arguments[1:]
+    carry_from: str | None = None
+    if mode == "onboard":
+        if "--rebuild" in arguments:
+            rebuild = True
+            arguments = [a for a in arguments if a != "--rebuild"]
+        if "--carry-from" in arguments:
+            marker = arguments.index("--carry-from")
+            if marker + 1 >= len(arguments):
+                raise SystemExit("--carry-from requires a prior document name")
+            carry_from = arguments[marker + 1]
+            arguments = arguments[:marker] + arguments[marker + 2 :]
     targets: list[Path] = []
     for argument in arguments or [
         str(Path("previous_llm_extractor/annual_reports/for_financial_statements"))
@@ -1543,7 +1602,7 @@ def main(mode: str = "explore") -> None:
             path = rebuild_artifact(pdf_path)
             print(f"    -> artifact {path}")
             continue
-        outcome = analyze_pdf(pdf_path, mode=mode)
+        outcome = analyze_pdf(pdf_path, mode=mode, carry_from=carry_from)
         print(f"    -> {outcome['simulation']['status']}")
     if not rebuild:
         summarize(base_dir)

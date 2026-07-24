@@ -32,6 +32,13 @@ all comparative columns. Statement of equity and OCI are out of MVP scope.
       drivers.py, simulate.py               scenarios, Monte Carlo
       validate.py, render.py                checks, native rendering
       accept.py, cli.py                     acceptance battery, entry points
+      measure.py                            PDF-only accuracy vs tag ground truth
+      llm.py                                LLM clients (build time only), audit
+      symbolic.py                           SymPy flow-closure and DAG order proof
+      tfsim.py                              vectorized TensorFlow Monte Carlo fan
+      untagged.py                           untagged pipeline; onboard/runtime
+                                            mapping artifacts; carry-forward
+      carry_demo.py                         adjacent-year carry-forward validation
 
 ## Extraction error model
 

@@ -1,0 +1,92 @@
+{
+ "document": "microsoft_2024",
+ "file": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\carry\\microsoft_2024.pdf",
+ "mode": "onboard",
+ "source_sha256": "15fe53f0e0fbb4e604207646ab6db5ac1fa2e2bd0d346b5e88798d4f247dc3e6",
+ "llm": true,
+ "statements": {
+  "balance_sheet": {
+   "located_by": "deterministic",
+   "pages": [
+    82
+   ],
+   "llm_adjudicated": 0,
+   "rows": 34,
+   "columns": 2,
+   "accepted_cells": 68,
+   "flags": 1,
+   "scale": "1000000",
+   "footing_groups": 7,
+   "footing_pass": true,
+   "identity": {
+    "pass": true,
+    "detail": "assets vs combined right-hand total"
+   },
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 34,
+    "artifact": 0,
+    "carried": 0,
+    "llm": 0,
+    "unmapped": 0
+   }
+  },
+  "income_statement": {
+   "located_by": "deterministic",
+   "pages": [
+    80
+   ],
+   "rows": 19,
+   "columns": 3,
+   "accepted_cells": 57,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 6,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": null,
+   "mapping": {
+    "lexical": 15,
+    "artifact": 0,
+    "carried": 0,
+    "llm": 0,
+    "unmapped": 4
+   }
+  },
+  "cash_flow": {
+   "located_by": "deterministic",
+   "pages": [
+    84
+   ],
+   "rows": 34,
+   "columns": 3,
+   "accepted_cells": 102,
+   "flags": 0,
+   "scale": "1000000",
+   "footing_groups": 4,
+   "footing_pass": true,
+   "identity": null,
+   "cash_tie": {
+    "pass": true,
+    "detail": "begin 34704 + change -16389 (net-change row, fx inside change) vs end 18315"
+   },
+   "mapping": {
+    "lexical": 31,
+    "artifact": 0,
+    "carried": 0,
+    "llm": 3,
+    "unmapped": 0
+   }
+  }
+ },
+ "carried_from": "microsoft_2025",
+ "simulation": {
+  "status": "skipped",
+  "reason": "1 flagged balance-sheet cells (adjudication required before simulation)"
+ },
+ "llm_calls": 5,
+ "artifact": {
+  "path": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\artifacts\\mappings\\microsoft_2024.json",
+  "approved_by": "PENDING SIGN-OFF"
+ }
+}

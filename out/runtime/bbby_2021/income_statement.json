@@ -1,0 +1,746 @@
+{
+ "company": "bbby_2021",
+ "standard": "untagged",
+ "statement": "income_statement",
+ "linkrole": "document:bbby_2021:income_statement",
+ "role_definition": "income_statement (untagged extraction)",
+ "currency": "",
+ "columns": [
+  "D2022-01-01:2022-12-31",
+  "D2021-01-01:2021-12-31",
+  "D2020-01-01:2020-12-31"
+ ],
+ "rows": [
+  {
+   "order": 0,
+   "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+   "dims": [],
+   "label": "Net sales",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "7867778000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "9233028000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "11158580000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 1,
+   "concept": "us-gaap:CostOfGoodsAndServicesSold",
+   "dims": [],
+   "label": "Cost of sales",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "5384287000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "6114947000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "7616920000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 2,
+   "concept": "ifrs-full:GrossProfit",
+   "dims": [],
+   "label": "Gross profit",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "2483491000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "3118081000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "3541660000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 3,
+   "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
+   "dims": [],
+   "label": "Selling, general and administrative expenses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "2692292000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "3224363000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "3732498000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 4,
+   "concept": "ck0001639920:AdjustmentForImpairmentChargesOnRealEstateAssets",
+   "dims": [],
+   "label": "Impairments, including on assets held for sale",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "36531000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "127341000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "509226000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 5,
+   "concept": "doc:RestructuringAndTransformationInitiativeExpenses_5",
+   "dims": [],
+   "label": "Restructuring and transformation initiative expenses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "144025000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "102202000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 6,
+   "concept": "doc:LossOnSaleOfBusinesses_6",
+   "dims": [],
+   "label": "Loss on sale of businesses",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "18221000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "1062000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 7,
+   "concept": "us-gaap:OperatingIncomeLoss",
+   "dims": [],
+   "label": "Operating loss",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-407578000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-336887000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-700064000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 8,
+   "concept": "doc:InterestExpenseNet_8",
+   "dims": [],
+   "label": "Interest expense, net",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "64702000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "76913000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "64789000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 9,
+   "concept": "doc:LossGainOnExtinguishmentOfDebt_9",
+   "dims": [],
+   "label": "Loss (gain) on extinguishment of debt",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "376000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-77038000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 10,
+   "concept": "doc:LossBeforeProvisionBenefitFromIncomeTaxes_10",
+   "dims": [],
+   "label": "Loss before provision (benefit) from income taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-472656000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-336762000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-764853000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 11,
+   "concept": "us-gaap:IncomeTaxExpenseBenefit",
+   "dims": [],
+   "label": "Provision (benefit) from income taxes",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "86967000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-185989000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-151037000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 12,
+   "concept": "us-gaap:NetIncomeLoss",
+   "dims": [],
+   "label": "Net loss",
+   "depth": 1,
+   "kind": "derived",
+   "derivation": "calc",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "credit",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-559623000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-150773000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-613816000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 13,
+   "concept": "ifrs-full:BasicEarningsLossPerShare",
+   "dims": [],
+   "label": "Net loss per share - Basic",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-5.64",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-1.24",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-4.94",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 14,
+   "concept": "ifrs-full:DilutedEarningsLossPerShare",
+   "dims": [],
+   "label": "Net loss per share - Diluted",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "",
+   "is_monetary": true,
+   "is_extension": false,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "-5.64",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "-1.24",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "-4.94",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 15,
+   "concept": "doc:WeightedAverageSharesOutstandingBasic_15",
+   "dims": [],
+   "label": "Weighted average shares outstanding - Basic",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "99249000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "121446000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "124352000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 16,
+   "concept": "doc:WeightedAverageSharesOutstandingDiluted_16",
+   "dims": [],
+   "label": "Weighted average shares outstanding - Diluted",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": "99249000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": "121446000",
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "124352000",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  },
+  {
+   "order": 17,
+   "concept": "doc:DividendsDeclaredPerShare_17",
+   "dims": [],
+   "label": "Dividends declared per share",
+   "depth": 1,
+   "kind": "leaf",
+   "derivation": "",
+   "preferred_label": null,
+   "negated": false,
+   "displayed_sign": 1,
+   "period_type": "duration",
+   "balance": "debit",
+   "is_monetary": true,
+   "is_extension": true,
+   "anchor": null,
+   "section": [],
+   "cells": [
+    {
+     "period": "D2022-01-01:2022-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2021-01-01:2021-12-31",
+     "value": null,
+     "decimals": -6,
+     "unit": null
+    },
+    {
+     "period": "D2020-01-01:2020-12-31",
+     "value": "0.68",
+     "decimals": -6,
+     "unit": null
+    }
+   ]
+  }
+ ],
+ "calc_children": {
+  "ifrs-full:GrossProfit": [
+   [
+    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "1"
+   ],
+   [
+    "us-gaap:CostOfGoodsAndServicesSold",
+    "-1"
+   ]
+  ],
+  "us-gaap:NetIncomeLoss": [
+   [
+    "doc:LossBeforeProvisionBenefitFromIncomeTaxes_10",
+    "1"
+   ],
+   [
+    "us-gaap:IncomeTaxExpenseBenefit",
+    "-1"
+   ]
+  ],
+  "us-gaap:OperatingIncomeLoss": [
+   [
+    "ifrs-full:GrossProfit",
+    "1"
+   ],
+   [
+    "us-gaap:SellingGeneralAndAdministrativeExpense",
+    "-1"
+   ],
+   [
+    "ck0001639920:AdjustmentForImpairmentChargesOnRealEstateAssets",
+    "-1"
+   ],
+   [
+    "doc:RestructuringAndTransformationInitiativeExpenses_5",
+    "-1"
+   ],
+   [
+    "doc:LossOnSaleOfBusinesses_6",
+    "-1"
+   ]
+  ]
+ },
+ "notes": [
+  "columns assume 31 Dec fiscal years: [2022, 2021, 2020]"
+ ]
+}

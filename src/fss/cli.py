@@ -29,6 +29,13 @@ def main() -> int:
         action="store_true",
         help="assemble artifacts from committed build products (no LLM calls)",
     )
+    onboard.add_argument(
+        "--carry-from",
+        default=None,
+        metavar="DOCUMENT",
+        help="seed pages and label->concept mapping from a prior document's "
+        "artifact (e.g. microsoft_2025); the model is consulted only for deltas",
+    )
     runtime = sub.add_parser(
         "runtime",
         help="RUN time: deterministic replay from the signed mapping artifact; no model access",
@@ -55,13 +62,19 @@ def main() -> int:
         edgar.main()
         return 0
     if args.command == "extract":
+        import sys
+
         from fss import tagread
 
+        sys.argv = ["extract"]  # tagread.main reads argv for company keys
         tagread.main()
         return 0
     if args.command == "measure":
+        import sys
+
         from fss import measure
 
+        sys.argv = ["measure"]  # measure.main reads argv for company keys
         measure.main()
         return 0
     if args.command in ("untagged", "onboard", "runtime"):
@@ -74,6 +87,8 @@ def main() -> int:
             flags.append("--merge")
         if getattr(args, "rebuild", False):
             flags.append("--rebuild")
+        if getattr(args, "carry_from", None):
+            flags.extend(["--carry-from", args.carry_from])
         sys.argv = [args.command, *flags, *args.paths]
         mode = {"untagged": "explore", "onboard": "onboard", "runtime": "runtime"}
         untagged_module.main(mode=mode[args.command])

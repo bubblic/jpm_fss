@@ -1,0 +1,470 @@
+{
+ "document": "bbby_2021",
+ "source_file": "C:\\Users\\jaebu\\repo\\jpmorgan\\jpm_fss\\data\\carry\\bbby_2021.pdf",
+ "source_sha256": "d62cc2e0e70dbf1dc9e603e96ce69e82acea903c27ff935bb34f1e35c521de2b",
+ "code_version": "7192cce",
+ "approved_by": "PENDING SIGN-OFF",
+ "statements": {
+  "balance_sheet": {
+   "pages": [
+    69,
+    70
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Cash and cash equivalents",
+     "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Merchandise inventories",
+     "concept": "us-gaap:InventoryNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Prepaid expenses and other current assets",
+     "concept": "us-gaap:OtherAssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Total current assets",
+     "concept": "us-gaap:AssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Long term investment securities",
+     "concept": "us-gaap:LongTermInvestments",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Property and equipment, net",
+     "concept": "us-gaap:PropertyPlantAndEquipmentNet",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Operating lease assets",
+     "concept": "us-gaap:OperatingLeaseRightOfUseAsset",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Other assets",
+     "concept": "us-gaap:OtherAssetsCurrent",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Total assets",
+     "concept": "us-gaap:Assets",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Accounts payable",
+     "concept": "us-gaap:AccountsPayableCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Current operating lease liabilities",
+     "concept": "ifrs-full:CurrentFinancialLiabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Total current liabilities",
+     "concept": "us-gaap:LiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Other liabilities",
+     "concept": "us-gaap:OtherLiabilitiesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Operating lease liabilities",
+     "concept": "us-gaap:OperatingLeaseLiabilityNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Income taxes payable",
+     "concept": "us-gaap:AccruedIncomeTaxesCurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Long term debt",
+     "concept": "us-gaap:LongTermDebtNoncurrent",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Total liabilities",
+     "concept": "us-gaap:Liabilities",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Common stock - $0.01 par value; authorized - 900,000 shares; issued 344,146 and 343,241, respectively; outstanding 81,979 and 109,621 shares, respectively",
+     "concept": "us-gaap:CommonStocksIncludingAdditionalPaidInCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Additional paid-in capital",
+     "concept": "ifrs-full:AdditionalPaidinCapital",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Retained earnings",
+     "concept": "us-gaap:RetainedEarningsAccumulatedDeficit",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Treasury stock, at cost; 262,167 and 233,620 shares, respectively",
+     "concept": "ifrs-full:TreasuryShares",
+     "balance": "debit",
+     "period_type": "instant",
+     "source": "carried"
+    },
+    {
+     "label": "Accumulated other comprehensive loss",
+     "concept": "us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Total shareholders' equity",
+     "concept": "us-gaap:StockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    },
+    {
+     "label": "Total liabilities and shareholders' equity",
+     "concept": "us-gaap:LiabilitiesAndStockholdersEquity",
+     "balance": "credit",
+     "period_type": "instant",
+     "source": "lexical"
+    }
+   ],
+   "adjudications": []
+  },
+  "income_statement": {
+   "pages": [
+    71
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net sales",
+     "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Cost of sales",
+     "concept": "us-gaap:CostOfGoodsAndServicesSold",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Gross profit",
+     "concept": "ifrs-full:GrossProfit",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Selling, general and administrative expenses",
+     "concept": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Impairments, including on assets held for sale",
+     "concept": "ck0001639920:AdjustmentForImpairmentChargesOnRealEstateAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Operating loss",
+     "concept": "us-gaap:OperatingIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Provision (benefit) from income taxes",
+     "concept": "us-gaap:IncomeTaxExpenseBenefit",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Net loss",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Net loss per share - Basic",
+     "concept": "ifrs-full:BasicEarningsLossPerShare",
+     "balance": "",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Net loss per share - Diluted",
+     "concept": "ifrs-full:DilutedEarningsLossPerShare",
+     "balance": "",
+     "period_type": "duration",
+     "source": "carried"
+    }
+   ],
+   "adjudications": []
+  },
+  "cash_flow": {
+   "pages": [
+    74
+   ],
+   "located_by": "deterministic",
+   "mapping": [
+    {
+     "label": "Net loss",
+     "concept": "us-gaap:NetIncomeLoss",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Depreciation and amortization",
+     "concept": "us-gaap:DepreciationDepletionAndAmortization",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Stock-based compensation",
+     "concept": "us-gaap:ShareBasedCompensation",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Deferred income taxes",
+     "concept": "us-gaap:DeferredIncomeTaxExpenseBenefit",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Other",
+     "concept": "us-gaap:OtherNoncashIncomeExpense",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Merchandise inventories",
+     "concept": "us-gaap:IncreaseDecreaseInInventories",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Other current assets",
+     "concept": "us-gaap:IncreaseDecreaseInOtherCurrentAssets",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Other assets",
+     "concept": "us-gaap:IncreaseDecreaseInOtherCurrentAssets",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Accounts payable",
+     "concept": "us-gaap:IncreaseDecreaseInAccountsPayable",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Merchandise credit and gift card liabilities",
+     "concept": "us-gaap:IncreaseDecreaseInOtherOperatingLiabilities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Income taxes payable",
+     "concept": "us-gaap:IncreaseDecreaseInAccruedIncomeTaxesPayable",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Other liabilities",
+     "concept": "us-gaap:IncreaseDecreaseInOtherCurrentLiabilities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Net cash provided by operating activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "balance": "",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Purchases of held-to-maturity investment securities",
+     "concept": "us-gaap:PaymentsToAcquireInvestments",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Net proceeds from sales of businesses",
+     "concept": "ifrs-full:CashFlowsFromLosingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Net proceeds from sales of property",
+     "concept": "ifrs-full:ProceedsFromDisposalsOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Net cash (used in) provided by investing activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInInvestingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "carried"
+    },
+    {
+     "label": "Borrowing of long-term debt",
+     "concept": "us-gaap:ProceedsFromIssuanceOfLongTermDebt",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Repayments of long-term debt",
+     "concept": "us-gaap:RepaymentsOfLongTermDebt",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Repayments of finance leases",
+     "concept": "ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Repurchase of common stock, including fees",
+     "concept": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Payment of dividends",
+     "concept": "us-gaap:PaymentsOfDividends",
+     "balance": "credit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Proceeds from exercise of stock options",
+     "concept": "ifrs-full:ProceedsFromExerciseOfOptions",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "lexical"
+    },
+    {
+     "label": "Net cash used in financing activities",
+     "concept": "us-gaap:NetCashProvidedByUsedInFinancingActivities",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Effect of exchange rate changes on cash, cash equivalents, and restricted cash",
+     "concept": "us-gaap:EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsIncludingDisposalGroupAndDiscontinuedOperations",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Net (decrease) increase in cash, cash equivalents and restricted cash",
+     "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    },
+    {
+     "label": "Net (decrease) increase in cash, cash equivalents and restricted cash",
+     "concept": "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+     "balance": "debit",
+     "period_type": "duration",
+     "source": "llm"
+    }
+   ],
+   "adjudications": []
+  }
+ },
+ "carried_from": {
+  "document": "bbby_ar2022",
+  "source_sha256": "1c0493f0331effa2009b98f64cae9988b11b5b6ae635a258c0d15d52bf481d25",
+  "approved_by": "PENDING SIGN-OFF"
+ },
+ "llm_calls": 37
+}

@@ -1,0 +1,30 @@
+{
+ "calls": 5,
+ "decisions": [
+  {
+   "kind": "map_concept",
+   "label": "Service and other",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Service and other",
+   "chosen": null
+  },
+  {
+   "kind": "map_concept",
+   "label": "Net recognized losses (gains) on investments and derivatives",
+   "chosen": "msft:GainLossOnInvestmentsAndDerivativeInstruments"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Proceeds from issuance of debt, maturities of 90 days or les",
+   "chosen": "us-gaap:ProceedsFromRepaymentsOfShortTermDebtMaturingInThreeMonthsOrLess"
+  },
+  {
+   "kind": "map_concept",
+   "label": "Acquisition of companies, net of cash acquired, and purchase",
+   "chosen": "msft:AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets"
+  }
+ ]
+}

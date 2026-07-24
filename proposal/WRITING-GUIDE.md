@@ -99,10 +99,21 @@ If any answer is "no," explain it first.
   mechanism section, its measured result in the evidence section, and its
   governance wrapper. Every section builds a commitment, evidences it, or wraps
   it for deployment; nothing free-floats.
-- **Tight and information-dense**, matching the existing prose. `\lead` paragraphs
-  are the unit of argument below subsections; numbers live in tables, prose
-  carries meaning; state each idea once, in its owner section, then
-  cross-reference rather than repeat.
+- **Tight means once, not compressed.** Each idea appears once, in its owner
+  section, cross-referenced rather than repeated; `\lead` paragraphs are the
+  unit of argument below subsections; numbers live in tables, prose carries
+  meaning. Density comes from cutting repetition and padding, never from
+  compressing an explanation.
+- **Expound mechanisms, compress repetition.** When explaining how something
+  works, write the full explanation the way you would answer a sharp reader's
+  question: name the mechanism, walk the causal chain step by step, state the
+  consequences that fall out, and state the honest limitation. Do not fold a
+  mechanism into a single dense clause to save lines; a reader who must unpack
+  a clause-chain was not served by its brevity. (Worked example: the
+  driver-inheritance passage in the state-space section states the
+  uniform-rate mechanism, derives pro-rata deltas and exact footing as its
+  consequences, and names the preserved-mix limitation, instead of compressing
+  all four into one sentence.)
 - **Intellectual honesty is the sales pitch.** The proposal's credibility rests on
   "these are not aspirations" and "reported honestly as such". Concede what is
   not measured; keep the risk register's mitigation column honest statements,
@@ -124,6 +135,8 @@ If any answer is "no," explain it first.
   - arithmetic before semantics (words nominate, numbers confirm): a label
     grammar only proposes structure, every reported column must close on it
     before anything is accepted, and concepts land only afterward;
+  - shared coordinates, not shared shape: the state space is one graph every
+    firm populates a disclosed subset of, never a fixed template with slots;
   - directional credibility vs point forecast.
 
 ## 3. Structure, mechanics, and numbers
@@ -271,8 +284,10 @@ and whenever asked whether the proposal is consistent:
   two text engines alone accept only where geometry has no reading, recorded as
   the weaker rule.
 - *The LLM*: may break ties, may never introduce a number no deterministic
-  reader read; concept choices from lexical shortlists under a polarity veto;
-  build time only. `fss onboard` emits a signed, versioned mapping artifact;
+  reader read; concept mapping climbs a ladder (harvested lexicon, carried
+  artifact, the unique-hit taxonomy-label tier, then the model over a lexical
+  shortlist, with the heuristic rungs under the polarity veto); build time
+  only. `fss onboard` emits a signed, versioned mapping artifact;
   `fss runtime` never constructs a model client, replays adjudications only
   where a reader still reads the signed value, refuses drifted hashes
   ("re-onboarding required"), and reruns byte-identically. With no endpoint,
@@ -291,6 +306,13 @@ and whenever asked whether the proposal is consistent:
 - *Untagged sweep*: fourteen investor-relations documents, five jurisdictions,
   five distressed filers; a flagged balance-sheet cell refuses simulation (the
   structural quality gate).
+- *Foreign layouts*: six IR documents scored against their filers' tags read
+  1,316 of 1,343 accepted cells exactly (98.0%), and all 27 exceptions are
+  named attribution defects (Exxon's fused-page column displacement,
+  JPMorgan's unscaled share rows, pairings against empty filing cells), never
+  digit errors; the two bank balance sheets do not align and neither bank
+  simulates (the integrity gates refuse them); mapping accuracy without tags
+  is 111 of 270, which is why sign-off gates simulation.
 - *Part I vs Part II*: Part I is stochastic by construction, a
   scenario-conditioned distribution with reasoned, documented (not fitted)
   parameters, and is **not** a calibrated probabilistic forecast; Part II

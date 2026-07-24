@@ -264,7 +264,11 @@ and whenever asked whether the proposal is consistent:
   `fss runtime` never constructs a model client, replays adjudications only
   where a reader still reads the signed value, refuses drifted hashes
   ("re-onboarding required"), and reruns byte-identically. With no endpoint,
-  every stage degrades to deterministic behavior plus flags.
+  every stage degrades to deterministic behavior plus flags. A prior year's
+  signed artifact can seed a new year's onboarding (`--carry-from`):
+  exact-label matches replay reviewed choices, deltas go to the model, and
+  carry replicates the prior artifact verbatim, errors included, so the
+  inherited sign-off, not the mechanism, is the accuracy gate.
 - *Document scope*: born-digital means **authored** text on statement pages;
   OCR'd scans carry an invisible text layer over raster and must abstain; the
   gate is mechanical and per page; the cut removes an OCR dependency, not the

@@ -17,8 +17,9 @@ The document set:
   claim it states has since been corrected as wrong (the born-digital scope gate
   was such a case), propagate the correction so the retired claim stands nowhere
   as if still true. Deliberate evolution (the tightened timeline, the softened
-  measurement language) stays, because the full proposal narrates those deltas
-  explicitly. When in doubt, propagate.
+  measurement language) stays in the draft as history; the full proposal
+  stands alone and never references the draft, so those deltas are visible
+  only by comparing the documents. When in doubt, propagate.
 - `Financial_Statement_Simulator_Proposal_Draft.tex` (v1) is frozen history. Do
   not edit it.
 
@@ -87,6 +88,10 @@ If any answer is "no," explain it first.
   an em dash's job in prose. Use commas, semicolons, colons, parentheses. En-dash
   ranges (`\ref{eq:a}--\ref{eq:b}`, date and page ranges) and TikZ path syntax
   (`--` inside `\draw`) are fine and are excluded by the checks in section 4.
+- **The full proposal stands alone.** A fresh reader sees THE proposal: never
+  reference the draft, its review, or the document's own evolution. State what
+  is, with evidence, not what changed since an earlier version. The section 4
+  scan enforces the word.
 - **One continuous argument.** The spine: a bank needs forward-looking statements
   it can audit; three design commitments carry the answer (ingestion at a
   near-zero error bar enforced by decorrelated agreement; encoding lossless by
@@ -174,6 +179,10 @@ If any answer is "no," explain it first.
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex,
         ..\README.md, ..\DEMO.md -Pattern
         'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages'
+
+- Draft-reference scan (the full proposal stands alone; must return nothing):
+
+      Select-String -Path .\Financial_Statement_Simulator_Proposal.tex -Pattern 'draft'
 
 - After a figure or table change, open the PDF and look at the page before
   committing.
@@ -319,6 +328,10 @@ and whenever asked whether the proposal is consistent:
   and the label-to-concept map"). Corrected 2026-07-24: carry seeds semantics,
   never layout; page location always belongs to the deterministic locator or
   its LLM fallback, never to a prior document's artifact.
+- References to the draft inside the full proposal ("since the draft", "the
+  draft plan", "the original phasing"). Corrected 2026-07-24: the full
+  proposal stands alone for a fresh reader; deltas against the draft live in
+  the repository history, not in the document.
 
 Add to this list, and to the scan pattern in section 4, whenever a substantive
 claim is corrected.

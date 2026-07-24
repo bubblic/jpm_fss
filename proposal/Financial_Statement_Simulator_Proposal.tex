@@ -100,7 +100,7 @@ The enterprise-grade bar for this project has been the intent from the outset. P
 
 The work divides into two parts. \textbf{Part I}, the MVP and the focus of this proposal, is a faithful simulator: it reads a real filing into a structured statement and produces next-period statements that carry the same line items, comply with the source standard, and move in the right direction under scenarios. Its driver layer is a simple state-space model, stochastic by construction, so Part I already runs stochastic simulations: for a given scenario it samples driver noise and propagates it through the engine to a distribution of internally consistent statements. \textbf{Part II}, a later and conditional extension, keeps the same machinery but replaces the simple noise with a learned, conditional joint distribution of the drivers, the main modelling IP. In the phased plan of Section~\ref{sec:plan}, Part I is Phases 0 through 3 and Part II is Phase 4.
 
-Since the draft of this proposal, the riskiest mechanical claims have been retired by working code. A one-day knowledge-graph spike proved the taxonomy-graph encoding on one balance sheet; the validation build described in Section~\ref{sec:evidence} extended that proof to all three core statements, four firms, two accounting standards, a PDF-only extraction mode with a measured error rate, exact reconstruction, and closed-book simulation under scenarios. The proposal can therefore commit to acceptance gates with observed evidence that they are reachable, rather than engineering judgment alone.
+The riskiest mechanical claims have already been retired by working code. A one-day knowledge-graph spike proved the taxonomy-graph encoding on one balance sheet; the validation build described in Section~\ref{sec:evidence} extended that proof to all three core statements, four firms, two accounting standards, a PDF-only extraction mode with a measured error rate, exact reconstruction, and closed-book simulation under scenarios. The proposal can therefore commit to acceptance gates with observed evidence that they are reachable, rather than engineering judgment alone.
 
 % ===== 3. Problem statement =====
 \section{Problem statement and intended use}
@@ -436,7 +436,7 @@ Every accepted-cell error found at any point is a sev-1 against the extraction l
 % ===== 13. Plan =====
 \section{Phased build plan and timeline}
 \label{sec:plan}
-The validation build compresses risk out of the original phasing: what was Phase 1's core uncertainty is now reference code. The internship phases harden and extend it to the full bar.
+The validation build compresses risk out of the phased plan: what would otherwise be Phase 1's core uncertainty is already reference code. The internship phases harden and extend it to the full bar.
 
 \begin{itemize}
   \item \textbf{Phase 0 (2 weeks): scope lock and harness industrialization.} Fix the gating set (three filers per standard, one untagged document); freeze acceptance criteria with the director and the accountant reviewer; port the validation build's battery into the team's CI; golden statements recorded.
@@ -459,7 +459,7 @@ Phase 3 & Driver layer, scenarios, stochastic validation & 16 Nov to 4 Dec 2026 
 Hardening & Accountant review cycles, adversarial filings, docs & 7 Dec 2026 to 15 Jan 2027 & $\sim$4 \\ \hline
 Phase 4 & Learned driver distributions (conditional) & 18 Jan to 26 Feb 2027 & $\sim$5 \\ \hline
 \end{tabularx}
-\captionof{table}{Timeline across the internship window. The validation build pulls roughly two weeks of risk out of the draft plan's Phase 1, reallocated to the untagged-document bar and hardening.}
+\captionof{table}{Timeline across the internship window. The validation build pulls roughly two weeks of risk out of Phase 1, reallocated to the untagged-document bar and hardening.}
 \end{minipage}
 
 \vspace{4pt}

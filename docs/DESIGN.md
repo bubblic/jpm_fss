@@ -39,6 +39,8 @@ all comparative columns. Statement of equity and OCI are out of MVP scope.
       untagged.py                           untagged pipeline; onboard/runtime
                                             mapping artifacts; carry-forward
       carry_demo.py                         adjacent-year carry-forward validation
+      taxlabels.py                          unique-hit taxonomy-label tier index
+      ir_demo.py                            IR editions scored vs filings' tags
 
 ## Extraction error model
 

@@ -103,22 +103,45 @@ def _read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _annual_filings(company: Company) -> list[tuple[str, str, str, str, str]]:
+def _columnar_rows(payload: dict[str, Any]) -> list[tuple[str, str, str, str, str]]:
+    return list(
+        zip(
+            payload["form"],
+            payload["accessionNumber"],
+            payload["primaryDocument"],
+            payload["filingDate"],
+            payload["reportDate"],
+        )
+    )
+
+
+def _annual_filings(
+    company: Company, include_older: bool = False
+) -> list[tuple[str, str, str, str, str]]:
     """(form, accession, primary document, filing date, report date) rows
-    for the company's annual form, newest filing first."""
+    for the company's annual form, newest filing first.
+
+    The submissions API's recent window holds roughly the last thousand
+    filings; a prolific filer (JPMorgan files thousands of prospectuses a
+    year) pushes even last year's annual report out of it, into paged
+    older-filings files. Those pages are fetched only when asked for,
+    so the common latest-filing path stays exactly as cheap as before."""
     submissions_path = DATA_DIR / f"submissions_CIK{company.cik}.json"
     _note(
         _download(SUBMISSIONS_URL.format(cik=company.cik), submissions_path),
         f"{company.key}: submissions API response",
     )
-    recent = _read_json(submissions_path)["filings"]["recent"]
-    rows = zip(
-        recent["form"],
-        recent["accessionNumber"],
-        recent["primaryDocument"],
-        recent["filingDate"],
-        recent["reportDate"],
-    )
+    payload = _read_json(submissions_path)
+    rows = _columnar_rows(payload["filings"]["recent"])
+    if include_older:
+        for extra in payload["filings"].get("files", []):
+            name = extra["name"]
+            extra_path = DATA_DIR / name
+            _note(
+                _download(f"https://data.sec.gov/submissions/{name}", extra_path),
+                f"{company.key}: {name}",
+            )
+            rows.extend(_columnar_rows(_read_json(extra_path)))
     matches = [row for row in rows if row[0] == company.form]
     if not matches:
         sys.exit(f"no {company.form} found for {company.name} (CIK {company.cik})")
@@ -143,6 +166,13 @@ def annual_by_period(company: Company, period_prefix: str) -> Filing:
     matches = [
         row for row in _annual_filings(company) if row[4].startswith(period_prefix)
     ]
+    if not matches:
+        # not in the recent window; look through the paged older filings
+        matches = [
+            row
+            for row in _annual_filings(company, include_older=True)
+            if row[4].startswith(period_prefix)
+        ]
     if not matches:
         sys.exit(
             f"no {company.form} with report date {period_prefix}* for {company.name}"

@@ -59,6 +59,11 @@ python -m fss onboard <pdf> --carry-from <doc>
                                          #   consulted only for genuine deltas
 python -m fss.carry_demo                 # two-pair cross-year validation vs
                                          #   the filers' own tags -> out/carry/
+python -m fss.taxlabels                  # build data/taxonomy_labels.json,
+                                         #   the unique-hit standard-label tier
+                                         #   (local cache; tier off if absent)
+python -m fss.ir_demo                    # six IR editions scored against their
+                                         #   filers' tags -> out/ir_validation/
 python -m fss runtime <pdf-or-folder>    # RUN: replay from the signed
                                          #   artifact; no model access; logs
                                          #   source/code/artifact versions;

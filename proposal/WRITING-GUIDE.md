@@ -93,11 +93,12 @@ If any answer is "no," explain it first.
   is, with evidence, not what changed since an earlier version. The section 4
   scan enforces the word.
 - **One continuous argument.** The spine: a bank needs forward-looking statements
-  it can audit; three design commitments carry the answer (ingestion at a
+  it can audit; four design commitments carry the answer (ingestion at a
   near-zero error bar enforced by decorrelated agreement; encoding lossless by
-  injectivity; an engine that cannot break the books); each commitment gets its
-  mechanism section, its measured result in the evidence section, and its
-  governance wrapper. Every section builds a commitment, evidences it, or wraps
+  injectivity; an engine that cannot break the books; machinery written once,
+  with behavior at the common behavior layer over the union state space); each
+  commitment gets its mechanism section, its measured result in the evidence
+  section, and its governance wrapper. Every section builds a commitment, evidences it, or wraps
   it for deployment; nothing free-floats.
 - **Tight means once, not compressed.** Each idea appears once, in its owner
   section, cross-referenced rather than repeated; `\lead` paragraphs are the
@@ -194,7 +195,7 @@ If any answer is "no," explain it first.
 
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex,
         ..\README.md, ..\DEMO.md -Pattern
-        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages'
+        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state'
 
 - Draft-reference scan (the full proposal stands alone; must return nothing):
 
@@ -225,7 +226,7 @@ losslessness; the plan section owns dates.
 **The summary surfaces.** Re-read all of these on any substantive claim change,
 and whenever asked whether the proposal is consistent:
 
-- the executive summary (the three design commitments and the headline numbers),
+- the executive summary (the four design commitments and the headline numbers),
 - the context section's "riskiest mechanical claims have been retired" paragraph,
 - the success section's preamble ("every one of them has already been met"),
 - the component-status table in the architecture section, and its caption,
@@ -318,6 +319,18 @@ and whenever asked whether the proposal is consistent:
   parameters, and is **not** a calibrated probabilistic forecast; Part II
   replaces the noise with a learned conditional joint distribution, everything
   else fixed, and starts only on MVP sign-off.
+- *The behavior layer*: ninety authored economic roles over both standards'
+  concepts; assignment is a deterministic cascade with recorded provenance
+  (curated concept table, label keywords with section context,
+  section-and-polarity default, extension inheritance through labels,
+  anchors, and calc descendants); it owns standard- and firm-invariant
+  behavior (the write-once commitment); the identities never need it,
+  because arithmetic is universal; unresolved core driver roles refuse
+  simulation with the missing roles named.
+- *Naming*: the union state space is common as a container (one graph, both
+  standards at their own coordinates, values never merged); the common
+  behavior layer is common as a vocabulary; "standard-neutral" describes
+  machinery only, never the state.
 - *Vendor data*: standardized feeds are a non-injective encoding and cannot be
   the primary representation regardless of accuracy; outsourcing ingestion
   fails the capability test by construction; a licensed feed can serve as an
@@ -357,6 +370,12 @@ and whenever asked whether the proposal is consistent:
   draft plan", "the original phasing"). Corrected 2026-07-24: the full
   proposal stands alone for a fresh reader; deltas against the draft live in
   the repository history, not in the document.
+- "Common state space" and "standard-neutral state". Corrected 2026-07-25:
+  the old names implied cross-standard slots that elements map into, which
+  is the rejected vendor design; the state space is the *union* state space
+  (common as a container), commonality of behavior lives in the *common
+  behavior layer*, and "standard-neutral" survives only as a description of
+  machinery.
 
 Add to this list, and to the scan pattern in section 4, whenever a substantive
 claim is corrected.

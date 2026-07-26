@@ -220,6 +220,14 @@ If any answer is "no," explain it first.
 
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex -Pattern 'draft'
 
+- A repository hook re-runs these scans automatically on every assistant edit
+  to a `.tex` file under `proposal/`: the committed `.claude/settings.json`
+  wires `.claude/hooks/check_writing_style.py` as a PostToolUse gate, which
+  reports violations with line numbers and injects the section 5 review
+  checklist. It duplicates the dash and retired-phrasings patterns above, so
+  update the hook in the same edit that updates this section. It fires only on
+  assistant edits; these hand-run scans remain the pre-commit backstop.
+
 - After a figure or table change, open the PDF and look at the page before
   committing.
 - Commit the rebuilt PDF with the source. If a correction propagated into
@@ -408,16 +416,22 @@ and whenever asked whether the proposal is consistent:
   behavior layer*, and "standard-neutral" survives only as a description of
   machinery.
 
-Add to this list, and to the scan pattern in section 4, whenever a substantive
-claim is corrected.
+Add to this list, to the scan pattern in section 4, and to `RETIRED_PATTERN`
+in `.claude/hooks/check_writing_style.py`, whenever a substantive claim is
+corrected.
 
-**What auto-maintains, and what you update by hand.** Nothing here
-auto-maintains: there is no check script yet, so the section 4 commands are run
-by hand and the summary-surface list above is a *principle* (any surface that
-restates a verdict it does not own), not a fixed set; a newly added surface is
-already in scope and just needs re-reading against its owner. If the checks
-grow, a `scripts/` check in the style of the source repo is the natural Phase 0
-industrialization. Two things no script could infer must be updated as part of
+**What auto-maintains, and what you update by hand.** The mechanical layer is
+now automated for assistant edits: a PostToolUse hook, wired in the committed
+`.claude/settings.json` and implemented in
+`.claude/hooks/check_writing_style.py`, re-runs the section 4 scans on every
+assistant edit to a `.tex` file under `proposal/` and injects the review
+checklist into the session. The hook covers only what a script can check
+(dashes, retired phrasings, draft references, the frozen v1); the section 4
+commands stay as the hand-run backstop before commits and as the only check
+for edits made outside the assistant. Everything semantic still does not
+auto-maintain: the summary-surface list above is a *principle* (any surface
+that restates a verdict it does not own), not a fixed set; a newly added
+surface is already in scope and just needs re-reading against its owner. Two things no script could infer must be updated as part of
 the edit that occasions them: the **retired-phrasings list** (and its scan
 pattern) and the **load-bearing claims** above, whose canonical phrasing must
 track the argument as it evolves. Recognizing that an edit *reframes, corrects,

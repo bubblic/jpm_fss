@@ -116,4 +116,8 @@ Any edit under `proposal/`, or to the claim-restating parts of `README.md`
 and `DEMO.md`, follows `proposal/WRITING-GUIDE.md`: first principles before
 use, no em dashes in prose, numbers only from committed pipeline artifacts,
 and claim-level consistency across the summary surfaces listed there. Keep
-that guide and this file in sync.
+that guide and this file in sync. A committed PostToolUse hook
+(`.claude/settings.json` wires `.claude/hooks/check_writing_style.py`)
+re-runs the guide's section 4 scans on every assistant edit to a `.tex`
+under `proposal/` and injects the review checklist; keep the hook's patterns
+in sync with the guide too.

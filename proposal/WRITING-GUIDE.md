@@ -115,11 +115,30 @@ If any answer is "no," explain it first.
   uniform-rate mechanism, derives pro-rata deltas and exact footing as its
   consequences, and names the preserved-mix limitation, instead of compressing
   all four into one sentence.)
-- **Intellectual honesty is the sales pitch.** The proposal's credibility rests on
-  "these are not aspirations" and "reported honestly as such". Concede what is
-  not measured; keep the risk register's mitigation column honest statements,
-  not reassurance; name the blockers (an image-based document is the designed
-  OCR boundary, a flagged balance sheet refuses simulation by design).
+- **Intellectual honesty is the sales pitch.** Concede what is not measured;
+  keep the risk register's mitigation column honest statements, not
+  reassurance; name the blockers (an image-based document is the designed OCR
+  boundary, a flagged balance sheet refuses simulation by design).
+- **No grandstanding; state claims straight.** Cut rhetorical contrasts whose
+  second half is a strawman nobody holds ("by theorem, not by hope", "a
+  battery, not a sentiment", "these are not aspirations") and swagger adverbs
+  ("actually" as pure emphasis). Before cutting, check whether the flourish
+  carried content, the kind of guarantee or the ground for confidence, and
+  restate that content plainly ("provably lossless"). A contrast survives
+  only when both sides are live alternatives a reader might hold ("tags are
+  the best case, not a prerequisite"; "a precision instrument, not a coverage
+  instrument"; "failed loudly, never silently"). The test: delete the
+  flourish; if no information vanished, it was grandstanding.
+- **Metaphors pay a decoding tax.** Default to the literal statement. A live
+  metaphor, one the reader must picture and then translate ("dressed as
+  redundancy", "companion disease", "starves the density test", "poisoned
+  text layer"), gets replaced by what it means; a dead one that is domain
+  vocabulary (stocks and flows, fail silently, a battery of tests, sticky
+  prices, the statement face, seeding a run) stays, because nobody pictures
+  anything. A named mechanism may keep a figurative name once it decodes
+  instantly and is used consistently (the leash, the mapping ladder), but
+  the prose around the name stays literal. The test: if the literal sentence
+  is no longer and no less clear than the figure, use the literal sentence.
 - **Name slippery distinctions explicitly** rather than blur them. This
   proposal's list:
   - extraction vs encoding: a measured error rate vs deterministic and lossless;
@@ -195,7 +214,7 @@ If any answer is "no," explain it first.
 
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex,
         ..\README.md, ..\DEMO.md -Pattern
-        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state'
+        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state|not by hope|not a sentiment|not aspirations|dressed as|companion disease|poisoned text'
 
 - Draft-reference scan (the full proposal stands alone; must return nothing):
 
@@ -285,10 +304,10 @@ and whenever asked whether the proposal is consistent:
   two text engines alone accept only where geometry has no reading, recorded as
   the weaker rule.
 - *The LLM*: may break ties, may never introduce a number no deterministic
-  reader read; concept mapping climbs a ladder (harvested lexicon, carried
-  artifact, the unique-hit taxonomy-label tier, then the model over a lexical
-  shortlist, with the heuristic rungs under the polarity veto); build time
-  only. `fss onboard` emits a signed, versioned mapping artifact;
+  reader read; concept mapping tries the four-rung ladder in order (harvested
+  lexicon, carried artifact, the unique-hit taxonomy-label tier, then the
+  model over a lexical shortlist, with the heuristic rungs under the polarity
+  veto); build time only. `fss onboard` emits a signed, versioned mapping artifact;
   `fss runtime` never constructs a model client, replays adjudications only
   where a reader still reads the signed value, refuses drifted hashes
   ("re-onboarding required"), and reruns byte-identically. With no endpoint,
@@ -370,6 +389,18 @@ and whenever asked whether the proposal is consistent:
   draft plan", "the original phasing"). Corrected 2026-07-24: the full
   proposal stands alone for a fresh reader; deltas against the draft live in
   the repository history, not in the document.
+- Grandstanding contrasts ("lossless by theorem, not by hope", "a battery,
+  not a sentiment", "these are not aspirations"). Corrected 2026-07-25: state
+  the claim and its ground plainly ("provably lossless"; "all four
+  commitments are already demonstrated"); the strawman half never returns.
+- Live metaphors ("perfect correlation dressed as redundancy", "companion
+  disease", "poisoned text layer", "starves the density test", "drains the
+  capital stock", "decorates the overlay"). Corrected 2026-07-25: replaced by
+  their literal meanings ("the readers would agree as copies of one reading,
+  not as independent checks"; "companion problem"; "corrupted text layer";
+  "nothing to count"; "reduces"; "records"). Feature names that decode
+  instantly stay (the leash, the mapping ladder) with literal prose around
+  them.
 - "Common state space" and "standard-neutral state". Corrected 2026-07-25:
   the old names implied cross-standard slots that elements map into, which
   is the rejected vendor design; the state space is the *union* state space

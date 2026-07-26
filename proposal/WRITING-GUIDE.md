@@ -88,6 +88,20 @@ If any answer is "no," explain it first.
   an em dash's job in prose. Use commas, semicolons, colons, parentheses. En-dash
   ranges (`\ref{eq:a}--\ref{eq:b}`, date and page ranges) and TikZ path syntax
   (`--` inside `\draw`) are fine and are excluded by the checks in section 4.
+- **Removing an em dash is a rewrite, not a punctuation swap.** The em dash set
+  a phrase apart; a bare comma pair inherits that job safely only when no other
+  comma competes in the sentence. Where the set-off phrase names or glosses its
+  neighbor and the sentence already carries commas, a comma pair reads as one
+  more item in a series ("a small authored vocabulary of economic roles, the
+  common behavior layer, so the engine..." lets the layer parse as a third
+  subject). Rewrite instead: make a naming explicit ("...economic roles called
+  the common behavior layer"), use parentheses for a gloss or an aside (they
+  hold internal commas safely), use a colon when the phrase completes the
+  thought, or split the sentence. A comma pair stays right for a short
+  appositive in an otherwise comma-light sentence ("Part I, the MVP and the
+  focus of this proposal, is..."). The test: read the sentence as a stranger;
+  if the set-off phrase can be taken for a series item or a new clause,
+  re-punctuate.
 - **The full proposal stands alone.** A fresh reader sees THE proposal: never
   reference the draft, its review, or the document's own evolution. State what
   is, with evidence, not what changed since an earlier version. The section 4

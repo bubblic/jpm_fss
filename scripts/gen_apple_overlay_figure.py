@@ -45,9 +45,9 @@ OUT = ROOT / "proposal" / "fig_apple_overlay.tex"
 # ---- layout constants (cm), landscape ----
 ROW_GAP = 0.045  # vertical gap between row boxes
 ROW_H1 = 0.26  # single-line row box height
-ROW_H2 = 0.44  # two-line row box height
+ROW_H2 = 0.56  # two-line row box height
 HEAD_H1 = 0.18  # section-header heights (no box)
-HEAD_H2 = 0.34
+HEAD_H2 = 0.46
 COL_W = 7.0  # width of one statement panel
 X_IS = 0.0
 X_CF = 7.65

@@ -407,8 +407,8 @@ Under this gating rule the two failure modes have very different costs: a disagr
 \node[data, left=2.5mm of map] (ss) {Structured statement\\ \scriptsize concepts + discovered tree};
 \node[data, left=2.5mm of ss] (enc) {$E(s) = (z, m)$};
 \node[data, below=8mm of enc, draw=fgreen, text=fgreen] (sim) {simulate $z \mapsto z'$,\\ decode $D(z',m)$};
-\node[stage, below=8mm of ss] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles must resolve};
-\node[stage, below=8mm of ident, draw=gold, text width=5.2cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
+\node[stage, below=8mm of ss, xshift=4mm] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles must resolve};
+\node[stage, below=8mm of ident, xshift=-4mm, draw=gold, text width=5.2cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
 \draw[arrow] (pdf) -- (loc);
 \draw[arrow] (loc) -- (read);
 \draw[arrow] (read) -- (rows);

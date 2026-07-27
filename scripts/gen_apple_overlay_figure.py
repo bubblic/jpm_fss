@@ -8,7 +8,8 @@ layer and the law of motion the engine applies to it, with the
 cross-statement flows (working capital, debt schedule, capital pool, equity
 flows, securities and the liquidity sweep, the cash tie) drawn as colored
 trunks between the panels. The picture is laid out landscape; the proposal
-rotates it onto its own page.
+rotates it onto its own page. Long labels wrap to a second line (rows have
+variable heights); a label is clipped only past two lines.
 
 Nothing here is hand-typed: rows, order, kinds, sections, and dimensions
 come from the extracted statements; roles come from the production cascade
@@ -28,6 +29,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,8 +43,11 @@ from fss.statements import StructuredStatement  # noqa: E402
 OUT = ROOT / "proposal" / "fig_apple_overlay.tex"
 
 # ---- layout constants (cm), landscape ----
-PITCH = 0.34  # vertical distance between row slots
-ROW_H = 0.28  # row box height
+ROW_GAP = 0.045  # vertical gap between row boxes
+ROW_H1 = 0.26  # single-line row box height
+ROW_H2 = 0.44  # two-line row box height
+HEAD_H1 = 0.18  # section-header heights (no box)
+HEAD_H2 = 0.34
 COL_W = 7.0  # width of one statement panel
 X_IS = 0.0
 X_CF = 7.65
@@ -68,10 +73,10 @@ TRUNK_COLOR = {
 }
 
 # approximate rendered widths (cm per character), used to fit label + chip
-CHAR_W = 0.095  # \tiny helvetica text
+CHAR_W = 0.100  # \tiny helvetica text (conservative, for wrap prediction)
 ROLE_W = 0.076  # 4pt typewriter role names
 MATH_W = 0.105  # law chips, after stripping TeX markup
-GAP_W = 0.30  # west inset + separation + east inset
+SEP_W = 0.55  # reserved separation between label block and chip, plus insets
 MIN_LABEL = 16
 
 # ---- law chips: the engine dispatch of Projector.project, per role ----
@@ -156,14 +161,31 @@ def esc(text: str) -> str:
 
 def chip_width(role: str, law: str) -> float:
     plain = TEX_MARKUP.sub("", law)
-    return len(role) * ROLE_W + len(plain) * MATH_W + GAP_W
+    return len(role) * ROLE_W + len(plain) * MATH_W
 
 
-def clip_to(label: str, budget_cm: float) -> str:
-    max_chars = max(MIN_LABEL, int(budget_cm / CHAR_W))
-    if len(label) <= max_chars:
-        return esc(label)
-    return esc(label[: max_chars - 1].rstrip()) + r"\,\ldots"
+def layout_label(label: str, width_cm: float) -> tuple[str, int]:
+    """Escape and wrap-predict a label for a block of width_cm; two lines at
+    most, with a clip only past that."""
+    per_line = max(MIN_LABEL, int(width_cm / CHAR_W))
+    if len(label) <= per_line:
+        return esc(label), 1
+    cap = 2 * per_line - 2
+    if len(label) <= cap:
+        return esc(label), 2
+    return esc(label[: cap - 1].rstrip()) + r"\,\ldots", 2
+
+
+@dataclass
+class Slot:
+    y: float  # row center
+    height: float
+    label_tex: str
+    label_width: float  # cm, text block width
+    chip: str  # "" for section headers
+    role: str
+    kind: str  # "abstract" | "leaf" | "derived"
+    member: bool
 
 
 def load(kind: str) -> StructuredStatement:
@@ -188,13 +210,39 @@ def main() -> int:
         for target in targets:
             wc_edges.append((_row_key(row), target))
 
-    pos: dict[tuple[str, tuple], float] = {}
+    # ---- pre-pass: slot geometry per column (variable row heights) ----
+    slots: dict[tuple[str, tuple], Slot] = {}
+    col_bottom: dict[str, float] = {}
     for kind in ("income_statement", "cash_flow", "balance_sheet"):
-        for index, row in enumerate(stmts[kind].rows):
-            pos[(kind, _row_key(row))] = -(index * PITCH)
+        statement = stmts[kind]
+        role_map = roles[kind]
+        cursor = 0.0  # top edge of the next slot
+        for row in statement.rows:
+            clean = ABSTRACT_SUFFIX.sub("", row.label)
+            if row.kind == "abstract":
+                width = COL_W - 0.25
+                tex, lines = layout_label(clean.lower(), width)
+                height = HEAD_H1 if lines == 1 else HEAD_H2
+                chip = ""
+                role = ""
+                member = False
+            else:
+                role = role_map[_row_key(row)].role
+                chip = law_chip(kind, row, role, bound)
+                member = bool(row.dims)
+                width = COL_W - chip_width(role, chip) - SEP_W - (0.30 if member else 0.0)
+                tex, lines = layout_label(clean, width)
+                height = ROW_H1 if lines == 1 else ROW_H2
+            y = cursor - height / 2
+            slots[(kind, _row_key(row))] = Slot(
+                y=y, height=height, label_tex=tex, label_width=width,
+                chip=chip, role=role, kind=row.kind, member=member,
+            )
+            cursor = y - height / 2 - ROW_GAP
+        col_bottom[kind] = cursor
 
-    lines: list[str] = []
-    emit = lines.append
+    lines_out: list[str] = []
+    emit = lines_out.append
     emit("% Generated by scripts/gen_apple_overlay_figure.py from the validation")
     emit("% build's extraction artifacts (data/extracted/apple_*.json).")
     emit("% Do not hand-edit; regenerate instead (see the script header).")
@@ -226,29 +274,25 @@ def main() -> int:
 
     # ---- rows ----
     for kind, x in (("income_statement", X_IS), ("cash_flow", X_CF), ("balance_sheet", X_BS)):
-        statement = stmts[kind]
-        role_map = roles[kind]
-        for row in statement.rows:
-            y = pos[(kind, _row_key(row))]
-            clean_label = ABSTRACT_SUFFIX.sub("", row.label)
-            if row.kind == "abstract":
-                emit(r"\node[anchor=west, font=\tiny\scshape\color{slate}] at (%.2f, %.2f) {%s};"
-                     % (x + 0.05, y, clip_to(clean_label.lower(), COL_W - 0.2)))
+        for row in stmts[kind].rows:
+            slot = slots[(kind, _row_key(row))]
+            if slot.kind == "abstract":
+                emit(r"\node[anchor=west, font=\tiny\scshape\color{slate}, "
+                     r"text width=%.2fcm, align=left] at (%.2f, %.2f) {%s};"
+                     % (slot.label_width, x + 0.05, slot.y, slot.label_tex))
                 continue
-            role = role_map[_row_key(row)].role
-            chip = law_chip(kind, row, role, bound)
-            member = bool(row.dims)
-            border = "gold" if member else ("navy" if row.kind == "leaf" else "slate")
-            dashing = ", dashed" if row.kind == "derived" else ""
-            budget = COL_W - chip_width(role, chip) - (0.30 if member else 0.0)
-            label = ("$\\cdot$ " if member else "") + clip_to(clean_label, budget)
+            border = "gold" if slot.member else ("navy" if slot.kind == "leaf" else "slate")
+            dashing = ", dashed" if slot.kind == "derived" else ""
             emit(r"\node[draw=%s%s, line width=0.3pt, fill=white, rounded corners=1pt, "
                  r"anchor=west, minimum width=%.2fcm, minimum height=%.2fcm] at (%.2f, %.2f) {};"
-                 % (border, dashing, COL_W, ROW_H, x, y))
-            emit(r"\node[anchor=west, font=\tiny] at (%.2f, %.2f) {%s};" % (x + 0.06, y, label))
+                 % (border, dashing, COL_W, slot.height, x, slot.y))
+            label = ("$\\cdot$ " if slot.member else "") + slot.label_tex
+            emit(r"\node[anchor=west, font=\tiny, text width=%.2fcm, align=left] "
+                 r"at (%.2f, %.2f) {%s};"
+                 % (slot.label_width + (0.30 if slot.member else 0.0), x + 0.06, slot.y, label))
             emit(r"\node[anchor=east, font=\tiny\color{slate}] at (%.2f, %.2f) "
                  r"{{\fontsize{4}{4}\selectfont\ttfamily %s} %s};"
-                 % (x + COL_W - 0.05, y, esc(role) if role else "", chip))
+                 % (x + COL_W - 0.05, slot.y, esc(slot.role), slot.chip))
 
     # ---- edges ----
     def trunk_edge(family: str, y_from: float, y_to: float) -> None:
@@ -269,7 +313,7 @@ def main() -> int:
                 if r.kind == "leaf" and bs_roles[_row_key(r)].role in wanted]
 
     def y_of(kind: str, key: tuple) -> float:
-        return pos[(kind, key)]
+        return slots[(kind, key)].y
 
     for cf_key, bs_key in wc_edges:
         trunk_edge("wc", y_of("cash_flow", cf_key), y_of("balance_sheet", bs_key))
@@ -317,8 +361,7 @@ def main() -> int:
             art_edge(y_of("income_statement", _row_key(tax_is[0])), y_of("cash_flow", _row_key(cf_row)))
 
     # ---- legend, in the empty space under the income statement panel ----
-    n_is = len(stmts["income_statement"].rows)
-    legend_top = -(n_is * PITCH) - 0.35
+    legend_top = col_bottom["income_statement"] - 0.35
     emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, %.2f) {How to read};"
          % (X_IS, legend_top))
     emit(r"\node[anchor=north west, font=\tiny, text width=6.9cm, align=left] at (%.2f, %.2f) "
@@ -348,10 +391,12 @@ def main() -> int:
          r"{articulation: a cash-flow row mirrors a projected income line};" % (X_IS + 0.5, y_sw))
 
     emit(r"\end{tikzpicture}")
-    OUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
-    n_edges = sum(1 for line in lines if line.startswith(r"\draw[-{Stealth"))
-    print(f"wrote {OUT} ({len(lines)} lines, {n_edges} edges, "
-          f"{sum(len(s.rows) for s in stmts.values())} rows)")
+    OUT.write_text("\n".join(lines_out) + "\n", encoding="utf-8", newline="\n")
+    n_edges = sum(1 for line in lines_out if line.startswith(r"\draw[-{Stealth"))
+    wrapped = sum(1 for s in slots.values() if s.height in (ROW_H2, HEAD_H2))
+    print(f"wrote {OUT} ({len(lines_out)} lines, {n_edges} edges, "
+          f"{sum(len(s.rows) for s in stmts.values())} rows, {wrapped} wrapped)")
+    print("column bottoms:", {k: round(v, 2) for k, v in col_bottom.items()})
     return 0
 
 

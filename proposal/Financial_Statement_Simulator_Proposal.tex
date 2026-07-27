@@ -399,16 +399,16 @@ Under this gating rule the two failure modes have very different costs: a disagr
   arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
 ]
 \node[data] (pdf) {Born-digital\\ PDF};
-\node[stage, right=of pdf] (loc) {\textbf{Locate}\\ \scriptsize deterministic locator;\\ \scriptsize LLM fallback, density-checked};
-\node[stage, right=of loc] (read) {\textbf{Read + reconcile}\\ \scriptsize decorrelated readers;\\ \scriptsize agreement gate (Figure~\ref{fig:gate})};
-\node[data, right=of read] (rows) {Printed rows\\ \scriptsize values, signs, sections};
+\node[stage, right=2.5mm of pdf] (loc) {\textbf{Locate}\\ \scriptsize deterministic locator;\\ \scriptsize LLM fallback, density-checked};
+\node[stage, right=2.5mm of loc] (read) {\textbf{Read + reconcile}\\ \scriptsize decorrelated readers;\\ \scriptsize agreement gate (Figure~\ref{fig:gate})};
+\node[data, right=2.5mm of read] (rows) {Printed rows\\ \scriptsize values, signs, sections};
 \node[stage, below=9mm of rows] (ident) {\textbf{Identities, printed arithmetic}\\ \scriptsize footing tree discovered; A $=$ L $+$ E;\\ \scriptsize cash tie. No taxonomy consulted};
-\node[stage, left=of ident] (map) {\textbf{Concept mapping}\\ \scriptsize lexicon, carried artifact,\\ \scriptsize taxonomy uniques, model;\\ \scriptsize polarity veto};
-\node[data, left=of map] (ss) {Structured statement\\ \scriptsize concepts + discovered tree};
-\node[data, left=of ss] (enc) {$E(s) = (z, m)$};
-\node[stage, below=8mm of map, xshift=10mm, draw=gold, text width=5.4cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
-\node[stage, below=8mm of ss, xshift=-2mm] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles\\ \scriptsize must resolve};
+\node[stage, left=2.5mm of ident] (map) {\textbf{Concept mapping}\\ \scriptsize lexicon, carried artifact,\\ \scriptsize taxonomy uniques, model;\\ \scriptsize polarity veto};
+\node[data, left=2.5mm of map] (ss) {Structured statement\\ \scriptsize concepts + discovered tree};
+\node[data, left=2.5mm of ss] (enc) {$E(s) = (z, m)$};
 \node[data, below=8mm of enc, draw=fgreen, text=fgreen] (sim) {simulate $z \mapsto z'$,\\ decode $D(z',m)$};
+\node[stage, below=8mm of ss] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles must resolve};
+\node[stage, below=8mm of ident, draw=gold, text width=5.2cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
 \draw[arrow] (pdf) -- (loc);
 \draw[arrow] (loc) -- (read);
 \draw[arrow] (read) -- (rows);
@@ -416,11 +416,11 @@ Under this gating rule the two failure modes have very different costs: a disagr
 \draw[arrow] (ident) -- (map);
 \draw[arrow] (map) -- (ss);
 \draw[arrow] (ss) -- (enc);
-\draw[arrow] (ss.south) -- (roles.north);
-\draw[arrow] (roles) -- (sim);
+\draw[arrow] (ss) -- (roles);
+\draw[arrow, rounded corners=3pt] (roles.west) -- ++(-0.2,0) |- (sim.east);
 \draw[arrow] (enc) -- (sim);
-\draw[arrow, color=gold] (read.south) to[out=-90, in=180] (flags.west);
-\draw[arrow, color=gold] (map) -- (flags);
+\draw[arrow, color=gold, rounded corners=3pt] (map.south) |- (flags.west);
+\draw[arrow, color=gold, rounded corners=3pt] (read.north) -- ++(0,0.28) -| ([xshift=1.5mm]ident.east) |- (flags.east);
 \end{tikzpicture}
 \caption{Untagged ingestion validates before it interprets. Printed rows that survive the reader gate are checked arithmetically first: the footing solver discovers the subtotal tree from the numbers themselves, and A $=$ L $+$ E and the cash tie bind on the printed totals, with no taxonomy consulted. Concept mapping then attaches semantics to validated numbers, the encoder stores what survived, and every failure is a flag, never a guess: adjudication can resolve a flag only into a value a deterministic reader read, and a flagged balance-sheet cell refuses simulation. The behavior layer joins at simulation time: the deterministic role cascade classifies every mapped line, and those roles are what the engine and the driver layer consume to advance the state; the identities and the encoding need nothing from them, and a firm whose core driver roles do not resolve is refused simulation with the missing roles named.}
 \label{fig:untagged}

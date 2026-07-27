@@ -44,9 +44,9 @@ from fss.statements import StructuredStatement  # noqa: E402
 OUT = ROOT / "proposal" / "fig_apple_overlay.tex"
 
 # ---- layout constants (cm), landscape ----
-ROW_GAP = 0.012  # vertical gap between row boxes
+ROW_GAP = 0.009  # vertical gap between row boxes
 ROW_H1 = 0.24  # single-line row box height
-ROW_H2 = 0.50  # two-line row box height
+ROW_H2 = 0.49  # two-line row box height
 ROW_H3 = 0.68  # three-line row box height (a few long filer labels)
 HEAD_H1 = 0.21  # section-header heights (no box; a \tiny line box is ~0.21)
 HEAD_H2 = 0.42
@@ -78,7 +78,7 @@ ROLE_W = 0.0925  # typewriter role names (5pt: EC tt has no 4pt, LaTeX substitut
 MATH_W = 0.108  # math law chips, after stripping TeX markup
 TEXT_W = 0.096  # plain-text law chips
 ROLE_CAP = 1.80  # role column cap (cm); longer roles wrap at underscores
-LAW_CAP = 2.30  # law column cap (cm); longer laws wrap
+LAW_CAP = 1.95  # law column cap (cm); longer laws wrap
 MIN_LABEL = 16
 
 # ---- law chips: the engine dispatch of Projector.project, per role ----
@@ -103,11 +103,11 @@ CF_LAW = {
     R.CF_DA: r"$\times(1{+}g_{\mathrm{rev}})$",
     R.CF_SBC: r"$\times(1{+}g_{\mathrm{rev}})$",
     R.CF_WC: r"$= -\Delta$ stock",
-    R.CF_DEFERRED_TAX: "0 (no accrual gap)",
+    R.CF_DEFERRED_TAX: "0 by articulation",
     R.CF_OTHER_NONCASH: "0",
     R.CF_CAPEX: r"$\times(1{+}g_{\mathrm{rev}})$",
     R.CF_INVEST_PURCHASE: "held + sweep",
-    R.CF_INVEST_MATURITY: "held (sweep draws)",
+    R.CF_INVEST_MATURITY: "held; sweep draws",
     R.CF_INVEST_SALE: "held",
     R.CF_DIVIDENDS: r"$\times(1{+}g_{\mathrm{div}})$",
     R.CF_BUYBACK: r"$\times\,b$",
@@ -131,7 +131,7 @@ CF_LAW = {
 }
 BS_LAW_FIXED = {
     R.CASH: r"$= +$ net change (CF)",
-    R.SECURITIES: "+ net purchases (sweep)",
+    R.SECURITIES: "+ net purchases",
     R.PPE: r"+ capex $-$ D\&A",
     R.LEASE_ROU: r"+ leases $-$ D\&A",
     R.DEBT: r"+ held schedule $\Delta$",
@@ -146,7 +146,7 @@ WC_TARGET_LAW = {
     R.INVENTORY: r"$\to\times(1{+}g)$\allowbreak$(1{+}\Delta m)$",
     R.AP: r"$\to\times(1{+}g)$\allowbreak$(1{+}\Delta m)$",
 }
-WC_DEFAULT_LAW = r"$\to\times(1{+}g_{\mathrm{rev}})$ target"
+WC_DEFAULT_LAW = r"$\to\times(1{+}g_{\mathrm{rev}})$"
 
 TEX_SPECIALS = {
     "&": r"\&", "%": r"\%", "$": r"\$", "#": r"\#",
@@ -228,8 +228,8 @@ def main() -> int:
             face_info[(kind, _row_key(row))] = (role, law)
             max_role = max(max_role, len(role))
             max_law = max(max_law, law_width(law))
-        role_col[kind] = min(max_role * ROLE_W, ROLE_CAP) + 0.16
-        law_col[kind] = min(max_law, LAW_CAP) + 0.18
+        role_col[kind] = min(max_role * ROLE_W, ROLE_CAP) + 0.22
+        law_col[kind] = min(max_law, LAW_CAP) + 0.35
 
     # ---- pre-pass: slot geometry per column (variable row heights) ----
     slots: dict[tuple[str, tuple], Slot] = {}
@@ -253,9 +253,9 @@ def main() -> int:
                 width = (width_panel - role_col[kind] - law_col[kind] - 0.18
                          - (0.30 if member else 0.0))
                 tex, lines = layout_label(clean, width)
-                if len(role) * ROLE_W > role_col[kind] - 0.16:
+                if len(role) * ROLE_W > role_col[kind] - 0.27:
                     lines = max(lines, 2)
-                if law_width(chip) > law_col[kind] - 0.18:
+                if law_width(chip) > law_col[kind] - 0.30:
                     lines = max(lines, 2)
                 height = {1: ROW_H1, 2: ROW_H2, 3: ROW_H3}[lines]
             y = cursor - height / 2

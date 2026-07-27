@@ -35,8 +35,9 @@ Concretely, before a term, symbol, or formula is deployed in an argument:
   equation that was not named first.
 - **Give the intuition before the formalism.** Say what the equation means and why
   it is true in words, then write it.
-- **Derive equations, or sketch the derivation inline.** This proposal has no
-  appendices; a proposition gets its proof idea in the following paragraph (as
+- **Derive equations, or sketch the derivation inline.** No derivation is
+  deferred to an appendix (the single appendix holds a generated figure, not
+  argument); a proposition gets its proof idea in the following paragraph (as
   the injectivity proposition does), and a one-line derivation ("by linearity")
   is written out rather than asserted.
 - **Assume a smart reader who knows finance but not XBRL.** The readers (the
@@ -241,6 +242,15 @@ If any answer is "no," explain it first.
   checklist. It duplicates the dash and retired-phrasings patterns above, so
   update the hook in the same edit that updates this section. It fires only on
   assistant edits; these hand-run scans remain the pre-commit backstop.
+
+- `fig_apple_overlay.tex` is generated, never hand-edited: after any change to
+  the extraction artifacts, the role cascade, or the engine dispatch, rerun
+
+      $env:PYTHONPATH = "src"; python scripts/gen_apple_overlay_figure.py
+
+  and commit the regenerated file with the rebuilt PDF. The law chips in the
+  generator restate `src/fss/engine/project.py`; keep them in sync when the
+  dispatch changes.
 
 - After a figure or table change, open the PDF and look at the page before
   committing.

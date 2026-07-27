@@ -6,6 +6,7 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{array}
@@ -145,7 +146,7 @@ Given a prior-period statement and a scenario, the system produces simulated nex
 
 \lead{navytwo}{Quantified gates.} The gates below bind the MVP, and every one of them has already been met by the validation build on its four-firm set (Section~\ref{sec:evidence}):
 \begin{enumerate}
-  \item \textbf{Extraction.} On the gating set (the fixed list of filings the gates are measured on; Section~\ref{sec:testing} sets its composition), the PDF-only mode (tag path withheld) must show \emph{zero} errors among accepted cells against verified ground truth, with every non-accepted cell flagged rather than silently dropped, and every unmatched ground-truth row assigned to a documented benign category: a tagged value with no cell to read on the statement face (either a figure the filer prints inside a label's own text, or a subtotal the filer leaves unprinted, verified through its children). The measured claim is reported with its rule-of-three bound, which is nothing more than asking what error rates zero observed errors can rule out: if the true per-field error rate were $p$, zero errors among $N$ independent cells occurs with probability $(1-p)^N$, which stays above 5\% only for $p \le 3/N$ (because $(1-3/N)^N \approx e^{-3} \approx 0.05$), so observing $N$ accepted cells with zero errors bounds the rate above by $3/N$ at 95\% confidence \cite{ruleofthree}. The architectural target for silent \emph{concordant} error (all readers agreeing on the same wrong number and the identities failing to catch it) is of order $10^{-8}$ per field (Section~\ref{sec:robustness}); four filings cannot measure that directly, so it is defended by construction and by seeded-error testing, and reported honestly as such.
+  \item \textbf{Extraction.} On the gating set (the fixed list of filings the gates are measured on; Section~\ref{sec:testing} sets its composition), the PDF-only mode (tag path withheld) must show \emph{zero} errors among accepted cells against verified ground truth (the filer's own tagged facts, or hand-verified double-entry where the filing carries no tags), with every non-accepted cell flagged rather than silently dropped, and every unmatched ground-truth row assigned to a documented benign category: a tagged value with no cell to read on the statement face (either a figure the filer prints inside a label's own text, or a subtotal the filer leaves unprinted, verified through its children). The measured claim is reported with its rule-of-three bound, which is nothing more than asking what error rates zero observed errors can rule out: if the true per-field error rate were $p$, zero errors among $N$ independent cells occurs with probability $(1-p)^N$, which stays above 5\% only for $p \le 3/N$ (because $(1-3/N)^N \approx e^{-3} \approx 0.05$), so observing $N$ accepted cells with zero errors bounds the rate above by $3/N$ at 95\% confidence \cite{ruleofthree}. The architectural target for silent \emph{concordant} error (all readers agreeing on the same wrong number and the identities failing to catch it) is of order $10^{-8}$ per field (Section~\ref{sec:robustness}); four filings cannot measure that directly, so it is defended by construction and by seeded-error testing, and reported honestly as such.
   \item \textbf{Reconstruction.} $D(E(s)) = s$ exactly, on every cell of every statement of every firm in the set: values, labels, order, signs, units, and precision attributes.
   \item \textbf{Arithmetic.} Every derived subtotal foots from its children within the decimals-based tolerance: a value tagged \texttt{decimals} $= d$ is stated to the nearest $10^{-d}$, so each of $n$ addends and the printed total carries up to half that unit of independent rounding, and the recomputed sum may differ from the printed one by up to $0.5 \cdot 10^{-d} \cdot (n+1)$; A $=$ L $+$ E holds; the cash flow ties to the balance-sheet cash delta.
   \item \textbf{Simulation integrity.} Across all Monte Carlo paths of all scenarios, zero identity violations: the engine may not introduce any imbalance beyond the filer's own printed rounding residual, which it must preserve exactly.
@@ -242,7 +243,7 @@ In a forecast the engine advances the state, $z \mapsto z'$, and the output is r
 
 \subsection{The state space as a knowledge graph}
 \label{sec:kg}
-The union state space is specified as a typed graph over the standard setters' own machine-readable ontologies (the US GAAP and IFRS XBRL taxonomies side by side, roughly 17{,}000 concepts each) \cite{usgaap, ifrstax}: one graph, each standard's concepts at their own coordinates, values never merged across standards. Nodes carry the attributes the simulator relies on and the taxonomy already provides: period type (instant versus duration, precisely the stock/flow distinction), balance polarity (debit or credit, the sign conventions), monetary flags, and labels. Edges come in five types: \emph{composition} edges imported from the calculation linkbases (subtotal arithmetic, including the newer Calculations 1.1 arcs \cite{calc11}, which one of the four validation filers already uses); \emph{dimensional aggregation} edges for face-of-statement axes; \emph{laws of motion}, authored, recording which flows update which stocks and the cross-statement articulation; \emph{label and synonym} edges, imported, powering the untagged-mode semantic mapper; and \emph{driver attachments} from Section~\ref{sec:drivers}. The authored layers cover the simulated core, on the order of one to three hundred concepts, not seventeen thousand; they are the common behavior layer, taken up after the overlay below. Figure~\ref{fig:kg} draws the machinery on a fragment of the validated filers' overlays.
+The union state space is specified as a typed graph over the standard setters' own machine-readable ontologies (the US GAAP and IFRS XBRL taxonomies side by side, roughly 17{,}000 concepts each) \cite{usgaap, ifrstax}: one graph, each standard's concepts at their own coordinates, values never merged across standards. Nodes carry the attributes the simulator relies on and the taxonomy already provides: period type (instant versus duration, precisely the stock/flow distinction), balance polarity (debit or credit, the sign conventions), monetary flags, and labels. Edges come in five types: \emph{composition} edges imported from the calculation linkbases (subtotal arithmetic, including the newer Calculations 1.1 arcs \cite{calc11}, which one of the four validation filers already uses); \emph{dimensional aggregation} edges for face-of-statement axes; \emph{laws of motion}, authored, recording which flows update which stocks and the cross-statement articulation; \emph{label and synonym} edges, imported, powering the untagged-mode semantic mapper; and \emph{driver attachments} from Section~\ref{sec:drivers}. The authored layers cover the simulated core, on the order of one to three hundred concepts, not seventeen thousand; they are the common behavior layer, taken up after the overlay below. Figure~\ref{fig:kg} draws the machinery on a fragment of the validated filers' overlays; Appendix~\ref{app:overlay} draws it complete for one filer, every face line of Apple's three statements with its role and its law of motion.
 
 \begin{figure}[h]
 \centering
@@ -404,8 +405,10 @@ Under this gating rule the two failure modes have very different costs: a disagr
 \node[stage, below=9mm of rows] (ident) {\textbf{Identities, printed arithmetic}\\ \scriptsize footing tree discovered; A $=$ L $+$ E;\\ \scriptsize cash tie. No taxonomy consulted};
 \node[stage, left=of ident] (map) {\textbf{Concept mapping}\\ \scriptsize lexicon, carried artifact,\\ \scriptsize taxonomy uniques, model;\\ \scriptsize polarity veto};
 \node[data, left=of map] (ss) {Structured statement\\ \scriptsize concepts + discovered tree};
-\node[data, left=of ss, draw=fgreen, text=fgreen] (enc) {$E(s) = (z, m)$,\\ simulate};
-\node[stage, below=8mm of map, draw=gold] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
+\node[data, left=of ss] (enc) {$E(s) = (z, m)$};
+\node[stage, below=8mm of map, xshift=10mm, draw=gold, text width=5.4cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
+\node[stage, below=8mm of ss, xshift=-2mm] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles\\ \scriptsize must resolve};
+\node[data, below=8mm of enc, draw=fgreen, text=fgreen] (sim) {simulate $z \mapsto z'$,\\ decode $D(z',m)$};
 \draw[arrow] (pdf) -- (loc);
 \draw[arrow] (loc) -- (read);
 \draw[arrow] (read) -- (rows);
@@ -413,10 +416,13 @@ Under this gating rule the two failure modes have very different costs: a disagr
 \draw[arrow] (ident) -- (map);
 \draw[arrow] (map) -- (ss);
 \draw[arrow] (ss) -- (enc);
+\draw[arrow] (ss.south) -- (roles.north);
+\draw[arrow] (roles) -- (sim);
+\draw[arrow] (enc) -- (sim);
 \draw[arrow, color=gold] (read.south) to[out=-90, in=180] (flags.west);
 \draw[arrow, color=gold] (map) -- (flags);
 \end{tikzpicture}
-\caption{Untagged ingestion validates before it interprets. Printed rows that survive the reader gate are checked arithmetically first: the footing solver discovers the subtotal tree from the numbers themselves, and A $=$ L $+$ E and the cash tie bind on the printed totals, with no taxonomy consulted. Concept mapping then attaches semantics to validated numbers, the encoder stores what survived, and every failure is a flag, never a guess: adjudication can resolve a flag only into a value a deterministic reader read, and a flagged balance-sheet cell refuses simulation.}
+\caption{Untagged ingestion validates before it interprets. Printed rows that survive the reader gate are checked arithmetically first: the footing solver discovers the subtotal tree from the numbers themselves, and A $=$ L $+$ E and the cash tie bind on the printed totals, with no taxonomy consulted. Concept mapping then attaches semantics to validated numbers, the encoder stores what survived, and every failure is a flag, never a guess: adjudication can resolve a flag only into a value a deterministic reader read, and a flagged balance-sheet cell refuses simulation. The behavior layer joins at simulation time: the deterministic role cascade classifies every mapped line, and those roles are what the engine and the driver layer consume to advance the state; the identities and the encoding need nothing from them, and a firm whose core driver roles do not resolve is refused simulation with the missing roles named.}
 \label{fig:untagged}
 \end{figure}
 
@@ -552,6 +558,26 @@ The standards scope (US GAAP and IFRS), the precision asymmetry, exact line-item
   \item The reviewer and counts for the accountant gate: a provisional definition is in place (each gating-set firm, each scenario, representative paths); the named reviewer and batch sizes need confirmation.
   \item Which mode gates Part I acceptance: tagged public filings or the untagged born-digital document at the same bar. The pipeline measures both; the recommendation is to gate on tagged filings and report the untagged bar alongside, tightening it to parity during hardening.
 \end{enumerate}
+
+% ===== Appendix A =====
+\clearpage
+\appendix
+\section{Appendix: one firm complete, every line wired}
+\label{app:overlay}
+Figure~\ref{fig:kg} showed the state-space machinery on a fragment. Figure~\ref{fig:apple-overlay} removes the elision for one filer: every face line of Apple's balance sheet, income statement, and cash flow statement from the validation build, in the filer's own order, with the layers this proposal builds drawn together. Each boxed line is a row of the encoded state: solid boxes are stored leaves of $z$; dashed boxes are derived rows, which $m$ records and decode recomputes through Apple's own calculation arcs; gold boxes are the product and service member rows behind the dimensional aggregation of Section~\ref{sec:reconstruction}; small-caps lines are the filer's section headers. The chip at the right of each line is the behavior layer of Section~\ref{sec:kg} at work: the economic role the deterministic cascade assigned, then the law the engine of Section~\ref{sec:engine} applies to that role, written in the driver notation of Section~\ref{sec:drivers}. The colored trunks between the cash flow and the balance sheet are the laws of motion as balanced flows: working-capital rows move their bound stocks to driver targets; the held financing schedule moves the debt stocks; capital expenditure and depreciation move the capital pool; the equity flows close income to retained earnings and carry dividends, buybacks, and share-based compensation; the investment lines and the liquidity sweep move the securities stocks; and the recomputed net change, alone, moves cash. Dotted lines from the income statement are articulation: cash-flow rows that mirror projected income lines, which is why the accrual-to-cash gap is zero by construction.
+
+The figure is generated, not drawn: \texttt{scripts/gen\_apple\_overlay\_figure.py} reads the validation build's extraction artifacts, classifies every row with the production role cascade, binds working-capital rows to stocks with the production binder, and emits the drawing; the law chips restate the engine's dispatch, which the acceptance battery gates. Two reading notes. The close of net income to retained earnings is drawn from the cash flow statement's net-income row for legibility; in the engine the close is its own flow, and the cash-flow row is the articulation of the same number. And ``held'' is a statement about the MVP driver map, not about the architecture: a held chip marks exactly the slot where a Phase 3 reviewed toggle or a Part II learned distribution attaches.
+
+\begin{figure}[p]
+\centering
+\rotatebox[origin=c]{90}{%
+\begin{minipage}{22.6cm}
+\centering
+\input{fig_apple_overlay}
+\captionof{figure}{Apple's three statements, complete: every face line with its stored or derived kind, its behavior-layer role, and the engine law applied to it. Colored trunks are the balanced flows that move balance-sheet stocks, dotted lines the articulation from projected income lines, the top band the scenario-to-draw map the chips reference. Generated from the validation build's artifacts by \texttt{scripts/gen\_apple\_overlay\_figure.py}.}
+\label{fig:apple-overlay}
+\end{minipage}}
+\end{figure}
 
 % ===== References =====
 \begin{thebibliography}{20}\small

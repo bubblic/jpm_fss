@@ -229,7 +229,7 @@ If any answer is "no," explain it first.
 
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex,
         ..\README.md, ..\DEMO.md -Pattern
-        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state|not by hope|not a sentiment|not aspirations|dressed as|companion disease|poisoned text'
+        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state|economic state space|not by hope|not a sentiment|not aspirations|dressed as|companion disease|poisoned text'
 
 - Draft-reference scan (the full proposal stands alone; must return nothing):
 
@@ -439,6 +439,12 @@ and whenever asked whether the proposal is consistent:
   (common as a container), commonality of behavior lives in the *common
   behavior layer*, and "standard-neutral" survives only as a description of
   machinery.
+- "One economic state space" (the opening sentence). Corrected 2026-07-27,
+  extending the naming correction above: the union container is a structural
+  fact (one graph, one machinery, no merged values), and the economic
+  commonality is the behavior layer's work, so "economic" may not modify the
+  state space. The opening now reads "one state space spanning both
+  accounting standards".
 
 Add to this list, to the scan pattern in section 4, and to `RETIRED_PATTERN`
 in `.claude/hooks/check_writing_style.py`, whenever a substantive claim is

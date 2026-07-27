@@ -16,9 +16,13 @@ correct, in place, and pulling weight.
 ## 1. Executive summary
 
 - System definition in one sentence: reads an annual report, re-expresses it
-  in one economic state space spanning both standards, advances it under a
-  scenario with an engine that cannot break the books, renders next-period
-  statements in the firm's own lines and standard.
+  in one state space spanning both standards, advances it under a scenario
+  with an engine that cannot break the books, renders next-period statements
+  in the firm's own lines and standard.
+  **[FIX applied 2026-07-27]** Dropped "economic" from the opening sentence:
+  the union container is structural, the economic commonality is the
+  behavior layer's; "economic state space" joined the retired-phrasings list
+  and scans.
 - Bank uses: forward-looking credit, scenario and stress analysis of
   counterparties, portfolio what-if screening, auditable substrate for MRM.
 - Four design commitments (each with its mechanism section and its measured

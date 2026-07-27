@@ -56,8 +56,9 @@ DRAW_LINE = re.compile(r"\\draw")
 RETIRED_PATTERN = re.compile(
     "one more gated reader|All processing is local|has a text layer"
     "|text-based|prior-year page locations|seed pages|common state space"
-    "|standard-neutral state|not by hope|not a sentiment|not aspirations"
-    "|dressed as|companion disease|poisoned text",
+    "|standard-neutral state|economic state space|not by hope"
+    "|not a sentiment|not aspirations|dressed as|companion disease"
+    "|poisoned text",
     re.IGNORECASE,
 )
 # The full proposal stands alone: no reference to the draft, in any casing.

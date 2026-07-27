@@ -181,8 +181,9 @@ If any answer is "no," explain it first.
   blocks, bibliography inline as `thebibliography`. The banner numbers match the
   rendered section numbers (keep them matching when sections move), and
   cross-references go only by `\ref` with labels (`sec:success`,
-  `sec:engine`, `sec:drivers`, `sec:robustness`, `sec:evidence`,
-  `sec:governance`, `sec:plan`, `sec:limits`), never by hand-typed number.
+  `sec:robustness`, `sec:onboarding`, `sec:statespace`, `sec:engine`,
+  `sec:drivers`, `sec:evidence`, `sec:governance`, `sec:plan`,
+  `sec:limits`), never by hand-typed number.
 - **Helpers**: `\lead{color}{Title.}` for argument paragraphs, `\headtext` in
   table headers, `\pass`, the `proposition` theorem environment. Figures are
   TikZ and conceptual (the pipeline, the gate); tables carry the measured

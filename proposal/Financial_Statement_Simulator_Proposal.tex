@@ -159,7 +159,7 @@ Given a prior-period statement and a scenario, the system produces simulated nex
 % ===== 6. Architecture =====
 \section{System architecture}
 \label{sec:architecture}
-The simulation core is common to both standards; standard-specific work sits at the boundaries. Figure~\ref{fig:pipeline} shows the pipeline; Table~\ref{tab:components} lists the components and their validation status. The exposition runs inside-out rather than in pipeline order: first the state space and the engine that every other component wires to (this section through Section~\ref{sec:drivers}), then the extraction boundary and its error model (Section~\ref{sec:robustness}), which is best judged once it is clear what the extracted data must support.
+The simulation core is common to both standards; standard-specific work sits at the boundaries. Figure~\ref{fig:pipeline} shows the pipeline; Table~\ref{tab:components} lists the components and their validation status. The exposition follows the pipeline: first the extraction boundary and its error model (Section~\ref{sec:robustness}), which produces the structured statements everything downstream consumes; then the state space those statements encode into (Section~\ref{sec:statespace}); then the engine and the scenario layer that evolve it (Sections~\ref{sec:engine} and~\ref{sec:drivers}).
 
 \begin{figure}[h]
 \centering
@@ -175,8 +175,10 @@ The simulation core is common to both standards; standard-specific work sits at 
 \node[data, right=of extract] (ss) {Structured\\ statement};
 \node[stage, right=of ss] (encode) {\textbf{Encode} $E$};
 \node[data, right=of encode] (state) {$(z, m)$\\ \scriptsize state + map};
+\node[stage, below=9mm of extract] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade};
+\node[data, right=of roles] (rolemap) {roles\\ \scriptsize per line};
 \node[stage, below=9mm of state] (engine) {\textbf{Driver layer + engine}\\ \scriptsize scenario $\to$ flows $\to$ balanced postings};
-\node[data, left=of engine] (statep) {$(z', m)$};
+\node[data, below=9mm of engine] (statep) {$(z', m)$};
 \node[stage, left=of statep] (decode) {\textbf{Decode} $D$};
 \node[data, left=of decode] (out) {Next-period\\ statements\\ \scriptsize native lines,\\ \scriptsize same standard};
 \draw[arrow] (filing) -- (extract);
@@ -184,12 +186,15 @@ The simulation core is common to both standards; standard-specific work sits at 
 \draw[arrow] (ss) -- (encode);
 \draw[arrow] (encode) -- (state);
 \draw[arrow] (state) -- (engine);
+\draw[arrow, rounded corners=2pt] (ss.south) -- ++(0,-0.25) -| (roles.north);
+\draw[arrow] (roles) -- (rolemap);
+\draw[arrow] (rolemap.east) -- (engine.west);
 \draw[arrow] (engine) -- (statep);
 \draw[arrow] (statep) -- (decode);
 \draw[arrow] (decode) -- (out);
 \node[above=1mm of engine, font=\scriptsize\color{slate}] {scenario, Monte Carlo noise};
 \end{tikzpicture}
-\caption{End-to-end pipeline. Extraction (reading the filing) and encoding (re-representing it) are distinct stages with different error models: extraction carries a measured error rate; $E$ and $D$ are deterministic and lossless. The presentation map $m$ retained at encode time is what makes the output print in the firm's own line items.}
+\caption{End-to-end pipeline. Extraction (reading the filing) and encoding (re-representing it) are distinct stages with different error models: extraction carries a measured error rate; $E$ and $D$ are deterministic and lossless. The presentation map $m$ retained at encode time is what makes the output print in the firm's own line items. The behavior layer runs beside the encoder, not inside it: the deterministic cascade assigns each line its economic role, the driver layer and the engine consume those roles alongside $(z, m)$, and the identities bind on $(z, m)$ alone, so a misassigned role can steer a driver but never unbalance a book.}
 \label{fig:pipeline}
 \end{figure}
 
@@ -199,6 +204,7 @@ The simulation core is common to both standards; standard-specific work sits at 
 \hline
 \rowcolor{tblhead} \headtext{Component} & \headtext{Status} & \headtext{Role} \\ \hline
 Statement extractor & \textbf{\textcolor{fgreen}{Validated}} & Reads a filing (tagged data or PDF) into a structured statement using decorrelated readers and an agreement gate; carries the near-zero read-error target. \\ \hline
+Onboarding + mapping artifact & \textbf{\textcolor{fgreen}{Validated}} & Per-document build step: ingestion with the model under the leash emits a signed, hash-bound artifact of label-to-concept choices and adjudications; the runtime replays it deterministically (Section~\ref{sec:onboarding}). \\ \hline
 Encode/decode adapters & \textbf{\textcolor{fgreen}{Validated}} & Losslessly map structured statements to and from the union state space; perfect reconstruction proven per filing. \\ \hline
 Union state space & \textbf{\textcolor{fgreen}{Validated}} & One state space over both the US GAAP and IFRS taxonomies, specified as a knowledge graph with the common behavior layer as its authored annotation (Section~\ref{sec:kg}); retains the per-firm presentation map. \\ \hline
 Accounting engine & \textbf{\textcolor{fgreen}{Rebuilt + validated}} & Evolves stocks from balanced flows; identities preserved by construction, asserted on every path (Section~\ref{sec:engine}). \\ \hline
@@ -206,6 +212,136 @@ Driver-to-flow layer & \textbf{\textcolor{fgreen}{MVP validated}} & Maps scenari
 \end{tabularx}
 \captionof{table}{System components. ``Validated'' means exercised end to end by the four-firm validation build of Section~\ref{sec:evidence}.}\label{tab:components}
 \end{minipage}
+
+% ===== 7. Robustness =====
+\section{Extraction robustness}
+\label{sec:robustness}
+Extraction is held to a far higher precision bar than the rest of the system because a misread figure invalidates everything downstream. The approach mirrors the engineering already used in the director's own tools: several readers cross-check one another, and a field is accepted only when they agree.
+
+\lead{navytwo}{What reading a PDF means, and why the readers differ.} A born-digital PDF does not store text the way a plain-text file does. It stores drawing instructions: place this character shape, this glyph of this font, at these coordinates. Recovering a statement from those instructions is an act of interpretation, and every step of it can err: shapes map back to characters through per-font tables, word breaks are inferred from spacing (a space is usually a gap, not a stored character), and lines, rows, and columns are assembled from coordinates. The readers of Figure~\ref{fig:gate} are independently written interpreters of the same authored instructions, chosen so their mistakes do not overlap. R2 and R3 run one line grammar over two different text-extraction engines (pdfminer and pypdf), separate codebases that perform the inference differently and fail differently; the untagged sweep of Section~\ref{sec:evidence} met both failure shapes in the wild, space glyphs that vanish and digits split inside a number, and each surfaced as reader disagreement. R1 trusts neither engine's assembled lines: it reads raw word positions and reconstructs the table spatially, clustering the right edges of numeric tokens into column bands, so it sees the alignment the text engines cannot and misses in ways they do not. The filer's instructions are exact at the source, only interpretation errs, and the interpreters err differently, so their exact agreement on a figure is evidence rather than repetition. R4 does not interpret the rendered page at all: when the filing carries tags, it consumes the filer's machine-readable facts, with sign, scale, and period stated explicitly.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  node distance=3.5mm and 7mm,
+  reader/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=8mm, minimum width=34mm, inner sep=4pt, align=center},
+  gate/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center, text=navy},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
+]
+\node[reader] (r1) {R1: word geometry\\ \scriptsize column bands from positions};
+\node[reader, below=of r1] (r2) {R2: line grammar\\ \scriptsize pdfminer text engine};
+\node[reader, below=of r2] (r3) {R3: line grammar\\ \scriptsize pypdf text engine};
+\node[reader, below=of r3, draw=gold] (r4) {R4: tagged facts (when present)\\ \scriptsize signs, scale, period explicit};
+\node[gate, right=11mm of r2.east, yshift=-5mm] (gate) {Agreement gate\\ \scriptsize independence-weighted:\\ \scriptsize positional + one text engine,\\ \scriptsize or both text engines};
+\node[gate, right=10mm of gate] (ident) {Identity checks\\ \scriptsize footing, A=L+E,\\ \scriptsize cash tie, EPS};
+\node[draw=fgreen, thick, fill=white, text=fgreen, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center, right=10mm of ident] (out) {accepted\\ \scriptsize or flagged,\\ \scriptsize never guessed};
+\draw[arrow] (r1.east) -- ++(4mm,0) |- (gate.170);
+\draw[arrow] (r2.east) -- (gate.west|-r2.east);
+\draw[arrow] (r3.east) -- ++(4mm,0) |- (gate.190);
+\draw[arrow, color=gold] (r4.east) -- ++(6mm,0) |- (ident.south);
+\draw[arrow] (gate) -- (ident);
+\draw[arrow] (ident) -- (out);
+\end{tikzpicture}
+\caption{The reconciliation gate. Readers consume different representations of the same document; the gate weights agreement by path independence (the two line readers share a grammar, so their mutual agreement cannot outvote positional evidence); identity checks catch concordant errors that break arithmetic; tagged facts, when present, are the strongest reader and the ground truth for measuring the others.}
+\label{fig:gate}
+\end{figure}
+
+Under this gating rule the two failure modes have very different costs: a disagreement costs review time; the expensive event is \emph{silent concordance}, every reader returning the identical wrong value. With $k$ genuinely independent readers of per-field error rates $p_i$ and a collision kernel $c$ (the probability that independent errors land on the same wrong value), the silent-concordance rate is of order $c \prod_i p_i$; with observed single-reader error rates at or below the percent level, decorrelated failure modes, and the identity filter removing arithmetic-breaking survivors, the design target is toward $10^{-8}$ per field, \emph{measured} where measurement is possible and defended by construction where it is not. Three filters implement this:
+\begin{enumerate}
+  \item \textbf{Cross-reader agreement} catches discordant errors; every disagreement is surfaced, never resolved silently. The acceptance rule is independence-weighted: the geometry reader plus either text-engine reader accepts; the two text-engine readers agreeing with each other, without positional support, is accepted only where geometry has no reading at all, and recorded as the weaker rule.
+  \item \textbf{Decorrelated input paths}: word positions; two different text extraction engines under one line grammar; the filer's tagged facts when present (explicit sign, scale, period, no dependence on visual layout); optionally a vision reader and the prior year's comparatives. Layout pathologies (wrapped labels, note-reference columns, scale headers, glued currency amounts, unlabeled section totals) hit the layout readers and not the tag path; tag-path pathologies (extension tags, footnote-only values) do not afflict the layout readers.
+  \item \textbf{Accounting-identity checks} catch concordant errors that break arithmetic: footing along the calculation arcs, A $=$ L $+$ E, the cash tie, and per-share consistency, all within the decimals tolerance. They also catch genuine typos in the source filing, which are surfaced, since the extractor's ground truth is what the filing says.
+\end{enumerate}
+
+\lead{navytwo}{Document scope: born-digital PDFs.} The untagged mode requires statement pages to carry \emph{authored} text, not merely present text: scanned or image-compiled documents, including OCR'd scans, are out of scope for the MVP. The distinction is about where the characters come from. On an authored page the characters are exact at the source: the filer's software placed every one, so only a reader's interpretation can err, and interpretation errors are what the reconciliation gate is built to catch. An OCR'd scan inverts this: the page is a picture, a recognition pass wrote its guesses at the characters into an invisible text layer (rendering mode 3) laid over the full-page raster, and a guessed digit is wrong before any reader runs. Such a scan passes a naive has-text check, but admitting it would feed every text-consuming reader from that single guess: the readers would agree as copies of one reading, not as independent checks, and agreement would stop being evidence. The gate is mechanical and per statement page: a page-dominating image XObject combined with absent or invisible text triggers the abstain rule, exactly as a missing mapping entry does (font embeddedness alone is deliberately not a hard signal, since authored documents set in the standard-14 fonts carry no embedded fonts). The reference implementation enforces and tests this: a scanned page and an OCR'd page seeded into an otherwise born-digital document each abstain with the scope error named. The cut removes an OCR dependency, not the correlated-failure concern: a born-digital file can still carry a corrupted text layer (broken ToUnicode maps, subset fonts mapping glyphs to wrong codepoints; one sweep document extracts prose but not a single numeral), and that corruption hits the layout and text readers together; the identity checks, the tag path where present, and any future pixel-consuming reader remain the defense there.
+
+\lead{navytwo}{Tags are the best case, not a prerequisite.} Where a document carries no tags (a private firm or another jurisdiction, provided the document is born-digital), the remaining readers still gate one another and the identities still bind; reduced redundancy surfaces as a higher flag rate, not silent error. Because the untagged mode is the one that generalizes beyond public filings, it is measured separately: the \emph{PDF-only ablation} withholds the tag path from extraction entirely and scores the result against it. The ablation exists to certify the generalizing method, not to serve tagged filings: on a tagged filing the production extraction simply uses the tags, the best reader. Section~\ref{sec:evidence} reports that ablation at zero errors on 994 accepted cells across the four filers, and an untagged sweep over fourteen arbitrary investor-relations annual reports (US GAAP and IFRS, five jurisdictions, banks and industrials, five distressed filers).
+
+\lead{navytwo}{Arithmetic before semantics.} The untagged pipeline validates before it interprets, on the principle that \emph{words nominate, numbers confirm}: a thin label grammar proposes where structure might be, and a proposal survives only if the printed numbers close on it, in every reported column at once. Footing works this way: rows whose labels look total-like (a ``total'' prefix, the cash flow's ``net cash provided by or used in'' family, the income statement's customary subtotals, a row echoing its section's name, or an unlabeled row) nominate subtotal candidates, and the footing solver searches child weights in $\{+1, 0, -1\}$, accepting a tree only when every checkable column agrees; a wrong nomination simply fails to solve and is flagged, and several columns of real figures closing on the same wrong weight vector is a negligible coincidence, which is what makes the check safe without any semantic model. The balance-sheet identity anchors on canonical labels the same way: ``total assets'' against a combined right-hand total, or against ``total liabilities'' plus ``total equity'' (with a Chinese label pack for HK and PRC documents). It reports ``not checkable'' rather than guessing when an anchor is absent, which is how a netted bank presentation fails honestly instead of quietly. The cash tie finds the beginning, ending, net-change, and currency-effect rows by the same nomination, falls back to summing the three activity totals when no net-change row prints, and accepts either filer convention for where the currency effect sits; Microsoft's FY2024 render ties as beginning 34{,}704 plus change $-16{,}389$ against ending 18{,}315, in millions. All of this runs before any taxonomy concept is assigned. Concept mapping then attaches semantics to numbers that already foot, in the order of the next paragraph (the harvested lexicon first, a prior artifact when carrying, then a taxonomy label that names exactly one concept, then the model, under the polarity veto: a proposal whose debit or credit direction contradicts the printed sign is rejected); the encoder stores only what survived, and anything that fails a gate is flagged, never guessed, with a flagged balance-sheet cell refusing simulation outright. Figure~\ref{fig:untagged} draws the order.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  node distance=4mm and 5mm,
+  stage/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center},
+  data/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center, text=navy},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
+]
+\node[data] (pdf) {Born-digital\\ PDF};
+\node[stage, right=2.5mm of pdf] (loc) {\textbf{Locate}\\ \scriptsize deterministic locator;\\ \scriptsize LLM fallback, density-checked};
+\node[stage, right=2.5mm of loc] (read) {\textbf{Read + reconcile}\\ \scriptsize decorrelated readers;\\ \scriptsize agreement gate (Figure~\ref{fig:gate})};
+\node[data, right=2.5mm of read] (rows) {Printed rows\\ \scriptsize values, signs, sections};
+\node[stage, below=9mm of rows] (ident) {\textbf{Identities, printed arithmetic}\\ \scriptsize footing tree discovered; A $=$ L $+$ E;\\ \scriptsize cash tie. No taxonomy consulted};
+\node[stage, left=2.5mm of ident] (map) {\textbf{Concept mapping}\\ \scriptsize lexicon, carried artifact,\\ \scriptsize taxonomy uniques, model;\\ \scriptsize polarity veto};
+\node[data, left=2.5mm of map] (ss) {Structured statement\\ \scriptsize concepts + discovered tree};
+\node[data, left=2.5mm of ss] (enc) {$E(s) = (z, m)$};
+\node[data, below=8mm of enc, draw=fgreen, text=fgreen] (sim) {simulate $z \mapsto z'$,\\ decode $D(z',m)$};
+\node[stage, below=8mm of ss, xshift=4mm] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles must resolve};
+\node[stage, below=8mm of ident, xshift=-4mm, draw=gold, text width=5.2cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
+\draw[arrow] (pdf) -- (loc);
+\draw[arrow] (loc) -- (read);
+\draw[arrow] (read) -- (rows);
+\draw[arrow] (rows) -- (ident);
+\draw[arrow] (ident) -- (map);
+\draw[arrow] (map) -- (ss);
+\draw[arrow] (ss) -- (enc);
+\draw[arrow] (ss) -- (roles);
+\draw[arrow, rounded corners=3pt] (roles.south) -- ++(0,-0.22) -| (sim.south);
+\draw[arrow] (enc) -- (sim);
+\draw[arrow, color=gold, rounded corners=3pt] (map.south) |- (flags.west);
+\draw[arrow, color=gold, rounded corners=3pt] (read.north) -- ++(0,0.28) -| ([xshift=1.5mm]ident.east) |- (flags.east);
+\end{tikzpicture}
+\caption{Untagged ingestion validates before it interprets. Printed rows that survive the reader gate are checked arithmetically first: the footing solver discovers the subtotal tree from the numbers themselves, and A $=$ L $+$ E and the cash tie bind on the printed totals, with no taxonomy consulted. Concept mapping then attaches semantics to validated numbers, the encoder stores what survived, and every failure is a flag, never a guess: adjudication can resolve a flag only into a value a deterministic reader read, and a flagged balance-sheet cell refuses simulation. The behavior layer joins at simulation time: the deterministic role cascade classifies every mapped line, and those roles are what the engine and the driver layer consume to advance the state; the identities and the encoding need nothing from them, and a firm whose core driver roles do not resolve is refused simulation with the missing roles named.}
+\label{fig:untagged}
+\end{figure}
+
+\lead{navytwo}{The mapping ladder.} Concept mapping tries four rungs in order, each cheaper and more accountable than the next; a row is resolved by the first rung that succeeds. First the harvested lexicon: an exact match of the canonicalized printed label against labels the validation filers print, carrying the concepts their own tags declare, scoped per statement so that ``Inventories'' means the stock on a balance sheet and the period's delta on a cash flow. Second, when onboarding carries, the firm's own prior signed artifact: an exact match replays a reviewed choice. Third, the taxonomies' own standard labels under a uniqueness rule: the two standard setters name roughly 31{,}000 label forms and almost all of them name exactly one concept, so a printed label that matches one of those forms resolves deterministically (Bed Bath \& Beyond's ``Repayments of long-term debt'' resolves to exactly that concept, agreeing with the filer's own tag), while the few dozen forms both taxonomies share (``Goodwill'' exists in each) are dropped at load, so the tier can never assert an identity another standard concept shares a name with. In practice exact coincidences between printed wording and a standard label are rare, so this rung is a precision instrument rather than a coverage instrument: on the non-lexicon firm it resolved one row, correctly. Only the residue reaches the model, over a lexically retrieved shortlist; and both heuristic rungs (the taxonomy tier and the model) pass the balance-polarity veto, while the lexicon's and the artifact's exact matches are trusted.
+
+\lead{navytwo}{Residual risk.} What remains silent is the intersection: errors concordant across decorrelated paths, identity-preserving, and within rounding tolerance, for example a uniform mis-scaling that multiplies every value identically (identities are scale-invariant, so only the tag path or a share-consistency check catches it). The seeded-error battery deliberately injects the correlated pathologies (wrapped labels, scale exceptions, note-reference columns, digit transpositions, dropped signs), seeds a scanned page and an OCR'd page into an otherwise born-digital document and requires the born-digital abstain to fire (making the scope limit a tested behavior, not a sentence), and requires the gate to flag every one; a re-prompt of the same model on the same input is never counted as an independent check; and adjudication weight follows path independence, a standard-tag value outweighing two layout readers that agree with each other.
+
+\subsection{Onboarding and the mapping artifact}
+\label{sec:onboarding}
+Ingestion as described so far is a per-run computation, and two of its ingredients are not: label-to-concept choices and flagged-cell adjudications are per-document judgment. Judgment gets a lifecycle rather than a rerun: made once with the model's help, validated mechanically, reviewed, signed, and then replayed deterministically for as long as the document's bytes do not change. Figure~\ref{fig:onboarding} draws that lifecycle; the three passages below give its rules. The asymmetry with the behavior layer of Section~\ref{sec:kg} is deliberate: sign-off gates concept mapping because it is per-document judgment, while versioning and the acceptance battery gate the behavior layer because it is firm-independent code.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  node distance=4mm and 3mm,
+  stage/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center},
+  data/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center, text=navy},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
+]
+\node[data] (doc) {Document\\ \scriptsize hash-identified};
+\node[stage, right=3mm of doc] (onboard) {\textbf{\texttt{fss onboard}}\\ \scriptsize ingestion with the model\\ \scriptsize under the leash};
+\node[data, right=3mm of onboard] (artifact) {Mapping artifact\\ \scriptsize pages; label$\to$concept, polarity;\\ \scriptsize adjudications; hash, version};
+\node[stage, right=3mm of artifact] (signoff) {\textbf{Review, sign-off}\\ \scriptsize the accuracy gate};
+\node[stage, below=9mm of artifact] (runtime) {\textbf{\texttt{fss runtime}}\\ \scriptsize model-free; replays an adjudication only where\\ \scriptsize a reader still reads the signed value;\\ \scriptsize a drifted hash is refused};
+\node[data, left=of runtime] (out) {Byte-identical\\ outputs};
+\draw[arrow] (doc) -- (onboard);
+\draw[arrow] (onboard) -- (artifact);
+\draw[arrow] (artifact) -- (signoff);
+\draw[arrow, rounded corners=3pt] (signoff.south) |- (runtime.east);
+\draw[arrow] (runtime) -- (out);
+\draw[arrow, rounded corners=3pt] (signoff.north) -- ++(0,0.42) -| (onboard.north);
+\node[above=6.4mm of artifact, font=\scriptsize\color{slate}] {next year, \texttt{--carry-from}: semantics, never layout; only deltas reach the model};
+\end{tikzpicture}
+\caption{The onboarding lifecycle. \texttt{fss onboard} runs the full ingestion pipeline with the model enabled under the leash; every entry in the resulting mapping artifact is a survivor of the mechanical validators, and the artifact binds to the document's hash and carries a sign-off field. \texttt{fss runtime} never constructs a model client: it re-extracts deterministically, replays an adjudication only where a deterministic reader still reads the signed value, refuses a drifted hash with re-onboarding required, and reruns byte-identically. A prior year's signed artifact can seed the next year's onboarding: carry seeds semantics, never layout, and only genuine deltas reach the model and the reviewer.}
+\label{fig:onboarding}
+\end{figure}
+
+\lead{navytwo}{The LLM's leash.} LLM stages reuse the author's prior extraction pipeline wholesale: the calling logic, the batched page-identification prompts, the schema-constrained JSON extraction rules, and the repeated-run median-vote hallucination control. Their authority is deliberately narrow. Page identification is a fallback when the deterministic locator abstains; the artifacts measure that hierarchy: five fallbacks across the fourteen-document sweep (Section~\ref{sec:evidence}). Cell reading operates only on cells the reader gate flagged, and a flagged cell is accepted only when the LLM's median-voted value exactly matches one of the deterministic readers, so the LLM can break ties but can never introduce a number nobody read. Concept mapping chooses from a lexically retrieved shortlist and is vetoed by balance-polarity checks. When no endpoint is configured every stage degrades to its deterministic behavior and the corresponding cells simply remain flagged; a firm whose balance sheet carries flagged cells is refused simulation outright (a structural quality gate), which is precisely the review loop the abstain rule intends.
+
+\lead{navytwo}{LLMs at build time, determinism at run time.} The leash above binds \emph{what} the model may say; a second, stricter rule binds \emph{when} it may be consulted at all. Production ingestion must replay exactly to pass model approval, and a hosted model in the inference path cannot meet that bar: inference kernels are load-dependent in their low-order bits \cite{tml_determinism}, greedy decoding amplifies a last-bit difference into a different answer, and hosted endpoints update silently, leaving no version to freeze. Accordingly the model is confined to change management. \texttt{fss onboard} runs ingestion with the LLM engaged and emits a \emph{mapping artifact} per document: statement page locations, label-to-concept choices with balance polarity, and flagged-cell adjudications, each entry the survivor of the mechanical validators, with the source document's hash, the code version, and a sign-off field. A human reviews and signs the artifact; it is versioned alongside the code. \texttt{fss runtime} then never constructs a model client: it re-extracts deterministically, replays an adjudication only when a deterministic reader still reads the signed value today (the artifact can break ties but cannot inject numbers into a changed document), re-runs every check, logs the source, code, and artifact versions it ran under, and refuses a document whose hash has drifted with ``re-onboarding required.'' The reference implementation demonstrates the property directly: two independent runtime executions over the same filings produce byte-identical outputs (twelve artifacts, zero differing hashes), the fourteen-document sweep reproduces its build-time results with zero model calls, and when the original hosted endpoint began refusing requests between build and demonstration, the runtime was indifferent: the artifacts were reconstructed from the committed build products without a model, which is the failure mode this split exists to absorb.
+
+\lead{navytwo}{Across years: carry-forward.} A mapping artifact binds to one document by hash: a signed document whose bytes change is refused, and a new fiscal year is a new document that must be onboarded. What keeps annual re-onboarding cheap is that a firm's line-item wording is sticky year over year, so \texttt{fss onboard --carry-from} seeds a filing's onboarding from the firm's prior signed artifact. Carry seeds semantics, never layout: the prior label-to-concept choices enter the resolution order between the lexicon and the model, so an exact-label match replays a reviewed choice instead of consulting anything, while page location stays with the deterministic locator (layout is a per-document fact) and adjudicated values never carry (they are year-specific by nature); only genuine deltas (lines the firm reworded, added, or restructured) reach the model and the reviewer. Carry replicates the prior artifact faithfully, errors included, so the sign-off it inherits from, not the mechanism, remains the accuracy gate. Section~\ref{sec:evidence} demonstrates the mechanism on two adjacent-year pairs scored against the filers' own tags.
+
+% ===== 8. State space =====
+\section{The union state space}
+\label{sec:statespace}
+Extraction delivers a structured statement in the filer's own lines; simulation needs a representation those lines can be evolved in. This section specifies that representation: first the encoding into it and the proof that nothing is lost, then the graph it is specified over and the behavior layer that makes one engine serve every firm.
 
 \subsection{Encoding, decoding, and perfect reconstruction}
 \label{sec:reconstruction}
@@ -304,7 +440,7 @@ Two boundaries keep the layer honest. The accounting identities need nothing fro
 
 Three cautions are built in, all encountered in practice during validation: filed calculation linkbases are treated as the per-firm arithmetic backbone but verified, never trusted (SAP's own subtotals violate them at printed precision); dimensional breakdowns are restricted to face-of-statement axes for the MVP (note-level axes leak into face concepts otherwise); and taxonomy versions are pinned per fiscal year.
 
-% ===== 7. Engine =====
+% ===== 9. Engine =====
 \section{The accounting engine: no plugs, no circularity}
 \label{sec:engine}
 The engine's contract is that it \emph{cannot} produce an unbalanced statement, and that nothing is plugged to make that true. Circularity is the companion problem: in a conventional forecast, interest depends on debt, debt on the cash shortfall, and cash on interest (a loop closed by iteration or by a plug); here every quantity is computed once, in an explicit dependency order, so the loop never forms. Let the balance-sheet leaves be accounts $a \in \mathcal{A}$ with balance polarity $\beta_a \in \{+1 \text{ (debit)}, -1 \text{ (credit)}\}$. A \emph{flow} $f$ posts amounts $\phi_f(a)$ to a set of accounts; a flow is \emph{balanced} when its debit-signed legs cancel:
@@ -326,7 +462,7 @@ is invariant: $R_{t+1} = R_t$ for any set of balanced flows. The engine asserts 
 
 \lead{navytwo}{Auditability.} Every flow is journaled with its magnitude and its double-entry effect description; every run writes the journal, the input hashes, versions, configuration, and seed. Reruns are bit-identical. An auditor can take any simulated figure and walk it back to filed values and named rules.
 
-% ===== 8. Drivers =====
+% ===== 10. Drivers =====
 \section{The driver-to-flow layer and scenarios}
 \label{sec:drivers}
 Scenarios are vectors $x = (\Delta g^{\text{GDP}},\ \Delta \pi,\ \Delta r,\ z_c,\ z_d)$: GDP growth deviation from trend (percentage points), inflation deviation (pp), a parallel short-rate shift (basis points), an industry competition shock (z-score), and a firm demand shock (z-score). The MVP driver map is reasoned and nonlinear where the economics demands it, with parameters documented, not fitted. Writing $\hat{g}$ for the firm's own trailing revenue growth, $w_m$ for the mean-reversion weight applied to it, $\alpha$ for the elasticity of operating expense to revenue, $\beta$, $\lambda$, $\kappa$, and $\rho$ for the sensitivity families (demand, inflation pass-through, competition, and rate pass-through to the firm's asset yields $y$ and debt rates $c$), and $\varepsilon$ for independent Gaussian draws:
@@ -344,101 +480,7 @@ with $\lambda_\pi < \lambda_c$ (inflation passes into costs faster than into pri
 
 For a fixed scenario, Monte Carlo sampling of $(\varepsilon_g, \varepsilon_m, \varepsilon_o)$ propagates through the engine, so the output is a distribution over complete, internally consistent statements; the identity assertions run on every path. The stochastic simulation itself runs in TensorFlow, following the batched-tensor pattern of the internal forecasting stack: all paths of a scenario execute as one vectorized float64 pass over $[n_{\text{paths}}, n_{\text{accounts}}]$ tensors with stateless seeded draws, per-path identity residuals checked to the currency unit; the median and noise-free paths are then replayed bit-exactly through the exact-arithmetic Decimal engine, fed the very shocks TensorFlow drew, to produce the audit artifacts. An agreement test holds the two implementations together at $10^{-10}$ relative on replayed paths. The \textbf{directional battery} requires, on scenario means versus baseline: expansion raises revenue and net income; recession lowers both; competition lowers net income and compresses gross margin; inflation without demand lowers net income; and a rate hike moves net income with the sign of the firm's own net cash position, computed from its balance sheet, not asserted. Part II replaces \eqref{eq:revgrowth}--\eqref{eq:rates}'s noise with a learned conditional joint distribution, keeping every other component fixed.
 
-% ===== 9. Robustness =====
-\section{Extraction robustness}
-\label{sec:robustness}
-Extraction is held to a far higher precision bar than the rest of the system because a misread figure invalidates everything downstream. The approach mirrors the engineering already used in the director's own tools: several readers cross-check one another, and a field is accepted only when they agree.
-
-\lead{navytwo}{What reading a PDF means, and why the readers differ.} A born-digital PDF does not store text the way a plain-text file does. It stores drawing instructions: place this character shape, this glyph of this font, at these coordinates. Recovering a statement from those instructions is an act of interpretation, and every step of it can err: shapes map back to characters through per-font tables, word breaks are inferred from spacing (a space is usually a gap, not a stored character), and lines, rows, and columns are assembled from coordinates. The readers of Figure~\ref{fig:gate} are independently written interpreters of the same authored instructions, chosen so their mistakes do not overlap. R2 and R3 run one line grammar over two different text-extraction engines (pdfminer and pypdf), separate codebases that perform the inference differently and fail differently; the untagged sweep of Section~\ref{sec:evidence} met both failure shapes in the wild, space glyphs that vanish and digits split inside a number, and each surfaced as reader disagreement. R1 trusts neither engine's assembled lines: it reads raw word positions and reconstructs the table spatially, clustering the right edges of numeric tokens into column bands, so it sees the alignment the text engines cannot and misses in ways they do not. The filer's instructions are exact at the source, only interpretation errs, and the interpreters err differently, so their exact agreement on a figure is evidence rather than repetition. R4 does not interpret the rendered page at all: when the filing carries tags, it consumes the filer's machine-readable facts, with sign, scale, and period stated explicitly.
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[
-  font=\small,
-  node distance=3.5mm and 7mm,
-  reader/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=8mm, minimum width=34mm, inner sep=4pt, align=center},
-  gate/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center, text=navy},
-  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
-]
-\node[reader] (r1) {R1: word geometry\\ \scriptsize column bands from positions};
-\node[reader, below=of r1] (r2) {R2: line grammar\\ \scriptsize pdfminer text engine};
-\node[reader, below=of r2] (r3) {R3: line grammar\\ \scriptsize pypdf text engine};
-\node[reader, below=of r3, draw=gold] (r4) {R4: tagged facts (when present)\\ \scriptsize signs, scale, period explicit};
-\node[gate, right=11mm of r2.east, yshift=-5mm] (gate) {Agreement gate\\ \scriptsize independence-weighted:\\ \scriptsize positional + one text engine,\\ \scriptsize or both text engines};
-\node[gate, right=10mm of gate] (ident) {Identity checks\\ \scriptsize footing, A=L+E,\\ \scriptsize cash tie, EPS};
-\node[draw=fgreen, thick, fill=white, text=fgreen, rounded corners=2pt, minimum height=8mm, inner sep=5pt, align=center, right=10mm of ident] (out) {accepted\\ \scriptsize or flagged,\\ \scriptsize never guessed};
-\draw[arrow] (r1.east) -- ++(4mm,0) |- (gate.170);
-\draw[arrow] (r2.east) -- (gate.west|-r2.east);
-\draw[arrow] (r3.east) -- ++(4mm,0) |- (gate.190);
-\draw[arrow, color=gold] (r4.east) -- ++(6mm,0) |- (ident.south);
-\draw[arrow] (gate) -- (ident);
-\draw[arrow] (ident) -- (out);
-\end{tikzpicture}
-\caption{The reconciliation gate. Readers consume different representations of the same document; the gate weights agreement by path independence (the two line readers share a grammar, so their mutual agreement cannot outvote positional evidence); identity checks catch concordant errors that break arithmetic; tagged facts, when present, are the strongest reader and the ground truth for measuring the others.}
-\label{fig:gate}
-\end{figure}
-
-Under this gating rule the two failure modes have very different costs: a disagreement costs review time; the expensive event is \emph{silent concordance}, every reader returning the identical wrong value. With $k$ genuinely independent readers of per-field error rates $p_i$ and a collision kernel $c$ (the probability that independent errors land on the same wrong value), the silent-concordance rate is of order $c \prod_i p_i$; with observed single-reader error rates at or below the percent level, decorrelated failure modes, and the identity filter removing arithmetic-breaking survivors, the design target is toward $10^{-8}$ per field, \emph{measured} where measurement is possible and defended by construction where it is not. Three filters implement this:
-\begin{enumerate}
-  \item \textbf{Cross-reader agreement} catches discordant errors; every disagreement is surfaced, never resolved silently. The acceptance rule is independence-weighted: the geometry reader plus either text-engine reader accepts; the two text-engine readers agreeing with each other, without positional support, is accepted only where geometry has no reading at all, and recorded as the weaker rule.
-  \item \textbf{Decorrelated input paths}: word positions; two different text extraction engines under one line grammar; the filer's tagged facts when present (explicit sign, scale, period, no dependence on visual layout); optionally a vision reader and the prior year's comparatives. Layout pathologies (wrapped labels, note-reference columns, scale headers, glued currency amounts, unlabeled section totals) hit the layout readers and not the tag path; tag-path pathologies (extension tags, footnote-only values) do not afflict the layout readers.
-  \item \textbf{Accounting-identity checks} catch concordant errors that break arithmetic: footing along the calculation arcs, A $=$ L $+$ E, the cash tie, and per-share consistency, all within the decimals tolerance. They also catch genuine typos in the source filing, which are surfaced, since the extractor's ground truth is what the filing says.
-\end{enumerate}
-
-\lead{navytwo}{Document scope: born-digital PDFs.} The untagged mode requires statement pages to carry \emph{authored} text, not merely present text: scanned or image-compiled documents, including OCR'd scans, are out of scope for the MVP. The distinction is about where the characters come from. On an authored page the characters are exact at the source: the filer's software placed every one, so only a reader's interpretation can err, and interpretation errors are what the reconciliation gate is built to catch. An OCR'd scan inverts this: the page is a picture, a recognition pass wrote its guesses at the characters into an invisible text layer (rendering mode 3) laid over the full-page raster, and a guessed digit is wrong before any reader runs. Such a scan passes a naive has-text check, but admitting it would feed every text-consuming reader from that single guess: the readers would agree as copies of one reading, not as independent checks, and agreement would stop being evidence. The gate is mechanical and per statement page: a page-dominating image XObject combined with absent or invisible text triggers the abstain rule, exactly as a missing mapping entry does (font embeddedness alone is deliberately not a hard signal, since authored documents set in the standard-14 fonts carry no embedded fonts). The reference implementation enforces and tests this: a scanned page and an OCR'd page seeded into an otherwise born-digital document each abstain with the scope error named. The cut removes an OCR dependency, not the correlated-failure concern: a born-digital file can still carry a corrupted text layer (broken ToUnicode maps, subset fonts mapping glyphs to wrong codepoints; one sweep document extracts prose but not a single numeral), and that corruption hits the layout and text readers together; the identity checks, the tag path where present, and any future pixel-consuming reader remain the defense there.
-
-\lead{navytwo}{Tags are the best case, not a prerequisite.} Where a document carries no tags (a private firm or another jurisdiction, provided the document is born-digital), the remaining readers still gate one another and the identities still bind; reduced redundancy surfaces as a higher flag rate, not silent error. Because the untagged mode is the one that generalizes beyond public filings, it is measured separately: the \emph{PDF-only ablation} withholds the tag path from extraction entirely and scores the result against it. The ablation exists to certify the generalizing method, not to serve tagged filings: on a tagged filing the production extraction simply uses the tags, the best reader. Section~\ref{sec:evidence} reports that ablation at zero errors on 994 accepted cells across the four filers, and an untagged sweep over fourteen arbitrary investor-relations annual reports (US GAAP and IFRS, five jurisdictions, banks and industrials, five distressed filers).
-
-\lead{navytwo}{Arithmetic before semantics.} The untagged pipeline validates before it interprets, on the principle that \emph{words nominate, numbers confirm}: a thin label grammar proposes where structure might be, and a proposal survives only if the printed numbers close on it, in every reported column at once. Footing works this way: rows whose labels look total-like (a ``total'' prefix, the cash flow's ``net cash provided by or used in'' family, the income statement's customary subtotals, a row echoing its section's name, or an unlabeled row) nominate subtotal candidates, and the footing solver searches child weights in $\{+1, 0, -1\}$, accepting a tree only when every checkable column agrees; a wrong nomination simply fails to solve and is flagged, and several columns of real figures closing on the same wrong weight vector is a negligible coincidence, which is what makes the check safe without any semantic model. The balance-sheet identity anchors on canonical labels the same way: ``total assets'' against a combined right-hand total, or against ``total liabilities'' plus ``total equity'' (with a Chinese label pack for HK and PRC documents). It reports ``not checkable'' rather than guessing when an anchor is absent, which is how a netted bank presentation fails honestly instead of quietly. The cash tie finds the beginning, ending, net-change, and currency-effect rows by the same nomination, falls back to summing the three activity totals when no net-change row prints, and accepts either filer convention for where the currency effect sits; Microsoft's FY2024 render ties as beginning 34{,}704 plus change $-16{,}389$ against ending 18{,}315, in millions. All of this runs before any taxonomy concept is assigned. Concept mapping then attaches semantics to numbers that already foot, in the order of the next paragraph (the harvested lexicon first, a prior artifact when carrying, then a taxonomy label that names exactly one concept, then the model, under the polarity veto); the encoder stores only what survived, and anything that fails a gate is flagged, never guessed, with a flagged balance-sheet cell refusing simulation outright. Figure~\ref{fig:untagged} draws the order.
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[
-  font=\small,
-  node distance=4mm and 5mm,
-  stage/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center},
-  data/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center, text=navy},
-  arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
-]
-\node[data] (pdf) {Born-digital\\ PDF};
-\node[stage, right=2.5mm of pdf] (loc) {\textbf{Locate}\\ \scriptsize deterministic locator;\\ \scriptsize LLM fallback, density-checked};
-\node[stage, right=2.5mm of loc] (read) {\textbf{Read + reconcile}\\ \scriptsize decorrelated readers;\\ \scriptsize agreement gate (Figure~\ref{fig:gate})};
-\node[data, right=2.5mm of read] (rows) {Printed rows\\ \scriptsize values, signs, sections};
-\node[stage, below=9mm of rows] (ident) {\textbf{Identities, printed arithmetic}\\ \scriptsize footing tree discovered; A $=$ L $+$ E;\\ \scriptsize cash tie. No taxonomy consulted};
-\node[stage, left=2.5mm of ident] (map) {\textbf{Concept mapping}\\ \scriptsize lexicon, carried artifact,\\ \scriptsize taxonomy uniques, model;\\ \scriptsize polarity veto};
-\node[data, left=2.5mm of map] (ss) {Structured statement\\ \scriptsize concepts + discovered tree};
-\node[data, left=2.5mm of ss] (enc) {$E(s) = (z, m)$};
-\node[data, below=8mm of enc, draw=fgreen, text=fgreen] (sim) {simulate $z \mapsto z'$,\\ decode $D(z',m)$};
-\node[stage, below=8mm of ss, xshift=4mm] (roles) {\textbf{Behavior layer}\\ \scriptsize deterministic role cascade:\\ \scriptsize concept, label, section, calc;\\ \scriptsize core driver roles must resolve};
-\node[stage, below=8mm of ident, xshift=-4mm, draw=gold, text width=5.2cm, align=left] (flags) {\scriptsize flagged cells: adjudication (model or human) accepts only a value a reader read;\\ \scriptsize any flagged balance-sheet cell refuses simulation};
-\draw[arrow] (pdf) -- (loc);
-\draw[arrow] (loc) -- (read);
-\draw[arrow] (read) -- (rows);
-\draw[arrow] (rows) -- (ident);
-\draw[arrow] (ident) -- (map);
-\draw[arrow] (map) -- (ss);
-\draw[arrow] (ss) -- (enc);
-\draw[arrow] (ss) -- (roles);
-\draw[arrow, rounded corners=3pt] (roles.south) -- ++(0,-0.22) -| (sim.south);
-\draw[arrow] (enc) -- (sim);
-\draw[arrow, color=gold, rounded corners=3pt] (map.south) |- (flags.west);
-\draw[arrow, color=gold, rounded corners=3pt] (read.north) -- ++(0,0.28) -| ([xshift=1.5mm]ident.east) |- (flags.east);
-\end{tikzpicture}
-\caption{Untagged ingestion validates before it interprets. Printed rows that survive the reader gate are checked arithmetically first: the footing solver discovers the subtotal tree from the numbers themselves, and A $=$ L $+$ E and the cash tie bind on the printed totals, with no taxonomy consulted. Concept mapping then attaches semantics to validated numbers, the encoder stores what survived, and every failure is a flag, never a guess: adjudication can resolve a flag only into a value a deterministic reader read, and a flagged balance-sheet cell refuses simulation. The behavior layer joins at simulation time: the deterministic role cascade classifies every mapped line, and those roles are what the engine and the driver layer consume to advance the state; the identities and the encoding need nothing from them, and a firm whose core driver roles do not resolve is refused simulation with the missing roles named.}
-\label{fig:untagged}
-\end{figure}
-
-\lead{navytwo}{The mapping ladder.} Concept mapping tries four rungs in order, each cheaper and more accountable than the next; a row is resolved by the first rung that succeeds. First the harvested lexicon: an exact match of the canonicalized printed label against labels the validation filers print, carrying the concepts their own tags declare, scoped per statement so that ``Inventories'' means the stock on a balance sheet and the period's delta on a cash flow. Second, when onboarding carries, the firm's own prior signed artifact: an exact match replays a reviewed choice. Third, the taxonomies' own standard labels under a uniqueness rule: the two standard setters name roughly 31{,}000 label forms and almost all of them name exactly one concept, so a printed label that matches one of those forms resolves deterministically (Bed Bath \& Beyond's ``Repayments of long-term debt'' resolves to exactly that concept, agreeing with the filer's own tag), while the few dozen forms both taxonomies share (``Goodwill'' exists in each) are dropped at load, so the tier can never assert an identity another standard concept shares a name with. In practice exact coincidences between printed wording and a standard label are rare, so this rung is a precision instrument rather than a coverage instrument: on the non-lexicon firm it resolved one row, correctly. Only the residue reaches the model, over a lexically retrieved shortlist; and both heuristic rungs (the taxonomy tier and the model) pass the balance-polarity veto, while the lexicon's and the artifact's exact matches are trusted.
-
-\lead{navytwo}{The LLM's leash.} LLM stages reuse the author's prior extraction pipeline wholesale: the calling logic, the batched page-identification prompts, the schema-constrained JSON extraction rules, and the repeated-run median-vote hallucination control. Their authority is deliberately narrow. Page identification is a fallback when the deterministic locator abstains; the artifacts measure that hierarchy: five fallbacks across the fourteen-document sweep (Section~\ref{sec:evidence}). Cell reading operates only on cells the reader gate flagged, and a flagged cell is accepted only when the LLM's median-voted value exactly matches one of the deterministic readers, so the LLM can break ties but can never introduce a number nobody read. Concept mapping chooses from a lexically retrieved shortlist and is vetoed by balance-polarity checks. When no endpoint is configured every stage degrades to its deterministic behavior and the corresponding cells simply remain flagged; a firm whose balance sheet carries flagged cells is refused simulation outright (a structural quality gate), which is precisely the review loop the abstain rule intends.
-
-\lead{navytwo}{LLMs at build time, determinism at run time.} The leash above binds \emph{what} the model may say; a second, stricter rule binds \emph{when} it may be consulted at all. Production ingestion must replay exactly to pass model approval, and a hosted model in the inference path cannot meet that bar: inference kernels are load-dependent in their low-order bits \cite{tml_determinism}, greedy decoding amplifies a last-bit difference into a different answer, and hosted endpoints update silently, leaving no version to freeze. Accordingly the model is confined to change management. \texttt{fss onboard} runs ingestion with the LLM engaged and emits a \emph{mapping artifact} per document: statement page locations, label-to-concept choices with balance polarity, and flagged-cell adjudications, each entry the survivor of the mechanical validators, with the source document's hash, the code version, and a sign-off field. A human reviews and signs the artifact; it is versioned alongside the code. \texttt{fss runtime} then never constructs a model client: it re-extracts deterministically, replays an adjudication only when a deterministic reader still reads the signed value today (the artifact can break ties but cannot inject numbers into a changed document), re-runs every check, logs the source, code, and artifact versions it ran under, and refuses a document whose hash has drifted with ``re-onboarding required.'' The reference implementation demonstrates the property directly: two independent runtime executions over the same filings produce byte-identical outputs (twelve artifacts, zero differing hashes), the fourteen-document sweep reproduces its build-time results with zero model calls, and when the original hosted endpoint began refusing requests between build and demonstration, the runtime was indifferent: the artifacts were reconstructed from the committed build products without a model, which is the failure mode this split exists to absorb.
-
-\lead{navytwo}{Onboarding across years: carry-forward.} A mapping artifact binds to one document by hash: a signed document whose bytes change is refused, and a new fiscal year is a new document that must be onboarded. What keeps annual re-onboarding cheap is that a firm's line-item wording is sticky year over year, so \texttt{fss onboard --carry-from} seeds a filing's onboarding from the firm's prior signed artifact. Carry seeds semantics, never layout: the prior label-to-concept choices enter the resolution order between the lexicon and the model, so an exact-label match replays a reviewed choice instead of consulting anything, while page location stays with the deterministic locator (layout is a per-document fact) and adjudicated values never carry (they are year-specific by nature); only genuine deltas (lines the firm reworded, added, or restructured) reach the model and the reviewer. Carry replicates the prior artifact faithfully, errors included, so the sign-off it inherits from, not the mechanism, remains the accuracy gate. Section~\ref{sec:evidence} demonstrates the mechanism on two adjacent-year pairs scored against the filers' own tags.
-
-\lead{navytwo}{Residual risk.} What remains silent is the intersection: errors concordant across decorrelated paths, identity-preserving, and within rounding tolerance, for example a uniform mis-scaling that multiplies every value identically (identities are scale-invariant, so only the tag path or a share-consistency check catches it). The seeded-error battery deliberately injects the correlated pathologies (wrapped labels, scale exceptions, note-reference columns, digit transpositions, dropped signs), seeds a scanned page and an OCR'd page into an otherwise born-digital document and requires the born-digital abstain to fire (making the scope limit a tested behavior, not a sentence), and requires the gate to flag every one; a re-prompt of the same model on the same input is never counted as an independent check; and adjudication weight follows path independence, a standard-tag value outweighing two layout readers that agree with each other.
-
-% ===== 10. Evidence =====
+% ===== 11. Evidence =====
 \section{Validation evidence: four filers, two standards}
 \label{sec:evidence}
 Everything in this section was produced by the reference implementation accompanying this proposal (\texttt{src/fss}, roughly 9{,}000 lines of typed Python with a pytest suite and full audit manifests), run end to end on the most recent annual reports of Apple and Microsoft (US GAAP, Form 10-K) and SAP and Spotify (IFRS, Form 20-F). PDFs were rendered from the official EDGAR primary documents; the tag path (Arelle over the filers' inline XBRL) supplies ground truth. The evidence runs in three regimes, each at its own bar: the tag path as ground truth, the PDF-only ablation measured against it, and the truly untagged sweep over arbitrary investor-relations documents carrying no tags at all, six of which are additionally scored against their filers' tagged filings, giving the foreign-layout regime a measured bar of its own. Balance sheet, income statement, and cash flow statement, all reported columns.
@@ -469,13 +511,13 @@ The pathologies survived on the way to zero are the point of the exercise: wrapp
 
 \lead{navytwo}{Untagged sweep (arbitrary IR documents).} Beyond the gating set, the untagged pipeline ran over fourteen investor-relations annual reports with no XBRL anywhere: nine current large-caps (including a bank, and IFRS filers from Germany, France, and Hong Kong) and five distressed filers (Lehman 2007, SVB 2022, Bed Bath \& Beyond 2022, Wirecard 2018, Evergrande 2022). These documents exhibit pathologies the EDGAR set never shows, each now handled by a general rule with a regression test: DOCX-exported PDFs that split digits inside numbers ("245, 122") and even inside words; PDFs whose space glyphs vanish entirely ("CONSOLIDATEDBALANCESHEET"); pages carrying two statements; statements spanning pages with repeated titles; numeric note-reference columns; bank vocabulary ("statement of financial condition") and IFRS wording ("statement of profit or loss"). Where extraction succeeds, printed-subtotal footing (with the signs and running subtotals of income-statement chains discovered from the printed arithmetic itself), A~$=$~L~$+$~E, and the cash tie verify without any tags, and the discovered structure is itself the calculation tree the simulator uses; a structural quality gate refuses simulation while any balance-sheet cell remains flagged, which is exactly where the LLM adjudicator (or a human reviewer) enters. Page location is overwhelmingly deterministic: 37 of the 42 statement locations across the fourteen mapping artifacts came from the locator alone, and the LLM fallback supplied the remaining five (the cash flow statements of Bed Bath \& Beyond and Lehman, and all three statements of Wirecard, whose numeral-stripped fonts leave the locator's density test nothing to count), each choice recorded as located-by provenance in its artifact. One document's English financial pages are image-based, with extractable text only in its Chinese-language half and extraction there partial: the designed boundary for the optional OCR/vision reader. Per-document reports, provenance, and the sweep summary land under \texttt{out/untagged/}.
 
-\lead{navytwo}{Cross-year carry-forward.} Onboarding recurs every fiscal year, so the build also demonstrates carry-forward (Section~\ref{sec:robustness}): each firm's adjacent-year filing, rendered from its EDGAR primary document, onboarded with and without seeding from the year already onboarded, and every label-to-concept choice scored against the filer's own tags for that year. Microsoft FY2024 from FY2025 is the boundary case: Microsoft is one of the four filers the label lexicon is harvested from, so 80 of its 83 mapped face rows resolve lexically, not one mapped row disagrees with the filer's own tag, carry has nothing left to add, and the only model-resolved rows are the three cash-flow lines Microsoft reworded between the two years, exactly the deltas the design routes to the model. Bed Bath \& Beyond fiscal 2021 from the fiscal-2022 artifact is the payoff case: a distressed filer outside the lexicon, where carry resolved 26 label-to-concept choices without any model call (twelve balance-sheet, six income-statement, eight cash-flow), cut model calls from 55 to 37 and model-mapped rows from 35 to 14, and the carried document extracts, foots, ties, and simulates end to end, with the runtime replaying the carried artifact model-free. The scorer sharpened two claims the hard way: the label lexicon was statement-blind (``Inventories'' names the stock on a balance sheet and the period's delta on a cash flow), which a statement-scoped lexicon fixed, taking Microsoft's cash-flow concept mismatches from seven to zero; and carry replicates the prior artifact verbatim, errors included (its residual mismatches trace to the prior build's unreviewed shortlist choices, which today mix the two standards' concepts), which is precisely why the artifact's sign-off, not the mechanism, is the accuracy gate. Full tables land under \texttt{out/carry/}.
+\lead{navytwo}{Cross-year carry-forward.} Onboarding recurs every fiscal year, so the build also demonstrates carry-forward (Section~\ref{sec:onboarding}): each firm's adjacent-year filing, rendered from its EDGAR primary document, onboarded with and without seeding from the year already onboarded, and every label-to-concept choice scored against the filer's own tags for that year. Microsoft FY2024 from FY2025 is the boundary case: Microsoft is one of the four filers the label lexicon is harvested from, so 80 of its 83 mapped face rows resolve lexically, not one mapped row disagrees with the filer's own tag, carry has nothing left to add, and the only model-resolved rows are the three cash-flow lines Microsoft reworded between the two years, exactly the deltas the design routes to the model. Bed Bath \& Beyond fiscal 2021 from the fiscal-2022 artifact is the payoff case: a distressed filer outside the lexicon, where carry resolved 26 label-to-concept choices without any model call (twelve balance-sheet, six income-statement, eight cash-flow), cut model calls from 55 to 37 and model-mapped rows from 35 to 14, and the carried document extracts, foots, ties, and simulates end to end, with the runtime replaying the carried artifact model-free. The scorer sharpened two claims the hard way: the label lexicon was statement-blind (``Inventories'' names the stock on a balance sheet and the period's delta on a cash flow), which a statement-scoped lexicon fixed, taking Microsoft's cash-flow concept mismatches from seven to zero; and carry replicates the prior artifact verbatim, errors included (its residual mismatches trace to the prior build's unreviewed shortlist choices, which today mix the two standards' concepts), which is precisely why the artifact's sign-off, not the mechanism, is the accuracy gate. Full tables land under \texttt{out/carry/}.
 
 \lead{navytwo}{Foreign layouts against their filings' tags.} Six of the sweep's investor-relations documents belong to filers whose same-fiscal-year filings are tagged on EDGAR (General Motors, Exxon Mobil, JPMorgan, Alphabet, SVB, and Bed Bath \& Beyond), which turns them into a measured extension of the ablation: the same reported figures, printed in a genuinely different layout, scored against the filer's own tags. Each document is replayed deterministically from its committed artifact, and every accepted cell is compared to the tagged value for the same label and fiscal year. The result: 1{,}343 accepted cells compared, of which 1{,}316, or 98.0\%, equal the filing exactly. The 27 exceptions are the finding, each in a named category: 21 are Exxon's balance sheet, the fused two-statement page, where the document's own correct values land under the wrong year column (its empty first column is likewise all 11 ``missing'' cells); 3 are JPMorgan's weighted-average share rows read at printed magnitude rather than at the share scale; and 3 are values the documents print where the filing's identically labeled row is empty. Digits read true on foreign layouts; the residual failure mode is layout \emph{attribution} (columns and scale), which no within-document check can see and this cross-document scorer exists to catch, so the two attribution defects enter the Phase~1 worklist as accepted-cell findings under the sev-1 rule (Section~\ref{sec:testing}). The two bank balance sheets do not align at all (the known netted-presentation block: JPMorgan's 108 tagged rows and SVB's 28 find no extracted counterpart), and neither document simulates: the integrity gates refuse JPMorgan on a flagged balance-sheet cell and a failed A $=$ L $+$ E, and SVB on unverified cash-flow footing. The same scoring puts an honest number on semantic mapping: of 270 label-to-concept choices with a taggable counterpart, 111 match the filer's tag; the sweep-era artifacts freely chose IFRS concepts and other firms' extensions on US GAAP filers, which is exactly why unreviewed mappings never pass sign-off and why Phase~1 constrains shortlists by standard and filer. Mapping errors corrupt no arithmetic, since concepts play no part in what the readers accept; they gate what may simulate. Full per-document tables land under \texttt{out/ir\_validation/}.
 
 \lead{navytwo}{What this de-risks.} The executive summary's four commitments are now demonstrated on real filings rather than argued. Ingestion at the near-zero bar: the decorrelated readers and agreement gate produced zero accepted-cell errors under the PDF-only ablation. Lossless encoding: values and presentation separate exactly, so simulation operates on $z$ alone and re-renders natively, and the substrate claim beneath it holds (the taxonomy graph carries what the simulator needs; real statements land on it without manual mapping). An engine that cannot break the books: the no-plug discipline survives contact with materially different real-world articulation styles under two standards. Machinery written once: the behavior layer's cascade classified every face line of all four filers with no per-firm code, and one scenario definition drove every firm's shape through one engine.
 
-% ===== 11. Testing =====
+% ===== 12. Testing =====
 \section{Testing and acceptance plan}
 \label{sec:testing}
 Testing operates at four levels, all automated except the last:
@@ -489,7 +531,7 @@ The gating set for the internship phases extends the validation set to roughly t
 
 Every accepted-cell error found at any point is a sev-1 against the extraction layer: the fix must be a general rule, demonstrated by a new seeded-error test, never a filer-specific patch.
 
-% ===== 12. Governance =====
+% ===== 13. Governance =====
 \section{Governance, controls, and operations}
 \label{sec:governance}
 \lead{navytwo}{Model risk alignment (SR 11-7).} The system is documented as: purpose and use (Section~\ref{sec:problem}), methodology and theory (Sections~\ref{sec:reconstruction}--\ref{sec:drivers}), data lineage (filing hashes to outputs), developmental evidence (Section~\ref{sec:evidence}), ongoing monitoring (the acceptance battery re-run on every change and on every new filing ingested), and known limitations (Section~\ref{sec:limits}). Effective challenge is enabled by determinism: any reviewer can reproduce any number from the manifest.
@@ -502,7 +544,7 @@ Every accepted-cell error found at any point is a sev-1 against the extraction l
 
 \lead{navytwo}{Operations.} The pipeline is a CLI (\texttt{fetch}, \texttt{extract}, \texttt{measure}, \texttt{accept}, \texttt{onboard}, \texttt{runtime}) suitable for scheduled batch execution; per-filer runtime is minutes on commodity hardware, dominated by document parsing. Failure modes are loud: a filing that cannot be located, parsed, or reconciled produces a structured error and no partial output.
 
-% ===== 13. Plan =====
+% ===== 14. Plan =====
 \section{Phased build plan and timeline}
 \label{sec:plan}
 The validation build removes risk from the phased plan: what would otherwise be Phase 1's core uncertainty is already reference code. The internship phases harden and extend it to the full bar.
@@ -534,7 +576,7 @@ Phase 4 & Learned driver distributions (conditional) & 18 Jan to 26 Feb 2027 & $
 \vspace{4pt}
 \lead{navytwo}{Key milestones.} MVP feature-complete by 4 December 2026; accountant sign-off by 15 January 2027; Phase 4 begins only on sign-off.
 
-% ===== 14. Risks =====
+% ===== 15. Risks =====
 \section{Risk register}
 \label{sec:limits}
 \noindent\begin{minipage}{\linewidth}
@@ -552,7 +594,7 @@ Accountant availability for the human gate & Low & Automated plausibility batter
 \captionof{table}{Principal risks. Extraction correctness is deliberately absent as a line item: it is the system's central control, gated continuously, not a residual risk to accept.}
 \end{minipage}
 
-% ===== 15. Open questions =====
+% ===== 16. Open questions =====
 \section{Open questions for alignment}
 The standards scope (US GAAP and IFRS), the precision asymmetry, exact line-item parity, the state-space specification, and the feasibility of the acceptance gates are settled, the last of these by evidence. Three items remain open:
 \begin{enumerate}

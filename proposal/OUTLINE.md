@@ -11,6 +11,17 @@ My first-pass flags are inline: **[order?]** possible misplacement,
 **[check]** verify wording or claim. Everything unflagged I believe is
 correct, in place, and pulling weight.
 
+**Restructure executed 2026-07-27** (pipeline order; headings below still
+show the old numbering, map with this table):
+
+| old | new |
+| --- | --- |
+| 6 System architecture (overview) | 6 (unchanged; exposition sentence now argues pipeline order; component table gains an onboarding/artifact row) |
+| 9 Extraction robustness | 7, gaining 7.1 Onboarding and the mapping artifact (consolidates the leash, build/run split, and carry leads, plus a new lifecycle figure); Residual risk moved before 7.1 |
+| 6.1 / 6.2 | 8.1 / 8.2 under a new Section 8, The union state space, with a two-sentence intro |
+| 7 Engine / 8 Drivers | 9 / 10 |
+| 10 through 15 | 11 through 16 |
+
 ---
 
 ## 1. Executive summary
@@ -118,14 +129,20 @@ correct, in place, and pulling weight.
 ## 6. System architecture
 
 - Simulation core is common; standard-specific work sits at the boundaries.
-- Figure 1: pipeline (extract, encode, drive and post, decode).
+- Figure 1: pipeline (extract, encode with the behavior-layer branch beside
+  it, drive and post, decode).
+  **[FIX applied 2026-07-27]** The behavior layer was missing from Figure 1:
+  the structured statement now feeds both the encoder (to (z, m)) and the
+  role cascade (to roles per line), and the driver layer + engine consume
+  both; caption states that identities bind on (z, m) alone.
 - Component-status table: extractor, adapters, union state space, engine,
   driver layer; all validated by the build.
 - Exposition order argued explicitly: inside-out (state space and engine
   first, extraction boundary last) rather than pipeline order.
-  **[order?]** This is the document's one big deliberate ordering choice.
-  If the review prefers pipeline order (ingestion before engine), Sections
-  6 through 9 reorder; the argument sentence would need rewriting either way.
+  **[FIX applied 2026-07-27]** Reordered to pipeline order: extraction
+  first, then the state space, then engine and drivers; the exposition
+  sentence now argues the pipeline reading, and a balance-polarity gloss was
+  added at the term's first use since Section 7 now precedes Section 8.2.
 
 ### 6.1 Encoding, decoding, and perfect reconstruction
 
@@ -256,6 +273,13 @@ correct, in place, and pulling weight.
 - The LLM's leash: reused pipeline; page-identification fallback (measured:
   five of forty-two); cell reading only ratifies a value a reader read;
   mapping from a shortlist; no endpoint means deterministic degradation.
+  **[FIX applied 2026-07-27]** This lead, the build/run split lead, and the
+  carry-forward lead (retitled Across years: carry-forward) now form
+  subsection 7.1, Onboarding and the mapping artifact, with the lifecycle
+  figure (onboard, signed artifact, sign-off, runtime replay with hash
+  refusal, the carry-from arc), the timescale-asymmetry sentence, and an
+  onboarding/artifact row in the Section 6 component table. Evidence stays
+  in the evidence section (mechanism/measurement ownership).
 - LLMs at build time, determinism at run time: why hosted inference cannot
   sit in the runtime path; onboard emits a signed mapping artifact; runtime
   never constructs a model client, replays only still-read values, refuses

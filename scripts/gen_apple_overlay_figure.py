@@ -44,23 +44,24 @@ from fss.statements import StructuredStatement  # noqa: E402
 OUT = ROOT / "proposal" / "fig_apple_overlay.tex"
 
 # ---- layout constants (cm), landscape ----
-ROW_GAP = 0.03  # vertical gap between row boxes
-ROW_H1 = 0.26  # single-line row box height
-ROW_H2 = 0.54  # two-line row box height
-HEAD_H1 = 0.16  # section-header heights (no box)
+ROW_GAP = 0.012  # vertical gap between row boxes
+ROW_H1 = 0.24  # single-line row box height
+ROW_H2 = 0.50  # two-line row box height
+ROW_H3 = 0.68  # three-line row box height (a few long filer labels)
+HEAD_H1 = 0.21  # section-header heights (no box; a \tiny line box is ~0.21)
 HEAD_H2 = 0.42
-PANEL_W = {"income_statement": 6.4, "cash_flow": 7.5, "balance_sheet": 7.1}
-PANEL_X = {"income_statement": 0.0, "cash_flow": 7.05, "balance_sheet": 15.45}
-ART_X = 6.72  # articulation trunk x (income statement -> cash flow gutter)
+PANEL_W = {"income_statement": 6.1, "cash_flow": 7.8, "balance_sheet": 7.35}
+PANEL_X = {"income_statement": 0.0, "cash_flow": 6.55, "balance_sheet": 15.13}
+ART_X = 6.28  # articulation trunk x (income statement -> cash flow gutter)
 
 # trunk x positions in the cash-flow -> balance-sheet gutter, per flow family
 TRUNK_X = {
-    "wc": 14.62,
-    "debt": 14.76,
-    "capital": 14.90,
-    "equity": 15.04,
-    "securities": 15.18,
-    "cash": 15.32,
+    "wc": 14.44,
+    "debt": 14.57,
+    "capital": 14.70,
+    "equity": 14.83,
+    "securities": 14.96,
+    "cash": 15.09,
 }
 TRUNK_COLOR = {
     "wc": "fgreen",
@@ -72,16 +73,18 @@ TRUNK_COLOR = {
 }
 
 # approximate rendered widths (cm per character), used to size the columns
-CHAR_W = 0.100  # \tiny helvetica text (conservative, for wrap prediction)
-ROLE_W = 0.076  # 4pt typewriter role names
-MATH_W = 0.105  # math law chips, after stripping TeX markup
-TEXT_W = 0.092  # plain-text law chips
+CHAR_W = 0.118  # \tiny helvetica text, effective ragged-right width per char
+ROLE_W = 0.0925  # typewriter role names (5pt: EC tt has no 4pt, LaTeX substitutes)
+MATH_W = 0.108  # math law chips, after stripping TeX markup
+TEXT_W = 0.096  # plain-text law chips
+ROLE_CAP = 1.80  # role column cap (cm); longer roles wrap at underscores
+LAW_CAP = 2.30  # law column cap (cm); longer laws wrap
 MIN_LABEL = 16
 
 # ---- law chips: the engine dispatch of Projector.project, per role ----
 IS_LAW = {
     R.REVENUE: r"$\times(1{+}g_{\mathrm{rev}})$",
-    R.COGS: r"$\times(1{+}g_{\mathrm{rev}})(1{+}\Delta m)$",
+    R.COGS: r"$\times(1{+}g_{\mathrm{rev}})$\allowbreak$(1{+}\Delta m)$",
     R.OPEX_RND: r"$\times(1{+}g_{\mathrm{opex}})$",
     R.OPEX_SELLING: r"$\times(1{+}g_{\mathrm{opex}})$",
     R.OPEX_ADMIN: r"$\times(1{+}g_{\mathrm{opex}})$",
@@ -89,7 +92,7 @@ IS_LAW = {
     R.RESTRUCTURING: r"$\times$ cycle factor",
     R.INTEREST_INCOME: r"$(y{+}\Delta y_A)\cdot$(cash+sec)",
     R.INTEREST_EXPENSE: r"$(c{+}\Delta c_D)\cdot$debt",
-    R.OTHER_INCOME: r"$+\Delta y_A$(cash+sec)$-\Delta c_D$debt",
+    R.OTHER_INCOME: r"$+\Delta y_A$(cash+sec) $-\,\Delta c_D$\,debt",
     R.TAX: r"ETR $\times$ pretax (own arcs)",
     R.EPS: r"parent NI $\div$ shares",
     R.SHARE_COUNT: r"trend $\times$ buyback",
@@ -140,8 +143,8 @@ BS_LAW_FIXED = {
     R.COMMITMENTS: "(no amount)",
 }
 WC_TARGET_LAW = {
-    R.INVENTORY: r"$\to\times(1{+}g)(1{+}\Delta m)$",
-    R.AP: r"$\to\times(1{+}g)(1{+}\Delta m)$",
+    R.INVENTORY: r"$\to\times(1{+}g)$\allowbreak$(1{+}\Delta m)$",
+    R.AP: r"$\to\times(1{+}g)$\allowbreak$(1{+}\Delta m)$",
 }
 WC_DEFAULT_LAW = r"$\to\times(1{+}g_{\mathrm{rev}})$ target"
 
@@ -163,16 +166,17 @@ def law_width(law: str) -> float:
     return len(TEX_MARKUP.sub("", law)) * per_char
 
 
-def layout_label(label: str, width_cm: float) -> tuple[str, int]:
-    """Escape and wrap-predict a label for a block of width_cm; two lines at
-    most, with a clip only past that."""
+def layout_label(label: str, width_cm: float, max_lines: int = 3) -> tuple[str, int]:
+    """Escape and wrap-predict a label for a block of width_cm; up to
+    max_lines, with a clip only past that."""
     per_line = max(MIN_LABEL, int(width_cm / CHAR_W))
-    if len(label) <= per_line:
-        return esc(label), 1
-    cap = 2 * per_line - 2
+    for lines in range(1, max_lines):
+        if len(label) <= lines * per_line - (lines - 1):
+            return esc(label), lines
+    cap = max_lines * per_line - max_lines
     if len(label) <= cap:
-        return esc(label), 2
-    return esc(label[: cap - 1].rstrip()) + r"\,\ldots", 2
+        return esc(label), max_lines
+    return esc(label[: cap - 1].rstrip()) + r"\,\ldots", max_lines
 
 
 @dataclass
@@ -224,8 +228,8 @@ def main() -> int:
             face_info[(kind, _row_key(row))] = (role, law)
             max_role = max(max_role, len(role))
             max_law = max(max_law, law_width(law))
-        role_col[kind] = max_role * ROLE_W + 0.10
-        law_col[kind] = max_law + 0.12
+        role_col[kind] = min(max_role * ROLE_W, ROLE_CAP) + 0.16
+        law_col[kind] = min(max_law, LAW_CAP) + 0.18
 
     # ---- pre-pass: slot geometry per column (variable row heights) ----
     slots: dict[tuple[str, tuple], Slot] = {}
@@ -238,7 +242,7 @@ def main() -> int:
             clean = ABSTRACT_SUFFIX.sub("", row.label)
             if row.kind == "abstract":
                 width = width_panel - 0.25
-                tex, lines = layout_label(clean.lower(), width)
+                tex, lines = layout_label(clean.lower(), width, max_lines=2)
                 height = HEAD_H1 if lines == 1 else HEAD_H2
                 chip = ""
                 role = ""
@@ -249,7 +253,11 @@ def main() -> int:
                 width = (width_panel - role_col[kind] - law_col[kind] - 0.18
                          - (0.30 if member else 0.0))
                 tex, lines = layout_label(clean, width)
-                height = ROW_H1 if lines == 1 else ROW_H2
+                if len(role) * ROLE_W > role_col[kind] - 0.16:
+                    lines = max(lines, 2)
+                if law_width(chip) > law_col[kind] - 0.18:
+                    lines = max(lines, 2)
+                height = {1: ROW_H1, 2: ROW_H2, 3: ROW_H3}[lines]
             y = cursor - height / 2
             slots[(kind, _row_key(row))] = Slot(
                 y=y, height=height, label_tex=tex, label_width=width,
@@ -268,19 +276,6 @@ def main() -> int:
     emit(r"\definecolor{capbrown}{HTML}{7A5C00}")
     emit(r"\begin{tikzpicture}[x=1cm, y=1cm, every node/.style={inner sep=1.2pt}]")
 
-    # ---- driver band: one strip across the top ----
-    emit(r"\node[draw=navytwo, fill=callfill, rounded corners=2pt, anchor=north west, "
-         r"text width=22.25cm, align=left, font=\tiny] at (%.2f, 1.32) "
-         r"{\textbf{\scriptsize Scenario} $x=(\Delta g^{\mathrm{GDP}},\ \Delta\pi,\ \Delta r,\ z_c,\ z_d)$, "
-         r"six scenarios, 500 Monte Carlo paths each "
-         r"$\;\longrightarrow\;$ \textbf{\scriptsize driver draw} (Section 8): "
-         r"$g_{\mathrm{rev}}$ revenue growth; $\Delta m$ COGS-ratio shift; "
-         r"$g_{\mathrm{opex}}$ opex growth; $\Delta y_A,\ \Delta c_D$ rate shifts; "
-         r"$g_{\mathrm{div}}$ dividend growth; $b$ buyback factor; noise "
-         r"$\varepsilon_g, \varepsilon_m, \varepsilon_o$. Each panel carries three "
-         r"columns: the filer's native line, the behavior-layer role the cascade "
-         r"assigned, and the law the engine applies to that role.};" % PANEL_X["income_statement"])
-
     titles = (
         ("income_statement", "INCOME STATEMENT: drivers act here"),
         ("cash_flow", "CASH FLOW: articulation and policy"),
@@ -288,13 +283,14 @@ def main() -> int:
     )
     for kind, title in titles:
         x = PANEL_X[kind]
-        emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, 0.60) {%s};"
+        emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, 0.44) {%s};"
              % (x, title))
         role_x = x + PANEL_W[kind] - role_col[kind] - law_col[kind]
         law_x = x + PANEL_W[kind] - law_col[kind]
-        for col_title, cx in (("native line", x + 0.06), ("role", role_x), ("engine law", law_x)):
-            emit(r"\node[anchor=west, font=\fontsize{4}{4}\selectfont\itshape\color{slate}] "
-                 r"at (%.2f, 0.16) {%s};" % (cx, col_title))
+        for col_title, cx in (("native line", x + 0.06), ("role", role_x),
+                              ("engine's law of motion", law_x)):
+            emit(r"\node[anchor=west, font=\fontsize{5}{5}\selectfont\itshape\color{slate}] "
+                 r"at (%.2f, 0.10) {%s};" % (cx, col_title))
 
     # ---- rows ----
     for kind in ("income_statement", "cash_flow", "balance_sheet"):
@@ -322,10 +318,13 @@ def main() -> int:
             emit(r"\node[anchor=west, font=\tiny, text width=%.2fcm, align=left] "
                  r"at (%.2f, %.2f) {%s};"
                  % (slot.label_width + (0.30 if slot.member else 0.0), x + 0.06, slot.y, label))
-            emit(r"\node[anchor=west, font=\fontsize{4}{4}\selectfont\ttfamily\color{slate}] "
-                 r"at (%.2f, %.2f) {%s};" % (role_x, slot.y, esc(slot.role)))
-            emit(r"\node[anchor=west, font=\tiny\color{slate}] at (%.2f, %.2f) {%s};"
-                 % (law_x, slot.y, slot.chip))
+            role_tex = esc(slot.role).replace(r"\_", r"\_\allowbreak{}")
+            emit(r"\node[anchor=west, font=\fontsize{5}{5}\selectfont\ttfamily\color{slate}, "
+                 r"text width=%.2fcm, align=left] at (%.2f, %.2f) {%s};"
+                 % (role_col[kind] - 0.10, role_x, slot.y, role_tex))
+            emit(r"\node[anchor=west, font=\tiny\color{slate}, text width=%.2fcm, align=left] "
+                 r"at (%.2f, %.2f) {%s};"
+                 % (law_col[kind] - 0.10, law_x, slot.y, slot.chip))
 
     # ---- edges ----
     cf_east = PANEL_X["cash_flow"] + PANEL_W["cash_flow"]
@@ -402,13 +401,21 @@ def main() -> int:
     legend_top = col_bottom["income_statement"] - 0.35
     emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, %.2f) {How to read};"
          % (x_is, legend_top))
-    emit(r"\node[anchor=north west, font=\tiny, text width=6.3cm, align=left] at (%.2f, %.2f) "
+    emit(r"\node[anchor=north west, font=\tiny, text width=5.95cm, align=left] at (%.2f, %.2f) "
          r"{Each panel has three columns: the filer's native line, the behavior-layer "
-         r"role the deterministic cascade assigned, and the engine's law for that role. "
+         r"role the deterministic cascade assigned, and the law of motion the engine "
+         r"applies to that role. "
          r"Solid navy box: stored leaf of $z$. Dashed slate box: derived row, recomputed "
          r"through Apple's own calculation arcs on decode. Gold box with $\cdot$: a "
          r"product/service member row (dimensional aggregation). Small-caps lines: the "
-         r"filer's section headers.};"
+         r"filer's section headers. The laws consume one \textbf{driver draw} per Monte "
+         r"Carlo path, the realized set of firm-level driver values (Section 8) for "
+         r"scenario $x=(\Delta g^{\mathrm{GDP}}, \Delta\pi, \Delta r, z_c, z_d)$: "
+         r"$g_{\mathrm{rev}}$ revenue growth, $\Delta m$ COGS-ratio shift, "
+         r"$g_{\mathrm{opex}}$ opex growth, $\Delta y_A, \Delta c_D$ rate shifts, "
+         r"$g_{\mathrm{div}}$ dividend growth, $b$ buyback factor, noise "
+         r"$\varepsilon_g, \varepsilon_m, \varepsilon_o$; six scenarios, 500 paths "
+         r"each.};"
          % (x_is, legend_top - 0.22))
     swatches = [
         ("wc", "working-capital stock moves"),
@@ -418,7 +425,7 @@ def main() -> int:
         ("securities", "securities net purchases and the sweep"),
         ("cash", "cash tie: net change into the cash stock"),
     ]
-    y_sw = legend_top - 2.15
+    y_sw = legend_top - 3.55
     for family, text in swatches:
         emit(r"\draw[line width=0.9pt, color=%s] (%.2f, %.2f) -- (%.2f, %.2f);"
              % (TRUNK_COLOR[family], x_is, y_sw, x_is + 0.42, y_sw))

@@ -248,9 +248,9 @@ If any answer is "no," explain it first.
 
       $env:PYTHONPATH = "src"; python scripts/gen_apple_overlay_figure.py
 
-  and commit the regenerated file with the rebuilt PDF. The law chips in the
-  generator restate `src/fss/engine/project.py`; keep them in sync when the
-  dispatch changes.
+  and commit the regenerated file with the rebuilt PDF. The law-of-motion
+  column in the generator restates `src/fss/engine/project.py`; keep them in
+  sync when the dispatch changes.
 
 - After a figure or table change, open the PDF and look at the page before
   committing.

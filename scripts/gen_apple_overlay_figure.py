@@ -3,13 +3,14 @@
 
 Draws every face line of Apple's balance sheet, income statement, and cash
 flow statement (the validation build's extraction artifacts under
-data/extracted/), each line carrying its economic role from the behavior
-layer and the law of motion the engine applies to it, with the
-cross-statement flows (working capital, debt schedule, capital pool, equity
-flows, securities and the liquidity sweep, the cash tie) drawn as colored
-trunks between the panels. The picture is laid out landscape; the proposal
-rotates it onto its own page. Long labels wrap to a second line (rows have
-variable heights); a label is clipped only past two lines.
+data/extracted/), as three aligned columns per statement panel: the filer's
+native line, the behavior-layer role the deterministic cascade assigns, and
+the law of motion the engine applies to that role. Cross-statement flows
+(working capital, debt schedule, capital pool, equity flows, securities and
+the liquidity sweep, the cash tie) are colored trunks between the panels.
+The picture is laid out landscape; the proposal rotates it onto its own
+page. Long labels wrap to a second line (rows have variable heights); a
+label is clipped only past two lines.
 
 Nothing here is hand-typed: rows, order, kinds, sections, and dimensions
 come from the extracted statements; roles come from the production cascade
@@ -43,25 +44,23 @@ from fss.statements import StructuredStatement  # noqa: E402
 OUT = ROOT / "proposal" / "fig_apple_overlay.tex"
 
 # ---- layout constants (cm), landscape ----
-ROW_GAP = 0.045  # vertical gap between row boxes
+ROW_GAP = 0.03  # vertical gap between row boxes
 ROW_H1 = 0.26  # single-line row box height
-ROW_H2 = 0.56  # two-line row box height
-HEAD_H1 = 0.18  # section-header heights (no box)
-HEAD_H2 = 0.46
-COL_W = 7.0  # width of one statement panel
-X_IS = 0.0
-X_CF = 7.65
-X_BS = 15.55
-ART_X = 7.25  # articulation trunk x (income statement -> cash flow gutter)
+ROW_H2 = 0.54  # two-line row box height
+HEAD_H1 = 0.16  # section-header heights (no box)
+HEAD_H2 = 0.42
+PANEL_W = {"income_statement": 6.4, "cash_flow": 7.5, "balance_sheet": 7.1}
+PANEL_X = {"income_statement": 0.0, "cash_flow": 7.05, "balance_sheet": 15.45}
+ART_X = 6.72  # articulation trunk x (income statement -> cash flow gutter)
 
 # trunk x positions in the cash-flow -> balance-sheet gutter, per flow family
 TRUNK_X = {
-    "wc": 14.73,
-    "debt": 14.86,
-    "capital": 14.99,
-    "equity": 15.12,
-    "securities": 15.25,
-    "cash": 15.38,
+    "wc": 14.62,
+    "debt": 14.76,
+    "capital": 14.90,
+    "equity": 15.04,
+    "securities": 15.18,
+    "cash": 15.32,
 }
 TRUNK_COLOR = {
     "wc": "fgreen",
@@ -72,11 +71,11 @@ TRUNK_COLOR = {
     "cash": "gold",
 }
 
-# approximate rendered widths (cm per character), used to fit label + chip
+# approximate rendered widths (cm per character), used to size the columns
 CHAR_W = 0.100  # \tiny helvetica text (conservative, for wrap prediction)
 ROLE_W = 0.076  # 4pt typewriter role names
-MATH_W = 0.105  # law chips, after stripping TeX markup
-SEP_W = 0.55  # reserved separation between label block and chip, plus insets
+MATH_W = 0.105  # math law chips, after stripping TeX markup
+TEXT_W = 0.092  # plain-text law chips
 MIN_LABEL = 16
 
 # ---- law chips: the engine dispatch of Projector.project, per role ----
@@ -159,9 +158,9 @@ def esc(text: str) -> str:
     return "".join(TEX_SPECIALS.get(ch, ch) for ch in text)
 
 
-def chip_width(role: str, law: str) -> float:
-    plain = TEX_MARKUP.sub("", law)
-    return len(role) * ROLE_W + len(plain) * MATH_W
+def law_width(law: str) -> float:
+    per_char = MATH_W if "$" in law else TEXT_W
+    return len(TEX_MARKUP.sub("", law)) * per_char
 
 
 def layout_label(label: str, width_cm: float) -> tuple[str, int]:
@@ -182,7 +181,7 @@ class Slot:
     height: float
     label_tex: str
     label_width: float  # cm, text block width
-    chip: str  # "" for section headers
+    chip: str  # law; "" for section headers
     role: str
     kind: str  # "abstract" | "leaf" | "derived"
     member: bool
@@ -210,27 +209,45 @@ def main() -> int:
         for target in targets:
             wc_edges.append((_row_key(row), target))
 
+    # ---- per-panel column widths from the actual roles and laws ----
+    role_col: dict[str, float] = {}
+    law_col: dict[str, float] = {}
+    face_info: dict[tuple[str, tuple], tuple[str, str]] = {}  # -> (role, law)
+    for kind in PANEL_W:
+        max_role = 0
+        max_law = 0.0
+        for row in stmts[kind].rows:
+            if row.kind == "abstract":
+                continue
+            role = roles[kind][_row_key(row)].role
+            law = law_chip(kind, row, role, bound)
+            face_info[(kind, _row_key(row))] = (role, law)
+            max_role = max(max_role, len(role))
+            max_law = max(max_law, law_width(law))
+        role_col[kind] = max_role * ROLE_W + 0.10
+        law_col[kind] = max_law + 0.12
+
     # ---- pre-pass: slot geometry per column (variable row heights) ----
     slots: dict[tuple[str, tuple], Slot] = {}
     col_bottom: dict[str, float] = {}
     for kind in ("income_statement", "cash_flow", "balance_sheet"):
         statement = stmts[kind]
-        role_map = roles[kind]
+        width_panel = PANEL_W[kind]
         cursor = 0.0  # top edge of the next slot
         for row in statement.rows:
             clean = ABSTRACT_SUFFIX.sub("", row.label)
             if row.kind == "abstract":
-                width = COL_W - 0.25
+                width = width_panel - 0.25
                 tex, lines = layout_label(clean.lower(), width)
                 height = HEAD_H1 if lines == 1 else HEAD_H2
                 chip = ""
                 role = ""
                 member = False
             else:
-                role = role_map[_row_key(row)].role
-                chip = law_chip(kind, row, role, bound)
+                role, chip = face_info[(kind, _row_key(row))]
                 member = bool(row.dims)
-                width = COL_W - chip_width(role, chip) - SEP_W - (0.30 if member else 0.0)
+                width = (width_panel - role_col[kind] - law_col[kind] - 0.18
+                         - (0.30 if member else 0.0))
                 tex, lines = layout_label(clean, width)
                 height = ROW_H1 if lines == 1 else ROW_H2
             y = cursor - height / 2
@@ -260,20 +277,31 @@ def main() -> int:
          r"$g_{\mathrm{rev}}$ revenue growth; $\Delta m$ COGS-ratio shift; "
          r"$g_{\mathrm{opex}}$ opex growth; $\Delta y_A,\ \Delta c_D$ rate shifts; "
          r"$g_{\mathrm{div}}$ dividend growth; $b$ buyback factor; noise "
-         r"$\varepsilon_g, \varepsilon_m, \varepsilon_o$. The slate chip on each row "
-         r"below names the behavior-layer role, then the law the engine applies to "
-         r"that role.};" % X_IS)
+         r"$\varepsilon_g, \varepsilon_m, \varepsilon_o$. Each panel carries three "
+         r"columns: the filer's native line, the behavior-layer role the cascade "
+         r"assigned, and the law the engine applies to that role.};" % PANEL_X["income_statement"])
 
-    for title, x in (
-        ("INCOME STATEMENT: drivers act here", X_IS),
-        ("CASH FLOW: articulation and policy", X_CF),
-        ("BALANCE SHEET: stocks move only through flows", X_BS),
-    ):
-        emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, 0.52) {%s};"
+    titles = (
+        ("income_statement", "INCOME STATEMENT: drivers act here"),
+        ("cash_flow", "CASH FLOW: articulation and policy"),
+        ("balance_sheet", "BALANCE SHEET: stocks move only through flows"),
+    )
+    for kind, title in titles:
+        x = PANEL_X[kind]
+        emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, 0.60) {%s};"
              % (x, title))
+        role_x = x + PANEL_W[kind] - role_col[kind] - law_col[kind]
+        law_x = x + PANEL_W[kind] - law_col[kind]
+        for col_title, cx in (("native line", x + 0.06), ("role", role_x), ("engine law", law_x)):
+            emit(r"\node[anchor=west, font=\fontsize{4}{4}\selectfont\itshape\color{slate}] "
+                 r"at (%.2f, 0.16) {%s};" % (cx, col_title))
 
     # ---- rows ----
-    for kind, x in (("income_statement", X_IS), ("cash_flow", X_CF), ("balance_sheet", X_BS)):
+    for kind in ("income_statement", "cash_flow", "balance_sheet"):
+        x = PANEL_X[kind]
+        width_panel = PANEL_W[kind]
+        role_x = x + width_panel - role_col[kind] - law_col[kind]
+        law_x = x + width_panel - law_col[kind]
         for row in stmts[kind].rows:
             slot = slots[(kind, _row_key(row))]
             if slot.kind == "abstract":
@@ -285,21 +313,30 @@ def main() -> int:
             dashing = ", dashed" if slot.kind == "derived" else ""
             emit(r"\node[draw=%s%s, line width=0.3pt, fill=white, rounded corners=1pt, "
                  r"anchor=west, minimum width=%.2fcm, minimum height=%.2fcm] at (%.2f, %.2f) {};"
-                 % (border, dashing, COL_W, slot.height, x, slot.y))
+                 % (border, dashing, width_panel, slot.height, x, slot.y))
+            half = slot.height / 2
+            for sep in (role_x - 0.06, law_x - 0.06):
+                emit(r"\draw[line width=0.2pt, color=tblborder] (%.2f, %.2f) -- (%.2f, %.2f);"
+                     % (sep, slot.y - half, sep, slot.y + half))
             label = ("$\\cdot$ " if slot.member else "") + slot.label_tex
             emit(r"\node[anchor=west, font=\tiny, text width=%.2fcm, align=left] "
                  r"at (%.2f, %.2f) {%s};"
                  % (slot.label_width + (0.30 if slot.member else 0.0), x + 0.06, slot.y, label))
-            emit(r"\node[anchor=east, font=\tiny\color{slate}] at (%.2f, %.2f) "
-                 r"{{\fontsize{4}{4}\selectfont\ttfamily %s} %s};"
-                 % (x + COL_W - 0.05, slot.y, esc(slot.role), slot.chip))
+            emit(r"\node[anchor=west, font=\fontsize{4}{4}\selectfont\ttfamily\color{slate}] "
+                 r"at (%.2f, %.2f) {%s};" % (role_x, slot.y, esc(slot.role)))
+            emit(r"\node[anchor=west, font=\tiny\color{slate}] at (%.2f, %.2f) {%s};"
+                 % (law_x, slot.y, slot.chip))
 
     # ---- edges ----
+    cf_east = PANEL_X["cash_flow"] + PANEL_W["cash_flow"]
+    is_east = PANEL_X["income_statement"] + PANEL_W["income_statement"]
+
     def trunk_edge(family: str, y_from: float, y_to: float) -> None:
         tx = TRUNK_X[family]
         emit(r"\draw[-{Stealth[length=1.6mm]}, line width=0.55pt, color=%s, opacity=0.9] "
              r"(%.2f, %.2f) -- (%.2f, %.2f) -- (%.2f, %.2f) -- (%.2f, %.2f);"
-             % (TRUNK_COLOR[family], X_CF + COL_W, y_from, tx, y_from, tx, y_to, X_BS, y_to))
+             % (TRUNK_COLOR[family], cf_east, y_from, tx, y_from, tx, y_to,
+                PANEL_X["balance_sheet"], y_to))
 
     cf_roles = roles["cash_flow"]
     is_roles = roles["income_statement"]
@@ -347,7 +384,7 @@ def main() -> int:
     def art_edge(y_from: float, y_to: float) -> None:
         emit(r"\draw[-{Stealth[length=1.6mm]}, line width=0.5pt, dotted, color=slate] "
              r"(%.2f, %.2f) -- (%.2f, %.2f) -- (%.2f, %.2f) -- (%.2f, %.2f);"
-             % (X_IS + COL_W, y_from, ART_X, y_from, ART_X, y_to, X_CF, y_to))
+             % (is_east, y_from, ART_X, y_from, ART_X, y_to, PANEL_X["cash_flow"], y_to))
 
     ni_is = [r for r in stmts["income_statement"].rows
              if r.kind == "derived" and r.concept.endswith("NetIncomeLoss") and not r.dims]
@@ -361,16 +398,18 @@ def main() -> int:
             art_edge(y_of("income_statement", _row_key(tax_is[0])), y_of("cash_flow", _row_key(cf_row)))
 
     # ---- legend, in the empty space under the income statement panel ----
+    x_is = PANEL_X["income_statement"]
     legend_top = col_bottom["income_statement"] - 0.35
     emit(r"\node[anchor=north west, font=\tiny\bfseries\color{navy}] at (%.2f, %.2f) {How to read};"
-         % (X_IS, legend_top))
-    emit(r"\node[anchor=north west, font=\tiny, text width=6.9cm, align=left] at (%.2f, %.2f) "
-         r"{Solid navy box: stored leaf of $z$. Dashed slate box: derived row, recomputed "
+         % (x_is, legend_top))
+    emit(r"\node[anchor=north west, font=\tiny, text width=6.3cm, align=left] at (%.2f, %.2f) "
+         r"{Each panel has three columns: the filer's native line, the behavior-layer "
+         r"role the deterministic cascade assigned, and the engine's law for that role. "
+         r"Solid navy box: stored leaf of $z$. Dashed slate box: derived row, recomputed "
          r"through Apple's own calculation arcs on decode. Gold box with $\cdot$: a "
          r"product/service member row (dimensional aggregation). Small-caps lines: the "
-         r"filer's section headers. Right chip: \mbox{{\fontsize{4}{4}\selectfont\ttfamily role} law}, "
-         r"the behavior layer's role and the engine's law for that line.};"
-         % (X_IS, legend_top - 0.22))
+         r"filer's section headers.};"
+         % (x_is, legend_top - 0.22))
     swatches = [
         ("wc", "working-capital stock moves"),
         ("capital", r"capital pool: capex, leases, D\&A"),
@@ -379,16 +418,16 @@ def main() -> int:
         ("securities", "securities net purchases and the sweep"),
         ("cash", "cash tie: net change into the cash stock"),
     ]
-    y_sw = legend_top - 1.95
+    y_sw = legend_top - 2.15
     for family, text in swatches:
         emit(r"\draw[line width=0.9pt, color=%s] (%.2f, %.2f) -- (%.2f, %.2f);"
-             % (TRUNK_COLOR[family], X_IS, y_sw, X_IS + 0.42, y_sw))
-        emit(r"\node[anchor=west, font=\tiny] at (%.2f, %.2f) {%s};" % (X_IS + 0.5, y_sw, text))
+             % (TRUNK_COLOR[family], x_is, y_sw, x_is + 0.42, y_sw))
+        emit(r"\node[anchor=west, font=\tiny] at (%.2f, %.2f) {%s};" % (x_is + 0.5, y_sw, text))
         y_sw -= 0.26
     emit(r"\draw[line width=0.5pt, dotted, color=slate] (%.2f, %.2f) -- (%.2f, %.2f);"
-         % (X_IS, y_sw, X_IS + 0.42, y_sw))
+         % (x_is, y_sw, x_is + 0.42, y_sw))
     emit(r"\node[anchor=west, font=\tiny] at (%.2f, %.2f) "
-         r"{articulation: a cash-flow row mirrors a projected income line};" % (X_IS + 0.5, y_sw))
+         r"{articulation: a cash-flow row mirrors a projected income line};" % (x_is + 0.5, y_sw))
 
     emit(r"\end{tikzpicture}")
     OUT.write_text("\n".join(lines_out) + "\n", encoding="utf-8", newline="\n")
@@ -397,6 +436,8 @@ def main() -> int:
     print(f"wrote {OUT} ({len(lines_out)} lines, {n_edges} edges, "
           f"{sum(len(s.rows) for s in stmts.values())} rows, {wrapped} wrapped)")
     print("column bottoms:", {k: round(v, 2) for k, v in col_bottom.items()})
+    print("role/law column widths:",
+          {k: (round(role_col[k], 2), round(law_col[k], 2)) for k in PANEL_W})
     return 0
 
 

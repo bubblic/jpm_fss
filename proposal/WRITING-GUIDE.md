@@ -395,10 +395,11 @@ and whenever asked whether the proposal is consistent:
   simulates (the integrity gates refuse them); mapping accuracy without tags
   is 111 of 270, which is why sign-off gates simulation.
 - *Part I vs Part II*: Part I is stochastic by construction, a
-  scenario-conditioned distribution with reasoned, documented (not fitted)
-  parameters, and is **not** a calibrated probabilistic forecast; Part II
-  replaces the noise with a learned conditional joint distribution, everything
-  else fixed, and starts only on MVP sign-off.
+  scenario-conditioned distribution with hand-authored, reasoned, documented
+  parameters (not fitted to data, not any model's output), and is **not** a
+  calibrated probabilistic forecast; Part II replaces the noise with a
+  learned conditional joint distribution, everything else fixed, and starts
+  only on MVP sign-off.
 - *The behavior layer*: ninety authored economic roles over both standards'
   concepts; assignment is a deterministic cascade with recorded provenance
   (curated concept table, label keywords with section context,

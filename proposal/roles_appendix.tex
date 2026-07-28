@@ -1,0 +1,135 @@
+% GENERATED FILE, do not hand-edit.
+% Rebuilt by scripts/gen_roles_appendix.py from src/fss/engine/roles.py;
+% regenerate after any change to the role vocabulary or its tables.
+\noindent The classifier defines 90 roles: 18 for the income statement, 34 for the balance sheet, 38 for the cash flow. The curated concept
+table binds 194 standard local names and 45 label rules follow it;
+both appear in full below. A role listed with neither binding is
+assigned only by the in-code steps described above.
+\begingroup
+\scriptsize
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{5pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{7.9cm}>{\raggedright\arraybackslash}p{4.0cm}@{}}
+\multicolumn{3}{@{}l}{\headtext{Income statement: 18 roles, 44 curated concept entries}}\\[3pt]
+\headtext{Role} & \headtext{Curated concepts (us-gaap and ifrs-full local names)} & \headtext{Label rules} \\
+\hline
+\endfirsthead
+\multicolumn{3}{@{}l}{\headtext{Income statement, continued}}\\[3pt]
+\headtext{Role} & \headtext{Curated concepts (us-gaap and ifrs-full local names)} & \headtext{Label rules} \\
+\hline
+\endhead
+\texttt{REVENUE} & \texttt{Revenue\allowbreak{}From\allowbreak{}Contract\allowbreak{}With\allowbreak{}Customer\allowbreak{}Excluding\allowbreak{}Assessed\allowbreak{}Tax}, \texttt{Revenue}, \texttt{Revenue\allowbreak{}From\allowbreak{}Sale\allowbreak{}Of\allowbreak{}Goods}, \texttt{Revenue\allowbreak{}From\allowbreak{}Rendering\allowbreak{}Of\allowbreak{}Services} & \texttt{\^{}revenue|\allowbreak{}net sales|\allowbreak{}total revenue} \\
+\texttt{COGS} & \texttt{Cost\allowbreak{}Of\allowbreak{}Goods\allowbreak{}And\allowbreak{}Services\allowbreak{}Sold}, \texttt{Cost\allowbreak{}Of\allowbreak{}Revenue}, \texttt{Cost\allowbreak{}Of\allowbreak{}Sales}, \texttt{Cost\allowbreak{}Of\allowbreak{}Merchandise\allowbreak{}Sales\allowbreak{}Buying\allowbreak{}And\allowbreak{}Occupancy\allowbreak{}Costs} & \texttt{cost of (revenue|\allowbreak{}sales|\allowbreak{}goods)|\allowbreak{}cost of cloud|\allowbreak{}cost of software|\allowbreak{}cost of services} \\
+\texttt{OPEX\_\allowbreak{}RND} & \texttt{Research\allowbreak{}And\allowbreak{}Development\allowbreak{}Expense}, \texttt{Research\allowbreak{}And\allowbreak{}Development\allowbreak{}Expense\allowbreak{}Excluding\allowbreak{}Acquired\allowbreak{}In\allowbreak{}Process\allowbreak{}Cost} & \texttt{research and development} \\
+\texttt{OPEX\_\allowbreak{}SELLING} & \texttt{Selling\allowbreak{}And\allowbreak{}Marketing\allowbreak{}Expense}, \texttt{Selling\allowbreak{}General\allowbreak{}And\allowbreak{}Administrative\allowbreak{}Expense}, \texttt{Sales\allowbreak{}And\allowbreak{}Marketing\allowbreak{}Expense} & \texttt{sales and marketing|\allowbreak{}selling} \\
+\texttt{OPEX\_\allowbreak{}ADMIN} & \texttt{General\allowbreak{}And\allowbreak{}Administrative\allowbreak{}Expense}, \texttt{Administrative\allowbreak{}Expense} & \texttt{general and administrat} \\
+\texttt{OPEX\_\allowbreak{}OTHER} & \texttt{Other\allowbreak{}Operating\allowbreak{}Income\allowbreak{}Expense\allowbreak{}Net} &  \\
+\texttt{RESTRUCTURING} & \texttt{Restructuring\allowbreak{}Charges}, \texttt{Restructuring\allowbreak{}And\allowbreak{}Other\allowbreak{}Expenses} & \texttt{restructuring} \\
+\texttt{INTEREST\_\allowbreak{}INCOME} & \texttt{Investment\allowbreak{}Income\allowbreak{}Interest}, \texttt{Finance\allowbreak{}Income} & \texttt{finance income|\allowbreak{}interest income} \\
+\texttt{INTEREST\_\allowbreak{}EXPENSE} & \texttt{Interest\allowbreak{}Expense}, \texttt{Interest\allowbreak{}Expense\allowbreak{}Nonoperating}, \texttt{Finance\allowbreak{}Costs} & \texttt{finance costs|\allowbreak{}interest expense} \\
+\texttt{OTHER\_\allowbreak{}INCOME} & \texttt{Nonoperating\allowbreak{}Income\allowbreak{}Expense}, \texttt{Other\allowbreak{}Nonoperating\allowbreak{}Income\allowbreak{}Expense} & \texttt{other (operating )?income} \\
+\texttt{TAX} & \texttt{Income\allowbreak{}Tax\allowbreak{}Expense\allowbreak{}Benefit}, \texttt{Income\allowbreak{}Tax\allowbreak{}Expense\allowbreak{}Continuing\allowbreak{}Operations} & \texttt{income tax|\allowbreak{}provision for.*tax} \\
+\texttt{DISCONTINUED} & \texttt{Profit\allowbreak{}Loss\allowbreak{}From\allowbreak{}Discontinued\allowbreak{}Operations}, \texttt{Income\allowbreak{}Loss\allowbreak{}From\allowbreak{}Discontinued\allowbreak{}Operations\allowbreak{}Net\allowbreak{}Of\allowbreak{}Tax} & \texttt{discontinued operations} \\
+\texttt{ATTRIB\_\allowbreak{}PARENT} & \texttt{Profit\allowbreak{}Loss\allowbreak{}Attributable\allowbreak{}To\allowbreak{}Owners\allowbreak{}Of\allowbreak{}Parent} & \texttt{owners of (the )?parent} \\
+\texttt{ATTRIB\_\allowbreak{}NCI} & \texttt{Net\allowbreak{}Income\allowbreak{}Loss\allowbreak{}Attributable\allowbreak{}To\allowbreak{}Noncontrolling\allowbreak{}Interest}, \texttt{Profit\allowbreak{}Loss\allowbreak{}Attributable\allowbreak{}To\allowbreak{}Noncontrolling\allowbreak{}Interests} & \texttt{non-?controlling interests?\$} \\
+\texttt{EPS} & \texttt{Earnings\allowbreak{}Per\allowbreak{}Share\allowbreak{}Basic}, \texttt{Earnings\allowbreak{}Per\allowbreak{}Share\allowbreak{}Diluted}, \texttt{Basic\allowbreak{}Earnings\allowbreak{}Loss\allowbreak{}Per\allowbreak{}Share}, \texttt{Diluted\allowbreak{}Earnings\allowbreak{}Loss\allowbreak{}Per\allowbreak{}Share}, \texttt{Basic\allowbreak{}Earnings\allowbreak{}Loss\allowbreak{}Per\allowbreak{}Share\allowbreak{}From\allowbreak{}Continuing\allowbreak{}Operations}, \texttt{Diluted\allowbreak{}Earnings\allowbreak{}Loss\allowbreak{}Per\allowbreak{}Share\allowbreak{}From\allowbreak{}Continuing\allowbreak{}Operations} & \texttt{per share|\allowbreak{}per ordinary share} \\
+\texttt{SHARE\_\allowbreak{}COUNT} & \texttt{Weighted\allowbreak{}Average\allowbreak{}Number\allowbreak{}Of\allowbreak{}Shares\allowbreak{}Outstanding\allowbreak{}Basic}, \texttt{Weighted\allowbreak{}Average\allowbreak{}Number\allowbreak{}Of\allowbreak{}Diluted\allowbreak{}Shares\allowbreak{}Outstanding}, \texttt{Weighted\allowbreak{}Average\allowbreak{}Shares}, \texttt{Weighted\allowbreak{}Average\allowbreak{}Number\allowbreak{}Of\allowbreak{}Ordinary\allowbreak{}Shares\allowbreak{}Outstanding}, \texttt{Adjusted\allowbreak{}Weighted\allowbreak{}Average\allowbreak{}Number\allowbreak{}Of\allowbreak{}Ordinary\allowbreak{}Shares\allowbreak{}Outstanding} & \texttt{weighted[- ]average .*shares|\allowbreak{}shares used in computing} \\
+\texttt{IS\_\allowbreak{}DERIVED} &  &  \\
+\texttt{GROSS\_\allowbreak{}PROFIT\_\allowbreak{}ROW} & \texttt{Gross\allowbreak{}Profit} &  \\
+\hline
+\end{longtable}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{7.9cm}>{\raggedright\arraybackslash}p{4.0cm}@{}}
+\multicolumn{3}{@{}l}{\headtext{Balance sheet: 34 roles, 89 curated concept entries}}\\[3pt]
+\headtext{Role} & \headtext{Curated concepts (us-gaap and ifrs-full local names)} & \headtext{Label rules} \\
+\hline
+\endfirsthead
+\multicolumn{3}{@{}l}{\headtext{Balance sheet, continued}}\\[3pt]
+\headtext{Role} & \headtext{Curated concepts (us-gaap and ifrs-full local names)} & \headtext{Label rules} \\
+\hline
+\endhead
+\texttt{CASH} & \texttt{Cash\allowbreak{}And\allowbreak{}Cash\allowbreak{}Equivalents\allowbreak{}At\allowbreak{}Carrying\allowbreak{}Value}, \texttt{Cash\allowbreak{}And\allowbreak{}Cash\allowbreak{}Equivalents} & \texttt{cash and cash equivalents} \\
+\texttt{SECURITIES} & \texttt{Marketable\allowbreak{}Securities\allowbreak{}Current}, \texttt{Marketable\allowbreak{}Securities\allowbreak{}Noncurrent}, \texttt{Short\allowbreak{}Term\allowbreak{}Investments}, \texttt{Current\allowbreak{}Investments}, \texttt{Other\allowbreak{}Current\allowbreak{}Financial\allowbreak{}Assets}, \texttt{Other\allowbreak{}Noncurrent\allowbreak{}Financial\allowbreak{}Assets}, \texttt{Noncurrent\allowbreak{}Investments}, \texttt{Equity\allowbreak{}Securities\allowbreak{}Fv\allowbreak{}Ni\allowbreak{}Noncurrent} & \texttt{marketable securities|\allowbreak{}short term investments|\allowbreak{}long term investments} \\
+\texttt{AR} & \texttt{Accounts\allowbreak{}Receivable\allowbreak{}Net\allowbreak{}Current}, \texttt{Trade\allowbreak{}And\allowbreak{}Other\allowbreak{}Current\allowbreak{}Receivables}, \texttt{Trade\allowbreak{}And\allowbreak{}Other\allowbreak{}Non\allowbreak{}Current\allowbreak{}Receivables}, \texttt{Current\allowbreak{}Trade\allowbreak{}Receivables} & \texttt{accounts receivable|\allowbreak{}trade (and other )?receivables} \\
+\texttt{VENDOR\_\allowbreak{}RECEIVABLE} & \texttt{Nontrade\allowbreak{}Receivables\allowbreak{}Current} & \texttt{vendor non-trade receivables} \\
+\texttt{INVENTORY} & \texttt{Inventory\allowbreak{}Net}, \texttt{Inventories} & \texttt{inventor} \\
+\texttt{OTHER\_\allowbreak{}CURRENT\_\allowbreak{}ASSET} & \texttt{Other\allowbreak{}Assets\allowbreak{}Current}, \texttt{Other\allowbreak{}Current\allowbreak{}Assets}, \texttt{Other\allowbreak{}Current\allowbreak{}Nonfinancial\allowbreak{}Assets} &  \\
+\texttt{PPE} & \texttt{Property\allowbreak{}Plant\allowbreak{}And\allowbreak{}Equipment\allowbreak{}Net}, \texttt{Property\allowbreak{}Plant\allowbreak{}And\allowbreak{}Equipment} & \texttt{property(,|\allowbreak{} and)? (plant|\allowbreak{}equipment)} \\
+\texttt{LEASE\_\allowbreak{}ROU} & \texttt{Rightof\allowbreak{}Use\allowbreak{}Assets}, \texttt{Right\allowbreak{}Of\allowbreak{}Use\allowbreak{}Assets}, \texttt{Operating\allowbreak{}Lease\allowbreak{}Right\allowbreak{}Of\allowbreak{}Use\allowbreak{}Asset} & \texttt{right-of-use|\allowbreak{}lease right} \\
+\texttt{GOODWILL} & \texttt{Goodwill} & \texttt{goodwill} \\
+\texttt{INTANGIBLE} & \texttt{Intangible\allowbreak{}Assets\allowbreak{}Other\allowbreak{}Than\allowbreak{}Goodwill}, \texttt{Finite\allowbreak{}Lived\allowbreak{}Intangible\allowbreak{}Assets\allowbreak{}Net}, \texttt{Intangible\allowbreak{}Assets\allowbreak{}Net\allowbreak{}Excluding\allowbreak{}Goodwill} & \texttt{intangible} \\
+\texttt{DEFERRED\_\allowbreak{}TAX\_\allowbreak{}ASSET} & \texttt{Deferred\allowbreak{}Tax\allowbreak{}Assets}, \texttt{Deferred\allowbreak{}Income\allowbreak{}Tax\allowbreak{}Assets\allowbreak{}Net} & \texttt{deferred tax assets} \\
+\texttt{TAX\_\allowbreak{}RECEIVABLE} & \texttt{Current\allowbreak{}Tax\allowbreak{}Assets\allowbreak{}Current}, \texttt{Current\allowbreak{}Tax\allowbreak{}Assets} & \texttt{income tax receivable|\allowbreak{}tax assets} \\
+\texttt{OTHER\_\allowbreak{}NONCURRENT\_\allowbreak{}ASSET} & \texttt{Other\allowbreak{}Assets\allowbreak{}Noncurrent}, \texttt{Other\allowbreak{}Noncurrent\allowbreak{}Assets}, \texttt{Other\allowbreak{}Noncurrent\allowbreak{}Nonfinancial\allowbreak{}Assets} &  \\
+\texttt{AP} & \texttt{Accounts\allowbreak{}Payable\allowbreak{}Current}, \texttt{Trade\allowbreak{}And\allowbreak{}Other\allowbreak{}Current\allowbreak{}Payables}, \texttt{Trade\allowbreak{}And\allowbreak{}Other\allowbreak{}Payables\allowbreak{}To\allowbreak{}Trade\allowbreak{}Suppliers}, \texttt{Trade\allowbreak{}And\allowbreak{}Other\allowbreak{}Non\allowbreak{}Current\allowbreak{}Payables} & \texttt{accounts payable|\allowbreak{}trade and other payables} \\
+\texttt{ACCRUED} & \texttt{Accrued\allowbreak{}Liabilities\allowbreak{}Current}, \texttt{Accruals\allowbreak{}Classified\allowbreak{}As\allowbreak{}Current} & \texttt{accrued} \\
+\texttt{DEFERRED\_\allowbreak{}REVENUE} & \texttt{Contract\allowbreak{}With\allowbreak{}Customer\allowbreak{}Liability\allowbreak{}Current}, \texttt{Contract\allowbreak{}With\allowbreak{}Customer\allowbreak{}Liability\allowbreak{}Noncurrent}, \texttt{Current\allowbreak{}Contract\allowbreak{}Liabilities}, \texttt{Noncurrent\allowbreak{}Contract\allowbreak{}Liabilities}, \texttt{Deferred\allowbreak{}Revenue\allowbreak{}Current} & \texttt{deferred revenue|\allowbreak{}contract liabilit} \\
+\texttt{COMMERCIAL\_\allowbreak{}PAPER} & \texttt{Commercial\allowbreak{}Paper} & \texttt{commercial paper} \\
+\texttt{DEBT} & \texttt{Long\allowbreak{}Term\allowbreak{}Debt\allowbreak{}Current}, \texttt{Long\allowbreak{}Term\allowbreak{}Debt\allowbreak{}Noncurrent}, \texttt{Longterm\allowbreak{}Debt\allowbreak{}Current\allowbreak{}Maturities}, \texttt{Shortterm\allowbreak{}Borrowings}, \texttt{Current\allowbreak{}Financial\allowbreak{}Liabilities}, \texttt{Noncurrent\allowbreak{}Financial\allowbreak{}Liabilities} & \texttt{term debt|\allowbreak{}borrowings|\allowbreak{}exchangeable notes|\allowbreak{}financial liabilit} \\
+\texttt{LEASE\_\allowbreak{}LIABILITY} & \texttt{Operating\allowbreak{}Lease\allowbreak{}Liability\allowbreak{}Current}, \texttt{Operating\allowbreak{}Lease\allowbreak{}Liability\allowbreak{}Noncurrent}, \texttt{Current\allowbreak{}Lease\allowbreak{}Liabilities}, \texttt{Noncurrent\allowbreak{}Lease\allowbreak{}Liabilities} & \texttt{lease liabilit} \\
+\texttt{TAX\_\allowbreak{}LIABILITY} & \texttt{Current\allowbreak{}Tax\allowbreak{}Liabilities\allowbreak{}Current}, \texttt{Current\allowbreak{}Tax\allowbreak{}Liabilities}, \texttt{Taxes\allowbreak{}Payable\allowbreak{}Current}, \texttt{Accrued\allowbreak{}Income\allowbreak{}Taxes\allowbreak{}Noncurrent} & \texttt{income tax payable|\allowbreak{}tax liabilit} \\
+\texttt{PROVISION} & \texttt{Current\allowbreak{}Provisions}, \texttt{Noncurrent\allowbreak{}Provisions}, \texttt{Other\allowbreak{}Provisions} & \texttt{provisions} \\
+\texttt{DERIVATIVE\_\allowbreak{}LIABILITY} & \texttt{Derivative\allowbreak{}Financial\allowbreak{}Liabilities} & \texttt{derivative liabilit} \\
+\texttt{OTHER\_\allowbreak{}CURRENT\_\allowbreak{}LIAB} & \texttt{Other\allowbreak{}Liabilities\allowbreak{}Current}, \texttt{Other\allowbreak{}Current\allowbreak{}Nonfinancial\allowbreak{}Liabilities} &  \\
+\texttt{DEFERRED\_\allowbreak{}TAX\_\allowbreak{}LIAB} & \texttt{Deferred\allowbreak{}Tax\allowbreak{}Liabilities}, \texttt{Deferred\allowbreak{}Income\allowbreak{}Tax\allowbreak{}Liabilities\allowbreak{}Net} & \texttt{deferred tax liabilit} \\
+\texttt{OTHER\_\allowbreak{}NONCURRENT\_\allowbreak{}LIAB} & \texttt{Other\allowbreak{}Liabilities\allowbreak{}Noncurrent}, \texttt{Other\allowbreak{}Noncurrent\allowbreak{}Nonfinancial\allowbreak{}Liabilities} &  \\
+\texttt{COMMON\_\allowbreak{}STOCK\_\allowbreak{}APIC} & \texttt{Common\allowbreak{}Stocks\allowbreak{}Including\allowbreak{}Additional\allowbreak{}Paid\allowbreak{}In\allowbreak{}Capital}, \texttt{Common\allowbreak{}Stock\allowbreak{}Value}, \texttt{Additional\allowbreak{}Paid\allowbreak{}In\allowbreak{}Capital}, \texttt{Issued\allowbreak{}Capital}, \texttt{Share\allowbreak{}Premium} & \texttt{common stock|\allowbreak{}share capital|\allowbreak{}issued capital|\allowbreak{}share premium|\allowbreak{}paid[- ]?in capital} \\
+\texttt{TREASURY} & \texttt{Treasury\allowbreak{}Shares}, \texttt{Treasury\allowbreak{}Stock\allowbreak{}Common\allowbreak{}Value} & \texttt{treasury} \\
+\texttt{RETAINED\_\allowbreak{}EARNINGS} & \texttt{Retained\allowbreak{}Earnings\allowbreak{}Accumulated\allowbreak{}Deficit}, \texttt{Retained\allowbreak{}Earnings} & \texttt{retained earnings|\allowbreak{}accumulated deficit} \\
+\texttt{AOCI} & \texttt{Other\allowbreak{}Reserves}, \texttt{Accumulated\allowbreak{}Other\allowbreak{}Comprehensive\allowbreak{}Income\allowbreak{}Loss\allowbreak{}Net\allowbreak{}Of\allowbreak{}Tax}, \texttt{Accumulated\allowbreak{}Other\allowbreak{}Comprehensive\allowbreak{}Income} & \texttt{accumulated other comprehensive|\allowbreak{}other reserves} \\
+\texttt{NCI\_\allowbreak{}EQUITY} & \texttt{Noncontrolling\allowbreak{}Interests}, \texttt{Minority\allowbreak{}Interest} &  \\
+\texttt{OTHER\_\allowbreak{}EQUITY} &  &  \\
+\texttt{COMMITMENTS} & \texttt{Commitments\allowbreak{}And\allowbreak{}Contingencies} & \texttt{commitments and contingencies} \\
+\texttt{BS\_\allowbreak{}DERIVED} &  &  \\
+\texttt{BS\_\allowbreak{}SHARE\_\allowbreak{}ROW} & \texttt{Common\allowbreak{}Stock\allowbreak{}Shares\allowbreak{}Outstanding}, \texttt{Common\allowbreak{}Stock\allowbreak{}Shares\allowbreak{}Issued} &  \\
+\hline
+\end{longtable}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{7.9cm}>{\raggedright\arraybackslash}p{4.0cm}@{}}
+\multicolumn{3}{@{}l}{\headtext{Cash flow: 38 roles, 61 curated concept entries}}\\[3pt]
+\headtext{Role} & \headtext{Curated concepts (us-gaap and ifrs-full local names)} & \headtext{Label rules} \\
+\hline
+\endfirsthead
+\multicolumn{3}{@{}l}{\headtext{Cash flow, continued}}\\[3pt]
+\headtext{Role} & \headtext{Curated concepts (us-gaap and ifrs-full local names)} & \headtext{Label rules} \\
+\hline
+\endhead
+\texttt{CF\_\allowbreak{}NI} &  &  \\
+\texttt{CF\_\allowbreak{}DA} & \texttt{Depreciation\allowbreak{}Depletion\allowbreak{}And\allowbreak{}Amortization}, \texttt{Depreciation\allowbreak{}Amortization\allowbreak{}And\allowbreak{}Accretion\allowbreak{}Net}, \texttt{Depreciation\allowbreak{}And\allowbreak{}Amortisation\allowbreak{}Expense}, \texttt{Depreciation\allowbreak{}Expense}, \texttt{Amortisation\allowbreak{}Expense}, \texttt{Adjustments\allowbreak{}For\allowbreak{}Depreciation\allowbreak{}And\allowbreak{}Amortisation\allowbreak{}Expense} & \texttt{depreciation|\allowbreak{}amorti[sz]ation} \\
+\texttt{CF\_\allowbreak{}SBC} & \texttt{Share\allowbreak{}Based\allowbreak{}Compensation}, \texttt{Share\allowbreak{}Based\allowbreak{}Payments\allowbreak{}Expense}, \texttt{Adjustments\allowbreak{}For\allowbreak{}Sharebased\allowbreak{}Payments} & \texttt{share-based (compensation|\allowbreak{}payment)} \\
+\texttt{CF\_\allowbreak{}IMPAIRMENT} & \texttt{Impairment\allowbreak{}Loss\allowbreak{}Recognised\allowbreak{}In\allowbreak{}Profit\allowbreak{}Or\allowbreak{}Loss}, \texttt{Adjustments\allowbreak{}For\allowbreak{}Impairment\allowbreak{}Loss\allowbreak{}Recognised\allowbreak{}In\allowbreak{}Profit\allowbreak{}Or\allowbreak{}Loss} & \texttt{impairment|\allowbreak{}write-off} \\
+\texttt{CF\_\allowbreak{}DEFERRED\_\allowbreak{}TAX} & \texttt{Deferred\allowbreak{}Income\allowbreak{}Tax\allowbreak{}Expense\allowbreak{}Benefit}, \texttt{Adjustments\allowbreak{}For\allowbreak{}Deferred\allowbreak{}Tax\allowbreak{}Expense} & \texttt{deferred (income )?tax} \\
+\texttt{CF\_\allowbreak{}OTHER\_\allowbreak{}NONCASH} & \texttt{Other\allowbreak{}Noncash\allowbreak{}Income\allowbreak{}Expense} &  \\
+\texttt{CF\_\allowbreak{}WC} &  &  \\
+\texttt{CF\_\allowbreak{}INTEREST\_\allowbreak{}TAX\_\allowbreak{}ADJ} &  &  \\
+\texttt{CF\_\allowbreak{}CAPEX} & \texttt{Payments\allowbreak{}To\allowbreak{}Acquire\allowbreak{}Property\allowbreak{}Plant\allowbreak{}And\allowbreak{}Equipment}, \texttt{Purchase\allowbreak{}Of\allowbreak{}Property\allowbreak{}Plant\allowbreak{}And\allowbreak{}Equipment} &  \\
+\texttt{CF\_\allowbreak{}ACQUISITION} & \texttt{Payments\allowbreak{}To\allowbreak{}Acquire\allowbreak{}Businesses\allowbreak{}Net\allowbreak{}Of\allowbreak{}Cash\allowbreak{}Acquired}, \texttt{Cash\allowbreak{}Flows\allowbreak{}Used\allowbreak{}In\allowbreak{}Obtaining\allowbreak{}Control\allowbreak{}Of\allowbreak{}Subsidiaries\allowbreak{}Or\allowbreak{}Other\allowbreak{}Businesses\allowbreak{}Classified\allowbreak{}As\allowbreak{}Investing\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}INVEST\_\allowbreak{}PURCHASE} & \texttt{Payments\allowbreak{}To\allowbreak{}Acquire\allowbreak{}Available\allowbreak{}For\allowbreak{}Sale\allowbreak{}Securities\allowbreak{}Debt}, \texttt{Payments\allowbreak{}To\allowbreak{}Acquire\allowbreak{}Investments}, \texttt{Purchase\allowbreak{}Of\allowbreak{}Financial\allowbreak{}Instruments\allowbreak{}Classified\allowbreak{}As\allowbreak{}Investing\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}INVEST\_\allowbreak{}MATURITY} & \texttt{Proceeds\allowbreak{}From\allowbreak{}Maturities\allowbreak{}Prepayments\allowbreak{}And\allowbreak{}Calls\allowbreak{}Of\allowbreak{}Available\allowbreak{}For\allowbreak{}Sale\allowbreak{}Securities}, \texttt{Proceeds\allowbreak{}From\allowbreak{}Sale\allowbreak{}And\allowbreak{}Maturity\allowbreak{}Of\allowbreak{}Marketable\allowbreak{}Securities}, \texttt{Proceeds\allowbreak{}From\allowbreak{}Sales\allowbreak{}And\allowbreak{}Maturity\allowbreak{}Of\allowbreak{}Financial\allowbreak{}Instruments\allowbreak{}Classified\allowbreak{}As\allowbreak{}Investing\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}INVEST\_\allowbreak{}SALE} & \texttt{Proceeds\allowbreak{}From\allowbreak{}Sale\allowbreak{}Of\allowbreak{}Available\allowbreak{}For\allowbreak{}Sale\allowbreak{}Securities\allowbreak{}Debt} &  \\
+\texttt{CF\_\allowbreak{}OTHER\_\allowbreak{}INVESTING} &  &  \\
+\texttt{CF\_\allowbreak{}DIVIDENDS} & \texttt{Payments\allowbreak{}Of\allowbreak{}Dividends}, \texttt{Payments\allowbreak{}Of\allowbreak{}Dividends\allowbreak{}Common\allowbreak{}Stock}, \texttt{Dividends\allowbreak{}Paid\allowbreak{}Classified\allowbreak{}As\allowbreak{}Financing\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}BUYBACK} & \texttt{Payments\allowbreak{}For\allowbreak{}Repurchase\allowbreak{}Of\allowbreak{}Common\allowbreak{}Stock}, \texttt{Payments\allowbreak{}For\allowbreak{}Repurchase\allowbreak{}Of\allowbreak{}Ordinary\allowbreak{}Shares}, \texttt{Payments\allowbreak{}To\allowbreak{}Acquire\allowbreak{}Or\allowbreak{}Redeem\allowbreak{}Entitys\allowbreak{}Shares} &  \\
+\texttt{CF\_\allowbreak{}SBC\_\allowbreak{}TAX\_\allowbreak{}WITHHOLD} & \texttt{Payments\allowbreak{}Related\allowbreak{}To\allowbreak{}Tax\allowbreak{}Withholding\allowbreak{}For\allowbreak{}Share\allowbreak{}Based\allowbreak{}Compensation} &  \\
+\texttt{CF\_\allowbreak{}DEBT\_\allowbreak{}ISSUE} & \texttt{Proceeds\allowbreak{}From\allowbreak{}Issuance\allowbreak{}Of\allowbreak{}Long\allowbreak{}Term\allowbreak{}Debt}, \texttt{Proceeds\allowbreak{}From\allowbreak{}Issuing\allowbreak{}Other\allowbreak{}Longterm\allowbreak{}Borrowings} &  \\
+\texttt{CF\_\allowbreak{}DEBT\_\allowbreak{}REPAY} & \texttt{Repayments\allowbreak{}Of\allowbreak{}Long\allowbreak{}Term\allowbreak{}Debt}, \texttt{Repayments\allowbreak{}Of\allowbreak{}Longterm\allowbreak{}Borrowings} &  \\
+\texttt{CF\_\allowbreak{}CP\_\allowbreak{}NET} & \texttt{Proceeds\allowbreak{}From\allowbreak{}Repayments\allowbreak{}Of\allowbreak{}Commercial\allowbreak{}Paper} &  \\
+\texttt{CF\_\allowbreak{}LEASE\_\allowbreak{}PAYMENT} & \texttt{Payments\allowbreak{}Of\allowbreak{}Lease\allowbreak{}Liabilities\allowbreak{}Classified\allowbreak{}As\allowbreak{}Financing\allowbreak{}Activities}, \texttt{Finance\allowbreak{}Lease\allowbreak{}Principal\allowbreak{}Payments} &  \\
+\texttt{CF\_\allowbreak{}STOCK\_\allowbreak{}ISSUE} & \texttt{Proceeds\allowbreak{}From\allowbreak{}Issuance\allowbreak{}Of\allowbreak{}Common\allowbreak{}Stock}, \texttt{Proceeds\allowbreak{}From\allowbreak{}Exercise\allowbreak{}Of\allowbreak{}Options}, \texttt{Proceeds\allowbreak{}From\allowbreak{}Exercise\allowbreak{}Of\allowbreak{}Stock\allowbreak{}Options} &  \\
+\texttt{CF\_\allowbreak{}OTHER\_\allowbreak{}FINANCING} &  &  \\
+\texttt{CF\_\allowbreak{}FX} & \texttt{Effect\allowbreak{}Of\allowbreak{}Exchange\allowbreak{}Rate\allowbreak{}Changes\allowbreak{}On\allowbreak{}Cash\allowbreak{}And\allowbreak{}Cash\allowbreak{}Equivalents}, \texttt{Effect\allowbreak{}Of\allowbreak{}Exchange\allowbreak{}Rate\allowbreak{}On\allowbreak{}Cash\allowbreak{}Cash\allowbreak{}Equivalents\allowbreak{}Restricted\allowbreak{}Cash\allowbreak{}And\allowbreak{}Restricted\allowbreak{}Cash\allowbreak{}Equivalents} &  \\
+\texttt{CF\_\allowbreak{}ACTIVITY\_\allowbreak{}TOTAL} &  &  \\
+\texttt{CF\_\allowbreak{}NET\_\allowbreak{}CHANGE} & \texttt{Cash\allowbreak{}Cash\allowbreak{}Equivalents\allowbreak{}Restricted\allowbreak{}Cash\allowbreak{}And\allowbreak{}Restricted\allowbreak{}Cash\allowbreak{}Equivalents\allowbreak{}Period\allowbreak{}Increase\allowbreak{}Decrease\allowbreak{}Including\allowbreak{}Exchange\allowbreak{}Rate\allowbreak{}Effect}, \texttt{Increase\allowbreak{}Decrease\allowbreak{}In\allowbreak{}Cash\allowbreak{}And\allowbreak{}Cash\allowbreak{}Equivalents}, \texttt{Increase\allowbreak{}Decrease\allowbreak{}In\allowbreak{}Cash\allowbreak{}And\allowbreak{}Cash\allowbreak{}Equivalents\allowbreak{}Before\allowbreak{}Effect\allowbreak{}Of\allowbreak{}Exchange\allowbreak{}Rate\allowbreak{}Changes} &  \\
+\texttt{CF\_\allowbreak{}CASH\_\allowbreak{}BEGIN} &  &  \\
+\texttt{CF\_\allowbreak{}CASH\_\allowbreak{}END} &  &  \\
+\texttt{CF\_\allowbreak{}SUPPLEMENTAL} &  &  \\
+\texttt{CF\_\allowbreak{}NONCASH\_\allowbreak{}DISCLOSURE} &  &  \\
+\texttt{CF\_\allowbreak{}TAX\_\allowbreak{}ADDBACK} & \texttt{Adjustments\allowbreak{}For\allowbreak{}Income\allowbreak{}Tax\allowbreak{}Expense} &  \\
+\texttt{CF\_\allowbreak{}FINANCE\_\allowbreak{}ADDBACK} & \texttt{Adjustments\allowbreak{}For\allowbreak{}Finance\allowbreak{}Income\allowbreak{}Cost}, \texttt{Adjustments\allowbreak{}For\allowbreak{}Net\allowbreak{}Finance\allowbreak{}Income\allowbreak{}Cost} &  \\
+\texttt{CF\_\allowbreak{}TAX\_\allowbreak{}PAID} & \texttt{Income\allowbreak{}Taxes\allowbreak{}Paid\allowbreak{}Net}, \texttt{Income\allowbreak{}Taxes\allowbreak{}Paid\allowbreak{}Classified\allowbreak{}As\allowbreak{}Operating\allowbreak{}Activities}, \texttt{Income\allowbreak{}Taxes\allowbreak{}Paid\allowbreak{}Refund\allowbreak{}Classified\allowbreak{}As\allowbreak{}Operating\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}INTEREST\_\allowbreak{}RECEIVED} & \texttt{Interest\allowbreak{}Received\allowbreak{}Classified\allowbreak{}As\allowbreak{}Operating\allowbreak{}Activities}, \texttt{Interest\allowbreak{}Received\allowbreak{}Classified\allowbreak{}As\allowbreak{}Investing\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}INTEREST\_\allowbreak{}PAID} & \texttt{Interest\allowbreak{}Paid\allowbreak{}Classified\allowbreak{}As\allowbreak{}Operating\allowbreak{}Activities}, \texttt{Interest\allowbreak{}Paid\allowbreak{}Classified\allowbreak{}As\allowbreak{}Financing\allowbreak{}Activities}, \texttt{Interest\allowbreak{}Paid\allowbreak{}Net} &  \\
+\texttt{CF\_\allowbreak{}DIVIDENDS\_\allowbreak{}RECEIVED} & \texttt{Dividends\allowbreak{}Received\allowbreak{}Classified\allowbreak{}As\allowbreak{}Operating\allowbreak{}Activities}, \texttt{Dividends\allowbreak{}Received\allowbreak{}Classified\allowbreak{}As\allowbreak{}Investing\allowbreak{}Activities} &  \\
+\texttt{CF\_\allowbreak{}DISCONTINUED} &  &  \\
+\texttt{CF\_\allowbreak{}ASSET\_\allowbreak{}DISPOSAL} & \texttt{Proceeds\allowbreak{}From\allowbreak{}Sales\allowbreak{}Of\allowbreak{}Property\allowbreak{}Plant\allowbreak{}And\allowbreak{}Equipment\allowbreak{}Classified\allowbreak{}As\allowbreak{}Investing\allowbreak{}Activities} &  \\
+\hline
+\end{longtable}
+\endgroup

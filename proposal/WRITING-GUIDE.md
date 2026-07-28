@@ -36,10 +36,11 @@ Concretely, before a term, symbol, or formula is deployed in an argument:
 - **Give the intuition before the formalism.** Say what the equation means and why
   it is true in words, then write it.
 - **Derive equations, or sketch the derivation inline.** No derivation is
-  deferred to an appendix (the single appendix holds a generated figure, not
-  argument); a proposition gets its proof idea in the following paragraph (as
-  the injectivity proposition does), and a one-line derivation ("by linearity")
-  is written out rather than asserted.
+  deferred to an appendix (the appendices hold generated artifacts, the
+  overlay figure and the role listing, not argument); a proposition gets its
+  proof idea in the following paragraph (as the injectivity proposition
+  does), and a one-line derivation ("by linearity") is written out rather
+  than asserted.
 - **Assume a smart reader who knows finance but not XBRL.** The readers (the
   director, quant colleagues, the accountant reviewer, model risk) are fluent in
   statements, debits and credits, and Monte Carlo, and fluent in none of: XBRL
@@ -253,6 +254,16 @@ If any answer is "no," explain it first.
   column in the generator restates `src/fss/engine/project.py`; keep them in
   sync when the dispatch changes.
 
+- `roles_appendix.tex` is generated the same way, never hand-edited: after
+  any change to the role vocabulary or its tables in
+  `src/fss/engine/roles.py`, rerun
+
+      $env:PYTHONPATH = "src"; python scripts/gen_roles_appendix.py
+
+  and commit the regenerated file with the rebuilt PDF. The generator
+  asserts the ninety-role count, so a vocabulary change forces every
+  "ninety" claim to be updated consciously.
+
 - After a figure or table change, open the PDF and look at the page before
   committing.
 - Commit the rebuilt PDF with the source. If a correction propagated into
@@ -395,7 +406,13 @@ and whenever asked whether the proposal is consistent:
   anchors, and calc descendants); it owns standard- and firm-invariant
   behavior (the write-once commitment); the identities never need it,
   because arithmetic is universal; unresolved core driver roles refuse
-  simulation with the missing roles named.
+  simulation with the missing roles named. The complete vocabulary, with
+  every curated concept entry and label rule, is generated into the
+  appendix from `engine/roles.py` (`scripts/gen_roles_appendix.py`), never
+  hand-typed; no model participates in role assignment (the LLM sits
+  upstream, in label-to-concept mapping only); the vocabulary is authored
+  domain knowledge curated during the validation build, gated by the
+  acceptance battery, not an extraction and not model-generated.
 - *Naming*: the union state space is common as a container (one graph, both
   standards at their own coordinates, values never merged); the common
   behavior layer is common as a vocabulary; "standard-neutral" describes

@@ -277,7 +277,7 @@ The kernel enters once, not per reader, and it is small exactly when the readers
   arrow/.style={-{Stealth[length=2.5mm]}, thick, color=navytwo}
 ]
 \node[data] (pdf) {Born-digital\\ PDF};
-\node[stage, right=2.5mm of pdf] (loc) {\textbf{Locate}\\ \scriptsize deterministic locator;\\ \scriptsize LLM fallback, density-checked};
+\node[stage, right=2.5mm of pdf] (loc) {\textbf{Locate statement pages}\\ \scriptsize deterministic locator;\\ \scriptsize LLM fallback, density-checked};
 \node[stage, right=2.5mm of loc] (read) {\textbf{Read + reconcile}\\ \scriptsize decorrelated readers;\\ \scriptsize agreement gate (Figure~\ref{fig:gate})};
 \node[data, right=2.5mm of read] (rows) {Printed rows\\ \scriptsize values, signs, sections};
 \node[stage, below=9mm of rows] (ident) {\textbf{Identities, printed arithmetic}\\ \scriptsize footing tree discovered; A $=$ L $+$ E;\\ \scriptsize cash tie. No taxonomy consulted};

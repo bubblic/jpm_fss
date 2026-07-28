@@ -61,7 +61,14 @@ python -m fss.carry_demo                 # two-pair cross-year validation vs
                                          #   the filers' own tags -> out/carry/
 python -m fss.taxlabels                  # build data/taxonomy_labels.json,
                                          #   the unique-hit standard-label tier
-                                         #   (local cache; tier off if absent)
+                                         #   (local cache; tier off if absent;
+                                         #   per-standard views load from it)
+python -m fss.standards <pdf-or-folder>  # declared reporting-standard scan
+                                         #   (no LLM) -> out/standard_scan/
+python -m fss onboard <pdf> --standard us-gaap
+                                         # BUILD: operator-declared standard
+                                         #   when the document scan cannot
+                                         #   resolve one (us-gaap | ifrs)
 python -m fss.ir_demo                    # six IR editions scored against their
                                          #   filers' tags -> out/ir_validation/
 python -m fss runtime <pdf-or-folder>    # RUN: replay from the signed
@@ -75,10 +82,17 @@ python -m fss runtime  --merge           # out/runtime/summary.md
 
 At build time the LLM (DeepSeek API via `DEEPSEEK_API_KEY`, or the Azure
 gateway via `AZURE_DEEPSEEK_ENDPOINT`; `.env` supported) may propose
-statement pages, median-voted readings for flagged cells, and concept
-choices over lexical shortlists; every proposal passes a mechanical
-validator (density bar, reader agreement, polarity veto, footing) and is
-recorded in the audit log and the mapping artifact for human sign-off. At
+statement pages, median-voted readings for flagged cells, concept
+choices over lexical shortlists, and a reporting-standard reading when
+the deterministic declaration scan abstains; every proposal passes a
+mechanical validator (density bar, reader agreement, polarity veto,
+footing) and is recorded in the audit log and the mapping artifact for
+human sign-off. Concept mapping is scoped by the document's declared
+reporting standard (read from the report itself: the auditor's opinion
+and the basis-of-preparation note; `--standard` is the operator's
+override). Supported standards are US GAAP and IFRS; a document that
+declares a different framework and no supported one is refused loudly,
+never mapped as if covered. At
 run time no LLM client is ever constructed: adjudications replay only
 where a deterministic reader still reads the signed value, outputs are
 bit-exact across runs, and a changed document is refused with

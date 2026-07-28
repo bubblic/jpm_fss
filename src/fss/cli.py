@@ -19,6 +19,13 @@ def main() -> int:
     untagged.add_argument(
         "--merge", action="store_true", help="regenerate the sweep summary only"
     )
+    untagged.add_argument(
+        "--standard",
+        choices=["us-gaap", "ifrs"],
+        default=None,
+        help="declare the reporting standard when the document scan cannot "
+        "(the declaration is recorded and scopes the mapping ladder)",
+    )
     onboard = sub.add_parser(
         "onboard",
         help="BUILD time: ingest with LLM assist and emit a reviewable mapping artifact",
@@ -36,6 +43,13 @@ def main() -> int:
         help="seed the label->concept mapping from a prior document's artifact "
         "(e.g. microsoft_2025); semantics only, never pages; the model is "
         "consulted only for deltas",
+    )
+    onboard.add_argument(
+        "--standard",
+        choices=["us-gaap", "ifrs"],
+        default=None,
+        help="declare the reporting standard when the document scan cannot "
+        "(recorded in the artifact as the operator's declaration)",
     )
     runtime = sub.add_parser(
         "runtime",
@@ -90,6 +104,8 @@ def main() -> int:
             flags.append("--rebuild")
         if getattr(args, "carry_from", None):
             flags.extend(["--carry-from", args.carry_from])
+        if getattr(args, "standard", None):
+            flags.extend(["--standard", args.standard])
         sys.argv = [args.command, *flags, *args.paths]
         mode = {"untagged": "explore", "onboard": "onboard", "runtime": "runtime"}
         untagged_module.main(mode=mode[args.command])

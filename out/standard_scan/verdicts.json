@@ -1,0 +1,167 @@
+{
+ "2023_general_motors_annual_report": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\2023 General Motors Annual Report .pdf",
+  "pages": 113,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 34: US GAAP accordance wording: \"butable to stockholders under U.S. generally accepted accounting principles (GAAP) to expected EBIT-adjus\"",
+   "page 46: US GAAP named directly: \"al statements are prepared in conformity with U.S. GAAP, which requires the use of es\"",
+   "page 57: US GAAP accordance wording: \"31, 2023, in conformity with U.S. generally accepted accounting principles. We also have audited, in acc\"",
+   "page 65: US GAAP named directly: \"al statements are prepared in conformity with U.S. GAAP. Except for per share amounts\"",
+   "page 106: US GAAP named directly: \"ents for external purposes in accordance with U.S. GAAP. Because of the inherent limi\""
+  ],
+  "unsupported": []
+ },
+ "google_2024": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\google_2024.pdf",
+  "pages": 110,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 42: US GAAP accordance wording: \"currency basis in addition to U.S. Generally Accepted Accounting Principles (GAAP) results helps improve\"",
+   "page 54: US GAAP accordance wording: \"31, 2024, in conformity with U.S. generally accepted accounting principles. We also have audited, in acc\""
+  ],
+  "unsupported": []
+ },
+ "lvmh_dec_2024": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\lvmh_dec_2024.pdf",
+  "pages": 70,
+  "standard": "ifrs",
+  "ambiguous": false,
+  "evidence": [
+   "page 30: IFRS as adopted in the EU: \"are their accounts Standards (IFRS) as adopted by the European Union. in foreign currency were res\""
+  ],
+  "unsupported": []
+ },
+ "microsoft_2025": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\microsoft_2025.pdf",
+  "pages": 80,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 23: US GAAP opinion wording: \"s prepared in accordance with accounting principles generally accepted in the United States of America (“GAAP”), and grow\"",
+   "page 34: US GAAP opinion wording: \"n prepared in conformity with accounting principles generally accepted in the United States of America. The Company desig\"",
+   "page 41: US GAAP opinion wording: \"e prepared in accordance with accounting principles generally accepted in the United States of America (“GAAP”). Principl\"",
+   "page 73: US GAAP opinion wording: \"30, 2025, in conformity with accounting principles generally accepted in the United States of America. We have also audi\"",
+   "page 76: US GAAP opinion wording: \"l purposes in accordance with accounting principles generally accepted in the United States of America. Internal control\""
+  ],
+  "unsupported": []
+ },
+ "bbby_ar2022": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\bbby\\ar2022.pdf",
+  "pages": 217,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 59: US GAAP accordance wording: \"statements in conformity with U.S. generally accepted accounting principles requires us to establish acco\"",
+   "page 78: US GAAP accordance wording: \"statements in conformity with U.S. generally accepted accounting principles requires the Company to estab\"",
+   "page 135: US GAAP accordance wording: \"25, 2023, in conformity with U.S. generally accepted accounting principles. We also have audited, in acc\""
+  ],
+  "unsupported": []
+ },
+ "lehman_ar2007": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\lehman\\ar2007.pdf",
+  "pages": 156,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 84: US GAAP accordance wording: \"30, 2007, in conformity with U.S. generally accepted accounting principles. Also, in our opinion, the re\"",
+   "page 91: US GAAP accordance wording: \"e prepared in conformity with U.S. generally accepted accounting principles and include the accounts of H\""
+  ],
+  "unsupported": []
+ },
+ "svb_ar2022": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\svb\\ar2022.pdf",
+  "pages": 208,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 4: US GAAP accordance wording: \"ance for Credit Losses GAAP — U.S. generally accepted accounting principles AFS — Available-for-Sale HTM\"",
+   "page 107: US GAAP accordance wording: \"31, 2022, in conformity with U.S. generally accepted accounting principles. Also in our opinion, the Com\"",
+   "page 110: US GAAP accordance wording: \"sumptions for compliance with U.S. generally accepted accounting principles • assessing the conceptual so\""
+  ],
+  "unsupported": []
+ },
+ "exxon_2024": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\exxon_2024.pdf",
+  "pages": 152,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 45: US GAAP named directly: \"able to ExxonMobilaspreparedinaccordancewithU.S.GAAP. Upstream 2024 2023 2022 (mil\"",
+   "page 76: US GAAP accordance wording: \"cialstatementsinconformitywithU.S.GenerallyAcceptedAccountingPrinciples(GAAP)requiresmanagement to ma\"",
+   "page 82: US GAAP opinion wording: \"r 31, 2024 in conformity with accounting principles generally accepted in the United States of America. Also in our opini\"",
+   "page 90: US GAAP accordance wording: \"statements in conformity with U.S. Generally Accepted Accounting Principles (GAAP) requires management to\""
+  ],
+  "unsupported": []
+ },
+ "jpmorgan_2024": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\jpmorgan_2024.pdf",
+  "pages": 372,
+  "standard": "us-gaap",
+  "ambiguous": false,
+  "evidence": [
+   "page 101: US GAAP named directly: \"omparability of Statements in accordance with U.S. GAAP; these revenue from year-to-y\"",
+   "page 202: US GAAP named directly: \"on of financial statements in accordance with U.S. GAAP, and that receipts and expend\"",
+   "page 276: US GAAP named directly: \"did not qualify as a sale in accordance with U.S. GAAP. These transfers have been re\""
+  ],
+  "unsupported": []
+ },
+ "tencent_2024": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\tencent_2024.pdf",
+  "pages": 274,
+  "standard": "ifrs",
+  "ambiguous": false,
+  "evidence": [
+   "page 115: IFRS Accounting Standards: \"ws for the year then ended in accordance with IFRS Accounting Standards and have been properly prepar\"",
+   "page 121: IFRS Accounting Standards: \"give a true and fair view in accordance with IFRS Accounting Standards and the disclosure requiremen\"",
+   "page 136: IFRS Accounting Standards: \"on of financial statements in conformity with IFRS Accounting Standards requires the use of certain c\""
+  ],
+  "unsupported": []
+ },
+ "volkswagen_2024": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\volkswagen_2024.pdf",
+  "pages": 677,
+  "standard": "ifrs",
+  "ambiguous": false,
+  "evidence": [
+   "page 5: IFRS Accounting Standards: \"gesellschaft were prepared in accordance with IFRS Accounting Standards adopted by the European Union\"",
+   "page 479: IFRS as adopted in the EU: \"he IFRS Accounting Standards (IFRSs), as adopted by the European Union. All IFRSs adopted by the EU\"",
+   "page 479: IFRS Accounting Standards: \"ancial statements for 2024 in compliance with the IFRS Accounting Standards (IFRSs), as adopted by the Eu\"",
+   "page 649: IFRS as issued by the IASB: \"e IFRS Account- ing Standards as issued by the International Accounting Standards Board (IASB) (IFRS Accounting Stand\"",
+   "page 659: IFRS Accounting Standards: \"l performance of the Group in compliance with the IFRS Accounting Standards as adopted by the EU and the\""
+  ],
+  "unsupported": []
+ },
+ "alibaba_2025": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\alibaba_2025.pdf",
+  "pages": 324,
+  "standard": null,
+  "ambiguous": false,
+  "evidence": [],
+  "unsupported": []
+ },
+ "evergrande_ar2022": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\evergrande\\ar2022.pdf",
+  "pages": 183,
+  "standard": null,
+  "ambiguous": false,
+  "evidence": [],
+  "unsupported": [
+   "page 44: Hong Kong Financial Reporting Standards: \"statements in accordance with Hong Kong Financial Reporting Standards, the disclosure requirements\"",
+   "page 54: Hong Kong Financial Reporting Standards: \"n prepared in accordance with Hong Kong Financial Reporting Standards (“HKFRSs”) and disclosure req\""
+  ]
+ },
+ "wirecard_ar2018": {
+  "file": "previous_llm_extractor\\annual_reports\\for_financial_statements\\wirecard\\ar2018.pdf",
+  "pages": 224,
+  "standard": "ifrs",
+  "ambiguous": false,
+  "evidence": [
+   "page 136: IFRS as adopted in the EU: \"nt to the carrying Standards (IFRS), as adopted by the European Union amount of the asset or liabil\"",
+   "page 12: IFRS accordance wording: \"the company were prepared in accordance with the International Financial Reporting Standards\""
+  ],
+  "unsupported": []
+ }
+}

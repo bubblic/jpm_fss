@@ -12,12 +12,17 @@ configured, and validate what a tag-free document allows:
   - A = L + E from the printed totals;
   - the cash tie on the cash flow statement.
 
-Rows then map to taxonomy concepts through the label dictionary harvested
-from the tagged validation set (lexical first, LLM-over-shortlist second,
-polarity-checked, abstain otherwise), and firms whose mapping supports the
-driver roles are simulated through the same symbolic-verified TensorFlow
-engine as the tagged set. Everything lands in a per-document report under
-out/untagged/, plus a sweep summary.
+Rows then map to taxonomy concepts through the mapping ladder (harvested
+lexicon, carried artifact, unique-hit taxonomy-label tier, then LLM over a
+shortlist, polarity-checked, abstain otherwise), and firms whose mapping
+supports the driver roles are simulated through the same symbolic-verified
+TensorFlow engine as the tagged set. The ladder is scoped by the document's
+declared reporting standard when one resolves (fss.standards: deterministic
+phrase scan, then the operator's --standard flag or the leashed LLM
+fallback, recorded in the artifact and confirmed at sign-off); a document
+that declares a framework other than US GAAP or IFRS is refused loudly,
+never mapped as if covered. Everything lands in a per-document report
+under out/untagged/, plus a sweep summary.
 """
 from __future__ import annotations
 
@@ -35,11 +40,17 @@ from typing import Any
 import pdfplumber
 
 from fss import llm as llm_module
-from fss import taxlabels
+from fss import standards, taxlabels
 from fss.paths import DATA_DIR, OUT_DIR, ROOT
 from fss.pdfread import locate, zh
 from fss.pdfread.assemble import read_statement_pages
-from fss.pdfread.llm_assist import LLMAudit, adjudicate_flags, map_concept, select_pages
+from fss.pdfread.llm_assist import (
+    LLMAudit,
+    adjudicate_flags,
+    detect_standard,
+    map_concept,
+    select_pages,
+)
 from fss.reconcile import ReconciledStatement, canon_label, reconcile
 from fss.statements import Cell, StatementRow, StructuredStatement
 
@@ -585,11 +596,20 @@ def map_rows(
     overlay: dict[str, ConceptInfo] | None = None,
     overlay_source: str = "artifact",
     taxonomy: dict[str, ConceptInfo] | None = None,
+    standard: str | None = None,
 ) -> tuple[dict[int, ConceptInfo], dict[str, int], dict[int, str]]:
     """Row -> taxonomy concept: lexical, then the reviewed artifact
     overlay (runtime replay, or a prior year's artifact carried forward
     at onboard time), then the unique-hit taxonomy-label tier, then
-    LLM-over-shortlist (build time only)."""
+    LLM-over-shortlist (build time only).
+
+    When the document's reporting standard is declared, the ladder is
+    scoped to it: lexical and carried hits naming the other standard's
+    concepts are discarded and fall down the ladder (the signed artifact
+    overlay is exempt, because sign-off owns those choices and runtime
+    must replay them), the taxonomy tier the caller passes is that
+    standard's own unique view, and the LLM shortlist offers only that
+    standard's concepts, which also removes other firms' extensions."""
     stats = {
         "lexical": 0,
         "artifact": 0,
@@ -613,19 +633,27 @@ def map_rows(
             or dictionary.get(_condensed(bare))
         )
         source = "lexical"
+        if info is not None and standards.mismatches(info.concept, standard):
+            info = None  # the other standard's concept: fall down the ladder
         if info is None and zh.has_cjk(row.label):
+            # the Chinese label pack is a curated cross-standard bridge by
+            # design, so the declared-standard veto does not apply to it
             found = zh.lookup(row.label)
             if found is not None:
                 local, balance, period_type = found
                 info = ConceptInfo(f"us-gaap:{local}", balance, period_type, True)
         if info is None and overlay is not None:
-            info = (
+            found_info = (
                 overlay.get(canon)
                 or overlay.get(_condensed(row.label))
                 or overlay.get(canon_label(bare))
                 or overlay.get(_condensed(bare))
             )
-            if info is not None:
+            if found_info is not None and (
+                overlay_source != "carried"
+                or not standards.mismatches(found_info.concept, standard)
+            ):
+                info = found_info
                 source = overlay_source
         if info is None and taxonomy:
             # the unique-hit tier: a label that names exactly one concept
@@ -643,6 +671,12 @@ def map_rows(
         if info is None and llm_client is not None and row.label.strip() and llm_budget > 0:
             llm_budget -= 1
             shortlist = _shortlist(bare, tokens)
+            if standard is not None:
+                # the declared standard scopes the candidates the model may
+                # choose among; other firms' extensions drop out with the
+                # other standard's concepts
+                prefix = standards.STANDARD_PREFIX[standard]
+                shortlist = [c for c in shortlist if c.startswith(prefix)]
             if shortlist:
                 chosen = map_concept(
                     llm_client, audit, statement_kind, row.section, row.label, shortlist
@@ -975,6 +1009,11 @@ def rebuild_artifact(pdf_path: Path) -> Path:
         "approved_by": "PENDING SIGN-OFF",
         "statements": {},
     }
+    standard_meta = outcome.get("standard")
+    if standard_meta:  # legacy outcomes predate the standard field
+        build["standard"] = standard_meta.get("value")
+        build["standard_source"] = standard_meta.get("source", "unresolved")
+        build["standard_evidence"] = standard_meta.get("evidence", [])
     for kind, record in outcome["statements"].items():
         if "error" in record or not record.get("pages"):
             continue
@@ -1069,6 +1108,7 @@ def analyze_pdf(
     seed: int = 20260706,
     mode: str = "explore",
     carry_from: str | None = None,
+    declared_standard: str | None = None,
 ) -> dict[str, Any]:
     stem = pdf_path.stem.lower()
     if re.fullmatch(r"(ar|annual[_ ]?report)?[_ ]?\d{4}", stem):
@@ -1083,7 +1123,6 @@ def analyze_pdf(
     llm_client = None if mode == "runtime" else llm_module.default_client()
     audit = LLMAudit()
     dictionary, by_statement, tokens = _load_dictionary()
-    taxonomy_tier = taxlabels.load_unique()
     outcome: dict[str, Any] = {
         "document": document,
         "file": str(pdf_path),
@@ -1092,6 +1131,28 @@ def analyze_pdf(
         "llm": llm_client is not None,
         "statements": {},
     }
+
+    def _refuse(reason: str) -> dict[str, Any]:
+        """Loud per-document refusal: every statement errors, simulation is
+        refused, and no artifact is written; the sweep stays alive."""
+        outcome["statements"] = {kind: {"error": reason} for kind in STATEMENTS}
+        outcome["simulation"] = {"status": "refused", "reason": reason}
+        (out_dir / "audit_llm.json").write_text(
+            json.dumps({"calls": audit.calls, "decisions": audit.decisions}, indent=1),
+            encoding="utf-8",
+        )
+        (out_dir / "outcome.json").write_text(
+            json.dumps(outcome, indent=1, default=str), encoding="utf-8"
+        )
+        _write_report(out_dir, outcome)
+        return outcome
+
+    # which reporting standard scopes the mapping ladder: None until the
+    # artifact (runtime) or the document scan and its fallbacks (build
+    # modes, below) resolve one
+    resolved_standard: str | None = None
+    standard_source = "unresolved"
+    standard_evidence: list[str] = []
     artifact: dict[str, Any] | None = None
     overlays: dict[str, dict[str, ConceptInfo]] = {}
     if mode == "runtime":
@@ -1124,6 +1185,20 @@ def analyze_pdf(
             return outcome
         for kind, stmt_artifact in artifact.get("statements", {}).items():
             overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
+        # the runtime replays the standard the reviewed artifact records,
+        # exactly like pages and mappings; it never re-detects
+        artifact_standard = artifact.get("standard")
+        if artifact_standard is not None and artifact_standard not in standards.SUPPORTED:
+            return _refuse(
+                f"mapping artifact declares unsupported standard {artifact_standard!r} "
+                "(supported: us-gaap, ifrs); re-onboarding and sign-off required"
+            )
+        resolved_standard = artifact_standard
+        if artifact_standard is not None:
+            standard_source = artifact.get("standard_source", "artifact")
+            standard_evidence = list(artifact.get("standard_evidence", []))
+        else:
+            standard_source = "legacy" if "standard" not in artifact else "unresolved"
     carry_artifact: dict[str, Any] | None = None
     if mode == "onboard" and carry_from:
         carry_artifact = load_artifact(carry_from)
@@ -1161,6 +1236,84 @@ def analyze_pdf(
         if text_options:
             outcome["text_options"] = text_options
         pages = locate.scan_pages(pdf, text_options)
+        if mode != "runtime":
+            # which standard the document declares: deterministic scan
+            # first; the operator's --standard declaration wins over it
+            # (with the disagreement recorded for sign-off); the LLM is
+            # the leashed fallback when the scan abstains; a framework
+            # outside us-gaap/ifrs refuses loudly rather than proceeding
+            detection = standards.detect([info.text for info in pages])
+            standard_notes: list[str] = []
+            if declared_standard:
+                resolved_standard, standard_source = declared_standard, "operator"
+                if detection.standard and detection.standard != declared_standard:
+                    standard_notes.append(
+                        f"operator declaration {declared_standard} overrides the "
+                        f"document scan ({detection.standard})"
+                    )
+            elif detection.standard:
+                resolved_standard, standard_source = detection.standard, "detected"
+            elif detection.ambiguous:
+                standard_source = "ambiguous"
+            standard_evidence = list(detection.evidence) + standard_notes
+            if (
+                resolved_standard is None
+                and not detection.ambiguous
+                and detection.unsupported
+            ):
+                outcome["standard"] = {
+                    "value": None,
+                    "source": "unsupported",
+                    "evidence": list(detection.unsupported),
+                }
+                return _refuse(
+                    "unsupported reporting standard: the document declares "
+                    + "; ".join(detection.unsupported[:3])
+                    + ". Supported standards are us-gaap and ifrs; after "
+                    "review, re-run with --standard to override"
+                )
+            if (
+                resolved_standard is None
+                and mode == "onboard"
+                and llm_client is not None
+            ):
+                candidate_pages = standards.declaration_candidates(
+                    [info.text for info in pages]
+                )
+                if candidate_pages:
+                    verdict = detect_standard(llm_client, audit, candidate_pages)
+                    if verdict == "other":
+                        outcome["standard"] = {
+                            "value": None,
+                            "source": "unsupported",
+                            "evidence": [
+                                "llm: declared framework outside us-gaap and ifrs"
+                            ],
+                        }
+                        return _refuse(
+                            "unsupported reporting standard: the deterministic "
+                            "scan found no declaration and the LLM reads the "
+                            "report as prepared under a framework outside "
+                            "us-gaap and ifrs. After review, re-run with "
+                            "--standard to override"
+                        )
+                    if verdict in standards.SUPPORTED:
+                        resolved_standard, standard_source = verdict, "llm"
+            if detection.unsupported and resolved_standard is not None:
+                standard_evidence.extend(
+                    f"also declared: {item}" for item in detection.unsupported[:2]
+                )
+        outcome["standard"] = {
+            "value": resolved_standard,
+            "source": standard_source,
+            "evidence": standard_evidence,
+        }
+        build["standard"] = resolved_standard
+        build["standard_source"] = standard_source
+        build["standard_evidence"] = standard_evidence
+        # the tier consults the declared standard's own unique view when
+        # one resolved, the conservative cross-standard view otherwise
+        taxonomy_tier = taxlabels.load_unique(resolved_standard)
         rich_pages = sorted(
             (info for info in pages if info.value_rows >= locate.MIN_VALUE_ROWS),
             key=lambda info: info.value_rows,
@@ -1260,6 +1413,7 @@ def analyze_pdf(
                     overlay=overlays.get(statement_kind),
                     overlay_source=overlay_source,
                     taxonomy=taxonomy_tier,
+                    standard=resolved_standard,
                 )
                 checks = run_checks(reconciled, statement_kind, concepts)
                 record.update(
@@ -1464,6 +1618,16 @@ def _write_report(out_dir: Path, outcome: dict[str, Any]) -> None:
                 f"Mapping artifact written: `{outcome['artifact']['path']}` "
                 f"(status: {outcome['artifact']['approved_by']})  "
             )
+    standard_meta = outcome.get("standard")
+    if standard_meta:
+        value = standard_meta.get("value")
+        label = value or "UNRESOLVED (conservative cross-standard mapping)"
+        lines.append(
+            f"Reporting standard: {label} "
+            f"(source: {standard_meta.get('source', 'unknown')})  "
+        )
+        for item in (standard_meta.get("evidence") or [])[:2]:
+            lines.append(f"- {item}  ")
     if outcome.get("diagnosis"):
         lines.append("")
         lines.append(f"**Diagnosis:** {outcome['diagnosis']}")
@@ -1590,6 +1754,17 @@ def main(mode: str = "explore") -> None:
         return
     rebuild = False
     carry_from: str | None = None
+    declared_standard: str | None = None
+    if mode in ("explore", "onboard") and "--standard" in arguments:
+        marker = arguments.index("--standard")
+        if marker + 1 >= len(arguments):
+            raise SystemExit("--standard requires a value: us-gaap or ifrs")
+        declared_standard = arguments[marker + 1]
+        arguments = arguments[:marker] + arguments[marker + 2 :]
+        if declared_standard not in standards.SUPPORTED:
+            raise SystemExit(
+                f"unsupported standard {declared_standard!r}; supported: us-gaap, ifrs"
+            )
     if mode == "onboard":
         if "--rebuild" in arguments:
             rebuild = True
@@ -1615,7 +1790,12 @@ def main(mode: str = "explore") -> None:
             path = rebuild_artifact(pdf_path)
             print(f"    -> artifact {path}")
             continue
-        outcome = analyze_pdf(pdf_path, mode=mode, carry_from=carry_from)
+        outcome = analyze_pdf(
+            pdf_path,
+            mode=mode,
+            carry_from=carry_from,
+            declared_standard=declared_standard,
+        )
         print(f"    -> {outcome['simulation']['status']}")
     if not rebuild:
         summarize(base_dir)

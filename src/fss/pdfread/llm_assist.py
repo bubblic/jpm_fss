@@ -1,6 +1,6 @@
 """LLM-assisted stages for untagged documents, on the user's calling logic.
 
-Three narrowly-scoped, gated uses (the LLM never has sole authority):
+Four narrowly-scoped, gated uses (the LLM never has sole authority):
 
   1. Page identification fallback: when the deterministic locator finds no
      pages for a statement, page batches go to the LLM with the user's
@@ -16,6 +16,10 @@ Three narrowly-scoped, gated uses (the LLM never has sole authority):
      taxonomy concepts; the choice is accepted only if the concept's
      balance polarity is consistent with the row's printed sign and
      section. Unresolvable rows stay unmapped, per the abstain rule.
+  4. Reporting-standard fallback: when the deterministic declaration scan
+     (fss.standards) abstains, the LLM reads the declaration-bearing
+     pages and proposes the framework; the proposal is recorded in the
+     artifact for sign-off, and anything outside us-gaap/ifrs refuses.
 
 Every call, prompt digest, vote, and decision lands in the audit record.
 """
@@ -60,6 +64,18 @@ CONCEPT_PROMPT = (
     "Section: {section}\n"
     "Line item label: {label}\n"
     "Candidate concepts:\n{candidates}\n"
+)
+
+STANDARD_PROMPT = (
+    "You identify the accounting framework an annual report's financial "
+    "statements are prepared under, from the auditor's opinion or the "
+    "basis-of-preparation note in the pages below.\n"
+    'Return ONLY JSON: {{"standard": "us-gaap" | "ifrs" | "other" | null}}.\n'
+    "Rules: us-gaap means United States GAAP. ifrs means IFRS, including "
+    "IFRS as adopted by the EU or the UK. other means a different national "
+    "framework (Hong Kong FRS alone, Japanese GAAP, Ind AS, PRC standards, "
+    "and similar). null means these pages do not say.\n\n"
+    "Pages:\n{pages}"
 )
 
 
@@ -225,6 +241,46 @@ def adjudicate_flags(
                     {"label": row.label[:60], "column": column, "value": str(voted)},
                 )
     return resolved
+
+
+def detect_standard(
+    client: LLMClient,
+    audit: LLMAudit,
+    pages: dict[int, str],
+) -> str | None:
+    """One leashed call when the deterministic standard scan abstains.
+
+    The model reads only the declaration-bearing candidate pages
+    (fss.standards.declaration_candidates) and proposes us-gaap, ifrs,
+    other, or null. The proposal never acts silently: it is recorded in
+    the audit log and the mapping artifact, where sign-off confirms it,
+    and "other" makes the pipeline refuse the document rather than map
+    it as if covered.
+    """
+    audit.calls += 1
+    print(f"    llm detect_standard ({len(pages)} candidate pages)...", flush=True)
+    response = client.ask_json(
+        message="gen-ai-response",
+        prompt=STANDARD_PROMPT.format(pages=_page_blocks(pages)),
+        parameters={},
+        reasoning=False,
+    )
+    if "raw_response" in response:
+        embedded = extract_json_from_text(str(response["raw_response"]))
+        if embedded:
+            response = embedded
+    raw = response.get("standard")
+    verdict: str | None = None
+    if isinstance(raw, str):
+        cleaned = raw.strip().lower().replace("_", "-").replace(" ", "-")
+        if cleaned in ("us-gaap", "usgaap"):
+            verdict = "us-gaap"
+        elif cleaned == "ifrs":
+            verdict = "ifrs"
+        elif cleaned == "other":
+            verdict = "other"
+    audit.record("detect_standard", {"pages": sorted(pages), "verdict": verdict})
+    return verdict
 
 
 def map_concept(

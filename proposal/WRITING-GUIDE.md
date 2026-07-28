@@ -340,7 +340,24 @@ and whenever asked whether the proposal is consistent:
   reader read; concept mapping tries the four-rung ladder in order (harvested
   lexicon, carried artifact, the unique-hit taxonomy-label tier, then the
   LLM over a lexical shortlist, with the heuristic rungs under the polarity
-  veto); build time only. `fss onboard` emits a signed, versioned mapping artifact;
+  veto); build time only. The ladder is scoped by the document's declared
+  reporting standard once one resolves: the declaration is read from the
+  report itself (auditor's opinion, basis-of-preparation note) by a
+  deterministic phrase scan with a variant pack (EU and UK adoption
+  wordings, declaration-anchored Chinese forms), the LLM as leashed
+  fallback, or the operator's `--standard` flag, recorded in the artifact
+  (`standard`, `standard_source`, `standard_evidence`) and confirmed at
+  sign-off; under a declared standard the taxonomy tier consults that
+  standard's own unique view (cross-standard twins readmitted), shortlists
+  offer only that standard's concepts, and wrong-standard lexicon or
+  carried hits fall down the ladder, while the signed artifact overlay is
+  exempt so runtime replay stands. Supported standards are us-gaap and
+  ifrs only; a document affirmatively declaring another framework and no
+  supported one is refused loudly with the declaration quoted (the
+  sweep's Evergrande declares HKFRS and refuses), and the operator's
+  reviewed declaration is the only way past. On the fourteen-document
+  sweep the scan resolves twelve declarations, refuses one, and abstains
+  on the image-based one (`out/standard_scan/`). `fss onboard` emits a signed, versioned mapping artifact;
   `fss runtime` never constructs an LLM client, replays adjudications only
   where a reader still reads the signed value, refuses drifted hashes
   ("re-onboarding required"), and reruns byte-identically. With no endpoint,

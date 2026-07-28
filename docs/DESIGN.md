@@ -40,6 +40,8 @@ all comparative columns. Statement of equity and OCI are out of MVP scope.
                                             mapping artifacts; carry-forward
       carry_demo.py                         adjacent-year carry-forward validation
       taxlabels.py                          unique-hit taxonomy-label tier index
+      standards.py                          declared reporting standard: scan,
+                                            scoping, unsupported-framework refusal
       ir_demo.py                            IR editions scored vs filings' tags
 
 ## Extraction error model

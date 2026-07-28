@@ -8,12 +8,18 @@ every standard concept's label, keyed by the same canonical and condensed
 forms the lexicon uses, with the attributes the polarity veto needs.
 
 At mapping time only the UNIQUE entries participate: a label that names
-exactly one concept across both taxonomies resolves deterministically
-("Commercial paper"); a label the taxonomies reuse ("Other assets" and
-its dozens of variants) stays ambiguous and falls through to the model
-or the flag. The index is a local build product under data/ (like the
-rest of the caches); when the file is absent the tier is simply inactive
-and mapping behaves exactly as before.
+exactly one concept resolves deterministically ("Commercial paper"); a
+label the taxonomies reuse ("Other assets" and its dozens of variants)
+stays ambiguous and falls through to the model or the flag. Uniqueness
+is judged across both taxonomies when the document's reporting standard
+is unknown (the conservative default), and within the declared
+standard alone when it is known: the cross-standard twins ("Goodwill"
+exists in each) then resolve to the declared standard's concept, and
+the other standard's labels drop out of the view entirely. The index is
+a local build product under data/ (like the rest of the caches) and
+stores every entry per label form, so both views load from the same
+file; when the file is absent the tier is simply inactive and mapping
+behaves exactly as before.
 """
 from __future__ import annotations
 
@@ -108,32 +114,44 @@ def build_index() -> dict[str, list[dict[str, Any]]]:
     return index
 
 
-def unique_entries(index: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
+def unique_entries(
+    index: dict[str, list[dict[str, Any]]], standard: str | None = None
+) -> dict[str, Any]:
     """The deterministic tier: label forms naming exactly one concept.
 
     Returns label form -> ConceptInfo. Ambiguous forms are dropped here,
     which is the entire safety argument of the tier: it can only ever
-    assert a mapping no other standard concept shares a label with.
+    assert a mapping no other concept in view shares a label with. With
+    no declared standard the view is both taxonomies together; with one,
+    uniqueness is judged within that standard alone, so cross-standard
+    twins resolve and the other standard's labels leave the view.
     """
+    from fss.standards import STANDARD_PREFIX
     from fss.untagged import ConceptInfo
 
+    prefix = None if standard is None else STANDARD_PREFIX[standard]
     tier: dict[str, Any] = {}
     for form, entries in index.items():
-        if len(entries) != 1:
+        pool = (
+            entries
+            if prefix is None
+            else [e for e in entries if e["concept"].startswith(prefix)]
+        )
+        if len(pool) != 1:
             continue
-        entry = entries[0]
+        entry = pool[0]
         tier[form] = ConceptInfo(
             entry["concept"], entry["balance"], entry["period_type"], entry["monetary"]
         )
     return tier
 
 
-def load_unique() -> dict[str, Any]:
+def load_unique(standard: str | None = None) -> dict[str, Any]:
     """Load the tier from the local index; empty (tier inactive) if absent."""
     if not INDEX_PATH.exists():
         return {}
     index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
-    return unique_entries(index)
+    return unique_entries(index, standard)
 
 
 def main() -> None:

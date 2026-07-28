@@ -20,6 +20,31 @@ def _tier(label: str, concept: str, balance: str, period_type: str = "instant"):
     }
 
 
+def _entry(concept: str, balance: str = "debit"):
+    return {
+        "concept": concept,
+        "balance": balance,
+        "period_type": "instant",
+        "monetary": True,
+    }
+
+
+def test_per_standard_views_readmit_cross_standard_twins():
+    index = {"goodwill": [_entry("ifrs-full:Goodwill"), _entry("us-gaap:Goodwill")]}
+    assert "goodwill" not in unique_entries(index)
+    assert unique_entries(index, "us-gaap")["goodwill"].concept == "us-gaap:Goodwill"
+    assert unique_entries(index, "ifrs")["goodwill"].concept == "ifrs-full:Goodwill"
+
+
+def test_per_standard_view_drops_the_other_standards_labels():
+    index = {"trade receivables": [_entry("ifrs-full:TradeReceivables")]}
+    assert (
+        unique_entries(index, "ifrs")["trade receivables"].concept
+        == "ifrs-full:TradeReceivables"
+    )
+    assert "trade receivables" not in unique_entries(index, "us-gaap")
+
+
 def test_unique_entries_drops_ambiguous_labels():
     index = {
         "commercial paper": [

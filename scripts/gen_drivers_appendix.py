@@ -33,6 +33,61 @@ DRIVERS_SOURCE = ROOT / "src" / "fss" / "drivers.py"
 CONFIG_SOURCE = ROOT / "src" / "fss" / "config.py"
 OUT = ROOT / "proposal" / "drivers_appendix.tex"
 
+# Code parameter name -> the symbol it carries in the proposal's driver
+# equations (Section 10), so the tables and the equations read against
+# each other.
+SYMBOLS: dict[str, str] = {
+    "BETA_GDP": r"$\beta_G$",
+    "BETA_DEMAND": r"$\beta_d$",
+    "COMPETITION_REVENUE": r"$\kappa_r$",
+    "COMPETITION_MARGIN": r"$\kappa_m$",
+    "INFLATION_COGS_PASS": r"$\lambda_c$",
+    "INFLATION_OPEX_PASS": r"$\lambda_o$",
+    "INFLATION_REVENUE_PASS": r"$\lambda_\pi$",
+    "OPEX_REVENUE_BETA": r"$\alpha$",
+    "RATE_PASSTHROUGH_ASSETS": r"$\rho_A$",
+    "RATE_PASSTHROUGH_DEBT": r"$\rho_D$",
+    "MOMENTUM_WEIGHT": r"$w_m$",
+    "REVENUE_SIGMA": r"$\sigma_g$",
+    "MARGIN_SIGMA": r"$\sigma_m$",
+    "OPEX_SIGMA": r"$\sigma_o$",
+}
+
+# How each driver is computed from the conditioning values and the
+# parameters: restates drivers.draw_from_shocks in the notation of
+# Section 10's equations.
+MAP: dict[str, str] = {
+    "revenue_growth": (
+        r"$\max\big(w_m\,\hat g + \tfrac{1}{100}(\beta_G\,\Delta g^{\text{GDP}}"
+        r" + \lambda_\pi\,\Delta\pi) + \beta_d z_d - \kappa_r z_c"
+        r" + \varepsilon_g,\ -0.35\big)$ \ (eq.~\ref{eq:revgrowth}, with the floor)"
+    ),
+    "cogs_ratio_shift": (
+        r"$\kappa_m z_c + \lambda_c\,\Delta\pi/100 + \varepsilon_m$"
+        r" \ (eq.~\ref{eq:margin})"
+    ),
+    "opex_growth": (
+        r"$\alpha\, g_{\text{rev}} + \lambda_o\,\Delta\pi/100 + \varepsilon_o$"
+        r" \ (eq.~\ref{eq:margin})"
+    ),
+    "restructuring_factor": (
+        r"$0.5$, plus $0.5$ when $\Delta g^{\text{GDP}} < 0$ or $z_c > 1$:"
+        r" half intensity outside stress, full in downturns or competition shocks"
+    ),
+    "asset_yield_shift": r"$\rho_A\,\Delta r/10^4$ \ (eq.~\ref{eq:rates})",
+    "debt_rate_shift": r"$\rho_D\,\Delta r/10^4$ \ (eq.~\ref{eq:rates})",
+    "tax_rate_shift": (
+        r"$0$, held by the MVP map; the engine clips the effective rate to"
+        r" $[5\%, 45\%]$ either way"
+    ),
+    "dividend_growth": (
+        r"$\min(\max(g_{\text{rev}},\,0),\,0.10)$: never cut, capped at ten percent"
+    ),
+    "buyback_factor": (
+        r"$1$, or $0.5$ when $\Delta g^{\text{GDP}} < -1$: halved in deep downturns"
+    ),
+}
+
 # Which roles each driver acts on, and how: restates Projector.project.
 DISPATCH: dict[str, tuple[str, str]] = {
     "revenue_growth": (
@@ -133,10 +188,16 @@ def main() -> None:
     assert [name for name, _ in fields] == list(DISPATCH), (
         "dispatch table out of sync with DriverDraw fields"
     )
+    assert [name for name, _ in fields] == list(MAP), (
+        "map table out of sync with DriverDraw fields"
+    )
     parameters = parsed_constants(DRIVERS_SOURCE)
     sigmas = [
         entry for entry in parsed_constants(CONFIG_SOURCE) if entry[0].endswith("SIGMA")
     ]
+    assert {name for name, _, _ in parameters + sigmas} == set(SYMBOLS), (
+        "symbol map out of sync with the parsed parameters and noise scales"
+    )
 
     lines: list[str] = [
         "% GENERATED FILE, do not hand-edit.",
@@ -173,38 +234,54 @@ def main() -> None:
     lines += [r"\hline", r"\end{longtable}"]
 
     lines += [
-        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.9cm}r"
-        r">{\raggedright\arraybackslash}p{8.6cm}@{}}",
-        r"\multicolumn{3}{@{}l}{\headtext{The %d response parameters and %d noise scales (chosen by argument, documented)}}\\[3pt]"
+        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.7cm}cr"
+        r">{\raggedright\arraybackslash}p{7.5cm}@{}}",
+        r"\multicolumn{4}{@{}l}{\headtext{The %d response parameters and %d noise scales (chosen by argument, documented)}}\\[3pt]"
         % (len(parameters), len(sigmas)),
-        r"\headtext{Parameter} & \headtext{Value} & \headtext{Rationale, as documented in the code} \\",
+        r"\headtext{Parameter} & \headtext{Symbol} & \headtext{Value} & \headtext{Rationale, as documented in the code} \\",
         r"\hline",
         r"\endhead",
     ]
     for name, value, comment in parameters + sigmas:
-        lines.append("%s & $%s$ & %s \\\\" % (tt(name), value, text(comment)))
+        lines.append(
+            "%s & %s & $%s$ & %s \\\\"
+            % (tt(name), SYMBOLS[name], value, text(comment))
+        )
     lines += [r"\hline", r"\end{longtable}"]
 
     lines += [
         r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.3cm}"
-        r">{\raggedright\arraybackslash}p{3.3cm}"
-        r">{\raggedright\arraybackslash}p{3.4cm}"
-        r">{\raggedright\arraybackslash}p{5.6cm}@{}}",
-        r"\multicolumn{4}{@{}l}{\headtext{The %d drivers and their dispatch (which roles each acts on, and how)}}\\[3pt]"
+        r">{\raggedright\arraybackslash}p{3.2cm}"
+        r">{\raggedright\arraybackslash}p{9.3cm}@{}}",
+        r"\multicolumn{3}{@{}l}{\headtext{The %d drivers: the map from conditioning values and parameters}}\\[3pt]"
         % len(fields),
-        r"\headtext{Driver} & \headtext{Meaning} & \headtext{Acts on the roles} & \headtext{Mechanism in the engine} \\",
-        r"\hline",
-        r"\endfirsthead",
-        r"\multicolumn{4}{@{}l}{\headtext{The drivers and their dispatch, continued}}\\[3pt]",
-        r"\headtext{Driver} & \headtext{Meaning} & \headtext{Acts on the roles} & \headtext{Mechanism in the engine} \\",
+        r"\headtext{Driver} & \headtext{Meaning} & \headtext{From the conditioning and the parameters} \\",
         r"\hline",
         r"\endhead",
     ]
     for name, meaning in fields:
+        lines.append(
+            "%s & %s & %s \\\\" % (tt(name), text(meaning), MAP[name])
+        )
+    lines += [r"\hline", r"\end{longtable}"]
+
+    lines += [
+        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.3cm}"
+        r">{\raggedright\arraybackslash}p{4.0cm}"
+        r">{\raggedright\arraybackslash}p{8.5cm}@{}}",
+        r"\multicolumn{3}{@{}l}{\headtext{The dispatch (which roles each driver acts on, and how)}}\\[3pt]",
+        r"\headtext{Driver} & \headtext{Acts on the roles} & \headtext{Mechanism in the engine} \\",
+        r"\hline",
+        r"\endfirsthead",
+        r"\multicolumn{3}{@{}l}{\headtext{The dispatch, continued}}\\[3pt]",
+        r"\headtext{Driver} & \headtext{Acts on the roles} & \headtext{Mechanism in the engine} \\",
+        r"\hline",
+        r"\endhead",
+    ]
+    for name, _ in fields:
         acts_on, mechanism = DISPATCH[name]
         lines.append(
-            "%s & %s & \\texttt{%s} & %s \\\\"
-            % (tt(name), text(meaning), acts_on, mechanism)
+            "%s & \\texttt{%s} & %s \\\\" % (tt(name), acts_on, mechanism)
         )
     lines += [r"\hline", r"\end{longtable}", r"\endgroup"]
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")

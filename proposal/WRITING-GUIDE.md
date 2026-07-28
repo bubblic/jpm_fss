@@ -274,9 +274,11 @@ If any answer is "no," explain it first.
   and commit the regenerated file with the rebuilt PDF. Scenarios,
   parameters, and driver meanings are parsed from the code (every
   parameter must carry its rationale comment, or the parser drops it); the
-  dispatch column restates `Projector.project` and is kept in sync with it
-  by hand, with a tripwire asserting the driver rows match the DriverDraw
-  fields.
+  symbol map ties each parameter to the symbol it carries in the Section
+  10 equations; the map and dispatch columns restate `draw_from_shocks`
+  and `Projector.project` and are kept in sync with them by hand, with
+  tripwires asserting the driver rows and symbols match the parsed
+  fields and parameters.
 
 - After a figure or table change, open the PDF and look at the page before
   committing.

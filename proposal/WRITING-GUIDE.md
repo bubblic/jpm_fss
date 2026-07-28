@@ -339,16 +339,16 @@ and whenever asked whether the proposal is consistent:
 - *The LLM*: may break ties, may never introduce a number no deterministic
   reader read; concept mapping tries the four-rung ladder in order (harvested
   lexicon, carried artifact, the unique-hit taxonomy-label tier, then the
-  model over a lexical shortlist, with the heuristic rungs under the polarity
+  LLM over a lexical shortlist, with the heuristic rungs under the polarity
   veto); build time only. `fss onboard` emits a signed, versioned mapping artifact;
-  `fss runtime` never constructs a model client, replays adjudications only
+  `fss runtime` never constructs an LLM client, replays adjudications only
   where a reader still reads the signed value, refuses drifted hashes
   ("re-onboarding required"), and reruns byte-identically. With no endpoint,
   every stage degrades to deterministic behavior plus flags. A prior year's
   signed artifact can seed a new year's onboarding (`--carry-from`): carry
   seeds semantics, never layout (label-to-concept choices carry; pages are
   per-document and stay with the deterministic locator); exact-label matches
-  replay reviewed choices, deltas go to the model, and carry replicates the
+  replay reviewed choices, deltas go to the LLM, and carry replicates the
   prior artifact verbatim, errors included, so the inherited sign-off, not
   the mechanism, is the accuracy gate.
 - *Document scope*: born-digital means **authored** text on statement pages;
@@ -411,7 +411,7 @@ and whenever asked whether the proposal is consistent:
 - The LLM as a runtime reader ("runs as one more gated reader", "when added"),
   and the unscoped "all processing is local". Corrected 2026-07-23 in the
   governance section, propagating the build/runtime split (commit `b8bed`):
-  the runtime path is local and model-free; build-time onboarding may call the
+  the runtime path is local and LLM-free; build-time onboarding may call the
   hosted endpoint under the leash.
 
 - Carried page locations ("prior-year page locations are hints", "seed pages

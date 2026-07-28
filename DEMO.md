@@ -6,7 +6,7 @@ time), where its every proposal is validated mechanically, recorded, and
 frozen into a reviewable **mapping artifact**; the **runtime** inference
 path is pure reviewed code plus that signed artifact, logs the hashes it
 ran under, replays bit-exactly, and abstains on drift instead of consulting
-a model.
+an LLM.
 
 ```
 BUILD TIME (change management)              RUN TIME (production path)
@@ -22,7 +22,7 @@ fss onboard <pdf>                           fss runtime <pdf>
     / polarity veto / footing                   A=L+E, cash tie, quality gate)
   -> artifacts/mappings/<doc>.json            symbolic closure + TF Monte
      (versioned; PENDING SIGN-OFF)              Carlo when the gates pass
-  human signs off ----------------->        NO MODEL IS EVER CONSTRUCTED
+  human signs off ----------------->        NO LLM CLIENT IS EVER CONSTRUCTED
 ```
 
 Every command below was run against this repository; transcripts and hashes
@@ -67,7 +67,7 @@ choices with balance polarity, and cell adjudications. Review it and set
 The runtime stamps this field into every report it produces, so an
 unapproved artifact is visible in the output trail.
 
-## 3. Runtime step (no model in the inference path)
+## 3. Runtime step (no LLM in the inference path)
 
 ```powershell
 python -m fss runtime previous_llm_extractor\annual_reports\for_financial_statements\bbby\ar2022.pdf
@@ -119,7 +119,7 @@ against it:
 ```
 
 The runtime abstains and routes back to change management. It never
-guesses and never phones a model.
+guesses and never phones an LLM.
 
 ## 6. The whole fleet, both modes
 
@@ -137,7 +137,7 @@ endpoint began returning `HTTP 403` — the exact "hosted endpoints change
 silently" failure mode the proposal cites as the reason LLMs cannot sit in
 the inference path. Nothing in production would have noticed: the mapping
 artifacts were reconstructed from the committed build products
-(`fss onboard --rebuild`, no model calls), and the runtime is indifferent
+(`fss onboard --rebuild`, no LLM calls), and the runtime is indifferent
 to the endpoint's existence. The build path was then re-verified live on
 the replacement API (direct DeepSeek, `deepseek-v4-flash`).
 

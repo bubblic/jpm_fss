@@ -51,11 +51,11 @@ abstain with "not born-digital" in both build and runtime modes.
 python -m fss onboard <pdf-or-folder>    # BUILD: LLM-assisted, audited;
                                          #   emits artifacts/mappings/<doc>.json
 python -m fss onboard --rebuild <pdfs>   # BUILD: artifacts from committed
-                                         #   build products, no model calls
+                                         #   build products, no LLM calls
 python -m fss onboard <pdf> --carry-from <doc>
                                          # BUILD: seed the label->concept
                                          #   map from a prior year's artifact
-                                         #   (semantics, never layout); model
+                                         #   (semantics, never layout); LLM
                                          #   consulted only for genuine deltas
 python -m fss.carry_demo                 # two-pair cross-year validation vs
                                          #   the filers' own tags -> out/carry/
@@ -65,7 +65,7 @@ python -m fss.taxlabels                  # build data/taxonomy_labels.json,
 python -m fss.ir_demo                    # six IR editions scored against their
                                          #   filers' tags -> out/ir_validation/
 python -m fss runtime <pdf-or-folder>    # RUN: replay from the signed
-                                         #   artifact; no model access; logs
+                                         #   artifact; no LLM access; logs
                                          #   source/code/artifact versions;
                                          #   abstains on drift
 python -m fss untagged <pdf-or-folder>   # exploration mode (legacy sweep)
@@ -79,7 +79,7 @@ statement pages, median-voted readings for flagged cells, and concept
 choices over lexical shortlists; every proposal passes a mechanical
 validator (density bar, reader agreement, polarity veto, footing) and is
 recorded in the audit log and the mapping artifact for human sign-off. At
-run time no model client is ever constructed: adjudications replay only
+run time no LLM client is ever constructed: adjudications replay only
 where a deterministic reader still reads the signed value, outputs are
 bit-exact across runs, and a changed document is refused with
 "re-onboarding required". Unresolved cells stay flagged; documents with

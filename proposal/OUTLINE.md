@@ -15,6 +15,11 @@ History: the pipeline reorder was executed 2026-07-27 (extraction before the
 state space and engine; onboarding consolidated into 7.1; sections 6.1/6.2
 promoted to 8.1/8.2; everything after renumbered). As of 2026-07-28 this
 outline follows the current document order and numbering throughout.
+2026-07-28: bare "model" meaning the language model became "the LLM" across
+the proposal, README, DEMO, and the guide's load-bearing phrasings (quoted
+runtime transcripts keep the code's wording until the artifacts are next
+regenerated); the mapping-ladder decision flow was added as Figure 4, so
+the lifecycle, knowledge-graph, and appendix figures renumbered to 5, 6, 7.
 
 ---
 
@@ -177,9 +182,13 @@ outline follows the current document order and numbering throughout.
 - Figure 3: untagged order with the behavior layer joining at simulation
   time.
 - The mapping ladder: four rungs in order (harvested lexicon, carried
-  artifact, unique taxonomy labels, model over a shortlist); polarity veto
+  artifact, unique taxonomy labels, LLM over a shortlist); polarity veto
   on the heuristic rungs (glossed at first use); precision-not-coverage
   character of the taxonomy tier.
+- Figure 4: the ladder as a decision flow with the worked cases embedded
+  (trusted exact-match rungs against vetoed heuristic rungs; a taxonomy-tier
+  veto falls through to the LLM, an LLM veto flags; no rung survived means
+  flagged, never guessed).
 - Residual risk: the silent intersection (for example uniform mis-scaling);
   seeded-error battery including the scan/OCR abstain test; re-prompts never
   count as independent; adjudication weight follows path independence.
@@ -188,10 +197,10 @@ outline follows the current document order and numbering throughout.
 
 - Intro: ingestion is per-run computation, but mapping choices and
   adjudications are per-document judgment; judgment gets a lifecycle (made
-  once with the model's help, validated mechanically, reviewed, signed,
+  once with the LLM's help, validated mechanically, reviewed, signed,
   replayed). Timescale asymmetry stated: sign-off gates concept mapping;
   versioning and the battery gate the behavior layer.
-- Figure 4: the lifecycle (document, onboard under the leash, signed
+- Figure 5: the lifecycle (document, onboard under the leash, signed
   hash-bound artifact, sign-off, model-free runtime replay with drift
   refusal, the carry-from arc: semantics, never layout).
 - The LLM's leash: reused pipeline; page-identification fallback (measured:
@@ -199,11 +208,11 @@ outline follows the current document order and numbering throughout.
   mapping from a shortlist; no endpoint means deterministic degradation.
 - LLMs at build time, determinism at run time: why hosted inference cannot
   sit in the runtime path; onboard emits a signed mapping artifact; runtime
-  never constructs a model client, replays only still-read values, refuses
+  never constructs an LLM client, replays only still-read values, refuses
   drifted hashes; byte-identical reruns demonstrated; endpoint-refusal
   anecdote absorbed by design.
 - Across years: carry-forward: artifact binds to one document by hash; carry
-  seeds semantics, never layout; only genuine deltas reach the model; carry
+  seeds semantics, never layout; only genuine deltas reach the LLM; carry
   replicates errors too, so inherited sign-off is the gate.
 
 ## 8. The union state space
@@ -244,7 +253,7 @@ outline follows the current document order and numbering throughout.
   flags, labels. Five edge types: composition, dimensional aggregation, laws
   of motion (authored), label/synonym, driver attachments.
 - Authored layers cover the simulated core (one to three hundred concepts).
-- Figure 5: machinery on a fragment of real overlays; Appendix A pointer for
+- Figure 6: machinery on a fragment of real overlays; Appendix A pointer for
   the complete Apple overlay.
 - Firm overlay: how native lines resolve (tagged, extension-anchored,
   untagged label-index with footing and polarity confirmation, abstain
@@ -376,7 +385,7 @@ outline follows the current document order and numbering throughout.
   of 42 deterministic, five LLM fallbacks; the image-based English half of
   one document is the designed OCR boundary.
 - Cross-year carry-forward: Microsoft FY2024 boundary case (lexicon covers
-  it; deltas to the model); BBBY 2021 payoff case (26 carried choices, model
+  it; deltas to the LLM); BBBY 2021 payoff case (26 carried choices, LLM
   calls 55 to 37, simulates end to end); two lessons (statement-scoped
   lexicon; carry replicates errors, sign-off is the gate).
 - Foreign layouts against tags: six documents, 1,343 accepted cells, 1,316
@@ -455,12 +464,12 @@ outline follows the current document order and numbering throughout.
 
 ## Appendix A: one firm complete, every line wired
 
-- Purpose: Figure 5's machinery with the elision removed for one filer;
+- Purpose: Figure 6's machinery with the elision removed for one filer;
   reading guide for the three columns, boxes, trunks, articulation.
 - Generated, not drawn: script, production cascade and binder; law-of-motion
   column restates the engine dispatch; two reading notes (the close drawn
   through the cash-flow row; held marks attachment slots).
-- Figure 6.
+- Figure 7.
 
 ## References
 

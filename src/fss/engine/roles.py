@@ -383,7 +383,7 @@ LABEL_RULES: tuple[tuple[str, str], ...] = (
 @dataclass(frozen=True)
 class RoleAssignment:
     role: str
-    source: str  # "concept" | "label" | "section" | "default"
+    source: str  # "concept_table" | "label_rule" | "section" | "period" | "default" | "calc"
 
 
 def classify_row(row: StatementRow, statement_kind: str) -> RoleAssignment:
@@ -394,7 +394,7 @@ def classify_row(row: StatementRow, statement_kind: str) -> RoleAssignment:
         if statement_kind == "cash_flow":
             mapped = CONCEPT_ROLES.get(local)
             if mapped in (CF_NET_CHANGE,):
-                return RoleAssignment(CF_NET_CHANGE, "concept")
+                return RoleAssignment(CF_NET_CHANGE, "concept_table")
             return RoleAssignment(CF_ACTIVITY_TOTAL, "default")
         return RoleAssignment(
             IS_DERIVED if statement_kind == "income_statement" else BS_DERIVED, "default"
@@ -403,11 +403,11 @@ def classify_row(row: StatementRow, statement_kind: str) -> RoleAssignment:
         return _classify_cf_leaf(row, local)
     mapped = CONCEPT_ROLES.get(local)
     if mapped:
-        return RoleAssignment(mapped, "concept")
+        return RoleAssignment(mapped, "concept_table")
     label = f"{' '.join(row.section)} {row.label}".lower()
     for pattern, role in LABEL_RULES:
         if re.search(pattern, label):
-            return RoleAssignment(role, "label")
+            return RoleAssignment(role, "label_rule")
     if statement_kind == "income_statement":
         return RoleAssignment(OPEX_OTHER, "default")
     # balance-sheet default by side and section
@@ -425,36 +425,36 @@ def _classify_cf_leaf(row: StatementRow, local: str) -> RoleAssignment:
     preferred = (row.preferred_label or "").lower()
     if row.period_type == "instant":
         return RoleAssignment(
-            CF_CASH_BEGIN if "periodstart" in preferred else CF_CASH_END, "concept"
+            CF_CASH_BEGIN if "periodstart" in preferred else CF_CASH_END, "period"
         )
     section = " ".join(row.section).lower()
     label = row.label.lower()
     if "discontinued" in label:
-        return RoleAssignment(CF_DISCONTINUED, "label")
+        return RoleAssignment(CF_DISCONTINUED, "label_rule")
     mapped = CONCEPT_ROLES.get(local)
     if mapped:
-        return RoleAssignment(mapped, "concept")
+        return RoleAssignment(mapped, "concept_table")
     if "supplemental" in section or "supplemental" in label:
         return RoleAssignment(CF_SUPPLEMENTAL, "section")
     if "non-cash" in section or "noncash" in section:
         return RoleAssignment(CF_NONCASH_DISCLOSURE, "section")
     if re.search(r"share-based payment", label) and "expense" not in label:
         # the cash settlement of share plans, not the expense add-back
-        return RoleAssignment(CF_SBC_TAX_WITHHOLD, "label")
+        return RoleAssignment(CF_SBC_TAX_WITHHOLD, "label_rule")
     if re.search(r"income tax(es)? paid", label):
-        return RoleAssignment(CF_TAX_PAID, "label")
+        return RoleAssignment(CF_TAX_PAID, "label_rule")
     if re.search(r"interest received", label):
-        return RoleAssignment(CF_INTEREST_RECEIVED, "label")
+        return RoleAssignment(CF_INTEREST_RECEIVED, "label_rule")
     if re.search(r"interest paid", label):
-        return RoleAssignment(CF_INTEREST_PAID, "label")
+        return RoleAssignment(CF_INTEREST_PAID, "label_rule")
     if re.search(r"dividends received", label):
-        return RoleAssignment(CF_DIVIDENDS_RECEIVED, "label")
+        return RoleAssignment(CF_DIVIDENDS_RECEIVED, "label_rule")
     if re.search(r"income tax expense", label):
-        return RoleAssignment(CF_TAX_ADDBACK, "label")
+        return RoleAssignment(CF_TAX_ADDBACK, "label_rule")
     if re.search(r"financial income|finance income|finance costs?", label):
-        return RoleAssignment(CF_FINANCE_ADDBACK, "label")
+        return RoleAssignment(CF_FINANCE_ADDBACK, "label_rule")
     if "allowance" in label:
-        return RoleAssignment(CF_OTHER_NONCASH, "label")
+        return RoleAssignment(CF_OTHER_NONCASH, "label_rule")
     if re.search(r"changes in operating|working capital|increase|decrease|\(increase\)", label + " " + section):
         if re.search(r"changes in|working capital", section) or re.search(
             r"^\(?(increase|decrease)", label
@@ -463,9 +463,9 @@ def _classify_cf_leaf(row: StatementRow, local: str) -> RoleAssignment:
     for pattern, role in LABEL_RULES:
         if re.search(pattern, label):
             if role in (CF_DA, CF_SBC, CF_IMPAIRMENT, CF_DEFERRED_TAX):
-                return RoleAssignment(role, "label")
+                return RoleAssignment(role, "label_rule")
     if re.search(r"net income|net loss|profit.*after tax|loss.*after tax", label):
-        return RoleAssignment(CF_NI, "label")
+        return RoleAssignment(CF_NI, "label_rule")
     if "operating" in section:
         # remaining operating rows: working-capital style deltas of named
         # balance-sheet lines ("Accounts receivable, net") or other non-cash
@@ -474,44 +474,44 @@ def _classify_cf_leaf(row: StatementRow, local: str) -> RoleAssignment:
         return RoleAssignment(CF_OTHER_NONCASH, "section")
     if "investing" in section:
         if re.search(r"acquisition of (companies|businesses)|business combination", label):
-            return RoleAssignment(CF_ACQUISITION, "label")
+            return RoleAssignment(CF_ACQUISITION, "label_rule")
         if re.search(r"(proceeds|sales?) .*(property|equipment|intangible)", label):
-            return RoleAssignment(CF_ASSET_DISPOSAL, "label")
+            return RoleAssignment(CF_ASSET_DISPOSAL, "label_rule")
         if re.search(r"(purchases?|additions?) .*(property|equipment|intangible)", label):
-            return RoleAssignment(CF_CAPEX, "label")
+            return RoleAssignment(CF_CAPEX, "label_rule")
         if re.search(r"purchases? of", label):
-            return RoleAssignment(CF_INVEST_PURCHASE, "label")
+            return RoleAssignment(CF_INVEST_PURCHASE, "label_rule")
         if re.search(
             r"maturities|sales? of .*(investments|securities|instruments)", label
         ):
-            return RoleAssignment(CF_INVEST_MATURITY, "label")
+            return RoleAssignment(CF_INVEST_MATURITY, "label_rule")
         if re.search(r"property|equipment|intangible", label):
-            return RoleAssignment(CF_CAPEX, "label")
+            return RoleAssignment(CF_CAPEX, "label_rule")
         return RoleAssignment(CF_OTHER_INVESTING, "section")
     if "financing" in section:
         if re.search(r"repurchase", label):
-            return RoleAssignment(CF_BUYBACK, "label")
+            return RoleAssignment(CF_BUYBACK, "label_rule")
         if re.search(r"dividend", label):
-            return RoleAssignment(CF_DIVIDENDS, "label")
+            return RoleAssignment(CF_DIVIDENDS, "label_rule")
         if re.search(r"\bnet\b", label) and re.search(r"proceeds|issuance", label) and re.search(
             r"repayments?|maturities", label
         ):
-            return RoleAssignment(CF_CP_NET, "label")  # net short-term borrowing line
+            return RoleAssignment(CF_CP_NET, "label_rule")  # net short-term borrowing line
         if re.search(r"repayment", label):
-            return RoleAssignment(CF_DEBT_REPAY, "label")
+            return RoleAssignment(CF_DEBT_REPAY, "label_rule")
         if re.search(r"taxes withheld|tax withholding", label):
-            return RoleAssignment(CF_SBC_TAX_WITHHOLD, "label")
+            return RoleAssignment(CF_SBC_TAX_WITHHOLD, "label_rule")
         if re.search(r"issuance of debt|proceeds from.*(debt|borrowings|notes)", label):
-            return RoleAssignment(CF_DEBT_ISSUE, "label")
+            return RoleAssignment(CF_DEBT_ISSUE, "label_rule")
         if re.search(r"exercise of (stock )?options|issuance of.*shares|common stock issued", label):
-            return RoleAssignment(CF_STOCK_ISSUE, "label")
+            return RoleAssignment(CF_STOCK_ISSUE, "label_rule")
         if re.search(r"lease", label):
-            return RoleAssignment(CF_LEASE_PAYMENT, "label")
+            return RoleAssignment(CF_LEASE_PAYMENT, "label_rule")
         return RoleAssignment(CF_OTHER_FINANCING, "section")
     if re.search(r"exchange rate|effect of.*exchange", label):
-        return RoleAssignment(CF_FX, "label")
+        return RoleAssignment(CF_FX, "label_rule")
     if re.search(r"(increase|decrease).*cash", label):
-        return RoleAssignment(CF_NET_CHANGE, "label")
+        return RoleAssignment(CF_NET_CHANGE, "label_rule")
     return RoleAssignment(CF_OTHER_NONCASH, "default")
 
 

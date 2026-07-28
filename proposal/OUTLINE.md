@@ -188,6 +188,10 @@ show the old numbering, map with this table):
   recorded provenance (concept table, label keywords with section, section
   and polarity default, extension inheritance); classified every face line
   of all four filers with no per-firm code.
+  **[FIX applied 2026-07-27]** Cascade provenance strings renamed in code
+  to name the rule tier, not the field: concept_table, label_rule (and the
+  cash begin/end split now carries its accurate provenance, period). Prose
+  already spoke in tier terms; no document change needed. All 69 tests pass.
 - Two boundaries: identities need nothing from roles (a misclassified line
   can steer a driver, never unbalance a book); unresolved core driver roles
   refuse simulation.
@@ -195,6 +199,54 @@ show the old numbering, map with this table):
   common as vocabulary.
 - Three practice-taught cautions: verify calc linkbases, face-only axes,
   pinned taxonomy versions.
+
+### 8.3 Edges of the vocabulary: two worked examples **[FIX applied 2026-07-27]**
+
+- Purpose: show what the cascade does to lines outside the validated
+  sectors, and name the two kinds of coverage gap with their two different
+  fixes; makes "held" and the refusal gate concrete on real economics.
+- Example 1: asset retirement obligation (an oil producer).
+  - Cascade trace: the US GAAP ARO concepts are not in the concept table and
+    no label rule matches, so the section-and-polarity default lands the
+    line in other-non-current-liability (provenance section); an IFRS filer
+    presenting it inside decommissioning provisions hits the concept table
+    (provision).
+  - MVP behavior: the stock holds, or moves to a revenue-scaled target where
+    a working-capital cash-flow line binds it; an accretion row on the cash
+    flow classifies as other-non-cash and projects to zero; the capitalized
+    retirement cost inside PP\&E depreciates with the capital pool.
+  - Safety: not a core role, so simulation proceeds; identities never
+    consult roles; the approximation is visible to the plausibility bounds
+    and the accountant, never a silent corruption.
+  - The proper account, a vocabulary gap: add an aro role (concept-table
+    entries for both standards) plus one authored law of motion (accretion
+    at the locked discount rate, settlements through the firm's own
+    cash-flow line, new layers arriving with capex); written once, serving
+    every energy name.
+- Example 2: premiums receivable, net of allowance for credit losses (an
+  insurer).
+  - Cascade trace: no insurance concepts in the table; no label rule matches
+    "premiums receivable"; insurers commonly present unclassified balance
+    sheets, so the default lands the line in other-non-current-asset.
+  - MVP behavior, and the refusal gate fires first: before the receivable
+    matters, the income statement's "premiums earned" resolves to no
+    revenue role, and unresolved core driver roles refuse simulation with
+    the missing roles named; the insurer abstains rather than simulating on
+    a misread core.
+  - The proper account, a recognizer gap: premiums receivable is the
+    receivable kind the vocabulary already has (it tracks premium revenue
+    through its own cash-flow line, the allowance netted inside the line
+    exactly as with "accounts receivable, net"); a concept-table or
+    label-rule entry mapping premiums earned to revenue and premiums
+    receivable to ar restores full behavior; no new role, no new law.
+- The general lesson: coverage failures split into recognizer gaps (one
+  mapping line into an existing role) and vocabulary gaps (a new role plus
+  a new law); the defaults keep both safe meanwhile, refusal guards the
+  core, and the gating set's deliberately awkward inclusions are the
+  mechanism that forces such firms into the validated set.
+- Sector honesty: the validation set is tech and software; sector-specific
+  dynamics are designed-but-unmeasured until such filers enter the gating
+  set.
 
 ## 7. The accounting engine: no plugs, no circularity
 

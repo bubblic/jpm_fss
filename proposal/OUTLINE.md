@@ -11,16 +11,10 @@ My first-pass flags are inline: **[order?]** possible misplacement,
 **[check]** verify wording or claim. Everything unflagged I believe is
 correct, in place, and pulling weight.
 
-**Restructure executed 2026-07-27** (pipeline order; headings below still
-show the old numbering, map with this table):
-
-| old | new |
-| --- | --- |
-| 6 System architecture (overview) | 6 (unchanged; exposition sentence now argues pipeline order; component table gains an onboarding/artifact row) |
-| 9 Extraction robustness | 7, gaining 7.1 Onboarding and the mapping artifact (consolidates the leash, build/run split, and carry leads, plus a new lifecycle figure); Residual risk moved before 7.1 |
-| 6.1 / 6.2 | 8.1 / 8.2 under a new Section 8, The union state space, with a two-sentence intro |
-| 7 Engine / 8 Drivers | 9 / 10 |
-| 10 through 15 | 11 through 16 |
+History: the pipeline reorder was executed 2026-07-27 (extraction before the
+state space and engine; onboarding consolidated into 7.1; sections 6.1/6.2
+promoted to 8.1/8.2; everything after renumbered). As of 2026-07-28 this
+outline follows the current document order and numbering throughout.
 
 ---
 
@@ -135,16 +129,84 @@ show the old numbering, map with this table):
   the structured statement now feeds both the encoder (to (z, m)) and the
   role cascade (to roles per line), and the driver layer + engine consume
   both; caption states that identities bind on (z, m) alone.
-- Component-status table: extractor, adapters, union state space, engine,
-  driver layer; all validated by the build.
-- Exposition order argued explicitly: inside-out (state space and engine
-  first, extraction boundary last) rather than pipeline order.
-  **[FIX applied 2026-07-27]** Reordered to pipeline order: extraction
-  first, then the state space, then engine and drivers; the exposition
-  sentence now argues the pipeline reading, and a balance-polarity gloss was
-  added at the term's first use since Section 7 now precedes Section 8.2.
+- Component-status table: extractor, onboarding + mapping artifact,
+  adapters, union state space, engine, driver layer; all validated by the
+  build.
+- Exposition follows the pipeline: extraction first, then the state space,
+  then engine and drivers, argued in one sentence.
+  **[FIX applied 2026-07-27]** This replaced the earlier inside-out order; a
+  balance-polarity gloss was added at the term's first use since Section 7
+  now precedes Section 8.2.
 
-### 6.1 Encoding, decoding, and perfect reconstruction
+## 7. Extraction robustness
+
+- Bar rationale; mirrors the director's redundant-reader engineering.
+- What reading a PDF means lead: a PDF stores drawing instructions; text
+  recovery is interpretation; R2/R3 are two engines that fail differently,
+  R1 reconstructs the table spatially from positions, R4 reads tags without
+  interpreting the page; exact source plus decorrelated interpreters is why
+  agreement is evidence.
+  **[dup?]** Overlaps filter item "Decorrelated input paths" below; consider
+  merging the filter's list into this lead or trimming one of the two.
+- Figure 2: the reconciliation gate; independence-weighted agreement.
+- Failure-mode economics: disagreement costs review time; silent concordance
+  is the expensive event; c times product of p_i model; 10^-8 posture.
+- Three filters: cross-reader agreement (weighted acceptance rules);
+  decorrelated input paths (positions, two text engines, tags, optional
+  vision reader and prior-year comparatives; pathology decorrelation vs the
+  tag path); accounting-identity checks (also surface genuine filing typos).
+- Document scope, born-digital lead: authored text required; where the
+  characters come from (authored exact vs OCR guessed); the mechanical
+  per-page gate (image XObject plus absent/invisible text; font embeddedness
+  deliberately not a hard signal); enforced and tested with seeded scan
+  pages; the cut removes an OCR dependency, not the correlated-failure
+  concern (corrupted text layers; defenses named).
+- Tags are the best case, not a prerequisite: untagged mode generalizes;
+  PDF-only ablation defined; ablation certifies the method, production uses
+  tags.
+- Arithmetic before semantics: words nominate, numbers confirm; footing
+  solver with weight search and multi-column closure; balance-sheet identity
+  anchors (Chinese label pack; not-checkable honesty); cash tie nomination
+  and fallbacks; all before any taxonomy concept is assigned.
+- Figure 3: untagged order with the behavior layer joining at simulation
+  time.
+- The mapping ladder: four rungs in order (harvested lexicon, carried
+  artifact, unique taxonomy labels, model over a shortlist); polarity veto
+  on the heuristic rungs (glossed at first use); precision-not-coverage
+  character of the taxonomy tier.
+- Residual risk: the silent intersection (for example uniform mis-scaling);
+  seeded-error battery including the scan/OCR abstain test; re-prompts never
+  count as independent; adjudication weight follows path independence.
+
+### 7.1 Onboarding and the mapping artifact **[FIX applied 2026-07-27]**
+
+- Intro: ingestion is per-run computation, but mapping choices and
+  adjudications are per-document judgment; judgment gets a lifecycle (made
+  once with the model's help, validated mechanically, reviewed, signed,
+  replayed). Timescale asymmetry stated: sign-off gates concept mapping;
+  versioning and the battery gate the behavior layer.
+- Figure 4: the lifecycle (document, onboard under the leash, signed
+  hash-bound artifact, sign-off, model-free runtime replay with drift
+  refusal, the carry-from arc: semantics, never layout).
+- The LLM's leash: reused pipeline; page-identification fallback (measured:
+  five of forty-two); cell reading only ratifies a value a reader read;
+  mapping from a shortlist; no endpoint means deterministic degradation.
+- LLMs at build time, determinism at run time: why hosted inference cannot
+  sit in the runtime path; onboard emits a signed mapping artifact; runtime
+  never constructs a model client, replays only still-read values, refuses
+  drifted hashes; byte-identical reruns demonstrated; endpoint-refusal
+  anecdote absorbed by design.
+- Across years: carry-forward: artifact binds to one document by hash; carry
+  seeds semantics, never layout; only genuine deltas reach the model; carry
+  replicates errors too, so inherited sign-off is the gate.
+
+## 8. The union state space
+
+- Section intro (two sentences): extraction delivers native lines;
+  simulation needs a representation to evolve them in; encoding and its
+  proof first, then the graph and the behavior layer.
+
+### 8.1 Encoding, decoding, and perfect reconstruction
 
 - Why a state space at all: heterogeneity of native lines; standards become
   cheap to add; Part II needs a pooled representation. Price: nothing may be
@@ -168,7 +230,7 @@ show the old numbering, map with this table):
 - Encoding construction is deterministic; no model participates.
 - A forecast is the same mechanism: D(z', m).
 
-### 6.2 The state space as a knowledge graph
+### 8.2 The state space as a knowledge graph
 
 - One typed graph over both taxonomies (roughly 17,000 concepts each), each
   standard at its own coordinates, values never merged.
@@ -176,7 +238,7 @@ show the old numbering, map with this table):
   flags, labels. Five edge types: composition, dimensional aggregation, laws
   of motion (authored), label/synonym, driver attachments.
 - Authored layers cover the simulated core (one to three hundred concepts).
-- Figure 2: machinery on a fragment of real overlays; Appendix A pointer for
+- Figure 5: machinery on a fragment of real overlays; Appendix A pointer for
   the complete Apple overlay.
 - Firm overlay: how native lines resolve (tagged, extension-anchored,
   untagged label-index with footing and polarity confirmation, abstain
@@ -248,7 +310,7 @@ show the old numbering, map with this table):
   dynamics are designed-but-unmeasured until such filers enter the gating
   set.
 
-## 7. The accounting engine: no plugs, no circularity
+## 9. The accounting engine: no plugs, no circularity
 
 - Contract: cannot produce an unbalanced statement; nothing plugged.
   Circularity is the companion problem; every quantity computed once in an
@@ -270,7 +332,7 @@ show the old numbering, map with this table):
 - Auditability lead: journals, hashes, versions, seeds; bit-identical
   reruns.
 
-## 8. The driver-to-flow layer and scenarios
+## 10. The driver-to-flow layer and scenarios
 
 - Scenario vector defined with units; MVP driver map reasoned and nonlinear,
   parameters documented, not fitted.
@@ -279,72 +341,14 @@ show the old numbering, map with this table):
   the firm's own net cash position).
 - Guardrails: tax-rate clip, dividend cap and floor, buyback halving,
   revenue floor. Common random numbers across scenarios.
-- No-line inheritance defers to Section 6.1 mechanics.
+- No-line inheritance defers to Section 8.1 mechanics.
 - Monte Carlo in TensorFlow (batched float64, seeded, per-path residual
   checks); bit-exact Decimal replay of audit paths; 1e-10 agreement test.
 - Directional battery requirements enumerated.
 - Part II replaces the noise with a learned conditional joint distribution,
   keeping every other component fixed.
 
-## 9. Extraction robustness
-
-- Bar rationale; mirrors the director's redundant-reader engineering.
-- What reading a PDF means lead (new): a PDF stores drawing instructions;
-  text recovery is interpretation; R2/R3 are two engines that fail
-  differently, R1 reconstructs the table spatially from positions, R4 reads
-  tags without interpreting the page; exact source plus decorrelated
-  interpreters is why agreement is evidence.
-  **[dup?]** Overlaps filter item "Decorrelated input paths" below; consider
-  merging the filter's list into this lead or trimming one of the two.
-- Figure 3: the reconciliation gate; independence-weighted agreement.
-- Failure-mode economics: disagreement costs review time; silent concordance
-  is the expensive event; c times product of p_i model; 10^-8 posture.
-- Three filters: cross-reader agreement (weighted acceptance rules);
-  decorrelated input paths (positions, two text engines, tags, optional
-  vision reader and prior-year comparatives; pathology decorrelation vs the
-  tag path); accounting-identity checks (also surface genuine filing typos).
-- Document scope, born-digital lead: authored text required; where the
-  characters come from (authored exact vs OCR guessed, new passage); the
-  mechanical per-page gate (image XObject plus absent/invisible text; font
-  embeddedness deliberately not a hard signal); enforced and tested with
-  seeded scan pages; the cut removes an OCR dependency, not the
-  correlated-failure concern (corrupted text layers; defenses named).
-- Tags are the best case, not a prerequisite: untagged mode generalizes;
-  PDF-only ablation defined; ablation certifies the method, production uses
-  tags.
-- Arithmetic before semantics: words nominate, numbers confirm; footing
-  solver with weight search and multi-column closure; balance-sheet identity
-  anchors (Chinese label pack; not-checkable honesty); cash tie nomination
-  and fallbacks; all before any taxonomy concept is assigned.
-- Figure 4: untagged order with the behavior layer joining at simulation
-  time.
-- The mapping ladder: four rungs in order (harvested lexicon, carried
-  artifact, unique taxonomy labels, model over a shortlist); polarity veto
-  on the heuristic rungs; precision-not-coverage character of the taxonomy
-  tier.
-- The LLM's leash: reused pipeline; page-identification fallback (measured:
-  five of forty-two); cell reading only ratifies a value a reader read;
-  mapping from a shortlist; no endpoint means deterministic degradation.
-  **[FIX applied 2026-07-27]** This lead, the build/run split lead, and the
-  carry-forward lead (retitled Across years: carry-forward) now form
-  subsection 7.1, Onboarding and the mapping artifact, with the lifecycle
-  figure (onboard, signed artifact, sign-off, runtime replay with hash
-  refusal, the carry-from arc), the timescale-asymmetry sentence, and an
-  onboarding/artifact row in the Section 6 component table. Evidence stays
-  in the evidence section (mechanism/measurement ownership).
-- LLMs at build time, determinism at run time: why hosted inference cannot
-  sit in the runtime path; onboard emits a signed mapping artifact; runtime
-  never constructs a model client, replays only still-read values, refuses
-  drifted hashes; byte-identical reruns demonstrated; endpoint-refusal
-  anecdote absorbed by design.
-- Onboarding across years, carry-forward: artifact binds to one document by
-  hash; carry seeds semantics, never layout; only genuine deltas reach the
-  model; carry replicates errors too, so inherited sign-off is the gate.
-- Residual risk: the silent intersection (for example uniform mis-scaling);
-  seeded-error battery including the scan/OCR abstain test; re-prompts never
-  count as independent; adjudication weight follows path independence.
-
-## 10. Validation evidence: four filers, two standards
+## 11. Validation evidence: four filers, two standards
 
 - Provenance: reference implementation (roughly 9,000 lines, pytest, audit
   manifests); Apple, Microsoft (10-K), SAP, Spotify (20-F); three evidence
@@ -377,7 +381,7 @@ show the old numbering, map with this table):
   which is why sign-off gates simulation.
 - What this de-risks: the four commitments restated with their evidence.
 
-## 11. Testing and acceptance plan
+## 12. Testing and acceptance plan
 
 - Four levels: unit and property tests (grammars, gate battery, injectivity,
   driver signs); golden statements; the acceptance battery as binary go/no-go
@@ -388,7 +392,7 @@ show the old numbering, map with this table):
 - Sev-1 rule: any accepted-cell error is a sev-1; fixes are general rules
   demonstrated by new seeded tests.
 
-## 12. Governance, controls, and operations
+## 13. Governance, controls, and operations
 
 - SR 11-7 mapping: documentation, methodology, lineage, developmental
   evidence, ongoing monitoring, limitations; effective challenge via
@@ -402,12 +406,12 @@ show the old numbering, map with this table):
   only; the model has no authority to accept a field alone.
 - Operations: CLI stages, batch execution, minutes per filer, loud failures.
 
-## 13. Phased build plan and timeline
+## 14. Phased build plan and timeline
 
 - Validation build de-risks Phase 1; phases harden and extend.
 - Phase 0 (2 weeks): scope lock, gating set, criteria frozen, battery into
   CI, golden statements.
-  **[gap]** Candidate addition from this week's review discussion: measure
+  **[gap]** Candidate addition from the 2026-07 review discussion: measure
   the born-digital share of the actual target portfolio's documents, so the
   scope boundary is sized by evidence rather than judgment.
 - Phase 1 (7 weeks): readers extended (vision, comparatives, untagged
@@ -428,7 +432,7 @@ show the old numbering, map with this table):
   rule, re-onboarding, and taxonomy pinning after 26 February 2027. Even one
   sentence (handover artifact, owning team) would close it.
 
-## 14. Risk register
+## 15. Risk register
 
 - Six risks with honest mitigations: uniform mis-scaling; unseen layout
   pathologies; driver realism judged insufficient; filing anomalies;
@@ -436,7 +440,7 @@ show the old numbering, map with this table):
 - Caption: extraction correctness deliberately absent as a risk line; it is
   the central control, gated continuously.
 
-## 15. Open questions for alignment
+## 16. Open questions for alignment
 
 - Settled list (standards scope, precision asymmetry, parity, state space,
   gate feasibility, the last by evidence).
@@ -445,12 +449,12 @@ show the old numbering, map with this table):
 
 ## Appendix A: one firm complete, every line wired
 
-- Purpose: Figure 2's machinery with the elision removed for one filer;
+- Purpose: Figure 5's machinery with the elision removed for one filer;
   reading guide for the three columns, boxes, trunks, articulation.
 - Generated, not drawn: script, production cascade and binder; law-of-motion
   column restates the engine dispatch; two reading notes (the close drawn
   through the cash-flow row; held marks attachment slots).
-- Figure 5.
+- Figure 6.
 
 ## References
 
@@ -463,7 +467,7 @@ show the old numbering, map with this table):
 1. Portfolio scope measurement (Phase 0 flag above): the born-digital
    boundary is defended architecturally but never sized against the bank's
    actual document population.
-2. Post-internship ownership and maintenance (Section 13 flag above).
+2. Post-internship ownership and maintenance (Section 14 flag above).
 3. Build-time LLM cost and volume: the leash bounds authority but the
    proposal never states the scale of model usage onboarding incurs (calls
    per document are in the artifacts; a sentence would preempt the obvious
@@ -475,6 +479,6 @@ show the old numbering, map with this table):
 ## Process note
 
 - Verdict workflow: annotate this file (KEEP/MOVE/CUT/FIX/add), or dictate
-  verdicts in conversation; the next artifact is a move/cut/add/edit plan
-  executed surgically on the .tex, preserving load-bearing phrasings and the
-  scan discipline. Delete this file when the restructure lands.
+  verdicts in conversation; changes execute surgically on the .tex,
+  preserving load-bearing phrasings and the scan discipline. Delete this
+  file when the review concludes.

@@ -397,9 +397,11 @@ and whenever asked whether the proposal is consistent:
 - *Part I vs Part II*: Part I is stochastic by construction, a
   scenario-conditioned distribution with hand-authored, reasoned, documented
   parameters (not fitted to data, not any model's output), and is **not** a
-  calibrated probabilistic forecast; Part II replaces the noise with a
-  learned conditional joint distribution, everything else fixed, and starts
-  only on MVP sign-off.
+  calibrated probabilistic forecast; the driver-to-role attachment is the
+  engine's dispatch, hand-written once against the role vocabulary and
+  gated by the symbolic closure proof and the battery; Part II replaces the
+  noise with a learned conditional joint distribution, everything else
+  fixed, and starts only on MVP sign-off.
 - *The behavior layer*: ninety authored economic roles over both standards'
   concepts; assignment is a deterministic cascade with recorded provenance
   (curated concept table, label keywords with section context,

@@ -310,7 +310,7 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 \centering
 \begin{tikzpicture}[
   font=\small,
-  node distance=5mm and 4mm,
+  node distance=7mm and 4mm,
   stage/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center},
   data/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=4pt, align=center, text=navy},
   good/.style={draw=fgreen, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=4pt, align=center, text=fgreen},
@@ -332,17 +332,17 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 \node[stage, below=of r4, draw=gold] (flag) {flagged, never guessed\\ \scriptsize a flagged balance-sheet cell refuses simulation};
 \draw[arrow] (lbl) -- (r1);
 \draw[arrow] (r1) -- node[lab, above] {exact match} (o1);
-\draw[arrow] (r1) -- node[lab, right] {no match} (r2);
+\draw[arrow] (r1) -- node[lab, right, xshift=1mm] {no match} (r2);
 \draw[arrow] (r2) -- node[lab, above] {exact match} (o2);
-\draw[arrow] (r2) -- node[lab, right] {no match} (r3);
+\draw[arrow] (r2) -- node[lab, right, xshift=1mm] {no match} (r3);
 \draw[arrow] (r3) -- node[lab, above, pos=0.5] {hit} (v3);
 \draw[arrow] (v3) -- node[lab, above, pos=0.5] {passes} (o3);
-\draw[arrow, rounded corners=3pt] (v3.south) -- (v3.south |- r3.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=18mm]r4.north);
-\draw[arrow] (r3) -- node[lab, right] {no unique hit} (r4);
+\draw[arrow, rounded corners=3pt] (v3.south) -- (v3.south |- r3.south) -- ++(0,-4.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=18mm]r4.north);
+\draw[arrow] (r3) -- node[lab, right, xshift=1mm, pos=0.3] {no unique hit} (r4);
 \draw[arrow] (r4) -- node[lab, above, pos=0.5] {choice} (v4);
 \draw[arrow] (v4) -- node[lab, above, pos=0.5] {passes} (o4);
-\draw[arrow, rounded corners=3pt] (v4.south) -- (v4.south |- r4.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=30mm]flag.north);
-\draw[arrow] (r4) -- node[lab, right] {no choice, or no endpoint} (flag);
+\draw[arrow, rounded corners=3pt] (v4.south) -- (v4.south |- r4.south) -- ++(0,-4.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=30mm]flag.north);
+\draw[arrow] (r4) -- node[lab, right, xshift=1mm, pos=0.3] {no choice, or no endpoint} (flag);
 \end{tikzpicture}
 \caption{The mapping ladder as a decision flow, with the worked cases from the text embedded at each rung. The two exact-match rungs are trusted; the two heuristic rungs pass the balance-polarity veto, and a veto at the taxonomy tier falls through to the LLM rather than flagging. When the document's declared reporting standard is known, every rung is scoped to that standard's concepts, and a document declaring a framework outside US GAAP and IFRS is refused before mapping begins. The LLM runs at build time only, its choices land in the mapping artifact, and sign-off gates them; anything that survives no rung is flagged, never guessed, and a flagged balance-sheet cell refuses simulation.}
 \label{fig:ladder}
@@ -374,8 +374,7 @@ Ingestion as described so far is a per-run computation, and two of its ingredien
 \draw[arrow] (artifact) -- (signoff);
 \draw[arrow, rounded corners=3pt] (signoff.south) |- (runtime.east);
 \draw[arrow] (runtime) -- (out);
-\draw[arrow, rounded corners=3pt] (signoff.north) -- ++(0,0.42) -| (onboard.north);
-\node[above=6.4mm of artifact, font=\scriptsize\color{slate}] {next year, \texttt{--carry-from}: semantics, never layout; only deltas reach the LLM};
+\draw[arrow, rounded corners=3pt] (signoff.north) -- ++(0,0.42) -| node[pos=0.45, above, inner sep=2pt, font=\scriptsize\color{slate}] {next year, \texttt{--carry-from}: semantics, never layout; only deltas reach the LLM} (onboard.north);
 \end{tikzpicture}
 \caption{The onboarding lifecycle. \texttt{fss onboard} runs the full ingestion pipeline with the LLM enabled under the leash; every entry in the resulting mapping artifact is a survivor of the mechanical validators, and the artifact binds to the document's hash and carries a sign-off field. \texttt{fss runtime} never constructs an LLM client: it re-extracts deterministically, replays an adjudication only where a deterministic reader still reads the signed value, refuses a drifted hash with re-onboarding required, and reruns byte-identically. A prior year's signed artifact can seed the next year's onboarding: carry seeds semantics, never layout, and only genuine deltas reach the LLM and the reviewer.}
 \label{fig:onboarding}

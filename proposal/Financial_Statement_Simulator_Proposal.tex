@@ -310,7 +310,7 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 \centering
 \begin{tikzpicture}[
   font=\small,
-  node distance=3.5mm and 4mm,
+  node distance=5mm and 4mm,
   stage/.style={draw=callborder, fill=callfill, rounded corners=2pt, minimum height=9mm, inner sep=5pt, align=center},
   data/.style={draw=navy, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=4pt, align=center, text=navy},
   good/.style={draw=fgreen, thick, fill=white, rounded corners=2pt, minimum height=8mm, inner sep=4pt, align=center, text=fgreen},
@@ -320,15 +320,15 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 ]
 \node[data] (lbl) {Printed label\\ \scriptsize canonicalized, scoped per statement};
 \node[stage, below=of lbl, text width=4.05cm] (r1) {\textbf{1: harvested lexicon}\\ \scriptsize exact match against labels\\ \scriptsize the validation filers print};
-\node[good, right=14mm of r1] (o1) {resolved, trusted\\ \scriptsize ``Inventories'': the stock on a balance\\ \scriptsize sheet, the period's delta on a cash flow};
+\node[good, right=20mm of r1] (o1) {resolved, trusted\\ \scriptsize ``Inventories'': the stock on a balance\\ \scriptsize sheet, the period's delta on a cash flow};
 \node[stage, below=of r1, text width=4.05cm] (r2) {\textbf{2: carried artifact}\\ \scriptsize the firm's prior signed choices,\\ \scriptsize when onboarding carries};
-\node[good, right=14mm of r2] (o2) {resolved, replayed\\ \scriptsize an unchanged label replays\\ \scriptsize its reviewed choice};
-\node[stage, below=of r2, text width=4.05cm] (r3) {\textbf{3: taxonomy uniques}\\ \scriptsize a standard label naming\\ \scriptsize exactly one concept in the\\ \scriptsize consulted view: both\\ \scriptsize standards together, or the\\ \scriptsize declared standard's own};
-\node[veto, right=9mm of r3] (v3) {\scriptsize polarity\\ \scriptsize veto};
-\node[good, right=9mm of v3] (o3) {resolved\\ \scriptsize ``Repayments of long-term debt''\\ \scriptsize is exactly one concept's label};
+\node[good, right=20mm of r2] (o2) {resolved, replayed\\ \scriptsize an unchanged label replays\\ \scriptsize its reviewed choice};
+\node[stage, below=of r2, text width=4.05cm] (r3) {\textbf{3: taxonomy uniques}\\ \scriptsize a standard label naming\\ \scriptsize exactly one concept among\\ \scriptsize the declared standard's\\ \scriptsize labels; both standards'\\ \scriptsize when undeclared};
+\node[veto, right=13mm of r3] (v3) {\scriptsize polarity\\ \scriptsize veto};
+\node[good, right=13mm of v3] (o3) {resolved\\ \scriptsize ``Repayments of long-term debt''\\ \scriptsize is exactly one concept's label};
 \node[stage, below=of r3, text width=4.05cm] (r4) {\textbf{4: LLM over a shortlist}\\ \scriptsize build time only, under the leash};
-\node[veto, right=9mm of r4] (v4) {\scriptsize polarity\\ \scriptsize veto};
-\node[good, right=9mm of v4] (o4) {resolved into the artifact\\ \scriptsize gated by sign-off};
+\node[veto, right=13mm of r4] (v4) {\scriptsize polarity\\ \scriptsize veto};
+\node[good, right=13mm of v4] (o4) {resolved into the artifact\\ \scriptsize gated by sign-off};
 \node[stage, below=of r4, draw=gold] (flag) {flagged, never guessed\\ \scriptsize a flagged balance-sheet cell refuses simulation};
 \draw[arrow] (lbl) -- (r1);
 \draw[arrow] (r1) -- node[lab, above] {exact match} (o1);
@@ -337,11 +337,11 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 \draw[arrow] (r2) -- node[lab, right] {no match} (r3);
 \draw[arrow] (r3) -- node[lab, above, pos=0.5] {hit} (v3);
 \draw[arrow] (v3) -- node[lab, above, pos=0.5] {passes} (o3);
-\draw[arrow, rounded corners=3pt] (v3.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=14mm]r4.north);
+\draw[arrow, rounded corners=3pt] (v3.south) -- (v3.south |- r3.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=18mm]r4.north);
 \draw[arrow] (r3) -- node[lab, right] {no unique hit} (r4);
 \draw[arrow] (r4) -- node[lab, above, pos=0.5] {choice} (v4);
 \draw[arrow] (v4) -- node[lab, above, pos=0.5] {passes} (o4);
-\draw[arrow, rounded corners=3pt] (v4.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=30mm]flag.north);
+\draw[arrow, rounded corners=3pt] (v4.south) -- (v4.south |- r4.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=30mm]flag.north);
 \draw[arrow] (r4) -- node[lab, right] {no choice, or no endpoint} (flag);
 \end{tikzpicture}
 \caption{The mapping ladder as a decision flow, with the worked cases from the text embedded at each rung. The two exact-match rungs are trusted; the two heuristic rungs pass the balance-polarity veto, and a veto at the taxonomy tier falls through to the LLM rather than flagging. When the document's declared reporting standard is known, every rung is scoped to that standard's concepts, and a document declaring a framework outside US GAAP and IFRS is refused before mapping begins. The LLM runs at build time only, its choices land in the mapping artifact, and sign-off gates them; anything that survives no rung is flagged, never guessed, and a flagged balance-sheet cell refuses simulation.}

@@ -150,7 +150,13 @@ outline follows the current document order and numbering throughout.
   merging the filter's list into this lead or trimming one of the two.
 - Figure 2: the reconciliation gate; independence-weighted agreement.
 - Failure-mode economics: disagreement costs review time; silent concordance
-  is the expensive event; c times product of p_i model; 10^-8 posture.
+  is the expensive event; numbered concordance equation (product of error
+  rates times the wrong-value overlap kernel, with q_i introduced and the
+  kernel entering once for the ensemble); three scale inputs tied to the
+  equation's parts; 10^-8 posture.
+  **[FIX applied 2026-07-28]** Formalized with an equation label per review;
+  downstream equation numbers shift by one (driver equations now three
+  higher-numbered; all references are by eqref).
 - Three filters: cross-reader agreement (weighted acceptance rules);
   decorrelated input paths (positions, two text engines, tags, optional
   vision reader and prior-year comparatives; pathology decorrelation vs the

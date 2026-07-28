@@ -1,0 +1,63 @@
+% GENERATED FILE, do not hand-edit.
+% Rebuilt by scripts/gen_drivers_appendix.py from src/fss/drivers.py,
+% src/fss/config.py, and the dispatch of src/fss/engine/project.py;
+% regenerate after any change to scenarios, parameters, or dispatch.
+\begingroup
+\scriptsize
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{6.3cm}rrrrr@{}}
+\multicolumn{7}{@{}l}{\headtext{The 6 scenarios (conditioning values, hand-chosen)}}\\[3pt]
+\headtext{Scenario} & \headtext{Conditioning} & \headtext{$\Delta g^{\text{GDP}}$ pp} & \headtext{$\Delta\pi$ pp} & \headtext{$\Delta r$ bp} & \headtext{$z_c$} & \headtext{$z_d$} \\
+\hline
+\endhead
+\texttt{baseline} & Trend growth, target inflation, unchanged rates and competition. & $0$ & $0$ & $0$ & $0$ & $0$ \\
+\texttt{expansion} & GDP 2pp above trend with mild demand tailwind. & $2$ & $0.5$ & $50$ & $0$ & $0.5$ \\
+\texttt{recession} & GDP 2.5pp below trend, easing rates, weak demand. & $-2.5$ & $-0.5$ & $-150$ & $0$ & $-1$ \\
+\texttt{competition} & Intensified industry competition; macro on trend. & $0$ & $0$ & $0$ & $1.5$ & $0$ \\
+\texttt{rate\_\allowbreak{}hike} & Rates 200bp higher; growth briefly unchanged. & $0$ & $0.5$ & $200$ & $0$ & $0$ \\
+\texttt{inflation} & Cost inflation 3pp above target without extra demand; a pure cost-side shock (rate response isolated in the rate\_hike scenario). & $0$ & $3$ & $0$ & $0$ & $0$ \\
+\hline
+\end{longtable}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.9cm}r>{\raggedright\arraybackslash}p{8.6cm}@{}}
+\multicolumn{3}{@{}l}{\headtext{The 11 response parameters and 3 noise scales (chosen by argument, documented)}}\\[3pt]
+\headtext{Parameter} & \headtext{Value} & \headtext{Rationale, as documented in the code} \\
+\hline
+\endhead
+\texttt{BETA\_\allowbreak{}GDP} & $1.6$ & tech revenue elasticity to GDP surprises \\
+\texttt{BETA\_\allowbreak{}DEMAND} & $0.02$ & revenue response per demand z-score \\
+\texttt{COMPETITION\_\allowbreak{}REVENUE} & $0.015$ & revenue drag per competition z \\
+\texttt{COMPETITION\_\allowbreak{}MARGIN} & $0.012$ & gross-margin ratio drag per competition z \\
+\texttt{INFLATION\_\allowbreak{}COGS\_\allowbreak{}PASS} & $0.5$ & share of inflation not recovered in price \\
+\texttt{INFLATION\_\allowbreak{}OPEX\_\allowbreak{}PASS} & $0.5$ & share of inflation passed into operating expense \\
+\texttt{INFLATION\_\allowbreak{}REVENUE\_\allowbreak{}PASS} & $0.2$ & partial nominal passthrough to revenue \\
+\texttt{OPEX\_\allowbreak{}REVENUE\_\allowbreak{}BETA} & $0.6$ & semi-variable opex response to revenue growth \\
+\texttt{RATE\_\allowbreak{}PASSTHROUGH\_\allowbreak{}ASSETS} & $0.6$ & cash/securities reprice quickly \\
+\texttt{RATE\_\allowbreak{}PASSTHROUGH\_\allowbreak{}DEBT} & $0.15$ & mostly fixed-rate term debt \\
+\texttt{MOMENTUM\_\allowbreak{}WEIGHT} & $0.6$ & weight on the firm's own trailing growth \\
+\texttt{REVENUE\_\allowbreak{}SIGMA} & $0.03$ & noise std dev on revenue growth \\
+\texttt{MARGIN\_\allowbreak{}SIGMA} & $0.01$ & noise std dev on gross-margin ratio \\
+\texttt{OPEX\_\allowbreak{}SIGMA} & $0.01$ & noise std dev on opex growth \\
+\hline
+\end{longtable}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\multicolumn{4}{@{}l}{\headtext{The 9 drivers and their dispatch (which roles each acts on, and how)}}\\[3pt]
+\headtext{Driver} & \headtext{Meaning} & \headtext{Acts on the roles} & \headtext{Mechanism in the engine} \\
+\hline
+\endfirsthead
+\multicolumn{4}{@{}l}{\headtext{The drivers and their dispatch, continued}}\\[3pt]
+\headtext{Driver} & \headtext{Meaning} & \headtext{Acts on the roles} & \headtext{Mechanism in the engine} \\
+\hline
+\endhead
+\texttt{revenue\_\allowbreak{}growth} & next period's revenue growth rate & \texttt{REVENUE; the CF\_WC-bound stocks; CF\_DA, CF\_SBC, CF\_CAPEX, CF\_SBC\_TAX\_WITHHOLD} & revenue rows scale by $1+g$; working-capital stocks bound on the firm's own cash flow move to base $\times(1+g)$; the activity-linked flows scale with it \\
+\texttt{cogs\_\allowbreak{}ratio\_\allowbreak{}shift} & additive shift to cogs/revenue ratio & \texttt{COGS; the INVENTORY and AP targets} & cost rows scale by $(1+g)(1+\text{shift})$, and the inventory and payables working-capital targets move with the same factor \\
+\texttt{opex\_\allowbreak{}growth} & growth of the semi-variable operating-expense families & \texttt{OPEX\_RND, OPEX\_SELLING, OPEX\_ADMIN} & the semi-variable expense families scale by $1+g_{\text{opex}}$; other operating expense holds at base \\
+\texttt{restructuring\_\allowbreak{}factor} & scale on restructuring charges & \texttt{RESTRUCTURING} & restructuring rows scale by the factor \\
+\texttt{asset\_\allowbreak{}yield\_\allowbreak{}shift} & additive shift to yield on cash + securities & \texttt{INTEREST\_INCOME (OTHER\_INCOME when no separate lines)} & interest income reprices as (base yield $+$ shift) on the firm's own cash and securities balances; without separate interest lines the net rate effect lands on other income \\
+\texttt{debt\_\allowbreak{}rate\_\allowbreak{}shift} & additive shift to the average debt rate & \texttt{INTEREST\_EXPENSE (OTHER\_INCOME when no separate lines)} & interest expense reprices as (base rate $+$ shift) on the firm's own debt and commercial paper balances \\
+\texttt{tax\_\allowbreak{}rate\_\allowbreak{}shift} & additive shift to the effective tax rate (zero in the MVP map) & \texttt{TAX; the CF tax articulation rows} & the effective rate, clipped to 5\% to 45\%, applies to projected pretax income through the firm's own calculation arcs \\
+\texttt{dividend\_\allowbreak{}growth} & growth of dividends paid, capped and floored by the map & \texttt{CF\_DIVIDENDS; the RETAINED\_EARNINGS leg} & dividends paid scale by $1+d$ and post against retained earnings \\
+\texttt{buyback\_\allowbreak{}factor} & scale on repurchases and the share-count trend & \texttt{CF\_BUYBACK; the TREASURY or RETAINED\_EARNINGS leg; SHARE\_COUNT and EPS} & repurchases scale by the factor, post into treasury or against retained earnings, and scale the share-count trend that per-share figures recompute from \\
+\hline
+\end{longtable}
+\endgroup

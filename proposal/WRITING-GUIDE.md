@@ -36,11 +36,11 @@ Concretely, before a term, symbol, or formula is deployed in an argument:
 - **Give the intuition before the formalism.** Say what the equation means and why
   it is true in words, then write it.
 - **Derive equations, or sketch the derivation inline.** No derivation is
-  deferred to an appendix (the appendices hold generated artifacts, the
-  overlay figure and the role listing, not argument); a proposition gets its
-  proof idea in the following paragraph (as the injectivity proposition
-  does), and a one-line derivation ("by linearity") is written out rather
-  than asserted.
+  deferred to an appendix (the appendices hold generated artifacts, never
+  argument: the overlay figure, the role listing, the scenario and driver
+  tables); a proposition gets its proof idea in the following paragraph (as
+  the injectivity proposition does), and a one-line derivation ("by
+  linearity") is written out rather than asserted.
 - **Assume a smart reader who knows finance but not XBRL.** The readers (the
   director, quant colleagues, the accountant reviewer, model risk) are fluent in
   statements, debits and credits, and Monte Carlo, and fluent in none of: XBRL
@@ -264,6 +264,20 @@ If any answer is "no," explain it first.
   asserts the ninety-role count, so a vocabulary change forces every
   "ninety" claim to be updated consciously.
 
+- `drivers_appendix.tex` likewise, never hand-edited: after any change to
+  the scenarios or parameters in `src/fss/drivers.py`, the noise scales in
+  `src/fss/config.py`, or the dispatch in `src/fss/engine/project.py`,
+  rerun
+
+      $env:PYTHONPATH = "src"; python scripts/gen_drivers_appendix.py
+
+  and commit the regenerated file with the rebuilt PDF. Scenarios,
+  parameters, and driver meanings are parsed from the code (every
+  parameter must carry its rationale comment, or the parser drops it); the
+  dispatch column restates `Projector.project` and is kept in sync with it
+  by hand, with a tripwire asserting the driver rows match the DriverDraw
+  fields.
+
 - After a figure or table change, open the PDF and look at the page before
   committing.
 - Commit the rebuilt PDF with the source. If a correction propagated into
@@ -399,9 +413,11 @@ and whenever asked whether the proposal is consistent:
   parameters (not fitted to data, not any model's output), and is **not** a
   calibrated probabilistic forecast; the driver-to-role attachment is the
   engine's dispatch, hand-written once against the role vocabulary and
-  gated by the symbolic closure proof and the battery; Part II replaces the
-  noise with a learned conditional joint distribution, everything else
-  fixed, and starts only on MVP sign-off.
+  gated by the symbolic closure proof and the battery; the scenarios,
+  parameters (with rationales), and dispatch are generated into the
+  appendix from the code (`scripts/gen_drivers_appendix.py`); Part II
+  replaces the noise with a learned conditional joint distribution,
+  everything else fixed, and starts only on MVP sign-off.
 - *The behavior layer*: ninety authored economic roles over both standards'
   concepts; assignment is a deterministic cascade with recorded provenance
   (curated concept table, label keywords with section context,

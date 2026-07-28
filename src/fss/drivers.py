@@ -69,7 +69,7 @@ BETA_DEMAND = Decimal("0.02")  # revenue response per demand z-score
 COMPETITION_REVENUE = Decimal("0.015")  # revenue drag per competition z
 COMPETITION_MARGIN = Decimal("0.012")  # gross-margin ratio drag per competition z
 INFLATION_COGS_PASS = Decimal("0.5")  # share of inflation not recovered in price
-INFLATION_OPEX_PASS = Decimal("0.5")
+INFLATION_OPEX_PASS = Decimal("0.5")  # share of inflation passed into operating expense
 INFLATION_REVENUE_PASS = Decimal("0.2")  # partial nominal passthrough to revenue
 OPEX_REVENUE_BETA = Decimal("0.6")  # semi-variable opex response to revenue growth
 RATE_PASSTHROUGH_ASSETS = Decimal("0.6")  # cash/securities reprice quickly
@@ -81,15 +81,15 @@ MOMENTUM_WEIGHT = Decimal("0.6")  # weight on the firm's own trailing growth
 class DriverDraw:
     """One realized driver path for one simulated period."""
 
-    revenue_growth: Decimal
+    revenue_growth: Decimal  # next period's revenue growth rate
     cogs_ratio_shift: Decimal  # additive shift to cogs/revenue ratio
-    opex_growth: Decimal
-    restructuring_factor: Decimal
+    opex_growth: Decimal  # growth of the semi-variable operating-expense families
+    restructuring_factor: Decimal  # scale on restructuring charges
     asset_yield_shift: Decimal  # additive shift to yield on cash + securities
-    debt_rate_shift: Decimal
-    tax_rate_shift: Decimal
-    dividend_growth: Decimal
-    buyback_factor: Decimal
+    debt_rate_shift: Decimal  # additive shift to the average debt rate
+    tax_rate_shift: Decimal  # additive shift to the effective tax rate (zero in the MVP map)
+    dividend_growth: Decimal  # growth of dividends paid, capped and floored by the map
+    buyback_factor: Decimal  # scale on repurchases and the share-count trend
 
 
 def _dec(value: float) -> Decimal:

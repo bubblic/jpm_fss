@@ -239,7 +239,7 @@ Extraction is held to a far higher precision bar than the rest of the system bec
 \draw[arrow] (r1.east) -- ++(4mm,0) |- (gate.170);
 \draw[arrow] (r2.east) -- (gate.west|-r2.east);
 \draw[arrow] (r3.east) -- ++(4mm,0) |- (gate.190);
-\draw[arrow, color=gold] (r4.east) -- ++(6mm,0) |- (ident.south);
+\draw[arrow, color=gold, rounded corners=3pt] (r4.east) -| (ident.south);
 \draw[arrow] (gate) -- (ident);
 \draw[arrow] (ident) -- (out);
 \end{tikzpicture}

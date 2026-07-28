@@ -182,9 +182,10 @@ the lifecycle, knowledge-graph, and appendix figures renumbered to 5, 6, 7.
 - Figure 3: untagged order with the behavior layer joining at simulation
   time.
 - The mapping ladder: four rungs in order (harvested lexicon, carried
-  artifact, unique taxonomy labels, LLM over a shortlist); polarity veto
-  on the heuristic rungs (glossed at first use); precision-not-coverage
-  character of the taxonomy tier.
+  artifact, unique taxonomy labels, LLM over a shortlist); canonical-form
+  label comparison glossed at first use; polarity veto on the heuristic
+  rungs (glossed at first use); precision-not-coverage character of the
+  taxonomy tier.
 - Figure 4: the ladder as a decision flow with the worked cases embedded
   (trusted exact-match rungs against vetoed heuristic rungs; a taxonomy-tier
   veto falls through to the LLM, an LLM veto flags; no rung survived means

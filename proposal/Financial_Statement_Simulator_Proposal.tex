@@ -304,7 +304,7 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 \label{fig:untagged}
 \end{figure}
 
-\lead{navytwo}{The mapping ladder.} Concept mapping tries four rungs in order, each cheaper and more accountable than the next; a row is resolved by the first rung that succeeds. First the harvested lexicon: an exact match of the canonicalized printed label against labels the validation filers print, carrying the concepts their own tags declare, scoped per statement so that ``Inventories'' means the stock on a balance sheet and the period's delta on a cash flow. Second, when onboarding carries, the firm's own prior signed artifact: an exact match replays a reviewed choice. Third, the taxonomies' own standard labels under a uniqueness rule: the two standard setters name roughly 31{,}000 label forms and almost all of them name exactly one concept, so a printed label that matches one of those forms resolves deterministically (Bed Bath \& Beyond's ``Repayments of long-term debt'' resolves to exactly that concept, agreeing with the filer's own tag), while the few dozen forms both taxonomies share (``Goodwill'' exists in each) are dropped at load, so the tier can never assert an identity another standard concept shares a name with. In practice exact coincidences between printed wording and a standard label are rare, so this rung is a precision instrument rather than a coverage instrument: on the non-lexicon firm it resolved one row, correctly. Only the residue reaches the LLM, over a lexically retrieved shortlist; and both heuristic rungs (the taxonomy tier and the LLM) pass the balance-polarity veto, while the lexicon's and the artifact's exact matches are trusted. Figure~\ref{fig:ladder} draws the ladder with these cases embedded.
+\lead{navytwo}{The mapping ladder.} Concept mapping tries four rungs in order, each cheaper and more accountable than the next; a row is resolved by the first rung that succeeds. Every rung compares the printed label in canonical form, one standard comparison spelling: footnote marks, note references, and amounts printed inside the label drop out, so cosmetic variants of one line compare equal. First the harvested lexicon: an exact match of the canonicalized printed label against labels the validation filers print, carrying the concepts their own tags declare, scoped per statement so that ``Inventories'' means the stock on a balance sheet and the period's delta on a cash flow. Second, when onboarding carries, the firm's own prior signed artifact: an exact match replays a reviewed choice. Third, the taxonomies' own standard labels under a uniqueness rule: the two standard setters name roughly 31{,}000 label forms and almost all of them name exactly one concept, so a printed label that matches one of those forms resolves deterministically (Bed Bath \& Beyond's ``Repayments of long-term debt'' resolves to exactly that concept, agreeing with the filer's own tag), while the few dozen forms both taxonomies share (``Goodwill'' exists in each) are dropped at load, so the tier can never assert an identity another standard concept shares a name with. In practice exact coincidences between printed wording and a standard label are rare, so this rung is a precision instrument rather than a coverage instrument: on the non-lexicon firm it resolved one row, correctly. Only the residue reaches the LLM, over a lexically retrieved shortlist; and both heuristic rungs (the taxonomy tier and the LLM) pass the balance-polarity veto, while the lexicon's and the artifact's exact matches are trusted. Figure~\ref{fig:ladder} draws the ladder with these cases embedded.
 
 \begin{figure}[h]
 \centering
@@ -325,23 +325,23 @@ The kernel enters once, not per reader, and it is small exactly when the readers
 \node[good, right=14mm of r2] (o2) {resolved, replayed\\ \scriptsize an unchanged label replays\\ \scriptsize its reviewed choice};
 \node[stage, below=of r2, text width=4.05cm] (r3) {\textbf{3: taxonomy uniques}\\ \scriptsize a standard label naming\\ \scriptsize exactly one concept; shared\\ \scriptsize forms dropped at load};
 \node[veto, right=9mm of r3] (v3) {\scriptsize polarity\\ \scriptsize veto};
-\node[good, right=6mm of v3] (o3) {resolved\\ \scriptsize ``Repayments of long-term debt''\\ \scriptsize is exactly one concept's label};
+\node[good, right=9mm of v3] (o3) {resolved\\ \scriptsize ``Repayments of long-term debt''\\ \scriptsize is exactly one concept's label};
 \node[stage, below=of r3, text width=4.05cm] (r4) {\textbf{4: LLM over a shortlist}\\ \scriptsize build time only, under the leash};
 \node[veto, right=9mm of r4] (v4) {\scriptsize polarity\\ \scriptsize veto};
-\node[good, right=6mm of v4] (o4) {resolved into the artifact\\ \scriptsize gated by sign-off};
+\node[good, right=9mm of v4] (o4) {resolved into the artifact\\ \scriptsize gated by sign-off};
 \node[stage, below=of r4, draw=gold] (flag) {flagged, never guessed\\ \scriptsize a flagged balance-sheet cell refuses simulation};
 \draw[arrow] (lbl) -- (r1);
 \draw[arrow] (r1) -- node[lab, above] {exact match} (o1);
 \draw[arrow] (r1) -- node[lab, right] {no match} (r2);
 \draw[arrow] (r2) -- node[lab, above] {exact match} (o2);
 \draw[arrow] (r2) -- node[lab, right] {no match} (r3);
-\draw[arrow] (r3) -- node[lab, above, pos=0.35] {hit} (v3);
-\draw[arrow] (v3) -- node[lab, above, pos=0.4] {passes} (o3);
-\draw[arrow, rounded corners=3pt] (v3.south) |- node[lab, pos=0.28, right] {vetoed} (r4.east);
+\draw[arrow] (r3) -- node[lab, above, pos=0.5] {hit} (v3);
+\draw[arrow] (v3) -- node[lab, above, pos=0.5] {passes} (o3);
+\draw[arrow, rounded corners=3pt] (v3.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=14mm]r4.north);
 \draw[arrow] (r3) -- node[lab, right] {no unique hit} (r4);
-\draw[arrow] (r4) -- node[lab, above, pos=0.35] {choice} (v4);
-\draw[arrow] (v4) -- node[lab, above, pos=0.4] {passes} (o4);
-\draw[arrow, rounded corners=3pt] (v4.south) |- node[lab, pos=0.28, right] {vetoed} (flag.east);
+\draw[arrow] (r4) -- node[lab, above, pos=0.5] {choice} (v4);
+\draw[arrow] (v4) -- node[lab, above, pos=0.5] {passes} (o4);
+\draw[arrow, rounded corners=3pt] (v4.south) -- ++(0,-2.5mm) -| node[lab, pos=0.25, above] {vetoed} ([xshift=30mm]flag.north);
 \draw[arrow] (r4) -- node[lab, right] {no choice, or no endpoint} (flag);
 \end{tikzpicture}
 \caption{The mapping ladder as a decision flow, with the worked cases from the text embedded at each rung. The two exact-match rungs are trusted; the two heuristic rungs pass the balance-polarity veto, and a veto at the taxonomy tier falls through to the LLM rather than flagging. The LLM runs at build time only, its choices land in the mapping artifact, and sign-off gates them; anything that survives no rung is flagged, never guessed, and a flagged balance-sheet cell refuses simulation.}

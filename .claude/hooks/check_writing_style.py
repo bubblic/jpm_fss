@@ -58,7 +58,7 @@ RETIRED_PATTERN = re.compile(
     "|text-based|prior-year page locations|seed pages|common state space"
     "|standard-neutral state|economic state space|not by hope"
     "|not a sentiment|not aspirations|dressed as|companion disease"
-    "|poisoned text",
+    "|poisoned text|three filers per standard",
     re.IGNORECASE,
 )
 # The full proposal stands alone: no reference to the draft, in any casing.

@@ -231,7 +231,7 @@ If any answer is "no," explain it first.
 
       Select-String -Path .\Financial_Statement_Simulator_Proposal.tex,
         ..\README.md, ..\DEMO.md -Pattern
-        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state|economic state space|not by hope|not a sentiment|not aspirations|dressed as|companion disease|poisoned text'
+        'one more gated reader|All processing is local|has a text layer|text-based|prior-year page locations|seed pages|common state space|standard-neutral state|economic state space|not by hope|not a sentiment|not aspirations|dressed as|companion disease|poisoned text|three filers per standard'
 
 - Draft-reference scan (the full proposal stands alone; must return nothing):
 
@@ -442,6 +442,17 @@ and whenever asked whether the proposal is consistent:
   the primary representation regardless of accuracy; outsourcing ingestion
   fails the capability test by construction; a licensed feed can serve as an
   adjudication reader.
+- *Gating set and cohorts* (recut 2026-07-29; the pre-spike "three filers
+  per standard" sizing is retired): the internship gating set is three
+  industry cohorts, technology, energy, and luxury and beauty, each with a
+  deliberately awkward inclusion, plus one truly untagged document;
+  financial institutions are deliberately excluded as a future cohort (the
+  integrity gates refuse the banks met so far; the insurer refuses on
+  missing premium roles); cohort growth is gated on accountant sign-off
+  bandwidth, never on extraction capacity; the OCR/vision reader is
+  dropped from the plan (the born-digital boundary stands); quarterly
+  filings enter as a carry-forward extension in hardening; European luxury
+  filers enter tagged via ESEF once Phase 1 lands it, untagged until then.
 - *Dates*: internship window 31 August 2026 to 26 February 2027; MVP
   feature-complete 4 December 2026; accountant sign-off 15 January 2027
   (Draft_v2 keeps its own older dates by design; the full proposal narrates the
@@ -501,6 +512,11 @@ and whenever asked whether the proposal is consistent:
   commonality is the behavior layer's work, so "economic" may not modify the
   state space. The opening now reads "one state space spanning both
   accounting standards".
+- "Three filers per standard" as the gating-set sizing. Recut 2026-07-29:
+  the gating set is composed of industry cohorts (technology, energy,
+  luxury and beauty; financials deliberately out), sized by accountant
+  sign-off bandwidth; the old per-standard count was pre-spike thinking
+  whose reason (unproven extraction) the validation build spent.
 
 Add to this list, to the scan pattern in section 4, and to `RETIRED_PATTERN`
 in `.claude/hooks/check_writing_style.py`, whenever a substantive claim is

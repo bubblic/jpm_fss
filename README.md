@@ -2,12 +2,13 @@
 
 Two artifacts live in this repository:
 
-1. **The FSS reference implementation** (`src/fss`): the full pipeline from
+1. **The FSS reference implementation** (`src/fss`): the full prototype from
    the proposal (`proposal/Financial_Statement_Simulator_Proposal.pdf`):
    filing acquisition, redundant PDF extraction with a reconciliation gate,
-   knowledge-graph state space with lossless encode/decode, a no-plug
-   accounting engine, and scenario Monte Carlo, validated on four real
-   annual reports (Apple, Microsoft: US GAAP 10-K; SAP, Spotify: IFRS 20-F).
+   an accounting representation with lossless encode/decode, a no-plug
+   accounting engine, and scenario Monte Carlo. Numeric extraction,
+   representation, and accounting closure are validated on four real annual
+   reports (Apple, Microsoft: US GAAP 10-K; SAP, Spotify: IFRS 20-F).
 2. **The original one-day KG encoding spike** (`src/spike`), kept intact as
    evidence: it proves the knowledge-graph encoding mechanics on one filing
    (see `out/report.md` after running it).
@@ -29,6 +30,22 @@ python -m pytest tests   # unit + seeded-error tests
 Monte Carlo identity integrity, the directional battery, and plausibility.
 Per-company simulated statements and flow journals land in
 `out/acceptance/<company>/`.
+
+The acceptance battery does not establish that every native label has been
+assigned to the correct standard concept or economic role. The separate IR
+validation outputs contain concept mismatches that are now treated as defects
+to audit. The proposal therefore marks semantic mapping as provisional and
+requires standard-scoped candidates, reviewer sign-off, and refusal for
+unresolved material rows before claiming broader coverage.
+
+The runtime safety gate is intentionally stricter than the exploratory build:
+mapping artifacts must be signed and declare `us-gaap` or `ifrs`; a mapping
+from the other standard is rejected unless its record contains an explicit
+reviewed bridge/extension rationale. Simulation also refuses material
+document-local concepts, broad default roles, unbound working-capital rows,
+and missing cash/equity/cash-flow articulation roles. These controls make
+semantic uncertainty visible; they do not make universal economic equivalence
+an engineering problem.
 
 The engine's flow system is verified symbolically (SymPy) before any run,
 and the stochastic fan executes vectorized in TensorFlow with per-path
@@ -84,10 +101,11 @@ At build time the LLM (DeepSeek API via `DEEPSEEK_API_KEY`, or the Azure
 gateway via `AZURE_DEEPSEEK_ENDPOINT`; `.env` supported) may propose
 statement pages, median-voted readings for flagged cells, concept
 choices over lexical shortlists, and a reporting-standard reading when
-the deterministic declaration scan abstains; every proposal passes a
-mechanical validator (density bar, reader agreement, polarity veto,
-footing) and is recorded in the audit log and the mapping artifact for
-human sign-off. Concept mapping is scoped by the document's declared
+the deterministic declaration scan abstains. Proposals pass mechanical
+validators (density bar, reader agreement, polarity veto, footing) and are
+recorded in the audit log and mapping artifact for human sign-off. These
+validators constrain the proposal; they do not by themselves prove that a
+semantic concept choice is correct. Concept mapping is scoped by the document's declared
 reporting standard (read from the report itself: the auditor's opinion
 and the basis-of-preparation note; `--standard` is the operator's
 override). Supported standards are US GAAP and IFRS; a document that

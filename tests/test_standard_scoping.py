@@ -9,7 +9,12 @@ from test_hard_docs import _STATEMENT_LINES, _build_pdf
 
 from fss.pdfread.llm_assist import LLMAudit
 from fss.reconcile import canon_label
-from fss.untagged import ConceptInfo, _artifact_overlay, map_rows
+from fss.untagged import (
+    ConceptInfo,
+    _artifact_overlay,
+    _artifact_standard_issues,
+    map_rows,
+)
 
 
 def _reconciled(*rows):
@@ -62,6 +67,20 @@ def test_without_declared_standard_the_ladder_is_unchanged():
     assert sources == {0: "lexical"}
 
 
+def test_chinese_us_gaap_label_bridge_abstains_for_ifrs_document():
+    concepts, stats, _ = map_rows(
+        "balance_sheet",
+        _reconciled(("總資產", "資產")),
+        {},
+        {},
+        None,
+        None,
+        standard="ifrs",
+    )
+    assert concepts == {}
+    assert stats["unmapped"] == 1
+
+
 def test_carried_wrong_standard_choice_is_vetoed():
     overlay = _artifact_overlay(
         [
@@ -88,7 +107,7 @@ def test_carried_wrong_standard_choice_is_vetoed():
     assert stats["unmapped"] == 1
 
 
-def test_signed_artifact_overlay_replays_untouched():
+def test_signed_artifact_overlay_wrong_standard_is_rejected():
     overlay = _artifact_overlay(
         [
             {
@@ -96,6 +115,35 @@ def test_signed_artifact_overlay_replays_untouched():
                 "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
                 "balance": "debit",
                 "period_type": "instant",
+            }
+        ]
+    )
+    concepts, stats, sources = map_rows(
+        "balance_sheet",
+        _reconciled(("Trade receivables", "assets")),
+        {},
+        {},
+        None,
+        None,
+        overlay=overlay,
+        overlay_source="artifact",
+        standard="us-gaap",
+    )
+    assert concepts == {}
+    assert sources == {}
+    assert stats["artifact_rejected_standard"] == 1
+    assert stats["unmapped"] == 1
+
+
+def test_signed_artifact_bridge_requires_explicit_review_marker():
+    overlay = _artifact_overlay(
+        [
+            {
+                "label": "Trade receivables",
+                "concept": "ifrs-full:TradeAndOtherCurrentReceivables",
+                "balance": "debit",
+                "period_type": "instant",
+                "standard_exception": "reviewed_bridge: same operating role; source scope retained",
             }
         ]
     )
@@ -112,6 +160,26 @@ def test_signed_artifact_overlay_replays_untouched():
     )
     assert concepts[0].concept == "ifrs-full:TradeAndOtherCurrentReceivables"
     assert sources == {0: "artifact"}
+
+
+def test_artifact_boundary_finds_wrong_standard_even_if_a_lexical_hit_would_mask_it():
+    artifact = {
+        "statements": {
+            "income_statement": {
+                "mapping": [
+                    {
+                        "label": "Revenue",
+                        "concept": "ifrs-full:Revenue",
+                        "balance": "credit",
+                        "period_type": "duration",
+                    }
+                ]
+            }
+        }
+    }
+    assert _artifact_standard_issues(artifact, "us-gaap") == [
+        "income_statement: Revenue -> ifrs-full:Revenue"
+    ]
 
 
 class _AbstainingClient:

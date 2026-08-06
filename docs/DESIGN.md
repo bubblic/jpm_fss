@@ -4,6 +4,12 @@ Architecture decisions for the Financial Statement Simulator (FSS)
 implementation. The proposal document is the authority on intent; this file
 records the concrete engineering choices the code follows.
 
+Evidence status: the four-filer acceptance build validates numeric extraction,
+statement reconstruction, arithmetic checks, and balanced simulation. Concept
+mapping and economic-role assignment are still provisional. The IR validation
+report contains mismatches that must be corrected and reviewed before those
+layers are described as validated across firms or standards.
+
 ## Test set
 
 | Firm | Standard | Form | Fiscal year end | Currency |
@@ -84,6 +90,30 @@ arcs); m holds row order, labels, signs, units, decimals, scale, column
 periods, and derivation formulas discovered from the filing. D(z, m)
 re-renders the statement; reconstruction must be exact on every cell of
 every statement of every firm.
+
+## Semantic mapping
+
+- Concept mapping answers which US GAAP or IFRS concept a printed row
+  represents. It is standard-scoped and should use the filer's own tag when
+  available, then prior reviewed choices, then constrained candidates. An LLM
+  may rank candidates at build time, but the selected concept requires evidence
+  and review. The runtime replays a signed choice but does not treat replay as
+  proof that the choice was semantically correct.
+- Role mapping answers which economic law of motion applies. It is a separate,
+  versioned, hand-authored table. Shared roles preserve the source concept and
+  native presentation; they do not convert IFRS to US GAAP.
+- A missing or ambiguous material concept or role refuses simulation rather
+  than silently assigning a cross-standard equivalent.
+- Runtime artifacts must be signed, declare a supported reporting standard,
+  and contain no mapping outside that standard unless the individual record
+  carries an explicit reviewer-approved bridge/extension rationale.
+- Simulation readiness is a separate gate from extraction quality. It names
+  material document-local rows, broad default roles, unbound working-capital
+  movements, and missing cash/equity/articulation roles; those rows remain in
+  the structured report but cannot silently drive or be zeroed by a scenario.
+- Mapping outputs record row label, concept, source tier, declared standard,
+  balance, period type, and any standard exception. Candidate lists, note
+  evidence, dimensions, and reviewer identity remain work for the review UI.
 
 ## Engine (no plugs, no circularity)
 

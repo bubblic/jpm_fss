@@ -92,6 +92,21 @@ class ConceptInfo:
     balance: str
     period_type: str
     is_monetary: bool
+    # A cross-standard artifact choice is never accepted implicitly.  This
+    # marker is reserved for a reviewer-approved bridge or extension record.
+    standard_exception: str | None = None
+
+
+def _standard_allows(info: ConceptInfo, standard: str | None) -> bool:
+    """Whether a concept is admissible under the declared framework.
+
+    A named taxonomy concept must come from that framework. Company
+    extensions and cross-standard bridges require an explicit reviewed
+    exception because their namespace alone does not establish provenance.
+    """
+    if standard is None or info.standard_exception:
+        return True
+    return info.concept.startswith(standards.STANDARD_PREFIX[standard])
 
 
 def _condensed(label: str) -> str:
@@ -605,9 +620,9 @@ def map_rows(
 
     When the document's reporting standard is declared, the ladder is
     scoped to it: lexical and carried hits naming the other standard's
-    concepts are discarded and fall down the ladder (the signed artifact
-    overlay is exempt, because sign-off owns those choices and runtime
-    must replay them), the taxonomy tier the caller passes is that
+    concepts are discarded and fall down the ladder. Artifact entries obey
+    the same rule unless a reviewer explicitly marks a bridge/extension
+    exception. The taxonomy tier the caller passes is that
     standard's own unique view, and the LLM shortlist offers only that
     standard's concepts, which also removes other firms' extensions."""
     stats = {
@@ -617,6 +632,7 @@ def map_rows(
         "taxonomy": 0,
         "llm": 0,
         "unmapped": 0,
+        "artifact_rejected_standard": 0,
     }
     concepts: dict[int, ConceptInfo] = {}
     sources: dict[int, str] = {}
@@ -633,13 +649,14 @@ def map_rows(
             or dictionary.get(_condensed(bare))
         )
         source = "lexical"
-        if info is not None and standards.mismatches(info.concept, standard):
+        if info is not None and not _standard_allows(info, standard):
             info = None  # the other standard's concept: fall down the ladder
         if info is None and zh.has_cjk(row.label):
-            # the Chinese label pack is a curated cross-standard bridge by
-            # design, so the declared-standard veto does not apply to it
+            # The current Chinese pack names US GAAP locals. It may assist an
+            # unresolved/US GAAP document, but it must not manufacture an IFRS
+            # concept equivalence.
             found = zh.lookup(row.label)
-            if found is not None:
+            if found is not None and standard != "ifrs":
                 local, balance, period_type = found
                 info = ConceptInfo(f"us-gaap:{local}", balance, period_type, True)
         if info is None and overlay is not None:
@@ -650,11 +667,14 @@ def map_rows(
                 or overlay.get(_condensed(bare))
             )
             if found_info is not None and (
-                overlay_source != "carried"
-                or not standards.mismatches(found_info.concept, standard)
+                _standard_allows(found_info, standard)
             ):
                 info = found_info
                 source = overlay_source
+            elif found_info is not None and not _standard_allows(found_info, standard):
+                # Signed artifacts are replayable evidence, not permission to
+                # bypass the document's declared framework.
+                stats["artifact_rejected_standard"] += 1
         if info is None and taxonomy:
             # the unique-hit tier: a label that names exactly one concept
             # across both taxonomies resolves deterministically; reused
@@ -753,7 +773,6 @@ def build_statement(
     else:
         columns = tuple(f"D{year}-01-01:{year}-12-31" for year in ordered)
 
-    total_indices = {group.total_index for group in checks.footing_groups}
     rows: list[StatementRow] = []
     calc: dict[str, list[tuple[str, Decimal]]] = {}
     concept_names: dict[int, str] = {}
@@ -777,7 +796,6 @@ def build_statement(
             void_totals.add(group.total_index)
     for index, row in enumerate(reconciled.rows):
         info = concepts.get(index)
-        is_total = index in total_indices
         label_lower = row.label.lower()
         period_type = "instant" if statement_kind == "balance_sheet" else "duration"
         preferred = None
@@ -969,12 +987,37 @@ def _artifact_overlay(entries: list[dict[str, Any]]) -> dict[str, "ConceptInfo"]
     overlay: dict[str, ConceptInfo] = {}
     for entry in entries:
         info = ConceptInfo(
-            entry["concept"], entry["balance"], entry["period_type"], True
+            entry["concept"],
+            entry["balance"],
+            entry["period_type"],
+            True,
+            entry.get("standard_exception"),
         )
         for key in (canon_label(entry["label"]), _condensed(entry["label"])):
             if key:
                 overlay.setdefault(key, info)
     return overlay
+
+
+def _artifact_standard_issues(
+    artifact: dict[str, Any], standard: str
+) -> list[str]:
+    """List artifact entries that cannot be replayed under ``standard``."""
+    issues: list[str] = []
+    for kind, statement in artifact.get("statements", {}).items():
+        for entry in statement.get("mapping", []):
+            info = ConceptInfo(
+                entry.get("concept", ""),
+                entry.get("balance", ""),
+                entry.get("period_type", ""),
+                True,
+                entry.get("standard_exception"),
+            )
+            if not _standard_allows(info, standard):
+                issues.append(
+                    f"{kind}: {entry.get('label', '(unlabelled)')} -> {info.concept}"
+                )
+    return issues
 
 
 def rebuild_artifact(pdf_path: Path) -> Path:
@@ -1031,6 +1074,7 @@ def rebuild_artifact(pdf_path: Path) -> Path:
                         "balance": row["balance"] or "",
                         "period_type": row["period_type"],
                         "source": "build_products",
+                        "standard_exception": row.get("standard_exception"),
                     }
                 )
         build["statements"][kind] = {
@@ -1171,6 +1215,11 @@ def analyze_pdf(
             "approved_by": artifact.get("approved_by", "PENDING SIGN-OFF"),
             "code_version_at_build": artifact.get("code_version", "unknown"),
         }
+        approved_by = str(artifact.get("approved_by", "")).strip()
+        if not approved_by or "pending" in approved_by.casefold():
+            return _refuse(
+                "mapping artifact is not signed off; reviewer approval is required before runtime"
+            )
         if artifact.get("source_sha256") != source_sha:
             reason = (
                 "source hash mismatch: the document changed since onboarding; "
@@ -1183,16 +1232,27 @@ def analyze_pdf(
             )
             _write_report(out_dir, outcome)
             return outcome
-        for kind, stmt_artifact in artifact.get("statements", {}).items():
-            overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
         # the runtime replays the standard the reviewed artifact records,
         # exactly like pages and mappings; it never re-detects
         artifact_standard = artifact.get("standard")
+        if artifact_standard is None:
+            return _refuse(
+                "mapping artifact has no declared reporting standard; re-onboarding and sign-off required"
+            )
         if artifact_standard is not None and artifact_standard not in standards.SUPPORTED:
             return _refuse(
                 f"mapping artifact declares unsupported standard {artifact_standard!r} "
                 "(supported: us-gaap, ifrs); re-onboarding and sign-off required"
             )
+        standard_issues = _artifact_standard_issues(artifact, artifact_standard)
+        if standard_issues:
+            return _refuse(
+                "mapping artifact conflicts with its declared standard: "
+                + "; ".join(standard_issues[:8])
+                + ". Re-onboarding and sign-off required"
+            )
+        for kind, stmt_artifact in artifact.get("statements", {}).items():
+            overlays[kind] = _artifact_overlay(stmt_artifact.get("mapping", []))
         resolved_standard = artifact_standard
         if artifact_standard is not None:
             standard_source = artifact.get("standard_source", "artifact")
@@ -1444,6 +1504,21 @@ def analyze_pdf(
                     document, statement_kind, reconciled, checks, years, concepts
                 )
                 record["mapping"] = mapping_stats
+                record["mapping_provenance"] = [
+                    {
+                        "row": reconciled.rows[index].label,
+                        "concept": info.concept,
+                        "source": sources.get(index, "unknown"),
+                        "standard": resolved_standard,
+                        "balance": info.balance,
+                        "period_type": info.period_type,
+                        "standard_exception": info.standard_exception,
+                    }
+                    for index, info in sorted(concepts.items())
+                ]
+                record["unresolved_rows"] = [
+                    row.label for index, row in enumerate(reconciled.rows) if index not in concepts
+                ]
                 if mode == "onboard":
                     adjudications = [
                         {
@@ -1465,6 +1540,7 @@ def analyze_pdf(
                                 "balance": info.balance,
                                 "period_type": info.period_type,
                                 "source": sources.get(index, "lexical"),
+                                "standard_exception": info.standard_exception,
                             }
                             for index, info in sorted(concepts.items())
                         ],
@@ -1547,27 +1623,29 @@ def _try_simulation(
                 blockers.append(f"{kind} footing unverified")
             if kind == "balance_sheet" and record.get("identity", {}) and record["identity"].get("pass") is False:
                 blockers.append("A = L + E failed")
+            mapping = record.get("mapping", {})
+            if mapping.get("artifact_rejected_standard"):
+                blockers.append(
+                    f"{mapping['artifact_rejected_standard']} artifact mappings conflict with the declared standard"
+                )
         if blockers:
             return {
                 "status": "skipped",
                 "reason": "; ".join(sorted(set(blockers)))
                 + " (adjudication required before simulation)",
             }
-    from fss.engine import roles as R
     from fss.engine.project import Projector
+    from fss.engine.readiness import simulation_readiness
 
     try:
         projector = Projector(document, statements)
-        revenue = projector._rows(projector.inc, {R.REVENUE})
-        cash = projector._rows(projector.bs, {R.CASH})
-        retained = projector._rows(projector.bs, {R.RETAINED_EARNINGS})
-        missing = [
-            name
-            for name, rows in (("revenue", revenue), ("cash", cash), ("retained earnings", retained))
-            if not rows
-        ]
-        if missing:
-            return {"status": "skipped", "reason": f"driver roles unresolved: {missing}"}
+        readiness = simulation_readiness(projector, statements)
+        if readiness:
+            return {
+                "status": "skipped",
+                "reason": "simulation readiness gate: " + "; ".join(readiness),
+                "blockers": readiness,
+            }
         from fss.simulate import run_all_scenarios
 
         results, verdict = run_all_scenarios(document, statements, paths=paths, seed=seed)

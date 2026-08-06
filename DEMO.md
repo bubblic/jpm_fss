@@ -1,12 +1,13 @@
 # Demonstration: LLMs at build time, determinism at run time
 
-This walkthrough demonstrates the proposal-v2 constraint end to end on real
-annual reports: a hosted LLM participates only in **onboarding** (build
-time), where its every proposal is validated mechanically, recorded, and
-frozen into a reviewable **mapping artifact**; the **runtime** inference
-path is pure reviewed code plus that signed artifact, logs the hashes it
-ran under, replays bit-exactly, and abstains on drift instead of consulting
-an LLM.
+This walkthrough demonstrates the build/runtime control on real annual
+reports: a hosted LLM participates only during onboarding (build time), where
+its proposals are constrained, recorded, and frozen into a reviewable mapping
+artifact. The runtime path is reviewed code plus that signed artifact, logs
+the hashes it ran under, replays bit-exactly, and abstains on drift instead of
+consulting an LLM. Deterministic replay proves reproducibility of a reviewed
+choice; it does not by itself prove that the semantic concept choice was
+correct.
 
 ```
 BUILD TIME (change management)              RUN TIME (production path)
@@ -17,16 +18,25 @@ fss onboard <pdf>                           fss runtime <pdf>
     - statement pages (fallback)              adjudications replayed ONLY if
     - flagged-cell readings (voted)             a reader still reads the same
     - concept choices (shortlist)               value (artifact cannot inject)
-  every proposal validated:                   concept map from artifact
+  every proposal mechanically constrained:    concept map from artifact
     density bar / reader agreement            all checks re-run (footing,
     / polarity veto / footing                   A=L+E, cash tie, quality gate)
   -> artifacts/mappings/<doc>.json            symbolic closure + TF Monte
      (versioned; PENDING SIGN-OFF)              Carlo when the gates pass
-  human signs off ----------------->        NO LLM CLIENT IS EVER CONSTRUCTED
+  human signs off ----------------->        standard + sign-off gate
+                                              semantic-readiness refusal gate
+                                            NO LLM CLIENT IS EVER CONSTRUCTED
 ```
 
-Every command below was run against this repository; transcripts and hashes
-are reproduced verbatim.
+The commands below document the workflow. The acceptance report validates the
+numeric and accounting controls; concept-level correctness remains subject to
+the mapping audit described in the proposal.
+
+Legacy artifacts in this repository predate the declared-standard and enforced
+sign-off fields. They remain evidence from earlier prototype runs, but they are
+not eligible runtime inputs under the hardened gate: each must be rebuilt,
+audited, and signed. Wrong-standard entries are rejected at the artifact
+boundary even when a lexical hit could otherwise mask the stale entry.
 
 ## 1. Build step (LLM allowed, audited)
 
@@ -86,8 +96,8 @@ Mapping artifact: `artifacts/mappings/bbby_ar2022.json` (approved by: ...; built
 LLM calls: 0 (runtime mode; replay is bit-exact given the same source, artifact, and code versions)
 ```
 
-Microsoft's runtime report shows the artifact doing the LLM's old job
-deterministically: `accepted cells 68, flags 0, artifact-adjudicated 2` —
+The archived Microsoft runtime report shows the earlier deterministic replay:
+`accepted cells 68, flags 0, artifact-adjudicated 2`.
 the two flagged share-par cells are resolved by replaying the signed
 values, accepted only because a deterministic reader still reads exactly
 those values today. Both Microsoft and BBBY clear every gate at runtime
@@ -125,10 +135,10 @@ guesses and never phones an LLM.
 
 `out/untagged/summary.md` is the build sweep (LLM-assisted, audited);
 `out/runtime/summary.md` is the same 14 documents through the
-deterministic runtime, reproducing the build results — same statements,
-same checks, same two simulations (Microsoft, BBBY) — with **zero** LLM
-calls. Documents with unresolved flags or failed arithmetic stay refused
-in both modes, with the blocker named.
+then-current deterministic runtime, reproducing the build results, with the
+same statements, same checks, same two simulations (Microsoft, BBBY), and
+**zero** LLM calls. Under the hardened gate described above, these legacy
+artifacts now refuse until they are rebuilt, audited, and signed.
 
 ## A field note worth telling the director
 

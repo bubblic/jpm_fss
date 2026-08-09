@@ -1,6 +1,6 @@
 # Demonstration: LLMs at build time, determinism at run time
 
-This walkthrough demonstrates the proposal-v2 constraint end to end on real
+This walkthrough demonstrates the proposal constraint end to end on real
 annual reports: a hosted LLM participates only in **onboarding** (build
 time), where its every proposal is validated mechanically, recorded, and
 frozen into a reviewable **mapping artifact**; the **runtime** inference

@@ -5,11 +5,11 @@ Two artifacts live in this repository:
 1. **The FSS reference implementation** (`src/fss`): the full pipeline from
    the proposal (`proposal/Financial_Statement_Simulator_Proposal.pdf`):
    filing acquisition, redundant PDF extraction with a reconciliation gate,
-   knowledge-graph state space with lossless encode/decode, a no-plug
-   accounting engine, and scenario Monte Carlo, validated on four real
+   union state space specified as a knowledge graph with lossless encode/decode,
+   a no-plug accounting engine, and scenario Monte Carlo, validated on four real
    annual reports (Apple, Microsoft: US GAAP 10-K; SAP, Spotify: IFRS 20-F).
 2. **The original one-day KG encoding spike** (`src/spike`), kept intact as
-   evidence: it proves the knowledge-graph encoding mechanics on one filing
+   evidence: it proves the union-state-space encoding mechanics on one filing
    (see `out/report.md` after running it).
 
 ## FSS quick start
@@ -38,7 +38,7 @@ the audit artifacts.
 ## Untagged annual-report PDFs (no XBRL)
 
 LLMs participate at BUILD time only; the runtime inference path is
-deterministic (proposal v2). See `DEMO.md` for the full walkthrough.
+deterministic. See `DEMO.md` for the full walkthrough.
 
 Document scope is born-digital PDFs: statement pages must carry AUTHORED
 text. Scanned or image-compiled documents -- including OCR'd scans, whose

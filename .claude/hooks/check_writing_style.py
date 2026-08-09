@@ -56,8 +56,8 @@ DRAW_LINE = re.compile(r"\\draw")
 RETIRED_PATTERN = re.compile(
     "one more gated reader|All processing is local|has a text layer"
     "|text-based|prior-year page locations|seed pages|common state space"
-    "|standard-neutral state|economic state space|not by hope"
-    "|not a sentiment|not aspirations|dressed as|companion disease"
+    "|standard-neutral state|economic state space|Arithmetic before semantics"
+    "|not by hope|not a sentiment|not aspirations|dressed as|companion disease"
     "|poisoned text|three filers per standard",
     re.IGNORECASE,
 )

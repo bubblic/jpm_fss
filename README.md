@@ -37,8 +37,10 @@ the audit artifacts.
 
 ## Untagged annual-report PDFs (no XBRL)
 
-LLMs participate at BUILD time only; the runtime inference path is
-deterministic. See `DEMO.md` for the full walkthrough.
+Operator steps for a new annual-report PDF (venv, onboard, no-LLM mode,
+runtime) are in `docs/PDF_INGEST.md`. LLMs participate at BUILD time only;
+the runtime inference path is deterministic. See `DEMO.md` for the recorded
+walkthrough.
 
 Document scope is born-digital PDFs: statement pages must carry AUTHORED
 text. Scanned or image-compiled documents -- including OCR'd scans, whose
